@@ -1,0 +1,148 @@
+{% extends "partials/layout.njk" %}
+
+{% set title = __("pages.mediation.title") %}
+{% block pageTitle %}
+  Content page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Explore: Mediation
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Why this could be right for you
+      </h2>
+      <p>
+        Mediation is when you and your ex-partner choose a professional to help you agree on the details of child arrangements. 
+      </p>
+      <p>
+        You do not have to be in the same room or call as your ex-partner.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Important things to consider
+      </h2>
+      <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+      <span class="govuk-visually-hidden">Warning</span>
+       If you or your children have experienced abuse from your ex-partner, tell the mediator. They can advise on the safest way to continue, or whether you should apply for a court order. 
+      </strong>
+      </div>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><strong>Initial meeting:</strong> You may need to go to a short meeting with a mediator to assess if mediation is the right option for you. This is sometimes called a Mediation Information and Assessment Meeting (MIAM).</li>
+        <li><strong>Cost:</strong> Mediation is usually cheaper and quicker than going to court. You may be able to get legal aid to cover the cost if you are on a low income. The usual cost of a MIAM is around £120.</li>
+        <div class="govuk-inset-text">
+      You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.
+      </div>
+        <li><strong>You stay in control:</strong> Unlike in court, where a judge makes the decisions about child arrangements, in mediation you and your ex-partner decide what you agree to and what you don't.</li>
+        <li><strong>Child-inclusive mediation:</strong> Children can have a voice in the process if it's suitable. A mediator can talk to your child about what they want to make sure their views are heard.</li>
+        <li><strong>Court is still an option:</strong> If the mediator does not think mediation is right for you, they might advise you to go to court instead.</li>
+      </ul>
+      <p>
+        <a href="https://www.gov.uk/looking-after-children-divorce/mediation"> Find out more about mediation</a>
+      </p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">
+        Other ways to agree without going to court
+      </h2>
+
+      <p>
+        If you want to try another way to agree without going to court, you can look into:
+      </p>
+
+      <h3 class="govuk-heading-s">
+        Making a parenting plan
+      </h3>
+      <p>
+        This could suit you if: If you and your ex-partner can agree on child arrangements, you can record it in a child arrangements plan, also called a 'parenting plan'.
+      </p>
+      <p>
+        <a href="parenting-plan"> Explore: Making a parenting plan</a>
+      </p>
+
+      <h3 class="govuk-heading-s">
+        Arbitration
+      </h3>
+      <p>
+        This could suit you if: You'd prefer that someone like a judge or solicitor listens to both of your views and makes a legally-binding decision about the child arrangements.
+      </p>
+      <p>
+        <a href="https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution"> Find out more about other ways to agree without going to court</a>
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Help and support
+      </h2>
+      <p>These are some of the services you may find helpful for making child arrangements by mediation. You can also <a href="/service-finder">find more child arrangement support services</a>.
+      </p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header"></th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><a href="https://www.familymediationcouncil.org.uk/">Family Mediation Council</a></th>
+            <td class="govuk-table__cell">Find a trained mediator from a network of family mediation organisations in England and Wales.</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><a href="https://find-legal-advice.justice.gov.uk/">Find a legal aid adviser or family mediator</a></th>
+            <td class="govuk-table__cell">Use this service to find legal aid advisers in England and Wales.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Print this page
+      </button>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="https://www.gov.uk/looking-after-children-divorce">
+                Making child arrangements if you divorce or separate
+              </a>
+            </li>
+            <li>
+              <a href="https://www.gov.uk/guidance/family-mediation-voucher-scheme">
+                Family Mediation Voucher Scheme
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      
+      {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+
+{{ govukExitThisPage() }}
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{
+  "plugins": ["prettier-plugin-jinja-template"],
+  "trailingComma": "all",
+  "singleQuote": true,
+  "printWidth": 120,
+  "arrowParens": "always",
+  "overrides": [
+    {
+      "files": "*.njk",
+      "options": {
+        "parser": "jinja-template"
+      }
+    }
+  ]
+}

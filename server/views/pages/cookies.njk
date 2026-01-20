@@ -1,0 +1,119 @@
+{% extends "partials/layout.njk" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+
+      {{ __('cookies.aboutCookies') | safe }}
+
+      <h2 class="govuk-heading-l">{{ __('cookies.howCookiesAreUsed') }}</h2>
+
+      <h3 class="govuk-heading-m">{{ __('cookies.essentialCookies') }}</h3>
+
+      <p>{{ __('cookies.essentialCookiesUse') }}</p>
+
+      {{ __('cookies.rememberingProgress') | safe }}
+
+      {{
+        govukTable({
+          head: [
+            { text: __('cookies.name') },
+            { text: __('cookies.purpose') },
+            { text: __('cookies.expires') }
+          ],
+          rows: [
+            [
+              { text: cookieNames.SESSION },
+              { text: __('cookies.sessionPurpose') },
+              { text: __('cookies.sessionExpiry') }
+            ]
+          ]
+        })
+      }}
+
+      {% if ga4Id %}
+
+        {{ __('cookies.cookiesMessage') | safe }}
+
+        {{
+          govukTable({
+            head: [
+              { text: __('cookies.name') },
+              { text: __('cookies.purpose') },
+              { text: __('cookies.expires') }
+            ],
+            rows: [
+              [
+                { text: cookieNames.ANALYTICS_CONSENT },
+                { text: __('cookies.consentPurpose') },
+                { text: __('cookies.consentExpiry') }
+              ]
+            ]
+          })
+        }}
+
+        <h3 class="govuk-heading-m">{{ __('cookies.optionalCookies') }}</h3>
+
+        {{ __('cookies.aboutOptionalCookies') | safe }}
+
+        {{
+          govukTable({
+            head: [
+              { text: __('cookies.name') },
+              { text: __('cookies.purpose') },
+              { text: __('cookies.expires') }
+            ],
+            rows: [
+              [
+                { text: "_ga" },
+                { text: __('cookies._gaCookiePurpose') },
+                { text: __('cookies.gaCookiesExpiry') }
+              ],
+              [
+                { text: "_ga_" + (ga4Id | replace("G-", "")) },
+                { text: __('cookies._ga_IdCookiePurpose') },
+                { text: __('cookies.gaCookiesExpiry') }
+              ]
+            ]
+          })
+        }}
+
+        <form class="form" action="{{ paths.COOKIES }}" method="post" novalidate>
+          <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+
+          {{
+            govukRadios({
+              classes: "govuk-radios--inline",
+              name: formFields.ACCEPT_OPTIONAL_COOKIES,
+              fieldset: {
+                legend: {
+                  text: __('cookies.acceptOptionalCookies'),
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [
+                {
+                  value: "Yes",
+                  text: __('yes'),
+                  checked: analyticsEnabled
+                },
+                {
+                  value: "No",
+                  text: __('no'),
+                  checked: false if analyticsEnabled else true
+                }
+              ]
+            })
+          }}
+
+          {{ govukButton({text: __('cookies.saveCookieSettings')}) }}
+        </form>
+      {% endif %}
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,148 @@
+{% extends "partials/layout.njk" %}
+
+{% set title = __("pages.no-contact.title") %}
+{% block pageTitle %}
+  Content page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Options to explore if you are not comfortable contacting your ex-partner
+      </h1>
+
+      <p>
+       If you are not comfortable contacting your ex-partner, there are still ways you can make child arrangements without going to court.
+      </p>
+      <p>
+       With these options, your mediator or solicitor can contact your ex-partner for you.
+      </p>
+
+      <h2 class="govuk-heading-m">
+       1. Shuttle mediation
+      </h2>
+      <p>
+        Shuttle mediation is where you and your ex-partner both attend a session with a mediator, but sit in different rooms or online meetings so you do not have to have any contact.  
+      </p>
+      <p>
+        The mediator moves between rooms, listening to you both and helping you come to an agreement about child arrangements.
+      </p>
+      <div class="govuk-inset-text">
+      You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.
+      </div>
+      <p>
+        Next step:<a href="https://www.gov.uk/looking-after-children-divorce/mediation"> Find out more about mediation</a>
+      </p>
+
+      <h2 class="govuk-heading-m">
+       2. Family solicitor negotiation
+      </h2>
+      <p>
+        A family legal adviser can help you negotiate with your ex-partner without going to court. This is known as 'solicitor negotiation' or 'lawyer negotiation'.
+      </p>
+      <p>
+        You do not have to speak to your ex-partner if you choose a solicitor to negotiate for you.
+      </p>
+      <p>
+        Next step:<a href="https://solicitors.lawsociety.org.uk/"> Find a legal adviser from the Law Society</a>
+      </p>
+
+      <h2 class="govuk-heading-m">
+       3. Collaborative law
+      </h2>
+      <p>
+        You and your ex-partner can each hire your own legal advisers to help you negotiate. You then all meet to try and agree on child arrangements.
+      </p>
+      <p>
+        Next step:<a href="https://resolution.org.uk/looking-for-help/splitting-up/your-process-options-for-divorce-and-dissolution/the-collaborative-process/"> Find out more about collaborative law from Resolution</a>
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Other ways to agree without going to court
+      </h2>
+
+      <p>
+        If you want to try another way to agree without going to court, you can look into:
+      </p>
+
+      <h3 class="govuk-heading-s">
+        Arbitration
+      </h3>
+      <p>
+        This could suit you if: You'd prefer that someone like a judge or solicitor listens to both of your views and makes a legally-binding decision about the child arrangements.
+      </p>
+      <p>
+        <a href="https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution"> Find out more about other ways to agree without going to court</a>
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Help and support
+      </h2>
+      <p>These are some of the services you may find helpful for making child arrangements. You can also <a href="/service-finder">find more child arrangement support services</a>.
+      </p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header"></th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><a href="https://www.familymediationcouncil.org.uk/">Family Mediation Council</a></th>
+            <td class="govuk-table__cell">Find a trained mediator from a network of family mediation organisations in England and Wales.</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><a href="https://www.citizensadvice.org.uk/family/making-agreements-about-your-children/your-child-arrangements-arent-working/">Citizens Advice</a></th>
+            <td class="govuk-table__cell">Advice on what to do if your child arrangements aren't working  from a network of independent charities that provides free, confidential and impartial advice online, on the phone and in person.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Print this page
+      </button>
+      
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="https://www.gov.uk/looking-after-children-divorce">
+                Making child arrangements if you divorce or separate
+              </a>
+            </li>
+            <li>
+              <a href="https://www.gov.uk/guidance/family-mediation-voucher-scheme">
+                Family Mediation Voucher Scheme
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      
+      {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+
+{{ govukExitThisPage() }}
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends "partials/layout.njk" %}
+
+{% set title = __("pages.stories.title") %}
+{% block pageTitle %}
+  Content page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Separated family stories
+      </h1>
+  
+      <p>
+        Making child arrangements after a separation can be hard. How you do it depends on your relationship with your ex-partner and whether you agree on what you want for your children.
+      </p>
+      <p>
+        Here are some examples the different ways some people have made child arrangements.
+      </p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">
+        Making a parenting plan together
+      </h2>
+      <p>
+        Anjula and Greg separated after 15 years of marriage. They have 2 children, aged 9 and 13.
+      </p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        Open full story
+        </span>
+        </summary>
+        <div class="govuk-details__text">
+        <h3 class="govuk-heading-s">How they made child arrangements</h3>
+        <p>Both Anjula and Greg wanted to decide about child arrangements without going to court.</p>
+        <p>They wanted:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>to communicate directly with each other</li>
+          <li>the children to stay in their schools</li>
+          <li>the children to spend time with them both every week</li>
+          <li>to consider what the children wanted</li>
+          <li>to be flexible if plans needed to change</li>
+        </ul>
+        <p>Once they had agreed on the child arrangements, they talked to their children and got their views. They then used the 'Propose a child arrangements plan' service to document their plan.</p>
+        <p>It is not legally binding, so they email or text one another if they need to change the arrangements.</p>
+
+        <h3 class="govuk-heading-s">How much it cost</h3>
+        <p>
+        There was no cost for making a parenting plan together.
+        </p>
+        <h3 class="govuk-heading-s">How long it took</h3>
+        <p>Anjula and Greg developed their plan over several conversations while they were separating. They made their parenting plan while they were still living together, and made changes to it when they had both settled into new homes. Using the 'Propose a child arrangements plan' service took them a couple of hours - they agreed by email.
+        </p>
+        <h3 class="govuk-heading-s">Where the children spend time</h3>
+        <p>
+        Because Anjula and Greg live near each other, they have a 4-4-3 schedule, where the children spend three days in one household then four days in the other. The next week they switch.
+        </p>
+        <p><a href="https://care-arrangement-plan.apps.live.cloud-platform.service.justice.gov.uk/">Propose a child arrangements plan</a></p>
+        </div>
+      </details>
+
+      <h2 class="govuk-heading-m">
+        Going to mediation
+      </h2>
+      <p>
+        Lucy and Mo separated after a 5-year relationship. They have a 4 year-old son.
+      </p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        Open full story
+        </span>
+        </summary>
+        <div class="govuk-details__text">
+        <h3 class="govuk-heading-s">How they made child arrangements</h3>
+        <p>When talking about their separation, Lucy and Mo could not agree on how much time their son should spend with each of them.</p>
+        <p>They needed help but were worried about money - they knew that going to court would be expensive. Using the 'Get help with child arrangement options' service, they found out about mediation.</p>
+        <p>Lucy and Mo attended a short meeting with a mediator, called a Mediation Information Assessment Meeting (MIAM). There, the mediator explained that they were eligible for the Family Mediation Voucher Scheme, which gives families a voucher worth up to £500 to pay for mediation.</p>
+        <p>They attended mediation sessions online, from their separate homes. During the sessions, they each had the chance to explain their views and concerns. The mediator helped them to discuss their options for child arrangements and focus on the needs of their son.</p>
+        <p>Once they came to a decision, the mediator documented their agreed plan. They have the option to hire a solicitor to make it legally binding.</p>
+
+        <h3 class="govuk-heading-s">How much it cost</h3>
+        <p>The MIAM cost £120 per person. Because Lucy is on a low income, she was eligible for legal aid, which covered her costs. The Family Mediation Voucher Scheme covered the cost of two mediation sessions.</p>
+        <h3 class="govuk-heading-s">How long it took</h3>
+        <p>Lucy and Mo attended a MIAM and two online mediation sessions over 4 weeks.
+        </p>
+        <h3 class="govuk-heading-s">Where the children spend time</h3>
+        <p>
+        As their son is about to start school and Mo now lives a 30-minute drive away, Lucy and Mo agreed that their son would stay with Lucy from Monday to Thursday, and with Mo Friday to Sunday. Mo picks him up after school on a Friday.
+        </p>
+        <p><a href="https://www.gov.uk/looking-after-children-divorce/mediation">Find out more about family mediation</a></p>
+        </div>
+      </details>
+
+      <h2 class="govuk-heading-m">
+        Going to family court
+      </h2>
+      <p>
+       Alex and Nina separated after a 5-year relationship. They have a 1 year-old daughter. 
+      </p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        Open full story
+        </span>
+        </summary>
+        <div class="govuk-details__text">
+        <h3 class="govuk-heading-s">How they made child arrangements</h3>
+        <p>Alex and Nina argued about several factors of their separation, including finances, what they should do with their property and how their daughter would spend time with each of them. </p>
+        <p>Nina contacted a local solicitor to get advice. They told her that if she and Alex could not agree on child arrangements, she could apply for a court order from the family court, but they would need to prove that they had tried another way to resolve their disagreement. </p>
+        <p>Nina found a family mediator and booked a Mediation Information Assessment Meeting (MIAM). Alex did not want to attend mediation, so Nina attended the MIAM alone. As agreeing through mediation was not an option for Nina and Alex, Nina applied for a Child arrangements order online so the family court could decide how much time their daughter would spend with each of them and when. </p>
+        <p>6 weeks after sending the application, Nina heard that the family court had scheduled a first hearing dispute resolution appointment (FHDRA). </p>
+        <p>Both Alex and Nina hired a lawyer to prepare the 'bundle' of documents the court had asked for, and to attend court with them. Each lawyer charged an hourly rate. </p>
+        <p>At the FHDRA, Alex, Nina and their lawyers discussed with a judge and a Cafcass officer what they each wanted and why they couldn't come to an agreement on their own. By the end of the session, they still could not agree, so the judge set a date for a further hearing in 6 weeks. The judge also ordered them to attend an online 'Planning Together for Children' course run by Cafcass. The course gave them information about how separation affects children and how to look at things from a child’s point of view.</p>
+        <p>At their next hearing (called a 'Dispute resolution appointment' (DRA)), the Cafcass officer gave their input on the situation, and discussions continued. Eventually, Alex and Nina were able to agree on a proposal for how much time and contact their daughter would have with each of them, and they did not have to go to a final hearing. </p>
+        <p>The judge agreed with this decision and issued a child arrangements order, making it legally binding. </p>
+
+        <h3 class="govuk-heading-s">How much it cost</h3>
+        <p>It cost Nina £120 to attend the MIAM, and £263 to apply for the court order online. </p>
+        <p>Alex and Nina both hired lawyers, who charged an hourly rate for their time spent in court, as well as time spent preparing for court. </p>
+        <h3 class="govuk-heading-s">How long it took</h3>
+        <p>It was 10 months from the time Nina applied for the court order to the judge issuing it.
+        </p>
+        <h3 class="govuk-heading-s">Where the children spend time</h3>
+        <p>The child arrangements order states that Alex and Nina's daughter will spend time with Alex every alternate weekend from 5pm on Friday to 5pm on Sunday. She will also spend time with each parent on alternating Christmas and Easter holidays each year.</p>
+        <p>When their daughter starts school, Alex and Nina may need to adjust their plan to include school holidays. If they can agree this between them, they will not need to go back to court.</p>
+        <p><a href="https://www.gov.uk/looking-after-children-divorce/types-of-court-order">Find out more about applying to family court</a></p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+{% endblock %}

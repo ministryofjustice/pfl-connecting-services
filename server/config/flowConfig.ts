@@ -1,0 +1,35 @@
+import FormSteps from '../constants/formSteps';
+import paths from '../constants/paths';
+
+interface FlowStep {
+  path: string;
+  dependsOn?: FormSteps[];
+}
+
+export const flowConfig: Record<FormSteps, FlowStep> = {
+  [FormSteps.START]: {
+    path: paths.START,
+  },
+  [FormSteps.QUESTION_1_ABUSE]: {
+    path: paths.QUESTION_1_ABUSE,
+    dependsOn: [FormSteps.START],
+  },
+  [FormSteps.QUESTION_2_CONTACT]: {
+    path: paths.QUESTION_2_CONTACT,
+    dependsOn: [FormSteps.QUESTION_1_ABUSE],
+  },
+  [FormSteps.QUESTION_3_AGREE]: {
+    path: paths.QUESTION_3_AGREE,
+    dependsOn: [FormSteps.QUESTION_2_CONTACT],
+  },
+  [FormSteps.QUESTION_4_HELP]: {
+    path: paths.QUESTION_4_HELP,
+    dependsOn: [FormSteps.QUESTION_3_AGREE],
+  },
+  [FormSteps.QUESTION_5_MEDIATION]: {
+    path: paths.QUESTION_5_MEDIATION,
+    dependsOn: [FormSteps.QUESTION_4_HELP],
+  },
+};
+
+export default flowConfig;

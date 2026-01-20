@@ -1,0 +1,98 @@
+{% extends "govuk/template.njk" %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{% set htmlLang = getLocale() %}
+{% set mainClasses = "app-container govuk-body" %}
+{% set govukRebrand = true %}
+
+{% block pageTitle %}
+  {% if errors | length %}
+    Error:
+  {% endif %}
+  {{ title }}
+  – {{ __('serviceName') }} – GOV.UK
+{% endblock %}
+
+{% if ga4Id != undefined %}
+  {%
+    set bodyAttributes = {
+      "data-ga4-id": ga4Id
+    }
+  %}
+{% endif %}
+
+{% block head %}
+  <meta name="robots" content="noindex, nofollow" />
+  <link href="{{ '/assets/css/app.css' | assetMap }}" rel="stylesheet" />
+  {% if analyticsEnabled and ga4Id != undefined %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ ga4Id }}" nonce="{{ cspNonce }}"></script>
+    <script nonce="{{ cspNonce }}">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', '{{ ga4Id }}');
+    </script>
+  {% endif %}
+{% endblock %}
+
+{% block bodyStart %}
+  {% if analyticsEnabled == undefined and ga4Id != undefined %}
+    {%- include "partials/cookieBanner.njk" -%}
+  {% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+  {{
+    govukPhaseBanner({
+      tag: {
+        text: "Beta"
+      },
+      html: __('phaseBannerText', {feedbackUrl: feedbackUrl})
+    })
+  }}
+  {% include "partials/notificationBanner.njk" %}
+  {% if backLinkHref %}
+    <div role="navigation">{{ govukBackLink({text: __('back'), href: backLinkHref}) }}</div>
+  {% endif %}
+{% endblock %}
+
+{% block footer %}
+  {{
+    govukFooter({
+      meta: {
+        items: [
+          {
+            href: paths.ACCESSIBILITY_STATEMENT,
+            text: __('footer.accessibility')
+          },
+          {
+            href: paths.CONTACT_US,
+            text: __('footer.contact')
+          },
+          {
+            href: paths.COOKIES,
+            text: __('footer.cookies')
+          },
+          {
+            href: feedbackUrl,
+            text: __('footer.feedback')
+          },
+          {
+            href: paths.PRIVACY_NOTICE,
+            text: __('footer.privacy')
+          },
+          {
+            href: paths.TERMS_AND_CONDITIONS,
+            text: __('footer.termsAndConditions')
+          }
+        ]
+      }
+    })
+  }}
+{% endblock %}
+
+{% block bodyEnd %}
+  <script type="module" src="{{ '/assets/js/app.js' | assetMap }}"></script>
+{% endblock %}

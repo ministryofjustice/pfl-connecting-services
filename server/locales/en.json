@@ -1,0 +1,64 @@
+{
+  "serviceName": "Get help making child arrangements",
+  "back": "Back",
+  "continue": "Continue",
+  "phaseBannerText": "This is a new service – your <a class=\"govuk-link\" href=\"{feedbackUrl}\">feedback</a> will help us to improve it.",
+  "footer": {
+    "accessibility": "Accessibility statement",
+    "contact": "Contact us",
+    "cookies": "Cookies",
+    "feedback": "Feedback",
+    "privacy": "Privacy notice",
+    "termsAndConditions": "Terms and conditions"
+  },
+  "pages": {
+    "start": {
+      "title": "Get help making child arrangements"
+    },
+    "question1": {
+      "title": "Safety question"
+    },
+    "question2": {
+      "title": "Contact question"
+    },
+    "question3": {
+      "title": "Agreement question"
+    },
+    "question4": {
+      "title": "Help preference"
+    },
+    "question5": {
+      "title": "Mediation question"
+    },
+    "court": {
+      "title": "Going to court"
+    },
+    "mediation": {
+      "title": "Mediation"
+    },
+    "parentingPlan": {
+      "title": "Parenting plan"
+    },
+    "safeguarding": {
+      "title": "Safety information"
+    },
+    "noContact": {
+      "title": "Unable to contact"
+    },
+    "guide": {
+      "title": "Guide"
+    },
+    "steps": {
+      "title": "Steps"
+    },
+    "compare": {
+      "title": "Compare options"
+    },
+    "serviceFinder": {
+      "title": "Find services"
+    }
+  },
+  "errors": {
+    "selectOption": "Select an option"
+  }
+}

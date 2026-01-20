@@ -1,0 +1,75 @@
+{% extends "partials/layout.njk" %}
+
+{% set title = __("pages.question-1.title") %}
+{% block pageTitle %}
+  Question page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/abuse-answer" method="post">
+
+        <h1 class="govuk-heading-l">
+       Have you or your children experienced abuse from your ex-partner?
+      </h1>
+
+      <p>
+       You may have been in an abusive relationship if you or your children have experienced any of the following:
+      </p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Abuse or violence, including physical, emotional and sexual</li>
+        <li>Financial or economic abuse</li>
+        <li>Coercive control (a pattern of threats, humiliation, intimidation, degradation, isolation and control)</li>
+        <li>Child abuse, neglect, or child abduction</li>
+        <li>Harrassment and stalking</li>
+      </ul>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "abuse",
+  fieldset: {
+    legend: {
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+
+{{ govukExitThisPage() }}
+
+    </div>
+  </div>
+
+{% endblock %}

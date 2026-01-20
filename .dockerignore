@@ -1,0 +1,12 @@
+**/*.md
+.*
+.run
+azure-pipelines
+coverage
+dist
+integration-tests
+node_modules
+test-results
+npm-debug.log
+**/*.test.ts
+docker-compose*

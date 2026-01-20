@@ -1,0 +1,25 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% macro doYouAgree(questionText, idPrefix) %}
+  {{
+    govukRadios({
+      classes: "govuk-radios--inline",
+      name: idPrefix + "-agree-radios",
+      fieldset: {
+        legend: {
+          text: questionText
+        }
+      },
+      items: [
+        {
+          value: "Yes",
+          text: __('yes')
+        },
+        {
+          value: "No",
+          text: __('no')
+        }
+      ]
+    })
+  }}
+{% endmacro %}

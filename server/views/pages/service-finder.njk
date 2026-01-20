@@ -1,0 +1,790 @@
+{% extends "partials/layout.njk" %}
+
+{% set title = __("pages.service-finder.title") %}
+{% block pageTitle %}
+  Content page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<html lang="en" class="govuk-template govuk-template--rebranded">
+<head>
+    <meta charset="utf-8">
+    <title>Find Child Arrangement Services - GOV.UK Prototype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c">
+    
+    <!-- Load GOV.UK Frontend CSS via CDN (You'd typically use your kit's local assets) -->
+    <link href="https://cdn.jsdelivr.net/npm/govuk-frontend@5.13.0/dist/govuk/govuk-frontend.min.css" rel="stylesheet">
+    <style>
+        /* Optional: Small adjustment to position the search button neatly beside the input */
+        .app-search-form .govuk-button {
+            margin-bottom: 0;
+            height: 40px; /* Match input height */
+        }
+
+        /* --- Custom CSS for Collapsible Filter Component --- */
+        .app-collapsible-heading {
+            /* Separator line below the button */
+            border-bottom: 1px solid #b1b4b6; 
+            margin-bottom: 15px; /* Add space below the heading/button */
+        }
+        .app-collapsible-button {
+            background: none;
+            border: none;
+            padding: 10px 0;
+            margin: 0;
+            width: 100%;
+            text-align: left;
+            font-weight: 700;
+            font-size: 19px; /* Default size for inner sections (govuk-fieldset__legend--s) */
+            line-height: 1.25;
+            cursor: pointer;
+            position: relative;
+            color: #0b0c0c; 
+            text-decoration: none;
+        }
+        /* Style for the main, top-level "Filters" button (matching govuk-heading-m) */
+        .app-main-toggle-button {
+            font-size: 24px; /* govuk-heading-m size */
+        }
+        .app-collapsible-button:focus {
+            outline: 3px solid #ffdd00;
+            outline-offset: 0;
+        }
+        /* Style for the chevron icon (The actual triangle shape) */
+        .app-collapsible-button::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 10px 10px;
+            border-color: transparent transparent #0b0c0c transparent;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            /* Expanded State (aria-expanded="true"): Points straight DOWN */
+            transform: translateY(-50%) rotate(45deg); 
+            transition: transform 0.2s ease;
+        }
+        /* Collapsed State (aria-expanded="false"): Points straight UP (180 degree flip) */
+        .app-collapsible-button[aria-expanded="false"]::after {
+            transform: translateY(-50%) rotate(-135deg); 
+        }
+        
+        /* === Collapsed Filter Content Style === */
+        #main-filter-content.is-collapsed {
+            display: none;
+        }
+        
+        /* === Responsive Search Bar Override for Mobile (<768px) === */
+        @media (max-width: 767px) {
+            .app-search-form .govuk-form-group--inline .govuk-input {
+                /* Override govuk-!-width-two-thirds to be full width */
+                width: 100% !important; 
+                margin-bottom: 15px;
+                /* Remove any left/right margins that might be inherited from Govuk inline styles */
+                margin-left: 0 !important; 
+                margin-right: 0 !important; 
+            }
+
+            .app-search-form .govuk-form-group--inline .govuk-button {
+                /* Make the button full width */
+                width: 100% !important; 
+                /* Remove margin that pushes it right when inline */
+                margin-left: 0 !important; 
+            }
+        }
+        
+        /* === CSS for individual filter tag removal === */
+        .app-filter-tag {
+            /* Ensure tag is positioned for the remove button */
+            position: relative;
+            padding-right: 28px; /* Give space for the X button */
+        }
+
+        .app-filter-tag-remove-btn {
+            background: none;
+            border: none;
+            color: inherit; /* Use tag color */
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+            position: absolute;
+            right: 5px; /* Position to the right inside the tag */
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px; /* Size of the 'x' */
+            font-weight: 700;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .app-filter-tag-remove-btn:hover,
+        .app-filter-tag-remove-btn:focus {
+            opacity: 1;
+            /* Maintain GOV.UK focus style */
+            outline: 3px solid #ffdd00;
+            outline-offset: 1px;
+            color: #0b0c0c; /* Ensure it stays visible on hover/focus */
+        }
+        /* ============================================================== */
+    </style>
+</head>
+<body class="govuk-template__body">
+    <script>
+        document.body.className += ' js-enabled';
+    </script>
+    
+    <div class="govuk-width-container">
+        <main class="govuk-main-wrapper govuk-!-padding-top-0" id="main-content" role="main">
+            
+            <!-- ROW 1: Heading, Intro, and Exit Button -->
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Find child arrangement support services</h1>
+
+                    <p class="govuk-body">Search for help and support services when you are making child arrangements following a separation or divorce.</p>
+                    <p class="govuk-body">If you are unsure about how you should make child arrangements, you can <a href=/round-3/start>get help finding a child arrangement option</a>.</p>
+                </div>
+                
+                <!-- 
+                CHANGE: Added govuk-!-margin-bottom-5 to the column containing the Exit button.
+                This provides extra separation on mobile where the column stacks above the search bar. 
+                -->
+                <div class="govuk-grid-column-one-third govuk-!-padding-top-5 govuk-!-margin-bottom-5">
+                    <!-- Exit This Page Component -->
+                    <div class="govuk-!-text-align-right">
+                        <button type="button" id="exit-this-page-button" class="govuk-button govuk-button--warning govuk-!-margin-bottom-0">
+                            Exit this page
+                        </button>
+                    </div>
+                </div>
+            </div>
+             
+            <!-- ROW 2: Search Bar -->
+            <div class="govuk-grid-row govuk-!-margin-bottom-6">
+                <div class="govuk-grid-column-two-thirds">
+                    <form id="search-form" action="#" method="get" class="app-search-form">
+                        <div class="govuk-form-group govuk-form-group--inline">
+                            <label class="govuk-label govuk-visually-hidden" for="search-term">Search for services</label>
+                            <input class="govuk-input govuk-!-width-two-thirds" id="search-term" name="search-term" type="search" placeholder="Search by name or keyword">
+                            <button type="submit" class="govuk-button govuk-!-margin-left-2" data-module="govuk-button">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- ROW 3: Filters and Results -->
+            <div class="govuk-grid-row">
+                <!-- ============================================== -->
+                <!-- LEFT COLUMN: Filters (1/3 width) -->
+                <!-- ============================================== -->
+                <div class="govuk-grid-column-one-third">
+                    <form id="filter-form" action="#" method="get">
+                        <aside class="app-finder-filters">
+                            
+                            <!-- Main Filter Toggle Button -->
+                            <div class="app-collapsible-heading app-main-filter-heading">
+                                <!-- Initial state set to true as a non-JS fallback. JS will override this on load. -->
+                                <button type="button" class="app-collapsible-button app-main-toggle-button" aria-expanded="true" aria-controls="main-filter-content" id="main-filter-toggle">
+                                    Filters
+                                </button>
+                            </div>
+                            
+                            <!-- Main Collapsible Content Wrapper -->
+                            <div id="main-filter-content" class="app-collapsible-content">
+
+                                <!-- Filter 1: Child Arrangement Option (Legend/Heading) -->
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset" aria-describedby="topic-hint">
+                                        
+                                        <!-- This legend is the 'Child arrangement option' heading -->
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                            Child arrangement option
+                                        </legend>
+
+                                        <!-- Checkboxes -->
+                                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="topic-arrangements" name="topic" type="checkbox" value="arrangements">
+                                                <label class="govuk-label govuk-checkboxes__label" for="topic-arrangements">
+                                                   Parenting plan
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="topic-mediation" name="topic" type="checkbox" value="mediation">
+                                                <label class="govuk-label govuk-checkboxes__label" for="topic-mediation">
+                                                    Mediation
+                                                </label>
+                                            </div>
+                                            <!-- MOVED: Family Court now appears before Not comfortable... -->
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="topic-court" name="topic" type="checkbox" value="court">
+                                                <label class="govuk-label govuk-checkboxes__label" for="topic-court">
+                                                    Family court
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="topic-solicitor" name="topic" type="checkbox" value="solicitor">
+                                                <label class="govuk-label govuk-checkboxes__label" for="topic-solicitor">
+                                                    Not comfortable contacting your ex-partner
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                
+                                <!-- Filter 2: Safety and wellbeing -->
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset">
+                                        
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                            Safety and wellbeing
+                                        </legend>
+
+                                        <!-- Checkboxes -->
+                                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="topic-abuse" name="topic" type="checkbox" value="abuse">
+                                                <label class="govuk-label govuk-checkboxes__label" for="topic-abuse">
+                                                   Domestic abuse
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="topic-mental" name="topic" type="checkbox" value="mental">
+                                                <label class="govuk-label govuk-checkboxes__label" for="topic-mental">
+                                                    Emotional and relationship support
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                
+                            </div>
+                            <!-- End Main Collapsible Content Wrapper -->
+
+                        </aside>
+                    </form>
+                </div>
+                
+                <!-- ============================================== -->
+                <!-- RIGHT COLUMN: Results (2/3 width) -->
+                <!-- ============================================== -->
+                <div class="govuk-grid-column-two-thirds">
+                    
+                    <!-- Result Count (ID: results-count maintained for JS) -->
+                    <p class="govuk-body">Showing <strong id="results-count">23</strong> results</p>
+                    
+                    <!-- Active Filters Display (ID: active-filters-display maintained for JS) -->
+                    <div class="govuk-!-margin-bottom-6" id="active-filters-display">
+                        <!-- Filters will be injected here by JavaScript -->
+                    </div>
+
+                    <!-- Service List Container (ID: service-list-container maintained for JS) -->
+                    <div id="service-list-container">
+                        
+                        <!-- UPDATED CLASS: Retained govuk-body class from last change -->
+                        <p class="govuk-body govuk-!-margin-bottom-3" id="opens-new-tab-info" style="display: none;">
+                            The following links open in a new tab.
+                        </p>
+
+                        <ul class="govuk-list govuk-list--spaced">
+                            <!-- Dynamic service items will be injected here -->
+                        </ul>
+                        <!-- FIX: Added inline style to ensure the element starts hidden and relies on JS to show/hide -->
+                        <p class="govuk-body govuk-!-margin-top-6" id="no-results-message" style="display: none;">
+                            No services match your search and filter criteria. Try adjusting your selections.
+                        </p>
+                    </div>
+
+                    <!-- Pagination Container -->
+                    <div id="pagination-container">
+                        <!-- Pagination links will be injected here by JavaScript -->
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Load GOV.UK Frontend JavaScript via CDN -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/govuk-frontend@5.13.0/dist/govuk/all.bundle.min.js"></script>
+    <script type="module">
+        import { initAll } from 'https://cdn.jsdelivr.net/npm/govuk-frontend@5.13.0/dist/govuk/all.bundle.min.js'
+        initAll();
+    </script>
+    
+    <!-- CUSTOM JAVASCRIPT FOR SEARCH & FILTERING (UPDATED LOGIC) -->
+    <script>
+        // --- DATA & CONFIGURATION ---
+        const servicesData = [
+            // Service 1: Propose a child arrangements plan tool
+            { id: 1, name: 'Propose a child arrangements plan tool', org: 'GOV.UK', topic: ['arrangements'], description: 'Use this service to build a parenting plan that you can send to your ex-partner.', url: 'https://www.gov.uk/child-arrangements-plan-tool'},
+            // Service 2: Cafcass (Multi-topic for legal/court advice)
+            { id: 2, name: 'Children and Family Court Advisory Support Service (Cafcass)', org: 'Cafcass', topic: ['arrangements', 'mediation', 'court'], description: 'Looks after the interests of children in family court cases in England. It is independent of the courts and social services, but works under the rules of the Family Court and legislation.', url: 'https://www.citizensadvice.org.uk/'},
+            // Service 3: Cafcass Cymru (Multi-topic for legal/court advice)
+            { id: 3, name: 'Cafcass Cymru', org: 'Cafcass Cymru', topic: ['arrangements', 'mediation', 'court'], description: 'An organisation that provides expert child-focused advice and support in family courts across Wales.', url: 'https://www.gov.wales/cafcass-cymru/family-separation/information-for-parents'},
+            // Service 4: Advice Now (Multi-topic for legal/court advice)
+            { id: 4, name: 'Advice Now', org: 'Advice Now', topic: ['arrangements', 'court'], description: 'A charity that provides easy-to-understand legal information, self-help tools and training for people facing urgent legal problems.', url: 'https://www.advicenow.org.uk/'},
+            // Service 5: Family Mediation Council
+            { id: 5, name: 'Family Mediation Council', org: 'Family Mediation Council', topic: ['mediation', 'solicitor'], description: 'Find a trained mediator from a network of family mediation organisations in England and Wales.', url: 'https://www.familymediationcouncil.org.uk/'},
+            // Service 6: Find a legal aid adviser or family mediator (Multi-topic for legal/mediation)
+            { id: 6, name: 'Find a legal aid adviser or family mediator', org: 'GOV.UK', topic: ['mediation', 'solicitor', 'court'], description: 'Use this service to find legal aid advisers in England and Wales.', url: 'https://find-legal-advice.justice.gov.uk/'},
+            // Service 7: Citizens Advice (Multi-topic for general advice)
+            { id: 7, name: 'Citizens Advice', org: 'Citizens Advice', topic: ['arrangements', 'mediation', 'court'], description: 'A network of independent charities that provides free, confidential and impartial advice online, on the phone and in person.', url: 'https://www.citizensadvice.org.uk/'},
+            // Service 8: Only Mums & Dads
+            { id: 8, name: 'Only Mums & Dads', org: 'Only Mums & Dads ', topic: ['arrangements'], description: 'Support and resources for separating families.', url: 'https://www.onlymumsanddads.org/'},
+            // Service 9: RCJ Advice Citizens Advice and Law Centre (Multi-topic for general advice)
+            { id: 9, name: 'RCJ Advice Citizens Advice and Law Centre', org: ' RCJ Advice Citizens Advice and Law Centre', topic: ['arrangements', 'mediation', 'solicitor', 'court'], description: 'Free family legal advice if you cannot afford a solicitor. Online, over the phone and in person.', url: 'https://www.rcjadvice.org.uk/our-services/family/'},
+            // Service 10: Check if you can get legal aid (Multi-topic for general advice)
+            { id: 10, name: 'Check if you can get legal aid', org: 'GOV.UK', topic: ['mediation', 'solicitor', 'court'], description: 'Check if you can get legal aid for your situation, and find out where to get legal advice.', url: 'https://www.gov.uk/check-legal-aid'},
+            // Service 11: Find a law professional (Multi-topic for general advice)
+            { id: 11, name: 'Find a law professional ', org: 'Resolution', topic: ['mediation', 'solicitor', 'court'], description: 'Search for a legal professional near you, from a community of family justice professionals who work with families and individuals to resolve issues in a constructive way.', url: 'https://resolution.org.uk/find-a-law-professional/'},
+            // Service 12: Find a solicitor
+            { id: 12, name: 'Find a solicitor', org: 'Law Society', topic: ['court'], description: 'Find organisations or people providing legal services in England and Wales that are regulated by the Solicitors Regulation Authority (SRA).', url: 'https://solicitors.lawsociety.org.uk/'},
+            // Service 13: Find a local law centre (Multi-topic for general advice)
+            { id: 13, name: 'Find a local law centre', org: 'Law Centres Network', topic: ['solicitor', 'court'], description: 'Search for a law centre near you for support and legal advice.', url: 'https://www.lawcentres.org.uk/get-help'},
+            // Service 14: National Association of Child Contact Centres (NACCC)
+            { id: 14, name: 'National Association of Child Contact Centres (NACCC)', org: 'NACCC', topic: ['solicitor'], description: 'A charity dedicated to child contact, providing safe spaces where children can meet the parents they don’t live with.', url: 'https://naccc.org.uk/'},
+            // Service 15: Refuge
+            { id: 15, name: 'Refuge', org: 'Refuge', topic: ['abuse'], description: 'Specialist, confidential support for women and children experiencing domestic abuse and violence.', url: 'https://refuge.org.uk/'},
+            // Service 16: Men's Advice Line
+            { id: 16, name: "Men's Advice Line", org: "Men's Advice Line", topic: ['abuse'], description: "A supportive helpline for all male victims of domestic abuse and those supporting them. Telephone: 0808 801 0327", url: 'https://mensadviceline.org.uk/'},
+            // Service 17: Galop
+            { id: 17, name: 'Galop', org: 'Galop', topic: ['abuse'], description: 'Help and support for LGBT+ people who have experience abuse and violence, including children and young people. Telephone: 0800 999 5428', url: 'https://www.galop.org.uk/'},
+            // Service 18: National Service for Domestic Violence (NSDV)
+            { id: 18, name: 'National Service for Domestic Violence (NSDV)', org: 'NSDV', topic: ['abuse'], description: 'A free, fast emergency injunction service to those at risk of all forms of domestic abuse regardless of their financial situation, ethnicity, gender or sexuality. Telephone: 0800 970 2070', url: 'https://www.ncdv.org.uk/'},
+            // Service 19: Surviving economic abuse
+            { id: 19, name: 'Surviving economic abuse', org: 'Surviving Economic Abuse', topic: ['abuse'], description: 'Information about what to do if you are experiencing economic abuse, from the UK charity dedicated to raising awareness of economic abuse.', url: 'https://survivingeconomicabuse.org/i-need-help/'},
+            // Service 20: Women's Aid directory
+            { id: 20, name: "Women's Aid directory", org: "Women's Aid", topic: ['abuse'], description: 'Find local, regional and national services specialising in violence against women and girls including domestic abuse, sexual violence, forced marriage and stalking or harassment.', url: 'https://womensaid.org.uk/information-support/womens-aid-directory/'},
+            // Service 21: Relate
+            { id: 21, name: 'Relate', org: 'Relate', topic: ['mental'], description: 'Find counselling services and advice on marriage, LGBT issues, divorce and parenting.', url: 'https://www.relate.org.uk/'},
+            // Service 22: Refuge's National Domestic Abuse Helpline (NEW)
+            { id: 22, name: "Refuge's National Domestic Abuse Helpline", org: 'Refuge', topic: ['abuse'], description: 'Free, confidential advice, 24 hours a day. Telephone: 0808 2000 247', url: 'https://www.nationaldahelpline.org.uk/'},
+            // Service 23: Live Fear Free (Wales) (NEW)
+            { id: 23, name: 'Live Fear Free (Wales)', org: 'GOV.WALES', topic: ['abuse'], description: '24 hour service with specialists who make referrals and link to other services and advice. Telephone: 0808 80 10 100', url: 'https://www.gov.wales/live-fear-free'}
+        ];
+
+        // Sort data alphabetically once on load
+        servicesData.sort((a, b) => a.name.localeCompare(b.name));
+        
+        // --- GLOBAL STATE ---
+        let currentPage = 1;
+        const servicesPerPage = 20;
+
+        // --- DOM REFERENCES ---
+        const listContainer = document.querySelector('#service-list-container ul');
+        const resultsCountElement = document.getElementById('results-count');
+        const activeFiltersDisplay = document.getElementById('active-filters-display');
+        const noResultsMessage = document.getElementById('no-results-message');
+        const opensNewTabInfo = document.getElementById('opens-new-tab-info'); // NEW DOM Reference
+        const searchForm = document.getElementById('search-form');
+        const filterForm = document.getElementById('filter-form');
+        const searchTermInput = document.getElementById('search-term');
+        const paginationContainer = document.getElementById('pagination-container');
+        const exitButton = document.getElementById('exit-this-page-button');
+        
+        // Helper map to convert topic value (slug) back to human-readable label
+        const topicLabelMap = {
+            'arrangements': 'Parenting plan',
+            'mediation': 'Mediation',
+            'solicitor': 'Not comfortable contacting your ex-partner',
+            'court': 'Family court',
+            'abuse': 'Domestic abuse',
+            'mental': 'Emotional and relationship support'
+        };
+
+
+        /**
+         * Renders the services and updates the total result count display.
+         * @param {Array} paginatedServices - The array of services for the current page.
+         * @param {number} totalCount - The total count of services matching the current filters/search.
+         * @param {string[]} activeFilterValues - Array of all active filter values (e.g., ['arrangements']).
+         */
+        function renderServices(paginatedServices, totalCount, activeFilterValues) {
+            let html = '';
+            
+            if (totalCount === 0) {
+                listContainer.innerHTML = '';
+                noResultsMessage.classList.remove('govuk-!-hidden');
+                noResultsMessage.style.display = 'block'; 
+                opensNewTabInfo.style.display = 'none'; // HIDE new tab info
+            } else {
+                noResultsMessage.classList.add('govuk-!-hidden'); 
+                noResultsMessage.style.display = 'none'; 
+                opensNewTabInfo.style.display = 'block'; // SHOW new tab info
+                
+                paginatedServices.forEach((service, index) => {
+                    html += `
+                        <li>
+                            <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+                                <a class="govuk-link" href="${service.url}" target="_blank" rel="noopener noreferrer">
+                                    ${service.name} 
+                                    <span class="govuk-visually-hidden">(opens in new tab)</span> <!-- ADDED VISUALLY HIDDEN TEXT -->
+                                </a>
+                            </h3>
+                            <p class="govuk-body-s govuk-!-margin-bottom-1">
+                                Organisation: ${service.org}
+                            </p>
+                            <p class="govuk-body">${service.description}</p>
+                        </li>
+                    `;
+                    // Add section break for all but the last item
+                    if (index < paginatedServices.length - 1) {
+                        html += '<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--m">';
+                    }
+                });
+                listContainer.innerHTML = html;
+            }
+
+            // Update result count (Total count found)
+            resultsCountElement.textContent = totalCount;
+            
+            // Update active filters display
+            renderActiveFilters(activeFilterValues);
+        }
+        
+        /**
+         * Generates and attaches the GOV.UK pagination component.
+         * @param {number} totalCount - Total number of services found.
+         * @param {number} totalPages - Total number of pages.
+         */
+        function renderPagination(totalCount, totalPages) {
+            if (totalPages <= 1 || totalCount === 0) {
+                paginationContainer.innerHTML = '';
+                return;
+            }
+            
+            let paginationHtml = `<nav class="govuk-pagination govuk-!-margin-top-6" role="navigation" aria-label="Pagination">
+                <ul class="govuk-pagination__list">`;
+
+            // 1. Previous button
+            const prevDisabled = currentPage === 1;
+            if (!prevDisabled) {
+                paginationHtml += `
+                    <li class="govuk-pagination__item govuk-pagination__item--prev">
+                        <a class="govuk-link govuk-pagination__link" href="#" data-page="${currentPage - 1}" rel="prev">
+                            <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                                <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.433v-2h-12.433l4.1852-3.9766z"></path>
+                            </svg>
+                            <span class="govuk-pagination__link-title">Previous</span>
+                        </a>
+                    </li>`;
+            }
+
+            // 2. Page Numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const isCurrent = i === currentPage;
+                paginationHtml += `
+                    <li class="govuk-pagination__item ${isCurrent ? 'govuk-pagination__item--current' : ''}">
+                        <a class="govuk-link govuk-pagination__link" href="#" data-page="${i}" aria-label="Page ${i}" ${isCurrent ? 'aria-current="page"' : ''}>
+                            ${i}
+                        </a>
+                    </li>`;
+            }
+
+            // 3. Next button
+            const nextDisabled = currentPage === totalPages;
+            if (!nextDisabled) {
+                paginationHtml += `
+                    <li class="govuk-pagination__item govuk-pagination__item--next">
+                        <a class="govuk-link govuk-pagination__link" href="#" data-page="${currentPage + 1}" rel="next">
+                            <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                                <path d="m8.107-0.0078125-1.4492 1.4492 4.1854 3.9766h-12.433v2h12.432l-4.1852 3.9766 1.449 1.4492 6.7262-6.7262z"></path>
+                            </svg>
+                            <span class="govuk-pagination__link-title">Next</span>
+                        </a>
+                    </li>`;
+            }
+
+            paginationHtml += `</ul></nav>`;
+            paginationContainer.innerHTML = paginationHtml;
+
+            // Add event listeners for new links
+            paginationContainer.querySelectorAll('.govuk-pagination__link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const newPage = parseInt(link.getAttribute('data-page'));
+                    if (newPage !== currentPage) {
+                        currentPage = newPage;
+                        runFilterAndSearch();
+                        // Scroll to the top of results when changing pages
+                        document.getElementById('service-list-container').scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+        
+        /**
+         * Renders the active filter tags and clear all link.
+         * @param {string[]} activeFilterValues - Array of all active filter values (slugs).
+         */
+        function renderActiveFilters(activeFilterValues) {
+            if (activeFilterValues.length === 0) {
+                activeFiltersDisplay.innerHTML = '';
+                return;
+            }
+
+            let filterTags = '<span class="govuk-body-s govuk-!-font-weight-bold">Filter applied:</span>';
+            activeFilterValues.forEach(value => {
+                const label = topicLabelMap[value] || value; // Get human-readable label
+                
+                // Tag structure now includes a removal button
+                filterTags += `
+                    <span class="govuk-tag govuk-tag--grey govuk-!-margin-left-2 app-filter-tag">
+                        ${label}
+                        <button type="button" class="app-filter-tag-remove-btn" data-filter-value="${value}">
+                            <span class="govuk-visually-hidden">Remove filter: ${label}</span>
+                            &times;
+                        </button>
+                    </span>
+                `;
+            });
+            
+            filterTags += `<a href="#" id="clear-filters-link" class="govuk-link govuk-link--no-visited-state govuk-!-margin-left-3 govuk-body-s">Clear all filters</a>`;
+            
+            activeFiltersDisplay.innerHTML = filterTags;
+            
+            // Attach event listeners for clear all and individual removals
+            
+            // Clear All listener
+            const clearLink = document.getElementById('clear-filters-link');
+            if (clearLink) {
+                 clearLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    clearAllFiltersAndSearch();
+                });
+            }
+            
+            // Attach listeners for individual remove buttons
+            document.querySelectorAll('.app-filter-tag-remove-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const filterValue = button.getAttribute('data-filter-value');
+                    removeFilter(filterValue);
+                });
+            });
+        }
+        
+        /**
+         * Removes a single filter, unchecks the corresponding box, and reruns the filter.
+         * @param {string} topicValue - The value of the topic filter to remove (e.g., 'arrangements').
+         */
+        function removeFilter(topicValue) {
+            const checkboxId = `topic-${topicValue}`;
+            const checkbox = document.getElementById(checkboxId);
+
+            if (checkbox && checkbox.checked) {
+                checkbox.checked = false;
+                // Reset to page 1 before rerunning the filter
+                currentPage = 1; 
+                runFilterAndSearch();
+            }
+        }
+
+        /**
+         * Clears all filters and search terms and runs the filter function.
+         */
+        function clearAllFiltersAndSearch() {
+            searchTermInput.value = '';
+
+            document.querySelectorAll('#filter-form input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Reset to page 1 before running
+            currentPage = 1;
+
+            runFilterAndSearch();
+        }
+
+        /**
+         * Main function to read inputs, filter, and paginate the services data.
+         */
+        function runFilterAndSearch() {
+            const searchTerm = searchTermInput.value.toLowerCase().trim();
+            const selectedTopics = [];
+            const activeFilterValues = [];
+
+            // 1. Get Selected Filters
+            document.querySelectorAll('#filter-form input[name="topic"]:checked').forEach(checkbox => {
+                selectedTopics.push(checkbox.value);
+                activeFilterValues.push(checkbox.value);
+            });
+            
+            // 2. Filter Data (get ALL matching results)
+            const allFilteredResults = servicesData.filter(service => {
+                
+                // --- A. Filter by Checkboxes (Topic) ---
+                if (selectedTopics.length > 0) {
+                    const topicMatch = service.topic.some(t => selectedTopics.includes(t));
+                    if (!topicMatch) {
+                        return false;
+                    }
+                }
+                
+                // --- B. Filter by Search Term (Name OR Description) ---
+                if (searchTerm.length > 0) {
+                    const nameMatch = service.name.toLowerCase().includes(searchTerm);
+                    const descriptionMatch = service.description.toLowerCase().includes(searchTerm);
+                    
+                    if (!nameMatch && !descriptionMatch) {
+                        return false;
+                    }
+                }
+                
+                return true;
+            });
+            
+            const totalCount = allFilteredResults.length;
+            
+            // 3. --- Pagination Logic ---
+            const totalPages = Math.ceil(totalCount / servicesPerPage);
+
+            // Adjust current page if necessary (e.g., if a filter change reduces the total count)
+            if (currentPage > totalPages && totalPages > 0) {
+                currentPage = totalPages;
+            } else if (totalPages === 0) {
+                currentPage = 1;
+            }
+
+            const startIndex = (currentPage - 1) * servicesPerPage;
+            const endIndex = startIndex + servicesPerPage;
+            
+            const paginatedResults = allFilteredResults.slice(startIndex, endIndex);
+
+            // 4. Render Results and Pagination
+            renderServices(paginatedResults, totalCount, activeFilterValues);
+            renderPagination(totalCount, totalPages);
+        }
+        
+        /**
+         * Function to set up the collapsible filter behavior
+         */
+        function setupCollapsibleFilter() {
+            const toggleButton = document.getElementById('main-filter-toggle');
+            
+            if (!toggleButton) return;
+
+            const contentId = toggleButton.getAttribute('aria-controls');
+            const content = document.getElementById(contentId);
+
+            if (!content) return;
+
+            toggleButton.addEventListener('click', () => {
+                const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+                
+                toggleButton.setAttribute('aria-expanded', !isExpanded);
+                content.classList.toggle('is-collapsed', isExpanded);
+            });
+        }
+        
+        /**
+         * Sets the initial expanded/collapsed state based on screen size.
+         */
+        function setInitialFilterState() {
+            const toggleButton = document.getElementById('main-filter-toggle');
+            const content = document.getElementById('main-filter-content');
+            
+            if (!toggleButton || !content) return;
+
+            const mobileBreakpoint = 768; 
+            const isMobile = window.innerWidth < mobileBreakpoint; 
+
+            if (isMobile) {
+                // Mobile: Default to collapsed
+                toggleButton.setAttribute('aria-expanded', 'false');
+                content.classList.add('is-collapsed');
+            } else {
+                // Desktop/Large: Default to expanded
+                toggleButton.setAttribute('aria-expanded', 'true');
+                content.classList.remove('is-collapsed');
+            }
+        }
+        
+        /**
+         * Sets up the Exit This Page button functionality.
+         * The standard GOV.UK pattern is to redirect and clear history.
+         */
+        function setupExitThisPage() {
+            const safeUrl = 'https://www.bbc.co.uk/weather'; // Common safe redirect destination
+
+            const exitHandler = (e) => {
+                // Prevent button default action
+                if (e) {
+                    e.preventDefault();
+                }
+                
+                // 1. Clear history to prevent using the back button to return here
+                try {
+                    window.history.replaceState(null, null, safeUrl); 
+                } catch (error) {
+                    console.error('Could not replace history state:', error);
+                }
+                
+                // 2. Redirect immediately
+                window.location.replace(safeUrl);
+            };
+            
+            // 1. Button click listener
+            if (exitButton) {
+                exitButton.addEventListener('click', exitHandler);
+            }
+            
+            // 2. Keyboard shortcut (usually ESC key)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    // Stop any further key processing
+                    e.stopPropagation();
+                    e.preventDefault(); 
+                    exitHandler();
+                }
+            });
+        }
+
+        // -------------------------------------------------------------
+
+        // --- Event Listeners ---
+
+        // 1. Initial Load
+        document.addEventListener('DOMContentLoaded', () => {
+            setInitialFilterState();
+            runFilterAndSearch();
+            setupCollapsibleFilter();
+            setupExitThisPage(); // Initialize the exit button functionality
+        });
+
+        // 2. Filter Form Change (Automatic Filtering on Checkbox Click)
+        filterForm.addEventListener('change', (e) => {
+            if (e.target.name === 'topic' && e.target.type === 'checkbox') {
+                // Reset to page 1 whenever filters change
+                currentPage = 1; 
+                runFilterAndSearch();
+            }
+        });
+
+        // 3. Search Form Submission (Search button)
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            // Reset to page 1 whenever search changes
+            currentPage = 1; 
+            runFilterAndSearch();
+        });
+        
+    </script>
+</body>
+</html>
+
+
+{% endblock %}

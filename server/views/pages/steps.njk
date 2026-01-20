@@ -1,0 +1,239 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% set title = __("pages.steps.title") %}
+{% block pageTitle %}
+  Step by step navigation template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Making child arrangements</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Make child arrangements when you separate from a partner: step by step
+    </h1>
+    <p>How to make child arrangements (sometimes known as 'child custody' or 'child contact') when you are going through separation or divorce. </p>
+    <p>What you can do is different in <a href=https://www.mygov.scot/support-after-separation>Scotland</a> and <a href=https://www.nidirect.gov.uk/information-and-services/going-court/family-courts>Northern Ireland</a>.</p>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  
+    <div data-module="appstepnav"id="step-by-step-navigation" class="app-step-nav js-hidden app-step-nav--large" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all steps" data-hide-all-text="Hide all steps">
+      <ol class="app-step-nav__steps">
+        <li class="app-step-nav__step js-step" id="support">
+          <div class="app-step-nav__header js-toggle-panel" data-position="1">
+            <h2 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--number">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 1<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
+                Get support and advice
+              </span>
+            </h2>
+          </div>
+
+          <div class="app-step-nav__panel js-panel" id="step-panel-support-1">
+            <p class="app-step-nav__paragraph">There are a range of services available to help you through making child arrangements.</p>
+            <ol class="app-step-nav__list " data-length="1">
+              <li class="app-step-nav__list-item js-list-item ">
+                <a data-position="1.1" class="app-step-nav__link js-link" href="service-finder">Find child arrangements support services</a>
+              </li>
+            </ol>
+          </div>
+
+        </li>
+
+        <li class="app-step-nav__step js-step" id="decide">
+          <div class="app-step-nav__header js-toggle-panel" data-position="2">
+            <h2 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--number">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 2<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
+                Decide how to make child arrangements
+              </span>
+            </h2>
+          </div>
+
+          <div class="app-step-nav__panel js-panel" id="step-panel-decide-2">
+            <p class="app-step-nav__paragraph">If you are unsure where to start with making child arrangements, you can find information suited to your situation.</p>
+            <ol class="app-step-nav__list " data-length="1">
+              <li class="app-step-nav__list-item js-list-item ">
+                <a data-position="2.1" class="app-step-nav__link js-link" href="guide-2">Get help finding a child arrangement option</a>
+              </li>
+            </ol>
+          </div>
+
+        </li>
+
+        <li class="app-step-nav__step js-step" id="plan">
+          <div class="app-step-nav__header js-toggle-panel" data-position="3">
+            <h2 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--number">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                      <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 3<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
+                Make a child arrangements plan with your ex-partner
+              </span>
+            </h2>
+          </div>
+
+          <div class="app-step-nav__panel js-panel" id="step-panel-plan-3">
+            <p class="app-step-nav__paragraph">You do not have to do any official paperwork if you agree about child arrangements.</p>
+            <p class="app-step-nav__paragraph">You can write down what you've agreed in a child arrangements plan (also known as a 'parenting plan') if you want a record.</p>
+
+            <ol class="app-step-nav__list " data-length="1">
+              <li class="app-step-nav__list-item js-list-item ">
+                <a data-position="3.1" class="app-step-nav__link js-link" href="#">Propose a child arrangements plan</a>
+              </li>
+            </ol>
+          </div>
+
+        </li>
+
+        <li class="app-step-nav__step js-step" id="out">
+          <div class="app-step-nav__header js-toggle-panel" data-position="4">
+            <h2 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--logic">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    or
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
+                Find a way to agree out of court
+              </span>
+            </h2>
+          </div>
+
+          <div class="app-step-nav__panel js-panel" id="step-panel-out-4">
+            <p class="app-step-nav__paragraph">There are other ways to help you agree on child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR). NCDR is usually quicker than going to court.</p>
+            <ol class="app-step-nav__list " data-length="5">
+              <li class="app-step-nav__list-item js-list-item ">
+                <a data-position="4.1" class="app-step-nav__link js-link" href="https://www.familymediationcouncil.org.uk/find-local-mediator/">Find a family mediator on the Family Mediation Council website</a>
+              </li>
+              <li class="app-step-nav__list-item js-list-item ">
+                <a data-position="4.2" class="app-step-nav__link js-link" href="https://ifla.org.uk/">Find an arbitrator on the Institute of Family Law Arbitrators website</a>
+              </li>
+              <li class="app-step-nav__list-item js-list-item ">
+                <a rel="external" data-position="4.3" class="app-step-nav__link js-link" href="https://find-legal-advice.justice.gov.uk/">Find a legal aid adviser or family mediator</a>
+              </li>
+              <li class="app-step-nav__list-item js-list-item ">
+                <a rel="external" data-position="4.4" class="app-step-nav__link js-link" href="https://www.gov.uk/check-legal-aid">Check if you can get legal aid</a>
+              </li>
+              <li class="app-step-nav__list-item js-list-item ">
+                <a rel="external" data-position="4.5" class="app-step-nav__link js-link" href="https://www.gov.uk/find-legal-advice/find-legal-adviser">Find a legal adviser</a>
+              </li>
+            </ol>
+          </div>
+
+        </li>
+
+        <li class="app-step-nav__step js-step" id="court">
+          <div class="app-step-nav__header js-toggle-panel" data-position="5">
+            <h2 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--logic">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    or
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
+                Apply for a court order
+              </span>
+            </h2>
+          </div>
+
+          <div class="app-step-nav__panel js-panel" id="step-panel-court-5">
+            <p class="app-step-nav__paragraph">There are other ways to help you agree on child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR). NCDR is usually quicker than going to court.</p>
+            <ol class="app-step-nav__list " data-length="1">
+              <li class="app-step-nav__list-item js-list-item ">
+                <a data-position="5.1" class="app-step-nav__link js-link" href="https://www.familymediationcouncil.org.uk/find-local-mediator/">Find a family mediator on the Family Mediation Council website</a>
+              </li>
+            </ol>
+          </div>
+
+        </li>
+
+        <li class="app-step-nav__step js-step" id="review">
+          <div class="app-step-nav__header js-toggle-panel" data-position="6">
+            <h2 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--number">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 4<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
+                Review and update your child arrangements
+              </span>
+            </h2>
+          </div>
+
+          <div class="app-step-nav__panel js-panel" id="step-panel-review-6">
+            <p class="app-step-nav__paragraph">You can change your child arrangements as your children get older and their needs change, or if your situation changes. It's free to do this if you both agree to the changes. If you ask the court to change or enforce an order, you will probably have to go to a court hearing. </p>
+            <ol class="app-step-nav__list " data-length="1">
+              <li class="app-step-nav__list-item js-list-item ">
+                <a data-position="6.1" class="app-step-nav__link js-link" href="https://www.gov.uk/looking-after-children-divorce/change-or-enforce-an-order">Change or enforce a court order</a>
+              </li>
+            </ol>
+          </div>
+
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
