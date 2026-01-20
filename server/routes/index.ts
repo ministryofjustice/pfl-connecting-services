@@ -1,17 +1,26 @@
 import { Router } from 'express';
-import questionRoutes from './questions';
-import outcomeRoutes from './outcomes';
+
 import informationRoutes from './information';
+import outcomeRoutes from './outcomes';
+import questionRoutes from './questions';
+import startRoutes from './start';
 
-const router = Router();
+const routes = (): Router => {
+  const router = Router();
 
-// Question flow routes
-router.use(questionRoutes);
+  // Start page route
+  router.use(startRoutes);
 
-// Outcome page routes
-router.use(outcomeRoutes);
+  // Question flow routes
+  router.use(questionRoutes);
 
-// Information page routes
-router.use(informationRoutes);
+  // Outcome page routes
+  router.use(outcomeRoutes);
 
-export default router;
+  // Information page routes
+  router.use(informationRoutes);
+
+  return router;
+};
+
+export default routes;

@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import createError from 'http-errors';
 
-import { CAPSession } from '../@types/session';
+import { CSSession } from '../@types/session';
+import FormSteps from '../constants/formSteps';
 import TASK_FLOW_MAP from '../config/flowConfig';
 import logger from '../logging/logger';
 import {
@@ -11,25 +12,18 @@ import {
   getFlashMessage,
 } from '../utils/formProgressHelpers';
 
-type SessionRequest = Request & { session?: Partial<CAPSession> };
+type SessionRequest = Request & { session?: Partial<CSSession> };
 
 /**
  * Middleware factory to check if the user has completed the prerequisites
- * defined in the `TASK_FLOW_MAP` for the given step key.
- *
- * Handles three scenarios:
- * 1. Fresh visitor (no journey started) → silent redirect to start
- * 2. POST failure (visited page but submission failed) → redirect with "progress not saved" message
- * 3. Jumping ahead (skipped required steps) → redirect with "complete this page" message
- *
- * @param currentStepKey - A key from TASK_FLOW_MAP (e.g. 'step3')
+ * defined in the TASK_FLOW_MAP for the given step key.
  */
-function checkFormProgressFromConfig(currentStepKey: keyof typeof TASK_FLOW_MAP) {
-  const startPage = TASK_FLOW_MAP.step1?.path ?? '/';
+function checkFormProgressFromConfig(currentStepKey: FormSteps) {
+  const startPage = TASK_FLOW_MAP[FormSteps.START]?.path ?? '/';
   const stepConfig = TASK_FLOW_MAP[currentStepKey];
 
   if (!stepConfig) {
-    logger.error(`ERROR: Step '${String(currentStepKey)}' not found in TASK_FLOW_MAP.`);
+    logger.error('ERROR: Step not found in TASK_FLOW_MAP: ' + String(currentStepKey));
     throw createError(404);
   }
 
@@ -45,26 +39,18 @@ function checkFormProgressFromConfig(currentStepKey: keyof typeof TASK_FLOW_MAP)
       return next();
     }
 
-    // User hasn't met prerequisites - determine redirect strategy
-
     // Check if user has even started the journey
     if (!hasUserStartedJourney(completedSteps, pageHistory)) {
-      logger.info(
-        `Access denied to ${req.path} (${String(currentStepKey)}). User hasn't started journey. Redirecting to ${startPage}`
-      );
+      logger.info('Access denied - user has not started journey. Redirecting to ' + startPage);
       return res.redirect(startPage);
     }
 
     // User has started journey but is missing prerequisites
-    const missingSteps = requiredSteps.filter(step => !completedSteps.includes(step));
+    const missingSteps = requiredSteps.filter((step) => !completedSteps.includes(step));
     const redirectPath = getRedirectPath(missingSteps, startPage);
     const hasVisitedRedirectPage = pageHistory.includes(redirectPath);
 
-    logger.info(
-      `Access denied to ${req.path} (${String(currentStepKey)}). ` +
-      `Missing steps: ${missingSteps.join(', ') || 'none (alternative path required)'}. ` +
-      `Redirecting to ${redirectPath}. Has visited before: ${hasVisitedRedirectPage}`
-    );
+    logger.info('Access denied - missing steps. Redirecting to ' + redirectPath);
 
     const flashMessage = getFlashMessage(hasVisitedRedirectPage);
     req.flash('info', flashMessage);

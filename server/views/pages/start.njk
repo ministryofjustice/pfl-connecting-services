@@ -10,17 +10,6 @@
   {{ govukHeader() }}
 {% endblock %}
 
-{% block beforeContent %}
-
-  {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
-{% endblock %}
-
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -53,9 +42,10 @@
         <li>applying to the family court</li>
       </ul>
 
+      {% from "govuk/components/button/macro.njk" import govukButton %}
       {{ govukButton({
         text: "Start now",
-        href: "/beta-1/question-1",
+        href: paths.QUESTION_1_ABUSE,
         isStartButton: true
       }) }}
 

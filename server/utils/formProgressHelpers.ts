@@ -1,17 +1,15 @@
+import FormSteps from '../constants/formSteps';
 import TASK_FLOW_MAP from '../config/flowConfig';
 
-export function hasCompletedRequiredSteps(completedSteps: string[], requiredSteps: string[]): boolean {
-  return requiredSteps.every(step => completedSteps.includes(step));
+export function hasCompletedRequiredSteps(completedSteps: string[], requiredSteps: FormSteps[]): boolean {
+  return requiredSteps.every((step) => completedSteps.includes(step));
 }
 
 export function hasUserStartedJourney(completedSteps: string[], pageHistory: string[]): boolean {
   return completedSteps.length > 0 || pageHistory.length > 1;
 }
 
-export function getRedirectPath(
-  missing: string[],
-  startPage: string
-): string {
+export function getRedirectPath(missing: FormSteps[], startPage: string): string {
   if (missing.length > 0) {
     return TASK_FLOW_MAP[missing[0]]?.path || startPage;
   }

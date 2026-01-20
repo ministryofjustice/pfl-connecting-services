@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import accessibilityStatementRoutes from './accessibilityStatement';
+import analyticsRoutes from './analytics';
 import contactUsRoutes from './contactUs';
 import cookiesRoutes from './cookies';
 import passwordRoutes from './password';
@@ -15,6 +16,7 @@ const routes = (): Router => {
   contactUsRoutes(router);
   privacyNoticeRoutes(router);
   termsAndConditionsRoutes(router);
+  analyticsRoutes(router);
 
   return router;
 };

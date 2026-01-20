@@ -3,10 +3,6 @@ import { Router } from 'express';
 import paths from '../constants/paths';
 
 const pathsNotForHistory = [
-  // These pdf pages should not be in the history, as they are not navigated to
-  paths.DOWNLOAD_PDF,
-  paths.PRINT_PDF,
-  paths.DOWNLOAD_PAPER_FORM,
   // These pages should be skipped in the back button
   paths.PASSWORD,
   paths.ACCESSIBILITY_STATEMENT,
@@ -14,7 +10,6 @@ const pathsNotForHistory = [
   paths.COOKIES,
   paths.PRIVACY_NOTICE,
   paths.TERMS_AND_CONDITIONS,
-  paths.EXISTING_COURT_ORDER,
 ];
 const pathsForHistory = Object.values(paths).filter((path) => !pathsNotForHistory.includes(path));
 
@@ -23,13 +18,6 @@ const setupHistory = (): Router => {
 
   router.get('*', (request, _response, next) => {
     const requestUrl = request.originalUrl;
-
-    if (requestUrl === paths.TASK_LIST) {
-      // Don't go back into the start flow once we've made it to the task list
-      request.session.pageHistory = [requestUrl];
-      next();
-      return;
-    }
 
     // @ts-expect-error this is not necessarily of type paths
     if (pathsForHistory.includes(requestUrl)) {

@@ -4,3 +4,20 @@ export const CONTACT = 'contact';
 export const AGREE = 'agree';
 export const HELP = 'help';
 export const MEDIATION = 'mediation';
+
+// Shared fields (from CAP infrastructure)
+export const PASSWORD = 'password';
+export const ACCEPT_OPTIONAL_COOKIES = 'acceptOptionalCookies';
+
+// Default export for compatibility with existing imports
+const formFields = {
+  ABUSE,
+  CONTACT,
+  AGREE,
+  HELP,
+  MEDIATION,
+  PASSWORD,
+  ACCEPT_OPTIONAL_COOKIES,
+};
+
+export default formFields;
