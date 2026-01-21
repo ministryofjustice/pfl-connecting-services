@@ -13,7 +13,39 @@
   },
   "pages": {
     "start": {
-      "title": "Get help making child arrangements"
+      "title": "Making child arrangements if you divorce or separate",
+      "contents": {
+        "makingChildArrangements": "Making child arrangements",
+        "getHelpMakingChildArrangements": "Get help making child arrangements",
+        "agreeOnChildArrangements": "If you agree on child arrangements",
+        "agreementThroughMediation": "Make an agreement through mediation",
+        "otherWaysToAgree": "Other ways to agree without going to court",
+        "CourtOrdersToApply": "If you cannot agree: court orders you can apply for",
+        "applyCourtOrder": "Apply for a court order",
+        "afterApplyCourtOrder": "After you apply for a court order",
+        "enforceOrder": "Change or enforce an order"
+      },
+      "childArrangements": {
+        "title": "Making child arrangements",
+        "content": "<p>You can choose how to make arrangements for looking after your children if you separate from your partner.</p><p>This is called making child arrangements (sometimes known as 'child custody' or 'child contact').</p><p>You can agree on child maintenance at the same time or separately.</p>",
+        "contentInset": "<div class=\"govuk-inset-text\">What you can do is different in <a href=\"https://www.mygov.scot/support-after-separation\">Scotland</a> and <a href=\"https://www.nidirect.gov.uk/information-and-services/going-court/family-courts\">Northern Ireland</a>.</div>",
+        "unsureToMakeChildArrangements": {
+          "title": "If you are unsure how to make child arrangements",
+          "content": "<p>You can <a href=\"/beta-1/guide-2\">get help making child arrangements</a> if you need:</p><ul class=\"govuk-list govuk-list--bullet\"><li>guidance on how to make arrangements for your situation</li><li>help and support services like legal aid or impartial advice</li></ul>"
+        },
+        "partnerAgreement": {
+          "title": "If you and your ex-partner agree",
+          "content": "<p>You and your ex-partner may be able to avoid going to court if you agree on:</p><p>If you both agree, you can make a <a href=\"#\">Parenting Plan</a>. This is a record of what you've agreed.</p>"
+        },
+        "getHelpWithoutGoingToCourt": {
+          "title": "Get help agreeing without going to court",
+          "content": "<p>You can find out about:</p><ul class=\"govuk-list govuk-list--bullet\"><li><a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\">how to use mediation to agree on child arrangements</a></li><li><a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">other ways to agree without going to court</a></li></ul>"
+        },
+        "cannotAgreeOnEverything": {
+          "title": "If you cannot agree on everything",
+          "content": "<p>You can <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">apply for a court order</a> if you cannot agree after using a mediator or getting help.</p><p>If you decide to go to court, you’ll usually need to show you’ve tried mediation before you apply. You can get a voucher worth up to £500 to pay for family mediation, regardless of what you earn.</p>"
+        }
+      }
     },
     "question1": {
       "title": "Safety question"
