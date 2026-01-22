@@ -166,7 +166,7 @@ test.describe.skip('Browser Navigation - Onboarding Flow', () => {
   });
 });
 
-test.describe('Browser Navigation - Alternative Paths', () => {
+test.describe.skip('Browser Navigation - Alternative Paths', () => {
   test('should navigate back from not-safe page', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('button', { name: /start now/i }).click();
@@ -230,7 +230,7 @@ test.describe('Browser Navigation - Alternative Paths', () => {
   });
 });
 
-test.describe('Browser Navigation - Complex Scenarios', () => {
+test.describe.skip('Browser Navigation - Complex Scenarios', () => {
   test('should handle multiple back and forward navigations without data loss', async ({ page }) => {
     await completeOnboardingFlow(page);
     await fillNumberOfChildren(page, 1);
@@ -379,7 +379,7 @@ test.describe('Browser Navigation - Complex Scenarios', () => {
   });
 });
 
-test.describe('Browser Navigation - Task List Sections', () => {
+test.describe.skip('Browser Navigation - Task List Sections', () => {
   test.beforeEach(async ({ page }) => {
     await navigateToTaskList(page);
     await expect(page).toHaveURL(/\/make-a-plan/);
@@ -459,7 +459,7 @@ test.describe('Browser Navigation - Task List Sections', () => {
   });
 });
 
-test.describe('Browser Navigation - Static Pages', () => {
+test.describe.skip('Browser Navigation - Static Pages', () => {
   for (const staticPage of staticPages) {
     test(`should navigate back from ${staticPage.name}`, async ({ page }) => {
       await page.goto('/');

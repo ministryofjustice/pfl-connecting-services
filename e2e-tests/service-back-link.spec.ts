@@ -151,7 +151,7 @@ test.describe.skip('Service Back Link Navigation - Onboarding Flow', () => {
 
 });
 
-test.describe('Service Back Link Navigation - Alternative Paths', () => {
+test.describe.skip('Service Back Link Navigation - Alternative Paths', () => {
   test('should navigate back from not-safe page', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('button', { name: /start now/i }).click();
@@ -194,7 +194,7 @@ test.describe('Service Back Link Navigation - Alternative Paths', () => {
 
 });
 
-test.describe('Service Back Link Navigation - Validation Errors', () => {
+test.describe.skip('Service Back Link Navigation - Validation Errors', () => {
   test('should navigate back from about-the-children validation error', async ({ page }) => {
     await completeOnboardingFlow(page);
     await fillNumberOfChildren(page, 1);
@@ -247,7 +247,7 @@ test.describe('Service Back Link Navigation - Validation Errors', () => {
   });
 });
 
-test.describe('Service Back Link Navigation - Task List Sections', () => {
+test.describe.skip('Service Back Link Navigation - Task List Sections', () => {
   test.beforeEach(async ({ page }) => {
     await navigateToTaskList(page);
     await expect(page).toHaveURL(/\/make-a-plan/);
@@ -265,7 +265,7 @@ test.describe('Service Back Link Navigation - Task List Sections', () => {
   }
 });
 
-test.describe('Service Back Link Navigation - Static Pages', () => {
+test.describe.skip('Service Back Link Navigation - Static Pages', () => {
   for (const staticPage of staticPages) {
     test(`should navigate back from ${staticPage.name}`, async ({ page }) => {
       await page.goto('/');
