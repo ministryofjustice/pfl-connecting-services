@@ -1,9 +1,9 @@
-import type { Response, Request, Router } from 'express-serve-static-core';
+import type { Request, Response, Router } from 'express-serve-static-core';
 import { body, validationResult } from 'express-validator';
 
 import config from '../config';
 import cookieNames from '../constants/cookieNames';
-import formFields from '../constants/formFields';
+import { PASSWORD } from '../constants/formFields';
 import paths from '../constants/paths';
 import logger from '../logging/logger';
 import encryptPassword from '../utils/encryptPassword';
@@ -13,7 +13,7 @@ const passwordRoutes = (router: Router) => {
   router.get(paths.PASSWORD, handleGetPassword);
   router.post(
     paths.PASSWORD,
-    body(formFields.PASSWORD)
+    body(PASSWORD)
       .custom((submittedPassword: string) => {
         return config.passwords.some((p) => submittedPassword === p);
       })

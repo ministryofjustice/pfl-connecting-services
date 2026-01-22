@@ -1,8 +1,8 @@
-import { CAPSession } from '../session';
+import { CSSession } from '../session';
 
 export declare module 'express-session' {
   // Declare that the session.d.ts will potentially contain these additional fields
-  interface SessionData extends CAPSession {
+  interface SessionData extends CSSession {
     nowInMinutes: number;
     pageHistory: string[];
     previousPage: string;

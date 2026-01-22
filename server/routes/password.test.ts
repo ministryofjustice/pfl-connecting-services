@@ -2,7 +2,7 @@ import request from 'supertest';
 
 import config from '../config';
 import cookieNames from '../constants/cookieNames';
-import formFields from '../constants/formFields';
+import { PASSWORD } from '../constants/formFields';
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
 import { flashMock, flashMockErrors } from '../test-utils/testMocks';
@@ -34,7 +34,7 @@ describe('Password Handler', () => {
         {
           location: 'body',
           msg: 'The password is not correct',
-          path: formFields.PASSWORD,
+          path: PASSWORD,
           type: 'field',
           value: ['incorrect', ' password'].join(''),
         },
@@ -104,7 +104,7 @@ describe('Password Handler', () => {
             {
               location: 'body',
               msg: 'The password is not correct',
-              path: formFields.PASSWORD,
+              path: PASSWORD,
               type: 'field',
               value: incorrectPassword,
             },
@@ -119,7 +119,7 @@ describe('Password Handler', () => {
             {
               location: 'body',
               msg: 'The password is not correct',
-              path: formFields.PASSWORD,
+              path: PASSWORD,
               type: 'field',
               value: incorrectPassword,
             },

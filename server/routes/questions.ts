@@ -1,5 +1,6 @@
-import { Router, Request, Response } from 'express';
+import { Request, Response, Router } from 'express';
 import { body, validationResult } from 'express-validator';
+
 import paths from '../constants/paths';
 
 const router = Router();
@@ -23,7 +24,7 @@ router.post(
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      req.flash('errors', errors.array() as any);
+      req.flash('errors', errors.array());
       return res.redirect(paths.QUESTION_1_ABUSE);
     }
 
@@ -55,7 +56,7 @@ router.post(
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      req.flash('errors', errors.array() as any);
+      req.flash('errors', errors.array());
       return res.redirect(paths.QUESTION_2_CONTACT);
     }
 
@@ -89,7 +90,7 @@ router.post(
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      req.flash('errors', errors.array() as any);
+      req.flash('errors', errors.array());
       return res.redirect(paths.QUESTION_3_AGREE);
     }
 
@@ -121,7 +122,7 @@ router.post(
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      req.flash('errors', errors.array() as any);
+      req.flash('errors', errors.array());
       return res.redirect(paths.QUESTION_4_HELP);
     }
 
@@ -155,7 +156,7 @@ router.post(
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      req.flash('errors', errors.array() as any);
+      req.flash('errors', errors.array());
       return res.redirect(paths.QUESTION_5_MEDIATION);
     }
 

@@ -1,15 +1,15 @@
-import { Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import createError from 'http-errors';
 
 import { CSSession } from '../@types/session';
-import FormSteps from '../constants/formSteps';
 import TASK_FLOW_MAP from '../config/flowConfig';
+import FormSteps from '../constants/formSteps';
 import logger from '../logging/logger';
 import {
+  getFlashMessage,
+  getRedirectPath,
   hasCompletedRequiredSteps,
   hasUserStartedJourney,
-  getRedirectPath,
-  getFlashMessage,
 } from '../utils/formProgressHelpers';
 
 type SessionRequest = Request & { session?: Partial<CSSession> };

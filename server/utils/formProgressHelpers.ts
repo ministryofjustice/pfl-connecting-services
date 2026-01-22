@@ -1,5 +1,5 @@
-import FormSteps from '../constants/formSteps';
 import TASK_FLOW_MAP from '../config/flowConfig';
+import FormSteps from '../constants/formSteps';
 
 export function hasCompletedRequiredSteps(completedSteps: string[], requiredSteps: FormSteps[]): boolean {
   return requiredSteps.every((step) => completedSteps.includes(step));
