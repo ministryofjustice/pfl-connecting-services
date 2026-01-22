@@ -9,6 +9,7 @@ const app = testAppSetup();
 
 describe(paths.ACCESSIBILITY_STATEMENT, () => {
   describe('GET', () => {
+    // eslint-disable-next-line jest/no-disabled-tests
     it.skip('should render accessibility statement page', async () => {
       logger.info(`GET ${paths.ACCESSIBILITY_STATEMENT}`);
       const response = await request(app).get(paths.ACCESSIBILITY_STATEMENT).expect('Content-Type', /html/);

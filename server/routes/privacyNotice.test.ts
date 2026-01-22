@@ -8,6 +8,7 @@ const app = testAppSetup();
 
 describe(paths.PRIVACY_NOTICE, () => {
   describe('GET', () => {
+    // eslint-disable-next-line jest/no-disabled-tests
     it.skip('should render privacy notice page', async () => {
       const response = await request(app).get(paths.PRIVACY_NOTICE).expect('Content-Type', /html/);
 

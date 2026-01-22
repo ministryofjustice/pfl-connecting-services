@@ -22,6 +22,7 @@ describe('App', () => {
         config.includeWelshLanguage = true;
       });
 
+      // eslint-disable-next-line jest/no-disabled-tests
       it.skip.each(['en', 'cy'])('should return %s when the Accept-Language header is %s', (language: languages) => {
         return request(testAppSetup())
           .get(paths.START)
@@ -32,6 +33,7 @@ describe('App', () => {
           });
       });
 
+      // eslint-disable-next-line jest/no-disabled-tests
       it.skip.each(['en', 'cy'])('should return %s when the lang query parameter is %s', (language: languages) => {
         return request(testAppSetup())
           .get(`${paths.START}?lang=${language}`)
@@ -97,6 +99,7 @@ describe('App', () => {
         config.analytics.ga4Id = ga4Id;
       });
 
+      // eslint-disable-next-line jest/no-disabled-tests
       it.skip('should show the banner and not load ga4 if the consent cookie does not exist', async () => {
         const response = await request(app).get(paths.START).expect('Content-Type', /html/);
 
