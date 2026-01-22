@@ -2,6 +2,9 @@
   "serviceName": "Get help making child arrangements",
   "back": "Back",
   "continue": "Continue",
+  "next": "Next",
+  "nextPage": "Next<span class=\"govuk-visually-hidden\"> page</span>",
+  "printableVersion": "View a printable version of the whole guide",
   "phaseBannerText": "This is a new service – your <a class=\"govuk-link\" href=\"{feedbackUrl}\">feedback</a> will help us to improve it.",
   "footer": {
     "accessibility": "Accessibility statement",
@@ -44,6 +47,15 @@
         "cannotAgreeOnEverything": {
           "title": "If you cannot agree on everything",
           "content": "<p>You can <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">apply for a court order</a> if you cannot agree after using a mediator or getting help.</p><p>If you decide to go to court, you’ll usually need to show you’ve tried mediation before you apply. You can get a voucher worth up to £500 to pay for family mediation, regardless of what you earn.</p>"
+        }
+      },
+      "relatedContent": {
+        "title": "Related content",
+        "content": {
+          "makingChildArrangements": "Making child arrangements if you divorce or separate",
+          "proposeChildArrangementsPlan": "Propose a child arrangements plan",
+          "childMaintenance": "Child maintenance",
+          "parentalRights": "Parental rights and responsibilities"
         }
       }
     },
