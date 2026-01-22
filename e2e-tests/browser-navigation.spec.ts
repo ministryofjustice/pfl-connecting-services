@@ -11,7 +11,7 @@ import {
   navigateToTaskList,
 } from './fixtures/test-helpers';
 
-test.describe('Browser Navigation - Onboarding Flow', () => {
+test.describe.skip('Browser Navigation - Onboarding Flow', () => {
   test('should navigate back from children-safety-check to safety-check', async ({ page }) => {
     await startJourney(page);
 

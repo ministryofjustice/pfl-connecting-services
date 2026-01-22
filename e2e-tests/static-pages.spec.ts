@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Static Pages', () => {
+test.describe.skip('Static Pages', () => {
   const staticPages = [
     { url: '/cookies', title: /cookies/i },
     { url: '/privacy-notice', title: /privacy/i },

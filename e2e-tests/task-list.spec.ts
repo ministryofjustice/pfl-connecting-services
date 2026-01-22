@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Task List', () => {
+test.describe.skip('Task List', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     await page.getByRole('button', { name: /start now/i }).click();

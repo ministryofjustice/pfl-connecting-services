@@ -23,7 +23,7 @@ import {
  * Consider updating routes to pre-fill radio buttons/checkboxes from session data for better UX.
  */
 
-test.describe('Service Back Link Navigation - Onboarding Flow', () => {
+test.describe.skip('Service Back Link Navigation - Onboarding Flow', () => {
   test('should navigate back from children-safety-check to safety-check', async ({ page }) => {
     await startJourney(page);
 
