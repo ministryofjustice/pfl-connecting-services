@@ -4,6 +4,7 @@
   "continue": "Continue",
   "next": "Next",
   "nextPage": "Next<span class=\"govuk-visually-hidden\"> page</span>",
+  "previousPage": "Previous<span class=\"govuk-visually-hidden\"> page</span>",
   "printableVersion": "View a printable version of the whole guide",
   "phaseBannerText": "This is a new service – your <a class=\"govuk-link\" href=\"{feedbackUrl}\">feedback</a> will help us to improve it.",
   "footer": {
@@ -59,8 +60,31 @@
         }
       }
     },
-    "question1": {
-      "title": "Safety question"
+    "helpMakingChildArrangements": {
+      "title": "Get help making child arrangements",
+      "content": {
+        "howToStart": "<p>If you are unsure how you can start making child arrangements with your ex-partner, you can get help.</p>",
+        "ifYouNeedHelp": {
+          "title": "If you need help deciding how to make child arrangements",
+          "content": "<p>Use the 'Get help finding a child arrangement option' service to find out about your options for making child arrangements if you are a parent separating from your child's other parent.</p>"
+        },
+        "howItWorks": {
+          "title": "How it works",
+          "content": "<p>You will be asked questions about your circumstances, including your current relationship with your ex-partner. You will not be asked for any personal details.</p><p>It takes about 10 minutes to use this service.</p>"
+        },
+        "exitTheService": {
+          "title": "If you need to exit the service quickly",
+          "content": "<p>Each page of this service has an 'Exit this page' button to help keep you safe and protect your privacy if you need it.</p>"
+        },
+        "getHelpChildArrangementOption": {
+          "title": "Get help finding a child arrangement option",
+          "content": "<p>Your answers will not be saved or shared with anyone.</p>"
+        },
+        "supportWhenMakingChildArrangements": {
+          "title": "If you need support when making child arrangements",
+          "content": "<p>Search for services to help you make child arrangements, including legal aid and impartial advice services.</p><p><a href=\"/beta-1/service-finder\">Find child arrangement support services</a></p>"
+        }
+      }
     },
     "question2": {
       "title": "Contact question"
