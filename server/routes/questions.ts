@@ -4,7 +4,14 @@ import paths from '../constants/paths';
 
 const router = Router();
 
-// Question 1: Abuse
+/**
+ * Question 1: Safeguarding / Abuse
+ *
+ * Routing logic:
+ *   - YES ──────────────→ Safeguarding Page
+ *   - PREFER NOT TO SAY ─→ Safeguarding Page (cautious approach)
+ *   - NO ───────────────→ Question 2 (Contact)
+ */
 router.get(paths.QUESTION_1_ABUSE, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/question-1', {
@@ -29,10 +36,11 @@ router.post(
 
     req.session.abuse = req.body.abuse;
 
-    if (req.body.abuse === 'yes') {
+    // Route to safeguarding page for 'yes' or 'prefer-not-to-say' (cautious approach)
+    if (req.body.abuse === 'yes' || req.body.abuse === 'prefer-not-to-say') {
       return res.redirect(paths.SAFEGUARDING);
     }
-    // For 'no' or 'prefer-not-to-say', continue to next question
+    // Only 'no' continues to the next question
     return res.redirect(paths.QUESTION_2_CONTACT);
   }
 );
