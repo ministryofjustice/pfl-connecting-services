@@ -96,12 +96,12 @@ describe('Question 1: Abuse/Safeguarding', () => {
         .expect('location', paths.QUESTION_2_CONTACT);
     });
 
-    it('should redirect to question 2 when answer is prefer-not-to-say', () => {
+    it('should redirect to safeguarding page when answer is prefer-not-to-say (cautious approach)', () => {
       return request(app)
         .post(paths.QUESTION_1_ABUSE)
         .send({ abuse: 'prefer-not-to-say' })
         .expect(302)
-        .expect('location', paths.QUESTION_2_CONTACT);
+        .expect('location', paths.SAFEGUARDING);
     });
 
     it('should store answer in session', async () => {
