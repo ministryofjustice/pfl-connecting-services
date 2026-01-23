@@ -1,4 +1,5 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 
 {% set title = __("pages.start.title") %}
 {% block pageTitle %}
@@ -34,7 +35,8 @@
       </h1>
 
       <aside class="govuk-!-padding-bottom-3">
-        {%- include "partials/homePageNavigationLinks.njk" -%}
+        {% set firstElementSelected = true %}
+        {% include "partials/homePageNavigationLinks.njk" %}
       </aside>
       <hr class="govuk-section-break govuk-section-break--visible">
     </div>

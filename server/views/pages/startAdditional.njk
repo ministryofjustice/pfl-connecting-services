@@ -1,4 +1,5 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% set title = __("pages.start.title") %}
 {% block pageTitle %}
@@ -34,7 +35,8 @@
       </h1>
 
       <aside class="govuk-!-padding-bottom-3">
-        {%- include "partials/homePageNavigationLinks.njk" -%}
+        {% set firstElementSelected = false %}
+        {% include "partials/homePageNavigationLinks.njk" %}
       </aside>
       <hr class="govuk-section-break govuk-section-break--visible">
     </div>
@@ -70,6 +72,14 @@
       </h2>
 
       {{ __("pages.helpMakingChildArrangements.content.getHelpChildArrangementOption.content") | safe }}
+
+      {{
+        govukButton({
+          text: "Start now",
+          isStartButton: true,
+          href: paths.QUESTION_1_ABUSE
+        })
+      }}
 
       <h2 class="govuk-heading-m">
         {{ __("pages.helpMakingChildArrangements.content.supportWhenMakingChildArrangements.title") | safe }}
