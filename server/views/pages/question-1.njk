@@ -17,17 +17,26 @@
        Have you or your children experienced abuse from your ex-partner?
       </h1>
 
-      <p>
-       You may have been in an abusive relationship if you or your children have experienced any of the following:
-      </p>
-      
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Abuse or violence, including physical, emotional and sexual</li>
-        <li>Financial or economic abuse</li>
-        <li>Coercive control (a pattern of threats, humiliation, intimidation, degradation, isolation and control)</li>
-        <li>Child abuse, neglect, or child abduction</li>
-        <li>Harrassment and stalking</li>
-      </ul>
+      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{{ govukInsetText({
+  text: "We ask this to make sure we give you safe and appropriate advice about making child arrangements."
+}) }}
+
+      {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "Examples of abuse",
+  html: '<p>You may have been in an abusive relationship if you or your children have experienced any of the following:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>Abuse or violence, including physical, emotional and sexual</li>
+    <li>Psychological abuse</li>
+    <li>Financial or economic abuse</li>
+    <li>Coercive control (threats, humiliation, intimidation, degradation, isolation and control)</li>
+    <li>Child abuse, neglect, or child abduction</li>
+    <li>Harrassment and stalking</li>
+  </ul>'
+}) }}
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -47,6 +56,10 @@
     {
       value: "no",
       text: "No"
+    },
+    {
+      value: "prefer-not-to-say",
+      text: "Prefer not to say"
     }
   ]
 }) }}

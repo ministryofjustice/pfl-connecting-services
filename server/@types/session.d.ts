@@ -2,7 +2,7 @@ import 'express-session';
 
 export interface CSSession {
   // Question answers
-  abuse?: 'yes' | 'no';
+  abuse?: 'yes' | 'no' | 'prefer-not-to-say';
   contact?: 'yes' | 'no' | 'no-details' | 'no-response';
   agree?: 'yes' | 'not-discussed' | 'no';
   help?: 'plan' | 'external' | 'cannot';
