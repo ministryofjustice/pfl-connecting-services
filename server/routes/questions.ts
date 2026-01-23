@@ -33,6 +33,7 @@ router.post(
     if (req.body.abuse === 'yes') {
       return res.redirect(paths.SAFEGUARDING);
     }
+    // For 'no' or 'prefer-not-to-say', continue to next question
     return res.redirect(paths.QUESTION_2_CONTACT);
   }
 );
