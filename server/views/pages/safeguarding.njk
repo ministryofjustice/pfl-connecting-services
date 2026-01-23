@@ -1,107 +1,181 @@
 {% extends "partials/layout.njk" %}
 
 {% set title = __("pages.safeguarding.title") %}
-{% block pageTitle %}
-  Content page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
-{% endblock %}
 
+{% block pageTitle %}
+  {{ title }} – {{ __("serviceName") }} – GOV.UK
+{% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+      {{ govukExitThisPage({
+        text: "Exit this page"
+      }) }}
+
       <h1 class="govuk-heading-l">
-        Getting help
+        Support is available
       </h1>
 
-      <p>
-        You may have been in an abusive relationship. Domestic abuse or violence is a crime. It is important to remember that there is help and support available to you.
+      <p class="govuk-body-l">
+        Thank you for sharing this information. We understand this may have been difficult.
       </p>
 
       {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-
-{{ govukWarningText({
-  text: "If you are in immediate danger, call 999 and ask for the police.",
-  iconFallbackText: "Warning"
-}) }}
-      <h2 class="govuk-heading-m">
-        If you want to continue
-      </h2>
-
-      <p>
-       If you feel confident that you can carry on without any danger to yourself or the children, continue using the service.
-      </p>
-
-      {% from "govuk/components/button/macro.njk" import govukButton %}
-
-{% from "govuk/components/button/macro.njk" import govukButton %}
-
-{{ govukButton({
-  text: "Continue",
-  href: "/beta-1/question-2",
-  classes: "govuk-button--primary"
-}) }}
-
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      {{ govukWarningText({
+        text: "If you or your children are in immediate danger, call 999 and ask for the police.",
+        iconFallbackText: "Warning"
+      }) }}
 
       <h2 class="govuk-heading-m">
-        Get help protecting yourself and your children
+        Immediate support
       </h2>
-      <p>
-        If you are a victim of domestic abuse, you can <a href="https://www.gov.uk/guidance/safeguarding-how-to-get-help#get-a-court-order-to-protect-you-or-your-child">apply for a court order to protect yourself and your child</a>.
-      </p>
-      <p>
-        Citizens Advice has <a href="https://www.citizensadvice.org.uk/family/making-agreements-about-your-children/making-child-arrangements/">advice on making child arrangements when there's been domestic abuse</a>.
-      </p>
-      <p>
-        Find out <a href="https://www.gov.uk/guidance/safeguarding-how-to-get-help">how to get help with domestic abuse</a>.
-      </p>
-      <p>
-        If you want to access help specifically to cater to your background and needs or want support and help for specific types of abuse there are several organisations that can help - see <a href="https://www.gov.uk/government/publications/safeguarding-get-help-for-specific-needs-or-situations/safeguarding-specialist-sources-of-support">Domestic abuse: specialist sources of support</a>.
+
+      <p class="govuk-body">
+        If you need to talk to someone now, these services are free and confidential:
       </p>
 
-      <h2 class="govuk-heading-m">
-        Help and support
-      </h2>
-      <p>There is free, confidential support available to help you and your family. You can also <a href="/service-finder">find more child arrangement support services</a>.
-      </p>
-      
       <table class="govuk-table">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header"></th>
-            <th scope="col" class="govuk-table__header"></th>
-          </tr>
-        </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="https://www.nationaldahelpline.org.uk/">Refuge's National Domestic Abuse Helpline</a></th>
-            <td class="govuk-table__cell"><p>Free, confidential advice, 24 hours a day.</p>
-            <p>Telephone: 0808 2000 247</p>
+            <th scope="row" class="govuk-table__header">
+              <a href="https://www.nationaldahelpline.org.uk/" class="govuk-link" target="_blank" rel="noopener noreferrer">
+                National Domestic Abuse Helpline
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              <p class="govuk-body">24-hour freephone: <strong>0808 2000 247</strong></p>
+              <p class="govuk-body">Run by Refuge. Free, confidential support any time.</p>
             </td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="https://www.gov.wales/live-fear-free">Live Fear Free (Wales)</a></th>
-            <td class="govuk-table__cell"><p>24 hour service with specialists who make referrals and link to other services and advice.</p>
-            <p>Telephone: 0808 80 10 100</p>
+            <th scope="row" class="govuk-table__header">
+              <a href="https://www.womensaid.org.uk/" class="govuk-link" target="_blank" rel="noopener noreferrer">
+                Women's Aid
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              <p class="govuk-body">Live chat available on their website.</p>
+              <p class="govuk-body">Support for women and children experiencing domestic abuse.</p>
             </td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="https://mensadviceline.org.uk/">Men's Advice Line</a></th>
-            <td class="govuk-table__cell"><p>A supportive helpline for all male victims of domestic abuse and those supporting them.</p>
-            <p>Telephone: 0808 801 0327</p>
+            <th scope="row" class="govuk-table__header">
+              <a href="https://mensadviceline.org.uk/" class="govuk-link" target="_blank" rel="noopener noreferrer">
+                Men's Advice Line
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              <p class="govuk-body">Freephone: <strong>0808 801 0327</strong></p>
+              <p class="govuk-body">Monday to Friday, 10am to 8pm. Support for male victims.</p>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <a href="https://www.gov.wales/live-fear-free" class="govuk-link" target="_blank" rel="noopener noreferrer">
+                Live Fear Free (Wales)
+              </a>
+            </th>
+            <td class="govuk-table__cell">
+              <p class="govuk-body">24-hour helpline: <strong>0808 80 10 800</strong></p>
+              <p class="govuk-body">Support for anyone in Wales affected by domestic abuse.</p>
             </td>
           </tr>
         </tbody>
       </table>
 
-    </div>
+      <h2 class="govuk-heading-m">
+        Legal protection
+      </h2>
 
-    <div class="govuk-grid-column-one-third">
-      {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+      <p class="govuk-body">
+        There are court orders that can help protect you and your children from abuse:
+      </p>
 
-{{ govukExitThisPage() }}
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <strong>Non-molestation order</strong> – stops your ex-partner from threatening or being violent towards you or your children
+        </li>
+        <li>
+          <strong>Occupation order</strong> – decides who can live in the family home
+        </li>
+        <li>
+          <strong>Prohibited steps order</strong> – prevents specific actions, like taking children out of the country
+        </li>
+      </ul>
+
+      <p class="govuk-body">
+        You can <a href="https://www.gov.uk/guidance/safeguarding-how-to-get-help#get-a-court-order-to-protect-you-or-your-child" class="govuk-link" target="_blank" rel="noopener noreferrer">apply for a court order to protect yourself and your children</a>.
+      </p>
+
+      <p class="govuk-body">
+        You may be able to get legal aid to help with costs. <a href="https://www.gov.uk/legal-aid" class="govuk-link" target="_blank" rel="noopener noreferrer">Check if you can get legal aid</a>.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Why mediation may not be right for you
+      </h2>
+
+      <p class="govuk-body">
+        Mediation is usually not suitable when there has been domestic abuse. This is because:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>there may be an imbalance of power between you and your ex-partner</li>
+        <li>you may feel pressured to agree to things that are not safe</li>
+        <li>it could put you at further risk</li>
+      </ul>
+
+      <p class="govuk-body">
+        You are exempt from the requirement to attend a Mediation Information and Assessment Meeting (MIAM) if you have experienced domestic abuse.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        Your options for making child arrangements
+      </h2>
+
+      <p class="govuk-body">
+        If you need to make arrangements about your children, you can:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="{{ paths.COURT }}" class="govuk-link">Apply to court</a> – a judge can make decisions about child arrangements and can include conditions to keep you safe
+        </li>
+        <li>
+          Get help from a solicitor – they can advise you and represent you in court
+        </li>
+      </ul>
+
+      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+      {{ govukInsetText({
+        text: "You do not have to have any direct contact with your ex-partner during court proceedings. The court can make special arrangements to protect you."
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        More help and information
+      </h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="https://www.citizensadvice.org.uk/family/making-agreements-about-your-children/making-child-arrangements/" class="govuk-link" target="_blank" rel="noopener noreferrer">
+            Citizens Advice – making child arrangements when there's been domestic abuse
+          </a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/guidance/safeguarding-how-to-get-help" class="govuk-link" target="_blank" rel="noopener noreferrer">
+            GOV.UK – how to get help with domestic abuse
+          </a>
+        </li>
+        <li>
+          <a href="https://www.gov.uk/government/publications/safeguarding-get-help-for-specific-needs-or-situations/safeguarding-specialist-sources-of-support" class="govuk-link" target="_blank" rel="noopener noreferrer">
+            Specialist support for specific needs
+          </a>
+        </li>
+      </ul>
 
     </div>
   </div>
