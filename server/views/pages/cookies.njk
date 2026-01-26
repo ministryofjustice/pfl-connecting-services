@@ -6,30 +6,30 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      <h1 class="govuk-heading-xl">{{ __('pages.cookies.title') }}</h1>
 
-      {{ __('cookies.aboutCookies') | safe }}
+      {{ __('pages.cookies.aboutCookies') | safe }}
 
-      <h2 class="govuk-heading-l">{{ __('cookies.howCookiesAreUsed') }}</h2>
+      <h2 class="govuk-heading-l">{{ __('pages.cookies.howCookiesAreUsed') }}</h2>
 
-      <h3 class="govuk-heading-m">{{ __('cookies.essentialCookies') }}</h3>
+      <h3 class="govuk-heading-m">{{ __('pages.cookies.essentialCookies') }}</h3>
 
-      <p>{{ __('cookies.essentialCookiesUse') }}</p>
+      <p>{{ __('pages.cookies.essentialCookiesUse') }}</p>
 
-      {{ __('cookies.rememberingProgress') | safe }}
+      {{ __('pages.cookies.rememberingProgress') | safe }}
 
       {{
         govukTable({
           head: [
-            { text: __('cookies.name') },
-            { text: __('cookies.purpose') },
-            { text: __('cookies.expires') }
+            { text: __('pages.cookies.name') },
+            { text: __('pages.cookies.purpose') },
+            { text: __('pages.cookies.expires') }
           ],
           rows: [
             [
               { text: cookieNames.SESSION },
-              { text: __('cookies.sessionPurpose') },
-              { text: __('cookies.sessionExpiry') }
+              { text: __('pages.cookies.sessionPurpose') },
+              { text: __('pages.cookies.sessionExpiry') }
             ]
           ]
         })
@@ -37,46 +37,46 @@
 
       {% if ga4Id %}
 
-        {{ __('cookies.cookiesMessage') | safe }}
+        {{ __('pages.cookies.cookiesMessage') | safe }}
 
         {{
           govukTable({
             head: [
-              { text: __('cookies.name') },
-              { text: __('cookies.purpose') },
-              { text: __('cookies.expires') }
+              { text: __('pages.cookies.name') },
+              { text: __('pages.cookies.purpose') },
+              { text: __('pages.cookies.expires') }
             ],
             rows: [
               [
                 { text: cookieNames.ANALYTICS_CONSENT },
-                { text: __('cookies.consentPurpose') },
-                { text: __('cookies.consentExpiry') }
+                { text: __('pages.cookies.consentPurpose') },
+                { text: __('pages.cookies.consentExpiry') }
               ]
             ]
           })
         }}
 
-        <h3 class="govuk-heading-m">{{ __('cookies.optionalCookies') }}</h3>
+        <h3 class="govuk-heading-m">{{ __('pages.cookies.optionalCookies') }}</h3>
 
-        {{ __('cookies.aboutOptionalCookies') | safe }}
+        {{ __('pages.cookies.aboutOptionalCookies') | safe }}
 
         {{
           govukTable({
             head: [
-              { text: __('cookies.name') },
-              { text: __('cookies.purpose') },
-              { text: __('cookies.expires') }
+              { text: __('pages.cookies.name') },
+              { text: __('pages.cookies.purpose') },
+              { text: __('pages.cookies.expires') }
             ],
             rows: [
               [
                 { text: "_ga" },
-                { text: __('cookies._gaCookiePurpose') },
-                { text: __('cookies.gaCookiesExpiry') }
+                { text: __('pages.cookies._gaCookiePurpose') },
+                { text: __('pages.cookies.gaCookiesExpiry') }
               ],
               [
                 { text: "_ga_" + (ga4Id | replace("G-", "")) },
-                { text: __('cookies._ga_IdCookiePurpose') },
-                { text: __('cookies.gaCookiesExpiry') }
+                { text: __('pages.cookies._ga_IdCookiePurpose') },
+                { text: __('pages.cookies.gaCookiesExpiry') }
               ]
             ]
           })
@@ -91,7 +91,7 @@
               name: formFields.ACCEPT_OPTIONAL_COOKIES,
               fieldset: {
                 legend: {
-                  text: __('cookies.acceptOptionalCookies'),
+                  text: __('pages.cookies.acceptOptionalCookies'),
                   classes: "govuk-fieldset__legend--s"
                 }
               },
@@ -110,7 +110,7 @@
             })
           }}
 
-          {{ govukButton({text: __('cookies.saveCookieSettings')}) }}
+          {{ govukButton({text: __('pages.cookies.saveCookieSettings')}) }}
         </form>
       {% endif %}
 
