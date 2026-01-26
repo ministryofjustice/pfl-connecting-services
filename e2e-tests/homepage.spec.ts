@@ -1,16 +1,10 @@
 import { test, expect } from '@playwright/test';
 
-test.describe.skip('Homepage', () => {
-  test('should display the homepage with correct title and start button', async ({ page }) => {
+test.describe('Homepage', () => {
+  test('should display the homepage with correct title', async ({ page }) => {
     await page.goto('/');
 
-    await expect(page).toHaveTitle(/Propose a child arrangements plan/);
-
-    const heading = page.locator('h1');
-    await expect(heading).toBeVisible();
-
-    const startButton = page.getByRole('button', { name: /start now/i });
-    await expect(startButton).toBeVisible();
+    await expect(page).toHaveTitle(/Get help making child arrangements – GOV.UK/);
   });
 
   test('should have working navigation links', async ({ page }) => {
@@ -26,13 +20,12 @@ test.describe.skip('Homepage', () => {
     await expect(accessibilityLink).toBeVisible();
   });
 
-  test('should navigate to safety check when clicking start (auth disabled)', async ({ page }) => {
+  test('should navigate to cookies page', async ({ page }) => {
     await page.goto('/');
 
-    const startButton = page.getByRole('button', { name: /start now/i });
-    await startButton.click();
+    const cookiesLink = page.getByRole('link', { name: /cookies/i });
+    await cookiesLink.click();
 
-    // When USE_AUTH=false, goes directly to safety check
-    await expect(page).toHaveURL(/\/safety-check/);
+    await expect(page).toHaveURL(/\/cookies/);
   });
 });
