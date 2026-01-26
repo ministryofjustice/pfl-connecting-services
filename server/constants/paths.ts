@@ -2,6 +2,7 @@ enum paths {
   // Auth & static pages (keep from CAP)
   PASSWORD = '/password',
   START = '/',
+  START_ADDITIONAL = '/start',
   ACCESSIBILITY_STATEMENT = '/accessibility-statement',
   CONTACT_US = '/contact-us',
   COOKIES = '/cookies',
