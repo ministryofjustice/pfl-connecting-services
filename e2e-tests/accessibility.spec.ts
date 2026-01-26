@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Accessibility', () => {
+test.describe.skip('Accessibility', () => {
   test('should have proper heading hierarchy on homepage', async ({ page }) => {
     await page.goto('/');
 

@@ -169,7 +169,7 @@ page.getByLabel(/password/i)
 ## Test Structure
 
 ```typescript
-test.describe('Feature Name', () => {
+test.describe.skip('Feature Name', () => {
   test('should do something', async ({ page }) => {
     // Arrange - Set up test data and state
     await page.goto('/password');

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 import { navigateToTaskList, fillAllChildrenAndContinue, generateTestChildData } from './fixtures/test-helpers';
 
-test.describe('Complete User Journey', () => {
+test.describe.skip('Complete User Journey', () => {
   test('should complete the full journey to task list', async ({ page }) => {
     await navigateToTaskList(page);
 

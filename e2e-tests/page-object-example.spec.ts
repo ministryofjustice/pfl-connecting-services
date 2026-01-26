@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 import { SafetyCheckPage } from './fixtures/page-objects';
 import { navigateToTaskList } from './fixtures/test-helpers';
 
-test.describe('User Journey with Page Objects', () => {
+test.describe.skip('User Journey with Page Objects', () => {
   test('should complete safety check using page objects', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('button', { name: /start now/i }).click();

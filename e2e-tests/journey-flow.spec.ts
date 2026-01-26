@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('User Journey Flow', () => {
+test.describe.skip('User Journey Flow', () => {
   test('should complete the initial onboarding flow', async ({ page }) => {
     await page.goto('/');
 

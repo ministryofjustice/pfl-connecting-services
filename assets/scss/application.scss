@@ -24,3 +24,27 @@
 .newline-separated-paragraph {
   white-space: pre-line;
 }
+
+.govuk-list--dash {
+  list-style: none;
+  padding-left: 0;
+}
+
+.govuk-list--dash > li {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.govuk-list--dash > li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  width: 20px;
+  transform: scaleX(4);
+  transform-origin: left;
+}
+
+.subsection-title {
+  border-top: 2px solid #1d70b8;
+  padding-top: 10px;
+}

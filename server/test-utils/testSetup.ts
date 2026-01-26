@@ -3,7 +3,6 @@ import path from 'path';
 
 import i18n from 'i18n';
 
-import { CSSession } from '../@types/session';
 import config from '../config';
 
 import { flashFormValues, flashMockErrors, loggerMocks, mockCheckFormProgressFromConfig, mockNow, sessionMock } from './testMocks';

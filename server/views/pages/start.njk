@@ -1,13 +1,28 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 
 {% set title = __("pages.start.title") %}
 {% block pageTitle %}
-  Start page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+  {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item" aria-current="page">
+        <a class="govuk-breadcrumbs__link" href="#">Get a divorce: step by step</a>
+      </li>
+    </ol>
+  </nav>
 {% endblock %}
 
 {% block content %}
@@ -16,75 +31,79 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        {{ __("serviceName") }}
+        {{ __("pages.start.title") }}
       </h1>
 
-      <p>Use this service if you are separating or have separated from your partner and are unsure about how you should make child arrangements.</p>
+      <aside class="govuk-!-padding-bottom-3">
+        {% set firstElementSelected = true %}
+        {% include "partials/homePageNavigationLinks.njk" %}
+      </aside>
+      <hr class="govuk-section-break govuk-section-break--visible">
+    </div>
+  </div>
 
-      <p>It takes about 10 minutes to use this service.</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-4">
+
+      <h1 class="govuk-heading-xl">{{ __("pages.start.childArrangements.title") }}</h1>
+
+      {{ __("pages.start.childArrangements.content") | safe }}
+
+      {{ __("pages.start.childArrangements.contentInset") | safe }}
 
       <h2 class="govuk-heading-m">
-        How it works
+        {{ __("pages.start.childArrangements.unsureToMakeChildArrangements.title") }}
       </h2>
-      <p>You will be asked questions about your circumstances, including your current relationship with your ex-partner. You will not be asked for any personal details.</p>
 
-      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+      {{ __("pages.start.childArrangements.unsureToMakeChildArrangements.content") | safe }}
 
-{{ govukInsetText({
-  text: "Your answers will not be saved or shared with anyone."
-}) }}
+      <h2 class="govuk-heading-m">
+        {{ __("pages.start.childArrangements.partnerAgreement.title") }}
+      </h2>
 
-      <p>Based on your answers, you will be shown the option that best suits your situation. This could be:</p>
+      {{ __("pages.start.childArrangements.partnerAgreement.content") | safe }}
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>making a child arrangements plan with your ex-partner (also known as a parenting plan)</li>
-        <li>mediation</li>
-        <li>applying to the family court</li>
-      </ul>
+      <h2 class="govuk-heading-m">
+        {{ __("pages.start.childArrangements.getHelpWithoutGoingToCourt.title") }}
+      </h2>
 
-      {% from "govuk/components/button/macro.njk" import govukButton %}
-      {{ govukButton({
-        text: "Start now",
-        href: paths.QUESTION_1_ABUSE,
-        isStartButton: true
-      }) }}
+      {{ __("pages.start.childArrangements.getHelpWithoutGoingToCourt.content") | safe }}
 
+      <h2 class="govuk-heading-m">
+        {{ __("pages.start.childArrangements.cannotAgreeOnEverything.title") | safe }}
+      </h2>
 
-    </div>
+      {{ __("pages.start.childArrangements.cannotAgreeOnEverything.content") | safe }}
 
-    <div class="govuk-grid-column-one-third">
-
-      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          Related content
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="https://www.gov.uk/looking-after-children-divorce">
-                Making child arrangements if you divorce or separate
-              </a>
-            </li>
-            <li>
-              <a href="https://care-arrangement-plan.apps.live.cloud-platform.service.justice.gov.uk/">
-                Propose a child arrangements plan
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Child maintenance
-              </a>
-            </li>
-            <li>
-              <a href="https://www.gov.uk/parental-rights-responsibilities">
-                Parental rights and responsibilities
-              </a>
-            </li>
-          </ul>
+      <nav class="govuk-pagination" role="navigation" aria-label="Pagination">
+        <nav class="govuk-pagination govuk-pagination--block" aria-label="Pagination">
+          <div class="govuk-pagination__next">
+            <a class="govuk-link govuk-pagination__link" href="/start" rel="next">
+                  
+              <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+              </svg>
+              
+              <span class="govuk-pagination__link-title">
+                {{ __("nextPage") | safe }}
+              </span>
+              
+              <span class="govuk-visually-hidden">:</span>
+              <span class="govuk-pagination__link-label">{{ __("serviceName") }}</span>            
+            </a>
+          </div>
         </nav>
-      </aside>
+        <p>
+          <a href="#">
+            {{ __("printableVersion") }}
+          </a>
+        </p>
+      </nav>
 
     </div>
+    
+    {%- include "partials/relatedContent.njk" -%}
+
   </div>
 
 {% endblock %}

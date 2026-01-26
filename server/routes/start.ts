@@ -1,4 +1,5 @@
-import { Router, Request, Response } from 'express';
+import { Request, Response, Router } from 'express';
+
 import paths from '../constants/paths';
 
 const router = Router();
@@ -12,6 +13,12 @@ router.get(paths.START, (req: Request, res: Response) => {
   req.session.mediation = undefined;
 
   res.render('pages/start', {
+    title: res.__('pages.start.title'),
+  });
+});
+
+router.get(paths.START_ADDITIONAL, (req: Request, res: Response) => {
+  res.render('pages/startAdditional', {
     title: res.__('pages.start.title'),
   });
 });

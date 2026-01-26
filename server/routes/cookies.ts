@@ -3,7 +3,7 @@ import type { Router } from 'express-serve-static-core';
 import { yesOrNo } from '../@types/fields';
 import config from '../config';
 import cookieNames from '../constants/cookieNames';
-import formFields from '../constants/formFields';
+import { ACCEPT_OPTIONAL_COOKIES } from '../constants/formFields';
 import paths from '../constants/paths';
 import logger from '../logging/logger';
 import { getBackUrl } from '../utils/sessionHelpers';
@@ -18,7 +18,7 @@ const cookiesRoutes = (router: Router) => {
 
   router.post(paths.COOKIES, (request, response) => {
     logger.info(`Accepted analytics. POST ${paths.COOKIES}`);
-    const acceptAnalytics = request.body[formFields.ACCEPT_OPTIONAL_COOKIES] as yesOrNo;
+    const acceptAnalytics = request.body[ACCEPT_OPTIONAL_COOKIES] as yesOrNo;
 
     response.cookie(cookieNames.ANALYTICS_CONSENT, JSON.stringify({ acceptAnalytics }), {
       maxAge: 1000 * 60 * 60 * 24 * 365, // One Year
