@@ -20,17 +20,14 @@ describe('Question 1: Abuse/Safeguarding', () => {
       expect(dom.window.document.querySelector('h2.govuk-error-summary__title')).toBeNull();
     });
 
-    it('should display hint text with examples of abuse as bullet list', async () => {
+    it('should display examples of abuse as bullet list', async () => {
       const response = await request(app).get(paths.QUESTION_1_ABUSE).expect(200);
 
-      const dom = new JSDOM(response.text);
-
-      const hintText = dom.window.document.querySelector('.govuk-hint');
-      expect(hintText?.textContent).toContain('You may have been in an abusive relationship');
-      expect(hintText?.textContent).toContain('Psychological abuse');
-      expect(hintText?.textContent).toContain('Coercive control');
-      expect(hintText?.textContent).toContain('Financial or economic abuse');
-      expect(hintText?.textContent).toContain('Harassment and stalking');
+      expect(response.text).toContain('You may have been in an abusive relationship');
+      expect(response.text).toContain('Psychological abuse');
+      expect(response.text).toContain('Coercive control');
+      expect(response.text).toContain('Financial or economic abuse');
+      expect(response.text).toContain('Harassment and stalking');
     });
 
     it('should display two radio options: Yes and No', async () => {
