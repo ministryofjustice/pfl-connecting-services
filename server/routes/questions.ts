@@ -9,9 +9,8 @@ const router = Router();
  * Question 1: Safeguarding / Abuse
  *
  * Routing logic:
- *   - YES ──────────────→ Safeguarding Page
- *   - PREFER NOT TO SAY ─→ Safeguarding Page (cautious approach)
- *   - NO ───────────────→ Question 2 (Contact)
+ *   - YES → Safeguarding Page (/getting-help)
+ *   - NO  → Question 2 (Contact) (/contact-child-arrangements)
  */
 router.get(paths.QUESTION_1_ABUSE, (req: Request, res: Response) => {
   const errors = req.flash('errors');
@@ -27,7 +26,9 @@ router.get(paths.QUESTION_1_ABUSE, (req: Request, res: Response) => {
 
 router.post(
   paths.QUESTION_1_ABUSE,
-  body('abuse').notEmpty().withMessage('Select an option'),
+  body('abuse')
+    .notEmpty()
+    .withMessage('Select whether you or your children have experienced abuse from your ex-partner'),
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -37,11 +38,9 @@ router.post(
 
     req.session.abuse = req.body.abuse;
 
-    // Route to safeguarding page for 'yes' or 'prefer-not-to-say' (cautious approach)
-    if (req.body.abuse === 'yes' || req.body.abuse === 'prefer-not-to-say') {
+    if (req.body.abuse === 'yes') {
       return res.redirect(paths.SAFEGUARDING);
     }
-    // Only 'no' continues to the next question
     return res.redirect(paths.QUESTION_2_CONTACT);
   }
 );

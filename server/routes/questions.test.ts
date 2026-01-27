@@ -44,18 +44,17 @@ describe('Question 1: Abuse/Safeguarding', () => {
       expect(detailsText?.textContent).toContain('Financial or economic abuse');
     });
 
-    it('should display three radio options: Yes, No, and Prefer not to say', async () => {
+    it('should display two radio options: Yes and No', async () => {
       const response = await request(app).get(paths.QUESTION_1_ABUSE).expect(200);
 
       const dom = new JSDOM(response.text);
 
       const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="abuse"]');
-      expect(radioButtons).toHaveLength(3);
+      expect(radioButtons).toHaveLength(2);
 
       const radioValues = Array.from(radioButtons).map((radio) => (radio as HTMLInputElement).value);
       expect(radioValues).toContain('yes');
       expect(radioValues).toContain('no');
-      expect(radioValues).toContain('prefer-not-to-say');
     });
 
     it('should display Exit This Page button', async () => {
@@ -94,14 +93,6 @@ describe('Question 1: Abuse/Safeguarding', () => {
         .send({ abuse: 'no' })
         .expect(302)
         .expect('location', paths.QUESTION_2_CONTACT);
-    });
-
-    it('should redirect to safeguarding page when answer is prefer-not-to-say (cautious approach)', () => {
-      return request(app)
-        .post(paths.QUESTION_1_ABUSE)
-        .send({ abuse: 'prefer-not-to-say' })
-        .expect(302)
-        .expect('location', paths.SAFEGUARDING);
     });
 
     it('should store answer in session', async () => {
