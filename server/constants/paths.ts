@@ -10,9 +10,9 @@ enum paths {
   TERMS_AND_CONDITIONS = '/terms-and-conditions',
 
   // Connecting Services specific paths
-  QUESTION_1_ABUSE = '/question-1',
-  SAFEGUARDING = '/safeguarding',
-  QUESTION_2_CONTACT = '/question-2',
+  QUESTION_1_ABUSE = '/domestic-abuse',
+  SAFEGUARDING = '/getting-help',
+  QUESTION_2_CONTACT = '/contact-child-arrangements',
   NO_CONTACT = '/no-contact',
   QUESTION_3_AGREE = '/question-3',
   QUESTION_4_HELP = '/question-4',
