@@ -10,8 +10,7 @@ const app = testAppSetup();
 
 describe(paths.COOKIES, () => {
   describe('GET', () => {
-    // eslint-disable-next-line jest/no-disabled-tests
-    it.skip('should render cookies page when there is no ga4 id', async () => {
+    it('should render cookies page when there is no ga4 id', async () => {
       config.analytics.ga4Id = undefined;
 
       const response = await request(app).get(paths.COOKIES).expect('Content-Type', /html/);
@@ -22,8 +21,7 @@ describe(paths.COOKIES, () => {
       expect(dom.window.document.querySelector('fieldset')).toBeNull();
     });
 
-    // eslint-disable-next-line jest/no-disabled-tests
-    it.skip('should render cookies page when there is a ga4 id', async () => {
+    it('should render cookies page when there is a ga4 id', async () => {
       config.analytics.ga4Id = 'test-ga4-id';
 
       const response = await request(app).get(paths.COOKIES).expect('Content-Type', /html/);
