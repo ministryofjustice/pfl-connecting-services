@@ -11,7 +11,7 @@
 <br>
 <br>
 
-# PFL Care Arrangement Plan
+# PFL Connecting Services
 
 This is a Node.js app (v22) running on [Express](https://expressjs.com/) with
 [Nunjucks](https://mozilla.github.io/nunjucks/) as a template engine. It uses the
@@ -19,11 +19,7 @@ This is a Node.js app (v22) running on [Express](https://expressjs.com/) with
 
 This app is heavily inspired from MoJ's [hmpps-template-typescript](https://github.com/ministryofjustice/hmpps-template-typescript).
 
-## Preview testing
-
-The service is undergoing private preview testing. This is currently set to end on 30th April 2025. To change this date,
-the environment variable `PREVIEW_END` must be changed. After this date, all requests to the service will return a page
-explaining that the preview has ended.
+## Open beta
 
 To move the service into an open beta, the following changes should be made
 
@@ -47,7 +43,7 @@ To copy it, run
 cp .env.example .env
 ```
 
-Now to run the app, run `npm run start:dev`, which will start the app (by default on port 8001), with hot reloading enabled.
+Now to run the app, run `npm run start:dev`, which will start the app (by default on port 3000), with hot reloading enabled.
 
 ### Running with a cache
 
@@ -85,8 +81,8 @@ file, where this is the case, but if you are modifying things you will need to e
 These include PDF snapshot tests. To update the tests, run them with the environment variable `UPDATE_PDF_SNAPSHOTS=true`,
 or run `npm run test:update-pdf-snapshots`
 
-We also have integration tests using [Cypress](https://www.cypress.io/). To run these, start the app server then run
-either `npm run int-test` for headless mode, or `npm run int-test-ui` to use the Cypress UI.
+We also have end to end tests using [Playwright](https://playwright.dev/). To run these, start the app server then run
+either `npm run e2e` for headless mode, or `npm run e2e:headed` for non-headless mode.
 
 ## Static Checks
 
@@ -111,7 +107,7 @@ Secrets used in the deployment pipeline are stored as GitHub Actions secrets, an
 The main app code lives in the `server` directory, where it is separated into folders based on functionality. Tests should
 be at the same level as the file they test, and names `<<file>>.test.ts`.
 
-Integration tests are in the `integration-tests` directory. Test files should have the name `<<file>>.cy.ts`.
+End to end tests are in the `e2e-tests` directory. Test files should have the name `<<file>>.spec.ts`.
 
 ## Language Support
 
@@ -157,29 +153,21 @@ For documentation on our infrastructure, see [here](./deploy/README.md)
 
 There are a few steps to adding a new question
 
-- Decide the data structure for the answers, and add it to the [`CAPSession` type](./server/@types/session.d.ts)
+- Decide the data structure for the answers, and add it to the [`CSSession`](./server/@types/session.d.ts) type
 - Create the pages and routes for the question
 - Add the question to the task list
 - Add the completion check to the question to the conditional that displays the "Continue" button on the task list
 - Add the question's answers to the "Check your answers page" - this should be as close as possible to exactly what the
   user has entered
-- Add the question's answers to the "Share plan" page - this should exactly match what will be displayed in the
-  outputted PDF
-- Add the question's answers to the PDF
 
 ## TODO
 
 - Sonar/some SAST tool
 - Add alerts
-- Add more Cypress tests
+- Add more end to end tests
 
 ## Known issues
 
-- Continue behaviour does not always make sense
-  > If I go to a question from the check your answers page, and then press continue, I should be taken back to the check
-  > your answers page, not back into the full question flow
-- Some characters are missed in the PDF
-  > Some characters such as Ǝ are not printed in the pdf, as the GDS transport font does not support them
 - Prevent users from starting midway through the journey
   > We should prevent users from joining the service without a valid session.
   >
@@ -187,14 +175,12 @@ There are a few steps to adding a new question
   >
   > We should also consider use cases where the user has started the journey, but access a page they shouldn’t be able
   > to yet (e.g children’s names before number of children)
-- PDF does not have heading structures
-  > The exported pdf has not been rendered using accessible heading structures.
 
 
 <!-- License -->
 
-[License Link]: https://github.com/ministryofjustice/care-arrangement-plan/blob/main/LICENSE 'License.'
-[License Icon]: https://img.shields.io/github/license/ministryofjustice/care-arrangement-plan?style=for-the-badge
+[License Link]: https://github.com/ministryofjustice/pfl-connecting-services/blob/main/LICENSE 'License.'
+[License Icon]: https://img.shields.io/github/license/ministryofjustice/pfl-connecting-services?style=for-the-badge
 
 <!-- MoJ Standards -->
 
