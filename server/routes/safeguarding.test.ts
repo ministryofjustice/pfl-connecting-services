@@ -78,10 +78,11 @@ describe('Safeguarding Page', () => {
       expect(response.text).toContain('Domestic abuse: specialist sources of support');
     });
 
-    it('should display help and support text', async () => {
+    it('should display service-finder link', async () => {
       const response = await request(app).get(paths.SAFEGUARDING).expect(200);
 
-      expect(response.text).toContain('There is free, confidential support available to help you and your family.');
+      expect(response.text).toContain('find more child arrangement support services');
+      expect(response.text).toContain('/service-finder');
     });
 
     it('should display National Domestic Abuse Helpline in table', async () => {
