@@ -5,7 +5,13 @@ import paths from '../constants/paths';
 
 const router = Router();
 
-// Question 1: Abuse
+/**
+ * Question 1: Safeguarding / Abuse
+ *
+ * Routing logic:
+ *   - YES → Safeguarding Page (/getting-help)
+ *   - NO  → Question 2 (Contact) (/contact-child-arrangements)
+ */
 router.get(paths.QUESTION_1_ABUSE, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/question-1', {
@@ -20,7 +26,9 @@ router.get(paths.QUESTION_1_ABUSE, (req: Request, res: Response) => {
 
 router.post(
   paths.QUESTION_1_ABUSE,
-  body('abuse').notEmpty().withMessage('Select an option'),
+  body('abuse')
+    .notEmpty()
+    .withMessage('Select whether you or your children have experienced abuse from your ex-partner'),
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -33,7 +41,6 @@ router.post(
     if (req.body.abuse === 'yes') {
       return res.redirect(paths.SAFEGUARDING);
     }
-    // For 'no' or 'prefer-not-to-say', continue to next question
     return res.redirect(paths.QUESTION_2_CONTACT);
   }
 );

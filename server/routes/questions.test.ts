@@ -3,7 +3,7 @@ import request from 'supertest';
 
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
-import { flashMock, flashMockErrors } from '../test-utils/testMocks';
+import { flashMock } from '../test-utils/testMocks';
 
 const app = testAppSetup();
 
@@ -20,42 +20,30 @@ describe('Question 1: Abuse/Safeguarding', () => {
       expect(dom.window.document.querySelector('h2.govuk-error-summary__title')).toBeNull();
     });
 
-    it('should display inset text explaining why we ask', async () => {
+    it('should display hint text with examples of abuse as bullet list', async () => {
       const response = await request(app).get(paths.QUESTION_1_ABUSE).expect(200);
 
       const dom = new JSDOM(response.text);
 
-      expect(dom.window.document.querySelector('.govuk-inset-text')).toHaveTextContent(
-        'We ask this to make sure we give you safe and appropriate advice about making child arrangements.',
-      );
+      const hintText = dom.window.document.querySelector('.govuk-hint');
+      expect(hintText?.textContent).toContain('You may have been in an abusive relationship');
+      expect(hintText?.textContent).toContain('Psychological abuse');
+      expect(hintText?.textContent).toContain('Coercive control');
+      expect(hintText?.textContent).toContain('Financial or economic abuse');
+      expect(hintText?.textContent).toContain('Harassment and stalking');
     });
 
-    it('should display govukDetails component with examples of abuse', async () => {
-      const response = await request(app).get(paths.QUESTION_1_ABUSE).expect(200);
-
-      const dom = new JSDOM(response.text);
-
-      const detailsSummary = dom.window.document.querySelector('.govuk-details__summary-text');
-      expect(detailsSummary).toHaveTextContent('Examples of abuse');
-
-      const detailsText = dom.window.document.querySelector('.govuk-details__text');
-      expect(detailsText?.textContent).toContain('Psychological abuse');
-      expect(detailsText?.textContent).toContain('Coercive control');
-      expect(detailsText?.textContent).toContain('Financial or economic abuse');
-    });
-
-    it('should display three radio options: Yes, No, and Prefer not to say', async () => {
+    it('should display two radio options: Yes and No', async () => {
       const response = await request(app).get(paths.QUESTION_1_ABUSE).expect(200);
 
       const dom = new JSDOM(response.text);
 
       const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="abuse"]');
-      expect(radioButtons).toHaveLength(3);
+      expect(radioButtons).toHaveLength(2);
 
       const radioValues = Array.from(radioButtons).map((radio) => (radio as HTMLInputElement).value);
       expect(radioValues).toContain('yes');
       expect(radioValues).toContain('no');
-      expect(radioValues).toContain('prefer-not-to-say');
     });
 
     it('should display Exit This Page button', async () => {
@@ -73,7 +61,7 @@ describe('Question 1: Abuse/Safeguarding', () => {
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
           location: 'body',
-          msg: 'Select an option',
+          msg: 'Select whether you or your children have experienced abuse from your ex-partner',
           path: 'abuse',
           type: 'field',
         },
@@ -92,14 +80,6 @@ describe('Question 1: Abuse/Safeguarding', () => {
       return request(app)
         .post(paths.QUESTION_1_ABUSE)
         .send({ abuse: 'no' })
-        .expect(302)
-        .expect('location', paths.QUESTION_2_CONTACT);
-    });
-
-    it('should redirect to question 2 when answer is prefer-not-to-say', () => {
-      return request(app)
-        .post(paths.QUESTION_1_ABUSE)
-        .send({ abuse: 'prefer-not-to-say' })
         .expect(302)
         .expect('location', paths.QUESTION_2_CONTACT);
     });
