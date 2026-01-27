@@ -42,16 +42,6 @@ describe('Mediation Page', () => {
       expect(response.text).toContain('Information about mediation');
     });
 
-    it('should show warning when abuse answer is prefer-not-to-say', async () => {
-      const agent = request.agent(app);
-
-      await agent.post(paths.QUESTION_1_ABUSE).send({ abuse: 'prefer-not-to-say' });
-
-      const response = await agent.get(paths.MEDIATION).expect(200);
-
-      expect(response.text).toContain('mediation may not be suitable for you');
-    });
-
     it('should explain why mediation is not recommended after abuse disclosure', async () => {
       const agent = request.agent(app);
 

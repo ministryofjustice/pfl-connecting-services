@@ -12,7 +12,7 @@ router.get(paths.COURT, (req: Request, res: Response) => {
 
 router.get(paths.MEDIATION, (req: Request, res: Response) => {
   // Check if user has disclosed abuse concerns
-  const hasDisclosedAbuse = req.session.abuse === 'yes' || req.session.abuse === 'prefer-not-to-say';
+  const hasDisclosedAbuse = req.session.abuse === 'yes';
 
   res.render('pages/mediation', {
     title: res.__('pages.mediation.title'),
