@@ -153,15 +153,12 @@ For documentation on our infrastructure, see [here](./deploy/README.md)
 
 There are a few steps to adding a new question
 
-- Decide the data structure for the answers, and add it to the [`CAPSession` type](./server/@types/session.d.ts)
+- Decide the data structure for the answers, and add it to the [`CSSession`](./server/@types/session.d.ts) type
 - Create the pages and routes for the question
 - Add the question to the task list
 - Add the completion check to the question to the conditional that displays the "Continue" button on the task list
 - Add the question's answers to the "Check your answers page" - this should be as close as possible to exactly what the
   user has entered
-- Add the question's answers to the "Share plan" page - this should exactly match what will be displayed in the
-  outputted PDF
-- Add the question's answers to the PDF
 
 ## TODO
 
