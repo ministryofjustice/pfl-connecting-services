@@ -165,7 +165,6 @@ There are a few steps to adding a new question
 - Sonar/some SAST tool
 - Add alerts
 - Add more end to end tests
-- Review Snyk configuration
 
 ## Known issues
 
