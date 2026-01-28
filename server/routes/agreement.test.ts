@@ -71,20 +71,20 @@ describe('Agreement on child arrangements Question', () => {
         .expect('location', paths.PARENTING_PLAN);
     });
 
-    it('should redirect to question 2 when answer is no', () => {
+    it('should redirect to help to agree when answer is no', () => {
       return request(app)
         .post(paths.AGREEMENT)
         .send({ agreement: 'no' })
         .expect(302)
-        .expect('location', paths.QUESTION_2_CONTACT);
+        .expect('location', paths.HELP_2_AGREE);
     });
 
-    it('should redirect to question 2 when answer is not discussed', () => {
+    it('should redirect to help to agree when answer is not discussed', () => {
       return request(app)
         .post(paths.AGREEMENT)
         .send({ agreement: 'not-discussed' })
         .expect(302)
-        .expect('location', paths.QUESTION_2_CONTACT);
+        .expect('location', paths.HELP_2_AGREE);
     });
 
     it('should store answer in session', async () => {

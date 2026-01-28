@@ -4,7 +4,7 @@ test.describe('Homepage', () => {
   test('should display the homepage with correct title', async ({ page }) => {
     await page.goto('/');
 
-    await expect(page).toHaveTitle(/Get help making child arrangements – GOV.UK/);
+    await expect(page).toHaveTitle("Get help finding a child arrangement option – GOV.UK");
   });
 
   test('should have working navigation links', async ({ page }) => {
