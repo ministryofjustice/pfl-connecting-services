@@ -15,6 +15,7 @@ enum paths {
   QUESTION_2_CONTACT = '/question-2',
   NO_CONTACT = '/no-contact',
   AGREEMENT = '/agree',
+  HELP_2_AGREE = 'help-to-agree',
   QUESTION_4_HELP = '/question-4',
   QUESTION_5_MEDIATION = '/question-5',
 
