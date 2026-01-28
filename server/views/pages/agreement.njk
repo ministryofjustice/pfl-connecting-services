@@ -2,13 +2,14 @@
 
 {% set title = __("pages.agreement.title") %}
 {% block pageTitle %}
-  Question page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+  {{ __("pages.agreement.title") }} – {{ __("serviceName") }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="{{ paths.QUESTION_3_AGREE }}" method="post">
+      {% include "partials/errorSummary.njk" %}
+      <form class="form" action="{{ paths.AGREEMENT }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
         <h1 class="govuk-heading-l">
           {{ __("pages.agreement.title") }}
@@ -25,20 +26,21 @@
         {% set radioItems = [
           { value: "yes", text: __("pages.agreement.content.options.first")  },
           { value: "no", text: __("pages.agreement.content.options.second") },
-          { value: "not-discussed", text: __("pages.agreement.content.descriptionList.third") }
+          { value: "not-discussed", text: __("pages.agreement.content.options.third") }
         ] %}
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-          name: "agree",
+          name: formFields.AGREEMENT,
           fieldset: {
             legend: {
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
-          items: radioItems
+          items: radioItems,
+          errorMessage: errors | findError(formFields.AGREEMENT)
         }) }}
 
         {% from "govuk/components/button/macro.njk" import govukButton %}

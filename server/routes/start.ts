@@ -8,7 +8,7 @@ router.get(paths.START, (req: Request, res: Response) => {
   // Clear session on start
   req.session.abuse = undefined;
   req.session.contact = undefined;
-  req.session.agree = undefined;
+  req.session.agreement = undefined;
   req.session.help = undefined;
   req.session.mediation = undefined;
 

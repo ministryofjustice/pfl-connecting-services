@@ -55,39 +55,6 @@ describe('Question 2: Contact', () => {
   });
 });
 
-describe('Question 3: Agree', () => {
-  describe(`POST ${paths.AGREEMENT}`, () => {
-    it('should reload page and set flash error when no option selected', async () => {
-      await request(app).post(paths.AGREEMENT).expect(302).expect('location', paths.AGREEMENT);
-
-      expect(flashMock).toHaveBeenCalledWith('errors', [
-        {
-          location: 'body',
-          msg: 'Select an option',
-          path: 'agree',
-          type: 'field',
-        },
-      ]);
-    });
-
-    it('should redirect to parenting plan page when answer is yes', () => {
-      return request(app)
-        .post(paths.AGREEMENT)
-        .send({ agree: 'yes' })
-        .expect(302)
-        .expect('location', paths.PARENTING_PLAN);
-    });
-
-    it('should redirect to question 4 when answer is no or not-discussed', () => {
-      return request(app)
-        .post(paths.AGREEMENT)
-        .send({ agree: 'no' })
-        .expect(302)
-        .expect('location', paths.QUESTION_4_HELP);
-    });
-  });
-});
-
 describe('Question 4: Help', () => {
   describe(`POST ${paths.QUESTION_4_HELP}`, () => {
     it('should reload page and set flash error when no option selected', async () => {

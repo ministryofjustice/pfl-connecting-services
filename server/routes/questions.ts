@@ -39,38 +39,6 @@ router.post(
   }
 );
 
-// Question 3 - Agreement
-router.get(paths.AGREEMENT, (req: Request, res: Response) => {
-  const errors = req.flash('errors');
-  res.render('pages/agreement', {
-    title: res.__('pages.question3.title'),
-    backLinkHref: paths.QUESTION_2_CONTACT,
-    errors,
-    formValues: {
-      agree: req.session.agree,
-    },
-  });
-});
-
-router.post(
-  paths.AGREEMENT,
-  body('agree').notEmpty().withMessage('Select an option'),
-  (req: Request, res: Response) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      req.flash('errors', errors.array());
-      return res.redirect(paths.AGREEMENT);
-    }
-
-    req.session.agree = req.body.agree;
-
-    if (req.body.agree === 'yes') {
-      return res.redirect(paths.PARENTING_PLAN);
-    }
-    return res.redirect(paths.QUESTION_4_HELP);
-  }
-);
-
 // Question 4 - Help Options
 router.get(paths.QUESTION_4_HELP, (req: Request, res: Response) => {
   const errors = req.flash('errors');

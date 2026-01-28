@@ -1,5 +1,5 @@
 {
-  "serviceName": "Get help making child arrangements",
+  "serviceName": "Get help finding a child arrangement option",
   "yes": "Yes",
   "no": "No",
   "back": "Back",
@@ -119,7 +119,8 @@
           "second": "No, we do not agree",
           "third": "We have not discussed it yet"
         }
-      }
+      },
+      "error":"Select whether you and your ex-partner agree on child arrangements"
     },
     "question4": {
       "title": "Help preference"
@@ -178,8 +179,25 @@
       "saveCookieSettings": "Save cookie settings"
     }
   },
+  "errorSummary": {
+    "title": "There is a problem"
+  },
   "errors": {
-    "selectOption": "Select an option"
+    "notFound": {
+      "title": "Page not found",
+      "check": "Please check the web address is correct.",
+      "startAgain": "Start again"
+    },
+    "generic": {
+      "title": "Sorry, there is a problem with the service",
+      "errorLogged": "The error has been logged.",
+      "tryReloading": "You can try reloading the page or <a href=\"/\" class=\"govuk-link--no-visited-state\">start again</a>."
+    },
+    "rateLimit": {
+      "title": "Too many requests have been made",
+      "info": "The page has been reloaded too many times in a short period.",
+      "tryReloading": "Please wait a period of 15 minutes, then try reloading the page or <a href=\"/\" class=\"govuk-link--no-visited-state\">start again</a>."
+    }
   },
   "cookieBanner": {
     "title": "Cookies on Propose a child arrangements plan",
