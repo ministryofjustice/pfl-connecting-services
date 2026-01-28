@@ -61,7 +61,7 @@ describe('Password Handler', () => {
         );
 
         it('should redirect to the return url', () => {
-          const returnURL = paths.QUESTION_1_ABUSE; // Use a valid path from the whitelist
+          const returnURL = paths.DOMESTIC_ABUSE; // Use a valid path from the whitelist
 
           return request(app)
             .post(paths.PASSWORD)
@@ -71,7 +71,7 @@ describe('Password Handler', () => {
         });
 
         it('should set authentication cookie', () => {
-          const returnURL = paths.QUESTION_1_ABUSE; // Use a valid path from the whitelist
+          const returnURL = paths.DOMESTIC_ABUSE; // Use a valid path from the whitelist
           const authenticatedCookieProperties = [
             `${cookieNames.AUTHENTICATION}=${encryptedTestPassword};`,
             `Max-Age=${60 * 60 * 24 * 30}`,

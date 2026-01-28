@@ -5,52 +5,12 @@ import paths from '../constants/paths';
 
 const router = Router();
 
-/**
- * Question 1: Safeguarding / Abuse
- *
- * Routing logic:
- *   - YES → Safeguarding Page (/getting-help)
- *   - NO  → Question 2 (Contact) (/contact-child-arrangements)
- */
-router.get(paths.QUESTION_1_ABUSE, (req: Request, res: Response) => {
-  const errors = req.flash('errors');
-  res.render('pages/question-1', {
-    title: res.__('pages.question1.title'),
-    backLinkHref: paths.START,
-    errors,
-    formValues: {
-      abuse: req.session.abuse,
-    },
-  });
-});
-
-router.post(
-  paths.QUESTION_1_ABUSE,
-  body('abuse')
-    .notEmpty()
-    .withMessage('Select whether you or your children have experienced abuse from your ex-partner'),
-  (req: Request, res: Response) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      req.flash('errors', errors.array());
-      return res.redirect(paths.QUESTION_1_ABUSE);
-    }
-
-    req.session.abuse = req.body.abuse;
-
-    if (req.body.abuse === 'yes') {
-      return res.redirect(paths.SAFEGUARDING);
-    }
-    return res.redirect(paths.QUESTION_2_CONTACT);
-  }
-);
-
-// Question 2: Contact
+// Question 2 - Contact Arrangements
 router.get(paths.QUESTION_2_CONTACT, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/question-2', {
     title: res.__('pages.question2.title'),
-    backLinkHref: paths.QUESTION_1_ABUSE,
+    backLinkHref: paths.DOMESTIC_ABUSE,
     errors,
     formValues: {
       contact: req.session.contact,
@@ -79,7 +39,7 @@ router.post(
   }
 );
 
-// Question 3: Agree
+// Question 3 - Agreement
 router.get(paths.QUESTION_3_AGREE, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/question-3', {
@@ -111,7 +71,7 @@ router.post(
   }
 );
 
-// Question 4: Help
+// Question 4 - Help Options
 router.get(paths.QUESTION_4_HELP, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/question-4', {
@@ -145,7 +105,7 @@ router.post(
   }
 );
 
-// Question 5: Mediation
+// Question 5 - Mediation Check
 router.get(paths.QUESTION_5_MEDIATION, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/question-5', {
