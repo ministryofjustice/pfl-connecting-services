@@ -1,31 +1,32 @@
 {% extends "partials/layout.njk" %}
 
-{% set title = __("pages.question-3.title") %}
+{% set title = __("pages.agreement.title") %}
 {% block pageTitle %}
   Question page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
-
-     <div class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form class="form" action="{{ paths.QUESTION_3_AGREE }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-
         <h1 class="govuk-heading-l">
-       Do you and your ex-partner agree on child arrangements?
-      </h1>
+          {{ __("pages.agreement.title") }}
+        </h1>
+        <p>
+          {{ __("pages.agreement.content.description") }}
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>{{ __("pages.agreement.content.descriptionList.first") }}</li>
+          <li>{{ __("pages.agreement.content.descriptionList.second") }}</li>
+          <li>{{ __("pages.agreement.content.descriptionList.third") }}</li>
+        </ul>
 
-      <p>
-       This includes things like:
-      </p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>where your children will live</li>
-        <li>when they spend time with each parent</li>
-        <li>handovers, holidays and whatever else matters to your children</li>
-      </ul>
+        {% set radioItems = [
+          { value: "yes", text: __("pages.agreement.content.options.first")  },
+          { value: "no", text: __("pages.agreement.content.options.second") },
+          { value: "not-discussed", text: __("pages.agreement.content.descriptionList.third") }
+        ] %}
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -37,20 +38,7 @@
               classes: "govuk-fieldset__legend--l"
             }
           },
-          items: [
-            {
-              value: "yes",
-              text: "Yes, we agree on some or most things"
-            },
-            {
-              value: "no",
-              text: "No, we do not agree"
-            },
-            {
-              value: "not-discussed",
-              text: "We have not discussed it yet"
-            }
-          ]
+          items: radioItems
         }) }}
 
         {% from "govuk/components/button/macro.njk" import govukButton %}
@@ -59,14 +47,11 @@
         }) }}
 
       </form>
-
     </div>
     <div class="govuk-grid-column-one-third">
       {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
 
-{{ govukExitThisPage() }}
-
+      {{ govukExitThisPage() }}
     </div>
   </div>
-
 {% endblock %}

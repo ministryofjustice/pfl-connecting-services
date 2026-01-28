@@ -105,8 +105,21 @@
     "question2": {
       "title": "Contact question"
     },
-    "question3": {
-      "title": "Agreement question"
+    "agreement": {
+      "title": "Do you and your ex-partner agree on child arrangements?",
+      "content": {
+        "description": "This includes things like:",
+        "descriptionList": {
+          "first": "where your children will live",
+          "second": "when they spend time with each parent",
+          "third": "handovers, holidays and whatever else matters to your children"
+        },
+        "options": {
+          "first": "Yes, we agree on some or most things",
+          "second": "No, we do not agree",
+          "third": "We have not discussed it yet"
+        }
+      }
     },
     "question4": {
       "title": "Help preference"

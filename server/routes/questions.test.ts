@@ -34,7 +34,7 @@ describe('Question 2: Contact', () => {
         .post(paths.QUESTION_2_CONTACT)
         .send({ contact: 'yes' })
         .expect(302)
-        .expect('location', paths.QUESTION_3_AGREE);
+        .expect('location', paths.AGREEMENT);
     });
 
     it('should redirect to court page when answer is no-details', () => {
@@ -56,9 +56,9 @@ describe('Question 2: Contact', () => {
 });
 
 describe('Question 3: Agree', () => {
-  describe(`POST ${paths.QUESTION_3_AGREE}`, () => {
+  describe(`POST ${paths.AGREEMENT}`, () => {
     it('should reload page and set flash error when no option selected', async () => {
-      await request(app).post(paths.QUESTION_3_AGREE).expect(302).expect('location', paths.QUESTION_3_AGREE);
+      await request(app).post(paths.AGREEMENT).expect(302).expect('location', paths.AGREEMENT);
 
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
@@ -72,7 +72,7 @@ describe('Question 3: Agree', () => {
 
     it('should redirect to parenting plan page when answer is yes', () => {
       return request(app)
-        .post(paths.QUESTION_3_AGREE)
+        .post(paths.AGREEMENT)
         .send({ agree: 'yes' })
         .expect(302)
         .expect('location', paths.PARENTING_PLAN);
@@ -80,7 +80,7 @@ describe('Question 3: Agree', () => {
 
     it('should redirect to question 4 when answer is no or not-discussed', () => {
       return request(app)
-        .post(paths.QUESTION_3_AGREE)
+        .post(paths.AGREEMENT)
         .send({ agree: 'no' })
         .expect(302)
         .expect('location', paths.QUESTION_4_HELP);

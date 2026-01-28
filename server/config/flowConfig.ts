@@ -18,13 +18,13 @@ export const flowConfig: Record<FormSteps, FlowStep> = {
     path: paths.QUESTION_2_CONTACT,
     dependsOn: [FormSteps.DOMESTIC_ABUSE],
   },
-  [FormSteps.QUESTION_3_AGREE]: {
-    path: paths.QUESTION_3_AGREE,
+  [FormSteps.AGREEMENT]: {
+    path: paths.AGREEMENT,
     dependsOn: [FormSteps.QUESTION_2_CONTACT],
   },
   [FormSteps.QUESTION_4_HELP]: {
     path: paths.QUESTION_4_HELP,
-    dependsOn: [FormSteps.QUESTION_3_AGREE],
+    dependsOn: [FormSteps.AGREEMENT],
   },
   [FormSteps.QUESTION_5_MEDIATION]: {
     path: paths.QUESTION_5_MEDIATION,

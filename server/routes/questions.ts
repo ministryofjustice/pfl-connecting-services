@@ -31,7 +31,7 @@ router.post(
     req.session.contact = req.body.contact;
 
     if (req.body.contact === 'yes') {
-      return res.redirect(paths.QUESTION_3_AGREE);
+      return res.redirect(paths.AGREEMENT);
     } else if (req.body.contact === 'no-details') {
       return res.redirect(paths.COURT);
     }
@@ -40,9 +40,9 @@ router.post(
 );
 
 // Question 3 - Agreement
-router.get(paths.QUESTION_3_AGREE, (req: Request, res: Response) => {
+router.get(paths.AGREEMENT, (req: Request, res: Response) => {
   const errors = req.flash('errors');
-  res.render('pages/question-3', {
+  res.render('pages/agreement', {
     title: res.__('pages.question3.title'),
     backLinkHref: paths.QUESTION_2_CONTACT,
     errors,
@@ -53,13 +53,13 @@ router.get(paths.QUESTION_3_AGREE, (req: Request, res: Response) => {
 });
 
 router.post(
-  paths.QUESTION_3_AGREE,
+  paths.AGREEMENT,
   body('agree').notEmpty().withMessage('Select an option'),
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       req.flash('errors', errors.array());
-      return res.redirect(paths.QUESTION_3_AGREE);
+      return res.redirect(paths.AGREEMENT);
     }
 
     req.session.agree = req.body.agree;
@@ -76,7 +76,7 @@ router.get(paths.QUESTION_4_HELP, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/question-4', {
     title: res.__('pages.question4.title'),
-    backLinkHref: paths.QUESTION_3_AGREE,
+    backLinkHref: paths.AGREEMENT,
     errors,
     formValues: {
       help: req.session.help,
