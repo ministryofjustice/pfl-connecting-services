@@ -1,5 +1,7 @@
 {
   "serviceName": "Get help making child arrangements",
+  "yes": "Yes",
+  "no": "No",
   "back": "Back",
   "continue": "Continue",
   "next": "Next",
@@ -16,6 +18,20 @@
     "termsAndConditions": "Terms and conditions"
   },
   "pages": {
+    "domesticAbuse": {
+      "title": "Domestic abuse",
+      "heading": "Have you or your children experienced abuse from your ex-partner?",
+      "intro": "You may have been in an abusive relationship if you or your children have experienced any of the following:",
+      "bullets": {
+        "violence": "Abuse or violence, including physical, emotional and sexual",
+        "financial": "Financial or economic abuse",
+        "coercive": "Coercive control (threats, humiliation, intimidation, degradation, isolation and control)",
+        "childAbuse": "Child abuse, neglect, or child abduction",
+        "harassment": "Harassment and stalking",
+        "psychological": "Psychological abuse"
+      },
+      "error": "Select whether you or your children have experienced abuse from your ex-partner"
+    },
     "start": {
       "title": "Making child arrangements if you divorce or separate",
       "contents": {
