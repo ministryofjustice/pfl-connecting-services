@@ -4,7 +4,7 @@ export interface CSSession {
   // Question answers
   abuse?: 'yes' | 'no';
   contact?: 'yes' | 'no' | 'no-details' | 'no-response';
-  agree?: 'yes' | 'not-discussed' | 'no';
+  agreement?: 'yes' | 'not-discussed' | 'no';
   help?: 'plan' | 'external' | 'cannot';
   mediation?: 'yes' | 'no';
 

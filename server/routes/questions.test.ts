@@ -34,7 +34,7 @@ describe('Question 2: Contact', () => {
         .post(paths.QUESTION_2_CONTACT)
         .send({ contact: 'yes' })
         .expect(302)
-        .expect('location', paths.QUESTION_3_AGREE);
+        .expect('location', paths.AGREEMENT);
     });
 
     it('should redirect to court page when answer is no-details', () => {
@@ -51,39 +51,6 @@ describe('Question 2: Contact', () => {
         .send({ contact: 'no' })
         .expect(302)
         .expect('location', paths.NO_CONTACT);
-    });
-  });
-});
-
-describe('Question 3: Agree', () => {
-  describe(`POST ${paths.QUESTION_3_AGREE}`, () => {
-    it('should reload page and set flash error when no option selected', async () => {
-      await request(app).post(paths.QUESTION_3_AGREE).expect(302).expect('location', paths.QUESTION_3_AGREE);
-
-      expect(flashMock).toHaveBeenCalledWith('errors', [
-        {
-          location: 'body',
-          msg: 'Select an option',
-          path: 'agree',
-          type: 'field',
-        },
-      ]);
-    });
-
-    it('should redirect to parenting plan page when answer is yes', () => {
-      return request(app)
-        .post(paths.QUESTION_3_AGREE)
-        .send({ agree: 'yes' })
-        .expect(302)
-        .expect('location', paths.PARENTING_PLAN);
-    });
-
-    it('should redirect to question 4 when answer is no or not-discussed', () => {
-      return request(app)
-        .post(paths.QUESTION_3_AGREE)
-        .send({ agree: 'no' })
-        .expect(302)
-        .expect('location', paths.QUESTION_4_HELP);
     });
   });
 });

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+import agreementRoutes from './agreement';
 import domesticAbuseRoutes from './domesticAbuse';
 import informationRoutes from './information';
 import outcomeRoutes from './outcomes';
@@ -14,6 +15,9 @@ const routes = (): Router => {
 
   // Domestic abuse question route
   router.use(domesticAbuseRoutes);
+
+  // Agreement on child arrangements route
+  router.use(agreementRoutes);
 
   // Question flow routes
   router.use(questionRoutes);
