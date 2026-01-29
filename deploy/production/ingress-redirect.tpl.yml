@@ -11,12 +11,12 @@ spec:
   ingressClassName: modsec
   tls:
     - hosts:
-        - care-arrangement-plan.apps.live.cloud-platform.service.justice.gov.uk
+        - connecting-services.apps.live.cloud-platform.service.justice.gov.uk
     - hosts:
         - child-arrangements-plan.service.justice.gov.uk
-      secretName: care-arrangement-plan-cert-secret
+      secretName: connecting-services-cert-secret
   rules:
-    - host: care-arrangement-plan.apps.live.cloud-platform.service.justice.gov.uk
+    - host: connecting-services.apps.live.cloud-platform.service.justice.gov.uk
       http:
         paths:
           - path: /

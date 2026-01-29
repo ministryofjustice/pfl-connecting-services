@@ -1,7 +1,7 @@
 name: Deploy release directly to Cloud Platform
 
 on:
-  # On https://github.com/ministryofjustice/care-arrangement-plan/actions/workflows/release-trigger.yml
+  # On https://github.com/ministryofjustice/pfl-connecting-services/actions/workflows/release-trigger.yml
   # use the 'Run workflow' button to trigger this workflow.
   workflow_dispatch:
     inputs:

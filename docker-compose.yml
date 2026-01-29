@@ -8,8 +8,8 @@ services:
       --requirepass ${CACHE_PASSWORD}
 
   app:
-    image: care-arrangement-plan
-    container_name: care-arrangement-plan
+    image: pfl-connecting-services
+    container_name: pfl-connecting-services
     build:
       context: .
       dockerfile: Dockerfile

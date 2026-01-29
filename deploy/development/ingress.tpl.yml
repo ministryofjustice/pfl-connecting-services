@@ -27,9 +27,9 @@ spec:
   ingressClassName: modsec
   tls:
     - hosts:
-        - care-arrangement-plan-dev.apps.live.cloud-platform.service.justice.gov.uk
+        - connecting-services-dev.apps.live.cloud-platform.service.justice.gov.uk
   rules:
-    - host: care-arrangement-plan-dev.apps.live.cloud-platform.service.justice.gov.uk
+    - host: connecting-services-dev.apps.live.cloud-platform.service.justice.gov.uk
       http:
         paths:
           - path: /
