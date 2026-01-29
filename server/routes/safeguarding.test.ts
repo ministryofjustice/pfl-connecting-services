@@ -47,7 +47,7 @@ describe('Safeguarding Page', () => {
       const continueButton = dom.window.document.querySelector('a.govuk-button');
 
       expect(continueButton).not.toBeNull();
-      expect(continueButton?.getAttribute('href')).toBe(paths.QUESTION_2_CONTACT);
+      expect(continueButton?.getAttribute('href')).toBe(paths.CONTACT_COMFORT);
       expect(continueButton?.textContent).toContain('Continue');
     });
 

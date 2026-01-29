@@ -9,8 +9,8 @@ const router = Router();
  * Domestic Abuse Question
  *
  * Routing logic:
- *   - YES → Safeguarding Page (/getting-help)
- *   - NO  → Question 2 (/question-2)
+ *   - YES → Safeguarding page (/getting-help)
+ *   - NO  → Contact comfort page (/contact-comfort)
  */
 router.get(paths.DOMESTIC_ABUSE, (req: Request, res: Response) => {
   const errors = req.flash('errors');
@@ -41,7 +41,7 @@ router.post(
     if (req.body.abuse === 'yes') {
       return res.redirect(paths.SAFEGUARDING);
     }
-    return res.redirect(paths.QUESTION_2_CONTACT);
+    return res.redirect(paths.CONTACT_COMFORT);
   }
 );
 

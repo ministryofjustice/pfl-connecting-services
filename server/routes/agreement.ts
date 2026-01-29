@@ -17,7 +17,7 @@ router.get(paths.AGREEMENT, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/agreement', {
     title: res.__('pages.agreement.title'),
-    backLinkHref: paths.QUESTION_2_CONTACT,
+    backLinkHref: paths.CONTACT_COMFORT,
     errors,
     formValues: {
       agreement: req.session.agreement,

@@ -12,12 +12,12 @@ enum paths {
   // Connecting Services specific paths
   DOMESTIC_ABUSE = '/domestic-abuse',
   SAFEGUARDING = '/getting-help',
-  QUESTION_2_CONTACT = '/question-2',
+  CONTACT_COMFORT = '/contact-comfort',
   NO_CONTACT = '/no-contact',
   AGREEMENT = '/agree',
   HELP_2_AGREE = 'help-to-agree',
-  QUESTION_4_HELP = '/question-4',
-  QUESTION_5_MEDIATION = '/question-5',
+  HELP_OPTIONS = '/help-options',
+  MEDIATION_CHECK = '/mediation-check',
 
   // Outcome pages
   COURT = '/court',

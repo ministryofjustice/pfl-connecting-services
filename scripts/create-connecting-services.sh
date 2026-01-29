@@ -161,7 +161,7 @@ enum paths {
   // Connecting Services specific paths
   QUESTION_1_ABUSE = '/question-1',
   SAFEGUARDING = '/safeguarding',
-  QUESTION_2_CONTACT = '/question-2',
+  CONTACT_COMFORT = '/contact-comfort',
   NO_CONTACT = '/no-contact',
   QUESTION_3_AGREE = '/question-3',
   QUESTION_4_HELP = '/question-4',
@@ -199,7 +199,7 @@ cat > server/constants/formSteps.ts << 'EOF'
 enum FormSteps {
   START = 'START',
   QUESTION_1_ABUSE = 'QUESTION_1_ABUSE',
-  QUESTION_2_CONTACT = 'QUESTION_2_CONTACT',
+  CONTACT_COMFORT = 'CONTACT_COMFORT',
   QUESTION_3_AGREE = 'QUESTION_3_AGREE',
   QUESTION_4_HELP = 'QUESTION_4_HELP',
   QUESTION_5_MEDIATION = 'QUESTION_5_MEDIATION',
@@ -269,13 +269,13 @@ export const flowConfig: Record<FormSteps, FlowStep> = {
     path: paths.QUESTION_1_ABUSE,
     dependsOn: [FormSteps.START],
   },
-  [FormSteps.QUESTION_2_CONTACT]: {
-    path: paths.QUESTION_2_CONTACT,
+  [FormSteps.CONTACT_COMFORT]: {
+    path: paths.CONTACT_COMFORT,
     dependsOn: [FormSteps.QUESTION_1_ABUSE],
   },
   [FormSteps.QUESTION_3_AGREE]: {
     path: paths.QUESTION_3_AGREE,
-    dependsOn: [FormSteps.QUESTION_2_CONTACT],
+    dependsOn: [FormSteps.CONTACT_COMFORT],
   },
   [FormSteps.QUESTION_4_HELP]: {
     path: paths.QUESTION_4_HELP,
@@ -405,14 +405,14 @@ router.post(
     if (req.body.abuse === 'yes') {
       return res.redirect(paths.SAFEGUARDING);
     }
-    return res.redirect(paths.QUESTION_2_CONTACT);
+    return res.redirect(paths.CONTACT_COMFORT);
   }
 );
 
 // Question 2: Contact
-router.get(paths.QUESTION_2_CONTACT, (req: Request, res: Response) => {
+router.get(paths.CONTACT_COMFORT, (req: Request, res: Response) => {
   const errors = req.flash('errors');
-  res.render('pages/question-2', {
+  res.render('pages/contact-comfort', {
     title: res.__('pages.question2.title'),
     backLinkHref: paths.QUESTION_1_ABUSE,
     errors,
@@ -423,13 +423,13 @@ router.get(paths.QUESTION_2_CONTACT, (req: Request, res: Response) => {
 });
 
 router.post(
-  paths.QUESTION_2_CONTACT,
+  paths.CONTACT_COMFORT,
   body('contact').notEmpty().withMessage('Select an option'),
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       req.flash('errors', errors.array() as any);
-      return res.redirect(paths.QUESTION_2_CONTACT);
+      return res.redirect(paths.CONTACT_COMFORT);
     }
 
     req.session.contact = req.body.contact;
@@ -448,7 +448,7 @@ router.get(paths.QUESTION_3_AGREE, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/question-3', {
     title: res.__('pages.question3.title'),
-    backLinkHref: paths.QUESTION_2_CONTACT,
+    backLinkHref: paths.CONTACT_COMFORT,
     errors,
     formValues: {
       agree: req.session.agree,
@@ -583,7 +583,7 @@ router.get(paths.SAFEGUARDING, (req: Request, res: Response) => {
 router.get(paths.NO_CONTACT, (req: Request, res: Response) => {
   res.render('pages/no-contact', {
     title: res.__('pages.noContact.title'),
-    backLinkHref: paths.QUESTION_2_CONTACT,
+    backLinkHref: paths.CONTACT_COMFORT,
   });
 });
 

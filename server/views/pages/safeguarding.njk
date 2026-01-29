@@ -21,10 +21,11 @@
 
       {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-{{ govukWarningText({
-  text: "If you are in immediate danger, call 999 and ask for the police.",
-  iconFallbackText: "Warning"
-}) }}
+      {{ govukWarningText({
+        text: "If you are in immediate danger, call 999 and ask for the police.",
+        iconFallbackText: "Warning"
+      }) }}
+      
       <h2 class="govuk-heading-m">
         If you want to continue
       </h2>
@@ -35,11 +36,11 @@
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{{ govukButton({
-  text: "Continue",
-  href: paths.QUESTION_2_CONTACT,
-  classes: "govuk-button--primary"
-}) }}
+      {{ govukButton({
+        text: "Continue",
+        href: paths.CONTACT_COMFORT,
+        classes: "govuk-button--primary"
+      }) }}
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
