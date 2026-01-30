@@ -102,8 +102,16 @@
         }
       }
     },
-    "question2": {
-      "title": "Contact question"
+    "contactComfort": {
+      "title": "Are you comfortable contacting your ex-partner about child arrangements?",
+      "content": {
+        "options": {
+          "first": "Yes",
+          "second": "No",
+          "third": "I do not have their contact details",
+          "fourth": "I can contact them but they do not respond"
+        }
+      }
     },
     "agreement": {
       "title": "Do you and your ex-partner agree on child arrangements?",
@@ -122,11 +130,32 @@
       },
       "error":"Select whether you and your ex-partner agree on child arrangements"
     },
-    "question4": {
-      "title": "Help preference"
+    "helpOptions": {
+      "title": "What would help you both agree on child arrangements?",
+      "content": {
+        "options": {
+          "first": "A plan we can follow ourselves",
+          "second": "Someone else to guide our conversations",
+          "third": "We cannot agree - someone else needs to make a decision for us"
+        }
+      }
     },
-    "question5": {
-      "title": "Mediation question"
+    "mediationCheck": {
+      "title": "Mediation question",
+      "content": {
+        "description": "Have you tried any of the following together in the last 6 months?",
+        "descriptionList": {
+          "first": "Family mediation",
+          "second": "Arbitration",
+          "third": "Solicitor negotiation",
+          "fourth": "Collaborative law",
+          "fifth": "Neutral evaluation"
+        },
+        "options": {
+          "yes": "Yes, we have tried one or more of these",
+          "no": "No, we have not tried any of these"
+        }
+      }
     },
     "court": {
       "title": "Going to court"

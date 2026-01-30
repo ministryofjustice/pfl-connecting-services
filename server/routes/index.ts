@@ -21,10 +21,13 @@ const routes = (): Router => {
   // Agreement on child arrangements route
   router.use(agreementRoutes);
 
+  // Contact comfort route
   router.use(contactComfortRoutes);
 
+  // Help options route
   router.use(helpOptions);
 
+  // Mediation check route
   router.use(mediationCheck);
 
   // Outcome page routes

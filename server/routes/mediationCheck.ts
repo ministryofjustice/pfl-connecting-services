@@ -9,7 +9,7 @@ const router = Router();
 router.get(paths.MEDIATION_CHECK, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/mediationCheck', {
-    title: res.__('pages.question5.title'),
+    title: res.__('pages.mediationCheck.title'),
     backLinkHref: paths.HELP_OPTIONS,
     errors,
     formValues: {

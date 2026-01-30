@@ -9,7 +9,7 @@ const router = Router();
 router.get(paths.CONTACT_COMFORT, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/contactComfort', {
-    title: res.__('pages.question2.title'),
+    title: res.__('pages.contactComfort.title'),
     backLinkHref: paths.DOMESTIC_ABUSE,
     errors,
     formValues: {

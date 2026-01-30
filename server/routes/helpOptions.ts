@@ -9,7 +9,7 @@ const router = Router();
 router.get(paths.HELP_OPTIONS, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/helpOptions', {
-    title: res.__('pages.question4.title'),
+    title: res.__('pages.helpOptions.title'),
     backLinkHref: paths.AGREEMENT,
     errors,
     formValues: {

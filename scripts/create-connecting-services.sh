@@ -413,7 +413,7 @@ router.post(
 router.get(paths.CONTACT_COMFORT, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/contact-comfort', {
-    title: res.__('pages.question2.title'),
+    title: res.__('pages.contactComfort.title'),
     backLinkHref: paths.QUESTION_1_ABUSE,
     errors,
     formValues: {
@@ -447,7 +447,7 @@ router.post(
 router.get(paths.QUESTION_3_AGREE, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/question-3', {
-    title: res.__('pages.question3.title'),
+    title: res.__('pages.agreement.title'),
     backLinkHref: paths.CONTACT_COMFORT,
     errors,
     formValues: {
@@ -479,7 +479,7 @@ router.post(
 router.get(paths.QUESTION_4_HELP, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/question-4', {
-    title: res.__('pages.question4.title'),
+    title: res.__('pages.helpOptions.title'),
     backLinkHref: paths.QUESTION_3_AGREE,
     errors,
     formValues: {
@@ -513,7 +513,7 @@ router.post(
 router.get(paths.QUESTION_5_MEDIATION, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/question-5', {
-    title: res.__('pages.question5.title'),
+    title: res.__('pages.mediationCheck.title'),
     backLinkHref: paths.QUESTION_4_HELP,
     errors,
     formValues: {
@@ -679,16 +679,16 @@ cat > server/locales/en.json << 'EOF'
     "question1": {
       "title": "Safety question"
     },
-    "question2": {
+    "contactComfort": {
       "title": "Contact question"
     },
-    "question3": {
+    "agreement": {
       "title": "Agreement question"
     },
-    "question4": {
+    "helpOptions": {
       "title": "Help preference"
     },
-    "question5": {
+    "mediationCheck": {
       "title": "Mediation question"
     },
     "court": {

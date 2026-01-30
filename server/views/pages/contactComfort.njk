@@ -1,51 +1,39 @@
 {% extends "partials/layout.njk" %}
 
-{% set title = __("pages.question-2.title") %}
+{% set title = __("pages.contactComfort.title") %}
 {% block pageTitle %}
-  Question page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+  {{ __("pages.contactComfort.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
    <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <form class="form" action="{{ paths.CONTACT_COMFORT }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+          <h1 class="govuk-heading-l">
+            {{ __("pages.contactComfort.title") }}
+          </h1>
 
-        <h1 class="govuk-heading-l">
-       Are you comfortable contacting your ex-partner about child arrangements?
-      </h1>
+          {% set radioItems = [
+            { value: "yes", text: __("pages.contactComfort.content.options.first")  },
+            { value: "no", text: __("pages.contactComfort.content.options.second") },
+            { value: "not-details", text: __("pages.contactComfort.content.options.third") },
+            { value: "not-response", text: __("pages.contactComfort.content.options.fourth") }
+          ] %}
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-{{ govukRadios({
-  name: "contact",
-  fieldset: {
-    legend: {
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  items: [
-    {
-      value: "yes",
-      text: "Yes"
-    },
-    {
-      value: "no",
-      text: "No"
-    },
-    {
-      value: "no-details",
-      text: "I do not have their contact details"
-    },
-    {
-      value: "no-response",
-      text: "I can contact them but they do not respond"
-    }
-  ]
-}) }}
+          {{ govukRadios({
+            name: formFields.CONTACT,
+            fieldset: {
+              legend: {
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: radioItems,
+            errorMessage: errors | findError(formFields.CONTACT)
+          }) }}
 
         {% from "govuk/components/button/macro.njk" import govukButton %}
         {{ govukButton({
@@ -53,14 +41,11 @@
         }) }}
 
       </form>
-
     </div>
     <div class="govuk-grid-column-one-third">
       {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
 
-{{ govukExitThisPage() }}
-
+      {{ govukExitThisPage() }}
     </div>
   </div>
-
 {% endblock %}

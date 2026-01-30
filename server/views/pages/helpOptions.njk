@@ -1,62 +1,51 @@
 {% extends "partials/layout.njk" %}
 
-{% set title = __("pages.question-4.title") %}
+{% set title = __("pages.helpOptions.title") %}
 {% block pageTitle %}
-  Question page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+  {{ __("pages.helpOptions.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-      <form class="form" action="{{ paths.QUESTION_4_HELP }}" method="post">
+      <form class="form" action="{{ paths.HELP_OPTIONS }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <h1 class="govuk-heading-l">
+          {{ __("pages.helpOptions.title") }}
+        </h1>
 
-      <h1 class="govuk-heading-l">
-       What would help you both agree on child arrangements?
-      </h1>
+        {% set radioItems = [
+          { value: "plan", text: __("pages.helpOptions.content.options.first")  },
+          { value: "external", text: __("pages.helpOptions.content.options.second") },
+          { value: "cannot", text: __("pages.helpOptions.content.options.third") }
+        ] %}
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-{{ govukRadios({
-  name: "help",
-  fieldset: {
-    legend: {
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  items: [
-    {
-      value: "plan",
-      text: "A plan we can follow ourselves"
-    },
-    {
-      value: "external",
-      text: "Someone else to guide our conversations"
-    },
-    {
-      value: "cannot",
-      text: "We cannot agree - someone else needs to make a decision for us"
-    }
-  ]
-}) }}
+        {{ govukRadios({
+          name: formFields.HELP,
+          fieldset: {
+            legend: {
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: radioItems,
+          errorMessage: errors | findError(formFields.HELP)
+        }) }}
 
         {% from "govuk/components/button/macro.njk" import govukButton %}
+
         {{ govukButton({
           text: "Continue"
         }) }}
 
       </form>
-
     </div>
     <div class="govuk-grid-column-one-third">
       {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
 
-{{ govukExitThisPage() }}
-
+      {{ govukExitThisPage() }}
     </div>
   </div>
-
 {% endblock %}
