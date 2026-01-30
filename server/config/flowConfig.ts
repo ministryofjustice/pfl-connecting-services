@@ -14,21 +14,21 @@ export const flowConfig: Record<FormSteps, FlowStep> = {
     path: paths.DOMESTIC_ABUSE,
     dependsOn: [FormSteps.START],
   },
-  [FormSteps.QUESTION_2_CONTACT]: {
-    path: paths.QUESTION_2_CONTACT,
+  [FormSteps.CONTACT_COMFORT]: {
+    path: paths.CONTACT_COMFORT,
     dependsOn: [FormSteps.DOMESTIC_ABUSE],
   },
   [FormSteps.AGREEMENT]: {
     path: paths.AGREEMENT,
-    dependsOn: [FormSteps.QUESTION_2_CONTACT],
+    dependsOn: [FormSteps.CONTACT_COMFORT],
   },
-  [FormSteps.QUESTION_4_HELP]: {
-    path: paths.QUESTION_4_HELP,
+  [FormSteps.HELP_OPTIONS]: {
+    path: paths.HELP_OPTIONS,
     dependsOn: [FormSteps.AGREEMENT],
   },
-  [FormSteps.QUESTION_5_MEDIATION]: {
-    path: paths.QUESTION_5_MEDIATION,
-    dependsOn: [FormSteps.QUESTION_4_HELP],
+  [FormSteps.MEDIATION_CHECK]: {
+    path: paths.MEDIATION_CHECK,
+    dependsOn: [FormSteps.HELP_OPTIONS],
   },
 };
 

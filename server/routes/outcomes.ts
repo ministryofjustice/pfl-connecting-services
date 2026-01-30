@@ -14,7 +14,7 @@ router.get(paths.COURT, (req: Request, res: Response) => {
 router.get(paths.MEDIATION, (req: Request, res: Response) => {
   res.render('pages/mediation', {
     title: res.__('pages.mediation.title'),
-    backLinkHref: paths.QUESTION_5_MEDIATION,
+    backLinkHref: paths.MEDIATION_CHECK,
   });
 });
 
@@ -35,7 +35,7 @@ router.get(paths.SAFEGUARDING, (req: Request, res: Response) => {
 router.get(paths.NO_CONTACT, (req: Request, res: Response) => {
   res.render('pages/no-contact', {
     title: res.__('pages.noContact.title'),
-    backLinkHref: paths.QUESTION_2_CONTACT,
+    backLinkHref: paths.CONTACT_COMFORT,
   });
 });
 

@@ -1,0 +1,51 @@
+{% extends "partials/layout.njk" %}
+
+{% set title = __("pages.helpOptions.title") %}
+{% block pageTitle %}
+  {{ __("pages.helpOptions.title") }} – {{ __("serviceName") }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="{{ paths.HELP_OPTIONS }}" method="post">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <h1 class="govuk-heading-l">
+          {{ __("pages.helpOptions.title") }}
+        </h1>
+
+        {% set radioItems = [
+          { value: "plan", text: __("pages.helpOptions.content.options.first")  },
+          { value: "external", text: __("pages.helpOptions.content.options.second") },
+          { value: "cannot", text: __("pages.helpOptions.content.options.third") }
+        ] %}
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: formFields.HELP,
+          fieldset: {
+            legend: {
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: radioItems,
+          errorMessage: errors | findError(formFields.HELP)
+        }) }}
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+
+      {{ govukExitThisPage() }}
+    </div>
+  </div>
+{% endblock %}

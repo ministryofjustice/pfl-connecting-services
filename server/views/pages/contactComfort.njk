@@ -1,0 +1,51 @@
+{% extends "partials/layout.njk" %}
+
+{% set title = __("pages.contactComfort.title") %}
+{% block pageTitle %}
+  {{ __("pages.contactComfort.title") }} – {{ __("serviceName") }} – GOV.UK
+{% endblock %}
+
+{% block content %}
+   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="{{ paths.CONTACT_COMFORT }}" method="post">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+          <h1 class="govuk-heading-l">
+            {{ __("pages.contactComfort.title") }}
+          </h1>
+
+          {% set radioItems = [
+            { value: "yes", text: __("pages.contactComfort.content.options.first")  },
+            { value: "no", text: __("pages.contactComfort.content.options.second") },
+            { value: "not-details", text: __("pages.contactComfort.content.options.third") },
+            { value: "not-response", text: __("pages.contactComfort.content.options.fourth") }
+          ] %}
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            name: formFields.CONTACT,
+            fieldset: {
+              legend: {
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: radioItems,
+            errorMessage: errors | findError(formFields.CONTACT)
+          }) }}
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+
+      {{ govukExitThisPage() }}
+    </div>
+  </div>
+{% endblock %}
