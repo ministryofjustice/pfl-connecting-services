@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: care-arrangement-plan-staging-ingress
-  namespace: care-arrangement-plan-staging
+  name: connecting-services-staging-ingress
+  namespace: connecting-services-staging
   annotations:
-    external-dns.alpha.kubernetes.io/set-identifier: care-arrangement-plan-staging-ingress-care-arrangement-plan-staging-green
+    external-dns.alpha.kubernetes.io/set-identifier: connecting-services-staging-ingress-connecting-services-staging-green
     external-dns.alpha.kubernetes.io/aws-weight: '100'
     nginx.ingress.kubernetes.io/enable-modsecurity: 'true'
     nginx.ingress.kubernetes.io/modsecurity-snippet: |
       SecAuditEngine On
       SecRuleEngine DetectionOnly
-      SecDefaultAction "phase:2,pass,log,tag:github_team=central-digital-product-team,tag:namespace=care-arrangement-plan-staging"
+      SecDefaultAction "phase:2,pass,log,tag:github_team=central-digital-product-team,tag:namespace=connecting-services-staging"
     nginx.ingress.kubernetes.io/server-snippet: |
       location = /health {
         auth_basic off;
@@ -29,7 +29,7 @@ spec:
   tls:
     - hosts:
         - staging.child-arrangements-plan.service.justice.gov.uk
-      secretName: care-arrangement-plan-cert-secret
+      secretName: pfl-connecting-services-cert-secret
   rules:
     - host: staging.child-arrangements-plan.service.justice.gov.uk
       http:
@@ -38,6 +38,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: care-arrangement-plan-staging-node-service
+                name: connecting-services-staging-node-service
                 port:
                   number: 8080
