@@ -17,10 +17,4 @@ router.get(paths.START, (req: Request, res: Response) => {
   });
 });
 
-router.get(paths.START_ADDITIONAL, (req: Request, res: Response) => {
-  res.render('pages/startAdditional', {
-    title: res.__('pages.start.title'),
-  });
-});
-
 export default router;
