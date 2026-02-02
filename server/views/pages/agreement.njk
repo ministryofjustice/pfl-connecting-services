@@ -1,4 +1,7 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% set title = __("pages.agreement.title") %}
 {% block pageTitle %}
@@ -29,8 +32,6 @@
           { value: "not-discussed", text: __("pages.agreement.content.options.third") }
         ] %}
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
         {{ govukRadios({
           name: formFields.AGREEMENT,
           fieldset: {
@@ -42,8 +43,7 @@
           items: radioItems,
           errorMessage: errors | findError(formFields.AGREEMENT)
         }) }}
-
-        {% from "govuk/components/button/macro.njk" import govukButton %}
+        
         {{ govukButton({
           text: "Continue"
         }) }}
@@ -51,8 +51,6 @@
       </form>
     </div>
     <div class="govuk-grid-column-one-third">
-      {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
-
       {{ govukExitThisPage() }}
     </div>
   </div>

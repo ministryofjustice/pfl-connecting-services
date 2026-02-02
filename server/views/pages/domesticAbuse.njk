@@ -35,14 +35,14 @@
         </ul>
 
         {{ govukRadios({
-          name: "abuse",
+          name: formFields.ABUSE,
           fieldset: {
             legend: {
-              isPageHeading: false,
+              isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
           },
-          errorMessage: errors | findError("abuse") if errors else null,
+          errorMessage: errors | findError(formFields.ABUSE) if errors else null,
           items: [
             {
               value: "yes",
