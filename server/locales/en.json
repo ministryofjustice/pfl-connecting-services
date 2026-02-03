@@ -201,6 +201,13 @@
           }
         }
       },
+      "relatedContent": {
+        "title": "Related content",
+        "content": {
+          "makingChildArrangements": "Making child arrangements if you divorce or separate",
+          "familyMediation": "Family Mediation Voucher Scheme"
+        }
+      },
       "buttonText": "Print this page"
     },
     "guide": {

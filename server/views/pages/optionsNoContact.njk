@@ -86,24 +86,30 @@
       {{ __("pages.optionsNoContact.content.helpAndSupport.content.description") | safe }}
     </p>
 
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header"></th>
-          <th scope="col" class="govuk-table__header"></th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">{{ __("pages.optionsNoContact.content.helpAndSupport.content.mediationCouncilLink") | safe }}</th>
-          <td class="govuk-table__cell">{{ __("pages.optionsNoContact.content.helpAndSupport.content.mediationCouncilText") }}</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">{{ __("pages.optionsNoContact.content.helpAndSupport.content.citizensAdviceLink") | safe }}</th>
-          <td class="govuk-table__cell">{{ __("pages.optionsNoContact.content.helpAndSupport.content.citizensAdviceText") }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-summary-list__key-width">
+        </dt>
+        <dd class="govuk-summary-list__value">
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-summary-list__key-width">
+          {{ __("pages.optionsNoContact.content.helpAndSupport.content.mediationCouncilLink") | safe }}
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ __("pages.optionsNoContact.content.helpAndSupport.content.mediationCouncilText") }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-summary-list__key-width">
+          {{ __("pages.optionsNoContact.content.helpAndSupport.content.citizensAdviceLink") | safe }}
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ __("pages.optionsNoContact.content.helpAndSupport.content.citizensAdviceText") }}
+        </dd>
+      </div>
+    </dl>
 
     <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
       {{ __("pages.optionsNoContact.buttonText") }}
@@ -111,25 +117,23 @@
   </div>
 
   <div class="govuk-grid-column-one-third">
-    <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
-      <h2 class="govuk-heading-m" id="subsection-title">
-        {{ __("pages.optionsNoContact.title") }}
-      </h2>
-      <nav role="navigation" aria-labelledby="subsection-title">
+    <h2 class="govuk-heading-m subsection-title">
+        {{ __("pages.start.relatedContent.title") }}
+    </h2>
+    <nav role="navigation">
         <ul class="govuk-list govuk-!-font-size-16">
-          <li>
+        <li class="govuk-!-margin-bottom-2">
             <a href="https://www.gov.uk/looking-after-children-divorce">
-              {{ __("pages.optionsNoContact.title") }}
+              {{ __("pages.optionsNoContact.relatedContent.content.makingChildArrangements") }}
             </a>
-          </li>
-          <li>
+        </li>
+        <li class="govuk-!-margin-bottom-2">
             <a href="https://www.gov.uk/guidance/family-mediation-voucher-scheme">
-              {{ __("pages.optionsNoContact.title") }}
+              {{ __("pages.optionsNoContact.relatedContent.content.familyMediation") }}
             </a>
-          </li>
+        </li>
         </ul>
-      </nav>
-    </aside>
+    </nav>
     {{ govukExitThisPage() }}
   </div>
 </div>
