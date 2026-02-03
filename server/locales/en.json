@@ -91,7 +91,8 @@
           "third": "I do not have their contact details",
           "fourth": "I can contact them but they do not respond"
         }
-      }
+      },
+      "error": "Select whether you are comfortable contacting your ex-partner"
     },
     "agreement": {
       "title": "Do you and your ex-partner agree on child arrangements?",
@@ -149,8 +150,58 @@
     "safeguarding": {
       "title": "Safety information"
     },
-    "noContact": {
-      "title": "Unable to contact"
+    "optionsNoContact": {
+      "title": "Options to explore if you are not comfortable contacting your ex-partner",
+      "content": {
+        "notComfortable": "If you are not comfortable contacting your ex-partner, there are still ways you can make child arrangements without going to court.",
+        "solicitorCanContact": "With these options, your mediator or solicitor can contact your ex-partner for you.",
+        "shuttleMediation": {
+          "title": "1. Shuttle mediation",
+          "content": {
+            "attendSession": "Shuttle mediation is where you and your ex-partner both attend a session with a mediator, but sit in different rooms or online meetings so you do not have to have any contact.",
+            "mediatorMoves": "The mediator moves between rooms, listening to you both and helping you come to an agreement about child arrangements.",
+            "getVoucher": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
+            "nextStep": "<strong>Next step:</strong><a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\"> Find out more about mediation</a>"
+          }
+        },
+        "solicitorNegotiation": {
+          "title": "2. Family solicitor negotiation",
+          "content": {
+            "legalAdviser": "A family legal adviser can help you negotiate with your ex-partner without going to court. This is known as 'solicitor negotiation' or 'lawyer negotiation'.",
+            "speakToExPartner": "You do not have to speak to your ex-partner if you choose a solicitor to negotiate for you.",
+            "nextStep": "<strong>Next step:</strong><a href=\"https://solicitors.lawsociety.org.uk/\"> Find a legal adviser from the Law Society</a>"
+          }
+        },
+        "collaborativeLaw": {
+          "title": "3. Collaborative law",
+          "content": {
+            "hireLegalAdviser": "You and your ex-partner can each hire your own legal advisers to help you negotiate. You then all meet to try and agree on child arrangements.",
+            "nextStep": "<strong>Next step:</strong><a href=\"https://resolution.org.uk/looking-for-help/splitting-up/your-process-options-for-divorce-and-dissolution/the-collaborative-process/\"> Find out more about collaborative law from Resolution</a>"
+          }
+        },
+        "otherWaysToAgree": {
+          "title": "Other ways to agree without going to court",
+          "description": "If you want to try another way to agree without going to court, you can look into:"
+        },
+        "arbitration": {
+          "title": "Arbitration",
+          "content": {
+            "arbitrationText": "This could suit you if: You'd prefer that someone like a judge or solicitor listens to both of your views and makes a legally-binding decision about the child arrangements.",
+            "arbitrationLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\"> Find out more about other ways to agree without going to court</a>"
+          }
+        },
+        "helpAndSupport": {
+          "title": "Help and support",
+          "content": {
+            "description": "These are some of the services you may find helpful for making child arrangements. You can also <a href=\"/service-finder\">find more child arrangement support services</a>.",
+            "mediationCouncilLink": "<a href=\"https://www.familymediationcouncil.org.uk/\" id=\"mediation-link\">Family Mediation Council</a>",
+            "mediationCouncilText": "Find a trained mediator from a network of family mediation organisations in England and Wales.",
+            "citizensAdviceLink": "<a href=\"https://www.citizensadvice.org.uk/family/making-agreements-about-your-children/your-child-arrangements-arent-working/\" id=\"citizens-advice-link\">Citizens Advice</a>",
+            "citizensAdviceText": "Advice on what to do if your child arrangements aren't working  from a network of independent charities that provides free, confidential and impartial advice online, on the phone and in person."
+          }
+        }
+      },
+      "buttonText": "Print this page"
     },
     "guide": {
       "title": "Guide"

@@ -22,7 +22,7 @@ describe('Question 2: Contact', () => {
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
           location: 'body',
-          msg: 'Select an option',
+          msg: 'Select whether you are comfortable contacting your ex-partner',
           path: 'contact',
           type: 'field',
         },
@@ -45,12 +45,12 @@ describe('Question 2: Contact', () => {
         .expect('location', paths.COURT);
     });
 
-    it('should redirect to no-contact page when answer is no or no-response', () => {
+    it('should redirect to options-no-contact page when answer is no or no-response', () => {
       return request(app)
         .post(paths.CONTACT_COMFORT)
         .send({ contact: 'no' })
         .expect(302)
-        .expect('location', paths.NO_CONTACT);
+        .expect('location', paths.OPTIONS_NO_CONTACT);
     });
   });
 });

@@ -1,0 +1,136 @@
+{% extends "partials/layout.njk" %}
+{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+
+{% set title = __("pages.optionsNoContact.title") %}
+{% block pageTitle %}
+  {{ __("pages.optionsNoContact.title") }} – {{ __("serviceName") }} – GOV.UK
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      {{ __("pages.optionsNoContact.title") }}
+    </h1>
+    <p>
+      {{ __("pages.optionsNoContact.content.notComfortable") }}
+    </p>
+    <p>
+      {{ __("pages.optionsNoContact.content.solicitorCanContact") }}
+    </p>
+
+    <h2 class="govuk-heading-m">
+      {{ __("pages.optionsNoContact.content.shuttleMediation.title") }}
+    </h2>
+    <p>
+      {{ __("pages.optionsNoContact.content.shuttleMediation.content.attendSession") }}
+    </p>
+    <p>
+      {{ __("pages.optionsNoContact.content.shuttleMediation.content.mediatorMoves") }}
+    </p>
+    <div class="govuk-inset-text">
+      {{ __("pages.optionsNoContact.content.shuttleMediation.content.getVoucher") }}
+    </div>
+    <p>
+      {{ __("pages.optionsNoContact.content.shuttleMediation.content.nextStep") | safe }}
+    </p>
+
+    <h2 class="govuk-heading-m">
+      {{ __("pages.optionsNoContact.content.solicitorNegotiation.title") }}
+    </h2>
+    <p>
+      {{ __("pages.optionsNoContact.content.solicitorNegotiation.content.legalAdviser") }}
+    </p>
+    <p>
+      {{ __("pages.optionsNoContact.content.solicitorNegotiation.content.speakToExPartner") }}
+    </p>
+    <p>
+      {{ __("pages.optionsNoContact.content.solicitorNegotiation.content.nextStep") | safe }}
+    </p>
+
+    <h2 class="govuk-heading-m">
+      {{ __("pages.optionsNoContact.content.collaborativeLaw.title") }}
+    </h2>
+    <p>
+      {{ __("pages.optionsNoContact.content.collaborativeLaw.content.hireLegalAdviser") }}
+    </p>
+    <p>
+      {{ __("pages.optionsNoContact.content.collaborativeLaw.content.nextStep") | safe }}
+    </p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">
+      {{ __("pages.optionsNoContact.content.otherWaysToAgree.title") }}
+    </h2>
+    <p>
+      {{ __("pages.optionsNoContact.content.otherWaysToAgree.description") }}
+    </p>
+
+    <h3 class="govuk-heading-s">
+      {{ __("pages.optionsNoContact.content.arbitration.title") }}
+    </h3>
+    <p>
+      {{ __("pages.optionsNoContact.content.arbitration.content.arbitrationText") }}
+    </p>
+    <p>
+      {{ __("pages.optionsNoContact.content.arbitration.content.arbitrationLink") | safe }}
+    </p>
+
+    <h2 class="govuk-heading-m">
+      {{ __("pages.optionsNoContact.content.helpAndSupport.title") }}
+    </h2>
+    <p>
+      {{ __("pages.optionsNoContact.content.helpAndSupport.content.description") | safe }}
+    </p>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header"></th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">{{ __("pages.optionsNoContact.content.helpAndSupport.content.mediationCouncilLink") | safe }}</th>
+          <td class="govuk-table__cell">{{ __("pages.optionsNoContact.content.helpAndSupport.content.mediationCouncilText") }}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">{{ __("pages.optionsNoContact.content.helpAndSupport.content.citizensAdviceLink") | safe }}</th>
+          <td class="govuk-table__cell">{{ __("pages.optionsNoContact.content.helpAndSupport.content.citizensAdviceText") }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      {{ __("pages.optionsNoContact.buttonText") }}
+    </button>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        {{ __("pages.optionsNoContact.title") }}
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="https://www.gov.uk/looking-after-children-divorce">
+              {{ __("pages.optionsNoContact.title") }}
+            </a>
+          </li>
+          <li>
+            <a href="https://www.gov.uk/guidance/family-mediation-voucher-scheme">
+              {{ __("pages.optionsNoContact.title") }}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    {{ govukExitThisPage() }}
+  </div>
+</div>
+{% endblock %}

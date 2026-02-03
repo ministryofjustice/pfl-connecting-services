@@ -32,11 +32,4 @@ router.get(paths.SAFEGUARDING, (req: Request, res: Response) => {
   });
 });
 
-router.get(paths.NO_CONTACT, (req: Request, res: Response) => {
-  res.render('pages/no-contact', {
-    title: res.__('pages.noContact.title'),
-    backLinkHref: paths.CONTACT_COMFORT,
-  });
-});
-
 export default router;
