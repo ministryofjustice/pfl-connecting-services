@@ -1,12 +1,15 @@
 import { Request, Response, Router } from 'express';
 import { body, validationResult } from 'express-validator';
 
+import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
+import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
+import addCompletedStep from '../utils/addCompletedStep';
 
 const router = Router();
 
 // Question 5 - Mediation Check
-router.get(paths.MEDIATION_CHECK, (req: Request, res: Response) => {
+router.get(paths.MEDIATION_CHECK, checkFormProgressFromConfig(FormSteps.MEDIATION_CHECK), (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/mediationCheck', {
     title: res.__('pages.mediationCheck.title'),
@@ -29,6 +32,7 @@ router.post(
     }
 
     req.session.mediation = req.body.mediation;
+    addCompletedStep(req, FormSteps.MEDIATION_CHECK);
 
     if (req.body.mediation === 'yes') {
       return res.redirect(paths.COURT);

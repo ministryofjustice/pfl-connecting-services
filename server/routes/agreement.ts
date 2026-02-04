@@ -1,7 +1,10 @@
 import { Request, Response, Router } from 'express';
 import { body, validationResult } from 'express-validator';
 
+import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
+import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
+import addCompletedStep from '../utils/addCompletedStep';
 
 const router = Router();
 
@@ -13,7 +16,7 @@ const router = Router();
  *   - No → Help to agree page (/help-to-agree)
  *   - Not discussed yet → Help to agree page (/help-to-agree)
  */
-router.get(paths.AGREEMENT, (req: Request, res: Response) => {
+router.get(paths.AGREEMENT, checkFormProgressFromConfig(FormSteps.AGREEMENT), (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/agreement', {
     title: res.__('pages.agreement.title'),
@@ -38,6 +41,7 @@ router.post(
     }
 
     req.session.agreement = req.body.agreement;
+    addCompletedStep(req, FormSteps.AGREEMENT);
 
     if (req.body.agreement === 'yes') {
       return res.redirect(paths.PARENTING_PLAN);

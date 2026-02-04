@@ -1,7 +1,10 @@
 import { Request, Response, Router } from 'express';
 import { body, validationResult } from 'express-validator';
 
+import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
+import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
+import addCompletedStep from '../utils/addCompletedStep';
 
 const router = Router();
 
@@ -12,7 +15,7 @@ const router = Router();
  *   - YES → Safeguarding page (/getting-help)
  *   - NO  → Contact comfort page (/contact-comfort)
  */
-router.get(paths.DOMESTIC_ABUSE, (req: Request, res: Response) => {
+router.get(paths.DOMESTIC_ABUSE, checkFormProgressFromConfig(FormSteps.DOMESTIC_ABUSE), (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/domesticAbuse', {
     title: res.__('pages.domesticAbuse.title'),
@@ -37,6 +40,7 @@ router.post(
     }
 
     req.session.abuse = req.body.abuse;
+    addCompletedStep(req, FormSteps.DOMESTIC_ABUSE);
 
     if (req.body.abuse === 'yes') {
       return res.redirect(paths.SAFEGUARDING);
