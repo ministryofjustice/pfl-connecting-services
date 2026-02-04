@@ -84,14 +84,14 @@ await expect(errorSummary).toBeVisible();
 Instead of repeating common flows:
 
 ```typescript
-import { navigateToAgreement } from './fixtures/test-helpers';
+import { navigateToTaskList } from './fixtures/test-helpers';
 
-test('agreement test', async ({ page }) => {
-  // This handles all the setup to get to the agreement page
-  await navigateToAgreement(page);
+test('task list test', async ({ page }) => {
+  // This handles all the setup to get to the task list
+  await navigateToTaskList(page);
 
-  // Now test agreement functionality
-  await expect(page).toHaveURL(/\/agree/);
+  // Now test task list functionality
+  await expect(page).toHaveURL(/\/make-a-plan/);
 });
 ```
 
@@ -105,9 +105,9 @@ import { PasswordPage } from './fixtures/page-objects';
 test('login test', async ({ page }) => {
   const passwordPage = new PasswordPage(page);
   await passwordPage.goto();
-  await passwordPage.submitWithPassword('test-password');
+  await passwordPage.submitWithPassword('parent-planner');
 
-  await expect(page).toHaveURL(/\//);
+  await expect(page).toHaveURL(/\/safety-check/);
 });
 ```
 
