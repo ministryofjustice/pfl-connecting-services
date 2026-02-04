@@ -11,30 +11,31 @@
 {% block content %}
    <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {% include "partials/errorSummary.njk" %}
       <form class="form" action="{{ paths.CONTACT_COMFORT }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-          <h1 class="govuk-heading-l">
-            {{ __("pages.contactComfort.title") }}
-          </h1>
+        <h1 class="govuk-heading-l">
+          {{ __("pages.contactComfort.title") }}
+        </h1>
 
-          {% set radioItems = [
-            { value: "yes", text: __("pages.contactComfort.content.options.first")  },
-            { value: "no", text: __("pages.contactComfort.content.options.second") },
-            { value: "not-details", text: __("pages.contactComfort.content.options.third") },
-            { value: "not-response", text: __("pages.contactComfort.content.options.fourth") }
-          ] %}
+        {% set radioItems = [
+          { value: "yes", text: __("pages.contactComfort.content.options.first")  },
+          { value: "no", text: __("pages.contactComfort.content.options.second") },
+          { value: "no-details", text: __("pages.contactComfort.content.options.third") },
+          { value: "not-response", text: __("pages.contactComfort.content.options.fourth") }
+        ] %}
 
-          {{ govukRadios({
-            name: formFields.CONTACT,
-            fieldset: {
-              legend: {
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
-              }
-            },
-            items: radioItems,
-            errorMessage: errors | findError(formFields.CONTACT)
-          }) }}
+        {{ govukRadios({
+          name: formFields.CONTACT,
+          fieldset: {
+            legend: {
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: radioItems,
+          errorMessage: errors | findError(formFields.CONTACT)
+        }) }}
 
         {{ govukButton({
           text: "Continue"

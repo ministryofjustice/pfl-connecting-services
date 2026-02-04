@@ -13,7 +13,7 @@ enum paths {
   DOMESTIC_ABUSE = '/domestic-abuse',
   SAFEGUARDING = '/getting-help',
   CONTACT_COMFORT = '/contact-comfort',
-  NO_CONTACT = '/no-contact',
+  OPTIONS_NO_CONTACT = '/options-no-contact',
   AGREEMENT = '/agree',
   HELP_2_AGREE = 'help-to-agree',
   HELP_OPTIONS = '/help-options',

@@ -1,20 +1,21 @@
 import {
-  createAll,
   Accordion,
   Button,
   Checkboxes,
+  createAll,
   ErrorSummary,
   ExitThisPage,
   Header,
+  PasswordInput,
   Radios,
   SkipLink,
-  PasswordInput,
 } from 'govuk-frontend';
 
 import setupAccessibleExitThisPage from './accessibleExitThisPage';
 import setupCookieBanner from './cookieBanner';
 import setupExitTracking from './exitTracker';
 import setupLinkTracking from './linkTracker';
+import setupPrintThisPage from './printThisPage';
 
 // Disable GOV.UK's default Shift key listener before components initialise
 // This prevents the Shift key shortcut from being set up
@@ -30,3 +31,4 @@ setupCookieBanner();
 setupAccessibleExitThisPage();
 setupLinkTracking();
 setupExitTracking();
+setupPrintThisPage();
