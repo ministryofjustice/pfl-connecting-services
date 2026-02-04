@@ -1,4 +1,7 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
 
 {% set title = __("pages.contactComfort.title") %}
 {% block pageTitle %}
@@ -21,8 +24,6 @@
             { value: "not-response", text: __("pages.contactComfort.content.options.fourth") }
           ] %}
 
-          {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
           {{ govukRadios({
             name: formFields.CONTACT,
             fieldset: {
@@ -35,7 +36,6 @@
             errorMessage: errors | findError(formFields.CONTACT)
           }) }}
 
-        {% from "govuk/components/button/macro.njk" import govukButton %}
         {{ govukButton({
           text: "Continue"
         }) }}
@@ -43,8 +43,6 @@
       </form>
     </div>
     <div class="govuk-grid-column-one-third">
-      {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
-
       {{ govukExitThisPage() }}
     </div>
   </div>

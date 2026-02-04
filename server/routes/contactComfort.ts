@@ -1,12 +1,14 @@
 import { Request, Response, Router } from 'express';
 import { body, validationResult } from 'express-validator';
 
+import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
+import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
 
 const router = Router();
 
 // Question 2 - Contact Arrangements
-router.get(paths.CONTACT_COMFORT, (req: Request, res: Response) => {
+router.get(paths.CONTACT_COMFORT, checkFormProgressFromConfig(FormSteps.CONTACT_COMFORT), (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/contactComfort', {
     title: res.__('pages.contactComfort.title'),

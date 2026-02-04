@@ -1,0 +1,11 @@
+{% from "govuk/components/button/macro.njk" import govukButton as govukButtonBase %}
+
+{% macro button(params) %}
+  {% set mergedParams = {
+    text: __("continue")
+  } %}
+  {% for key, value in params %}
+    {% set mergedParams = mergedParams | merge({(key): value}) %}
+  {% endfor %}
+  {{ govukButtonBase(mergedParams) }}
+{% endmacro %}

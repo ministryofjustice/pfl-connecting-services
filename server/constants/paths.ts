@@ -1,5 +1,5 @@
 enum paths {
-  // Auth & static pages (keep from CAP)
+  // Auth & static pages
   PASSWORD = '/password',
   START = '/',
   START_ADDITIONAL = '/start',
