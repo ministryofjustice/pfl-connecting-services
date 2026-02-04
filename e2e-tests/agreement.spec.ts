@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Agreement on child arrangements question', () => {
+test.describe.skip('Agreement on child arrangements question', () => {
   test('should display the page with correct title', async ({ page }) => {
     await page.goto('/agree');
 

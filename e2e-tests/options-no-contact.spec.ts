@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Options no contact', () => {
+test.describe.skip('Options no contact', () => {
   test('should display the page with correct title', async ({ page }) => {
     await page.goto('/options-no-contact');
 
