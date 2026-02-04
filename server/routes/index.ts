@@ -6,6 +6,7 @@ import domesticAbuseRoutes from './domesticAbuse';
 import helpOptions from './helpOptions';
 import informationRoutes from './information';
 import mediationCheck from './mediationCheck';
+import optionsNoContact from './optionsNoContact';
 import outcomeRoutes from './outcomes';
 import startRoutes from './start';
 
@@ -23,6 +24,9 @@ const routes = (): Router => {
 
   // Contact comfort route
   router.use(contactComfortRoutes);
+
+  // Options no contact
+  router.use(optionsNoContact);
 
   // Help options route
   router.use(helpOptions);
