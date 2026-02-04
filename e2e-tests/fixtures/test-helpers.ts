@@ -110,11 +110,3 @@ export async function acceptCookies(page: Page) {
     }
   }
 }
-
-export function generateTestChildData(index: number) {
-  const firstNames = ['Emma', 'Oliver', 'Sophia', 'James', 'Isabella'];
-
-  return {
-    firstName: firstNames[index % firstNames.length],
-  };
-}
