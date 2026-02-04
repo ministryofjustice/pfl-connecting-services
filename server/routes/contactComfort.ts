@@ -34,9 +34,12 @@ router.post(
 
     if (req.body.contact === 'yes') {
       return res.redirect(paths.AGREEMENT);
-    } else if (req.body.contact === 'no-details') {
+    }
+
+    if (req.body.contact === 'no-details') {
       return res.redirect(paths.COURT);
     }
+
     return res.redirect(paths.OPTIONS_NO_CONTACT);
   }
 );
