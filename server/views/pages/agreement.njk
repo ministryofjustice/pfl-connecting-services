@@ -8,37 +8,50 @@
   {{ __("pages.agreement.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
+{% set legendText %}
+  {{ __("pages.agreement.title") }}
+{% endset %}
+
+{% set additionalText %}
+  <div id="agreement-additional-text">
+    <p>
+      {{ __("pages.agreement.content.description") }}
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{ __("pages.agreement.content.descriptionList.first") }}</li>
+      <li>{{ __("pages.agreement.content.descriptionList.second") }}</li>
+      <li>{{ __("pages.agreement.content.descriptionList.third") }}</li>
+    </ul>
+  </div>
+{% endset %}
+
+{% set radioItems = [
+  { value: "yes", text: __("pages.agreement.content.options.first")  },
+  { value: "no", text: __("pages.agreement.content.options.second") },
+  { value: "not-discussed", text: __("pages.agreement.content.options.third") }
+] %}
+
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {% include "partials/errorSummary.njk" %}
+
       <form class="form" action="{{ paths.AGREEMENT }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-        <h1 class="govuk-heading-l">
-          {{ __("pages.agreement.title") }}
-        </h1>
-        <p>
-          {{ __("pages.agreement.content.description") }}
-        </p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>{{ __("pages.agreement.content.descriptionList.first") }}</li>
-          <li>{{ __("pages.agreement.content.descriptionList.second") }}</li>
-          <li>{{ __("pages.agreement.content.descriptionList.third") }}</li>
-        </ul>
-
-        {% set radioItems = [
-          { value: "yes", text: __("pages.agreement.content.options.first")  },
-          { value: "no", text: __("pages.agreement.content.options.second") },
-          { value: "not-discussed", text: __("pages.agreement.content.options.third") }
-        ] %}
 
         {{ govukRadios({
           name: formFields.AGREEMENT,
+          describedBy: 'agreement-additional-text',
           fieldset: {
             legend: {
+              text: legendText,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
+          },
+          hint: {
+            html: additionalText
           },
           items: radioItems,
           errorMessage: errors | findError(formFields.AGREEMENT)

@@ -8,8 +8,33 @@
   {{ title }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
-{% block content %}
+{% set legendText %}
+  {{ __("pages.domesticAbuse.heading") }}
+{% endset %}
 
+{% set additionalText %}
+  <div id="domestic-abuse-additional-text">
+    <p>
+      {{ __("pages.domesticAbuse.intro") }}
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{ __("pages.domesticAbuse.bullets.violence") }}</li>
+      <li>{{ __("pages.domesticAbuse.bullets.financial") }}</li>
+      <li>{{ __("pages.domesticAbuse.bullets.coercive") }}</li>
+      <li>{{ __("pages.domesticAbuse.bullets.childAbuse") }}</li>
+      <li>{{ __("pages.domesticAbuse.bullets.harassment") }}</li>
+      <li>{{ __("pages.domesticAbuse.bullets.psychological") }}</li>
+    </ul>
+  </div>
+{% endset %}
+
+{% set radioItems = [
+  { value: "yes", text: "Yes" },
+  { value: "no", text: "No" }
+] %}
+
+{% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {% include "partials/errorSummary.njk" %}
@@ -17,42 +42,21 @@
       <form class="form" action="{{ paths.DOMESTIC_ABUSE }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
-        <h1 class="govuk-heading-l">
-          {{ __("pages.domesticAbuse.heading") }}
-        </h1>
-
-        <p>
-          {{ __("pages.domesticAbuse.intro") }}
-        </p>
-
-        <ul class="govuk-list govuk-list--bullet">
-          <li>{{ __("pages.domesticAbuse.bullets.violence") }}</li>
-          <li>{{ __("pages.domesticAbuse.bullets.financial") }}</li>
-          <li>{{ __("pages.domesticAbuse.bullets.coercive") }}</li>
-          <li>{{ __("pages.domesticAbuse.bullets.childAbuse") }}</li>
-          <li>{{ __("pages.domesticAbuse.bullets.harassment") }}</li>
-          <li>{{ __("pages.domesticAbuse.bullets.psychological") }}</li>
-        </ul>
-
         {{ govukRadios({
           name: formFields.ABUSE,
+          describedBy: 'domestic-abuse-additional-text',
           fieldset: {
             legend: {
+              text: legendText,
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
+              classes: "govuk-fieldset__legend--l"
             }
           },
-          errorMessage: errors | findError(formFields.ABUSE) if errors else null,
-          items: [
-            {
-              value: "yes",
-              text: __("yes") if __("yes") else "Yes"
-            },
-            {
-              value: "no",
-              text: __("no") if __("no") else "No"
-            }
-          ]
+          hint: {
+            html: additionalText
+          },
+          items: radioItems,
+          errorMessage: errors | findError(formFields.ABUSE)
         }) }}
 
         {{ govukButton({
@@ -60,11 +64,9 @@
         }) }}
 
       </form>
-
     </div>
     <div class="govuk-grid-column-one-third">
       {{ govukExitThisPage() }}
     </div>
   </div>
-
 {% endblock %}
