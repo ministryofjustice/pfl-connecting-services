@@ -4,6 +4,7 @@ import { body, validationResult } from 'express-validator';
 import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
 import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
+import addCompletedStep from '../utils/addCompletedStep';
 
 const router = Router();
 
@@ -33,6 +34,7 @@ router.post(
     }
 
     req.session.contact = req.body.contact;
+    addCompletedStep(req, FormSteps.CONTACT_COMFORT);
 
     if (req.body.contact === 'yes') {
       return res.redirect(paths.AGREEMENT);

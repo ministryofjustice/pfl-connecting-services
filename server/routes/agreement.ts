@@ -4,6 +4,7 @@ import { body, validationResult } from 'express-validator';
 import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
 import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
+import addCompletedStep from '../utils/addCompletedStep';
 
 const router = Router();
 
@@ -40,6 +41,7 @@ router.post(
     }
 
     req.session.agreement = req.body.agreement;
+    addCompletedStep(req, FormSteps.AGREEMENT);
 
     if (req.body.agreement === 'yes') {
       return res.redirect(paths.PARENTING_PLAN);
