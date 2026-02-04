@@ -1,14 +1,16 @@
 import { test, expect } from '@playwright/test';
 
+import { navigateToOptionsNoContact } from './fixtures/test-helpers';
+
 test.describe('Options no contact', () => {
   test('should display the page with correct title', async ({ page }) => {
-    await page.goto('/options-no-contact');
+    await navigateToOptionsNoContact(page);
 
     await expect(page).toHaveTitle("Options to explore if you are not comfortable contacting your ex-partner – Get help finding a child arrangement option – GOV.UK");
   });
 
   test('should navigate to contact comfort page when back link is clicked', async ({ page }) => {
-    await page.goto('/options-no-contact');
+    await navigateToOptionsNoContact(page);
 
     await page.locator('a.govuk-back-link').click();
 
@@ -16,7 +18,7 @@ test.describe('Options no contact', () => {
   });
 
   test('should navigate to family mediation council website', async ({ page }) => {
-    await page.goto('/options-no-contact');
+    await navigateToOptionsNoContact(page);
 
     await page.locator('#mediation-link').click();
 
@@ -24,7 +26,7 @@ test.describe('Options no contact', () => {
   });
 
   test('should navigate to citizens advice website', async ({ page }) => {
-    await page.goto('/options-no-contact');
+    await navigateToOptionsNoContact(page);
 
     await page.locator('#citizens-advice-link').click();
 
