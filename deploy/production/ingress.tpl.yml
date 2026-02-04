@@ -28,7 +28,7 @@ spec:
   tls:
     - hosts:
         - connecting-services.apps.live.cloud-platform.service.justice.gov.uk
-      secretName: pcap-cert-secret
+      secretName: connecting-services-cert-secret
   rules:
     - host: connecting-services.apps.live.cloud-platform.service.justice.gov.uk
       http:

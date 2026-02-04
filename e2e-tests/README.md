@@ -1,6 +1,6 @@
 # E2E Tests
 
-End-to-end tests for the Care Arrangement Plan application using Playwright.
+End-to-end tests for the Connecting Services application using Playwright.
 
 ## Quick Start
 
@@ -22,32 +22,31 @@ npm run e2e:debug
 
 - `health.spec.ts` - API health check tests
 - `homepage.spec.ts` - Homepage functionality tests
-- `journey-flow.spec.ts` - User journey and flow tests
 - `accessibility.spec.ts` - Accessibility compliance tests
 - `static-pages.spec.ts` - Static pages (cookies, privacy, etc.)
 - `session-persistence.spec.ts` - Session management tests
-- `task-list.spec.ts` - Task list functionality tests
-- `page-object-example.spec.ts` - Examples using Page Objects
-- `complete-journey.spec.ts` - Full end-to-end journey tests
+- `agreement.spec.ts` - Agreement question tests
+- `options-no-contact.spec.ts` - Options no contact page tests
 
 ## Fixtures
 
-### Page Objects (`fixtures/page-objects.ts`)
-
-Reusable page object models for common pages:
-- `PasswordPage`
-- `SafetyCheckPage`
-- `TaskListPage`
-- `AboutTheChildrenPage`
-
 ### Test Helpers (`fixtures/test-helpers.ts`)
 
-Utility functions for common test operations:
-- `completePasswordFlow()`
-- `completeSafetyChecks()`
-- `navigateToTaskList()`
-- `fillChildDetails()`
-- `generateTestChildData()`
+Utility functions for navigating through the form flow:
+- `startJourney()` - Start from homepage
+- `navigateToDomesticAbuse()` - Navigate to domestic abuse page
+- `navigateToContactComfort()` - Navigate to contact comfort page
+- `navigateToAgreement()` - Navigate to agreement page
+- `navigateToHelpOptions()` - Navigate to help options page
+- `navigateToMediationCheck()` - Navigate to mediation check page
+- `navigateToOptionsNoContact()` - Navigate to options no contact page
+
+### Navigation Helpers (`fixtures/navigation-helpers.ts`)
+
+Helpers for testing navigation:
+- `verifyBackNavigation()` - Test browser back button
+- `verifyServiceBackLink()` - Test GOV.UK back link
+- `verifyForwardNavigation()` - Test browser forward button
 
 ## Writing Tests
 
@@ -62,26 +61,14 @@ test('my test', async ({ page }) => {
 });
 ```
 
-### Using Page Objects
-
-```typescript
-import { PasswordPage } from './fixtures/page-objects';
-
-test('login', async ({ page }) => {
-  const passwordPage = new PasswordPage(page);
-  await passwordPage.goto();
-  await passwordPage.submitWithPassword('parent-planner');
-});
-```
-
 ### Using Helpers
 
 ```typescript
-import { navigateToTaskList } from './fixtures/test-helpers';
+import { navigateToAgreement } from './fixtures/test-helpers';
 
-test('task list test', async ({ page }) => {
-  await navigateToTaskList(page);
-  // Test continues from task list
+test('agreement test', async ({ page }) => {
+  await navigateToAgreement(page);
+  // Test continues from agreement page
 });
 ```
 
@@ -89,8 +76,7 @@ test('task list test', async ({ page }) => {
 
 1. Use descriptive test names
 2. Follow Arrange-Act-Assert pattern
-3. Use Page Objects for repeated interactions
-4. Leverage helper functions
-5. Keep tests independent
-6. Use role-based selectors when possible
-7. Avoid hard waits
+3. Use helper functions to navigate through form flow
+4. Keep tests independent
+5. Use role-based selectors when possible
+6. Avoid hard waits

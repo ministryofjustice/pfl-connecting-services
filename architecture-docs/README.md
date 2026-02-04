@@ -8,7 +8,7 @@ application connecting to a Elasticache cluster.
 
 ![MVS Technical Architecture Diagram](./assets/technical-architecture.svg)
 
-Post-MVS, we may wish to email a completed care arrangement plan to one/both parents. We also may want to store the
+Post-MVS, we may wish to add additional features. We also may want to store the
 data more permanently, allowing users to come back and edit it. A suggested architecture is below.
 
 ![POST-MVS Technical Architecture Diagram](./assets/post-mvs-technical-architecture.svg)
