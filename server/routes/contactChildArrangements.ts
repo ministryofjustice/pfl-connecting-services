@@ -9,7 +9,7 @@ import addCompletedStep from '../utils/addCompletedStep';
 const router = Router();
 
 // Question 2 - Contact Child Arrangements
-router.get(paths.CONTACT_CHILD_ARRANGEMENTS, checkFormProgressFromConfig(FormSteps.CONTACT_COMFORT), (req: Request, res: Response) => {
+router.get(paths.CONTACT_CHILD_ARRANGEMENTS, checkFormProgressFromConfig(FormSteps.CONTACT_CHILD_ARRANGEMENTS), (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/contactChildArrangements', {
     title: res.__('pages.contactChildArrangements.title'),
@@ -34,7 +34,7 @@ router.post(
     }
 
     req.session.contact = req.body.contact;
-    addCompletedStep(req, FormSteps.CONTACT_COMFORT);
+    addCompletedStep(req, FormSteps.CONTACT_CHILD_ARRANGEMENTS);
 
     if (req.body.contact === 'yes') {
       return res.redirect(paths.AGREEMENT);
