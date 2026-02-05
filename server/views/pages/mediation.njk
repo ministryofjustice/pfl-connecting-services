@@ -1,8 +1,9 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
 
 {% set title = __("pages.mediation.title") %}
 {% block pageTitle %}
-  Content page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+  {{ __("pages.mediation.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
 
@@ -132,8 +133,6 @@
         </nav>
       </aside>
       
-      {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
-
 {{ govukExitThisPage() }}
 
     </div>

@@ -77,7 +77,7 @@ describe('Domestic Abuse Question', () => {
         .post(paths.DOMESTIC_ABUSE)
         .send({ abuse: 'no' })
         .expect(302)
-        .expect('location', paths.CONTACT_COMFORT);
+        .expect('location', paths.CONTACT_CHILD_ARRANGEMENTS);
     });
 
     it('should store answer in session', async () => {

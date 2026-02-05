@@ -4,8 +4,8 @@ Our infrastructure is hosted using [MoJ's Cloud Platform](https://user-guide.clo
 Resources are defined in the [cloud-platform-environments repository](https://github.com/ministryofjustice/cloud-platform-environments),
 on a per-environment basis.
 
-- [Dev](https://github.com/ministryofjustice/cloud-platform-environments/tree/main/namespaces/live.cloud-platform.service.justice.gov.uk/care-arrangement-plan-dev)
-- [Prod](https://github.com/ministryofjustice/cloud-platform-environments/tree/main/namespaces/live.cloud-platform.service.justice.gov.uk/care-arrangement-plan-prod)
+- [Dev](https://github.com/ministryofjustice/cloud-platform-environments/tree/main/namespaces/live.cloud-platform.service.justice.gov.uk/connecting-services-dev)
+- [Prod](https://github.com/ministryofjustice/cloud-platform-environments/tree/main/namespaces/live.cloud-platform.service.justice.gov.uk/connecting-services-prod)
 
 The just defines the infrastructure for the express app. This includes:
 
@@ -26,7 +26,7 @@ Action could include:
 - Reviewing the ingress dashboard - the link is in the Slack message.
 - Checking the pods e.g.
 ```
-NSP=care-arrangement-plan-prod
+NSP=connecting-services-prod
 kubectl -n $NSP get pods -owide
 ```
 

@@ -14,13 +14,13 @@ export const flowConfig: Record<FormSteps, FlowStep> = {
     path: paths.DOMESTIC_ABUSE,
     dependsOn: [FormSteps.START],
   },
-  [FormSteps.CONTACT_COMFORT]: {
-    path: paths.CONTACT_COMFORT,
+  [FormSteps.CONTACT_CHILD_ARRANGEMENTS]: {
+    path: paths.CONTACT_CHILD_ARRANGEMENTS,
     dependsOn: [FormSteps.DOMESTIC_ABUSE],
   },
   [FormSteps.AGREEMENT]: {
     path: paths.AGREEMENT,
-    dependsOn: [FormSteps.CONTACT_COMFORT],
+    dependsOn: [FormSteps.CONTACT_CHILD_ARRANGEMENTS],
   },
   [FormSteps.HELP_OPTIONS]: {
     path: paths.HELP_OPTIONS,

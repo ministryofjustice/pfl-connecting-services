@@ -1,6 +1,6 @@
 // User events for analytics
 const UserEvents = {
-  // Generic events (kept from CAP)
+  // Generic events
   PAGE_VISIT: 'page_visit',
   DOWNLOAD: 'download',
   LINK_CLICK: 'link_click',

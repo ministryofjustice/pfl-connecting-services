@@ -5,7 +5,7 @@ export const AGREEMENT = 'agreement';
 export const HELP = 'help';
 export const MEDIATION = 'mediation';
 
-// Shared fields (from CAP infrastructure)
+// Shared fields
 export const PASSWORD = 'password';
 export const ACCEPT_OPTIONAL_COOKIES = 'acceptOptionalCookies';
 

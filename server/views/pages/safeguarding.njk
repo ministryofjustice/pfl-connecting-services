@@ -5,7 +5,7 @@
 
 {% set title = __("pages.safeguarding.title") %}
 {% block pageTitle %}
-  Content page template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+  {{ __("pages.safeguarding.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
 
@@ -37,7 +37,7 @@
 
       {{ govukButton({
         text: "Continue",
-        href: paths.CONTACT_COMFORT,
+        href: paths.CONTACT_CHILD_ARRANGEMENTS,
         classes: "govuk-button--primary"
       }) }}
 

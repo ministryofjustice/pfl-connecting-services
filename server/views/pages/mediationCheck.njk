@@ -1,48 +1,61 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% set title = __("pages.mediationCheck.title") %}
 {% block pageTitle %}
   {{ __("pages.mediationCheck.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
+{% set legendText %}
+  {{ __("pages.mediationCheck.content.description") }}
+{% endset %}
+
+{% set additionalText %}
+  <div id="mediation-check-additional-text">
+    <p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ __("pages.mediationCheck.content.descriptionList.first") }}</li>
+        <li>{{ __("pages.mediationCheck.content.descriptionList.second") }}</li>
+        <li>{{ __("pages.mediationCheck.content.descriptionList.third") }}</li>
+        <li>{{ __("pages.mediationCheck.content.descriptionList.fourth") }}</li>
+        <li>{{ __("pages.mediationCheck.content.descriptionList.fifth") }}</li>
+      </ul>
+    </p>
+  </div>
+{% endset %}
+
+{% set radioItems = [
+  { value: "yes", text: __("pages.mediationCheck.content.options.yes")  },
+  { value: "no", text: __("pages.mediationCheck.content.options.no") }
+] %}
+
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {% include "partials/errorSummary.njk" %}
+
       <form class="form" action="{{ paths.MEDIATION_CHECK }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-        <h1 class="govuk-heading-l">
-          {{ __("pages.mediationCheck.content.description") }}
-        </h1>
-        <p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>{{ __("pages.mediationCheck.content.descriptionList.first") }}</li>
-            <li>{{ __("pages.mediationCheck.content.descriptionList.second") }}</li>
-            <li>{{ __("pages.mediationCheck.content.descriptionList.third") }}</li>
-            <li>{{ __("pages.mediationCheck.content.descriptionList.fourth") }}</li>
-            <li>{{ __("pages.mediationCheck.content.descriptionList.fifth") }}</li>
-          </ul>
-        </p>
-
-        {% set radioItems = [
-          { value: "yes", text: __("pages.mediationCheck.content.options.yes")  },
-          { value: "no", text: __("pages.mediationCheck.content.options.no") }
-        ] %}
-
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
           name: formFields.MEDIATION,
+          describedBy: 'mediation-check-additional-text',
           fieldset: {
             legend: {
+              text: legendText,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
+          },
+          hint: {
+            html: additionalText
           },
           items: radioItems,
           errorMessage: errors | findError(formFields.MEDIATION)
         }) }}
 
-        {% from "govuk/components/button/macro.njk" import govukButton %}
         {{ govukButton({
           text: "Continue"
         }) }}
@@ -50,8 +63,6 @@
       </form>
     </div>
     <div class="govuk-grid-column-one-third">
-      {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
-
       {{ govukExitThisPage() }}
     </div>
   </div>
