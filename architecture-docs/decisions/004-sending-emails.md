@@ -8,7 +8,7 @@ Date: 2025-01-27
 
 ## Context
 
-In the future, we may want to email users.
+In the future, we may want to email the care arrangement plan to one or both parents.
 
 ## Considerations
 

@@ -9,12 +9,12 @@ Date: 2025-01-27
 ## Context
 
 We need a language to write the app in. It should be well known, and have support for the GOV.UK design system. It should
-match the existing patterns at the MoJ.
+match the existing patterns at the MoJ. We also need the capability to create the care arrangement plan file.
 
 ## Considerations
 
-The backend of the app is very simple, it just needs to serve the web pages.
-Therefore we don't need a separate backend service.
+The backend of the app is very simple, it just needs to serve the web pages, and create the final care arrangement plan.
+Therefor we don't need a separate backend service.
 
 #### Python
 
