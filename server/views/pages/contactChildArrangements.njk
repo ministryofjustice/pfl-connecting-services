@@ -8,15 +8,23 @@
   {{ __("pages.contactChildArrangements.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
+{% set legendText %}
+  {{ __("pages.contactChildArrangements.title") }}
+{% endset %}
+
+{% set radioItems = [
+  { value: "yes", text: __("pages.contactChildArrangements.content.options.first")  },
+  { value: "no", text: __("pages.contactChildArrangements.content.options.second") },
+  { value: "no-details", text: __("pages.contactChildArrangements.content.options.third") },
+  { value: "not-response", text: __("pages.contactChildArrangements.content.options.fourth") }
+] %}
+
 {% block content %}
    <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {% include "partials/errorSummary.njk" %}
       <form class="form" action="{{ paths.CONTACT_CHILD_ARRANGEMENTS }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-        <h1 class="govuk-heading-l">
-          {{ __("pages.contactChildArrangements.title") }}
-        </h1>
 
         {% set radioItems = [
           { value: "yes", text: __("pages.contactChildArrangements.content.options.first")  },
@@ -29,6 +37,7 @@
           name: formFields.CONTACT,
           fieldset: {
             legend: {
+              text: legendText,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

@@ -42,7 +42,7 @@ router.post(
     if (req.body.agreement === 'yes') {
       return res.redirect(paths.PARENTING_PLAN);
     }
-    return res.redirect(paths.HELP_2_AGREE);
+    return res.redirect(paths.HELP_OPTIONS);
   }
 );
 
