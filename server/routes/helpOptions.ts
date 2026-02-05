@@ -33,7 +33,7 @@ router.post(
     if (req.body.help === 'plan') {
       return res.redirect(paths.PARENTING_PLAN);
     } else if (req.body.help === 'cannot') {
-      return res.redirect(paths.COURT);
+      return res.redirect(paths.COURT_ORDER);
     }
     return res.redirect(paths.MEDIATION_CHECK);
   }

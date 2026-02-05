@@ -34,7 +34,7 @@ describe('Question 4: Help', () => {
         .post(paths.HELP_OPTIONS)
         .send({ help: 'cannot' })
         .expect(302)
-        .expect('location', paths.COURT);
+        .expect('location', paths.COURT_ORDER);
     });
 
     it('should redirect to question 5 when answer is external', () => {

@@ -12,7 +12,7 @@ enum paths {
   // Connecting Services specific paths
   DOMESTIC_ABUSE = '/domestic-abuse',
   SAFEGUARDING = '/getting-help',
-  CONTACT_COMFORT = '/contact-comfort',
+  CONTACT_CHILD_ARRANGEMENTS = '/contact-child-arrangements',
   OPTIONS_NO_CONTACT = '/options-no-contact',
   AGREEMENT = '/agree',
   HELP_2_AGREE = 'help-to-agree',
@@ -20,7 +20,7 @@ enum paths {
   MEDIATION_CHECK = '/mediation-check',
 
   // Outcome pages
-  COURT = '/court',
+  COURT_ORDER = '/court-order',
   MEDIATION = '/mediation',
   PARENTING_PLAN = '/parenting-plan',
 

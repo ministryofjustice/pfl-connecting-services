@@ -7,7 +7,7 @@ const router = Router();
 router.get(paths.OPTIONS_NO_CONTACT, (req: Request, res: Response) => {
   res.render('pages/optionsNoContact', {
     title: res.__('pages.optionsNoContact.title'),
-    backLinkHref: paths.CONTACT_COMFORT,
+    backLinkHref: paths.CONTACT_CHILD_ARRANGEMENTS,
   });
 });
 
