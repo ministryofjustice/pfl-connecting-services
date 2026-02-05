@@ -9,14 +9,14 @@
 {% endblock %}
 
 {% set legendText %}
-  {{ __("pages.contactComfort.title") }}
+  {{ __("pages.contactChildArrangements.title") }}
 {% endset %}
 
 {% set radioItems = [
-  { value: "yes", text: __("pages.contactComfort.content.options.first")  },
-  { value: "no", text: __("pages.contactComfort.content.options.second") },
-  { value: "no-details", text: __("pages.contactComfort.content.options.third") },
-  { value: "not-response", text: __("pages.contactComfort.content.options.fourth") }
+  { value: "yes", text: __("pages.contactChildArrangements.content.options.first")  },
+  { value: "no", text: __("pages.contactChildArrangements.content.options.second") },
+  { value: "no-details", text: __("pages.contactChildArrangements.content.options.third") },
+  { value: "not-response", text: __("pages.contactChildArrangements.content.options.fourth") }
 ] %}
 
 {% block content %}
@@ -25,9 +25,6 @@
       {% include "partials/errorSummary.njk" %}
       <form class="form" action="{{ paths.CONTACT_CHILD_ARRANGEMENTS }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
-        <h1 class="govuk-heading-l">
-          {{ __("pages.contactChildArrangements.title") }}
-        </h1>
 
         {% set radioItems = [
           { value: "yes", text: __("pages.contactChildArrangements.content.options.first")  },
