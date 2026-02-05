@@ -136,7 +136,8 @@
           "yes": "Yes, we have tried one or more of these",
           "no": "No, we have not tried any of these"
         }
-      }
+      },
+      "error": "Select whether you have tried any of these in the last 6 months"
     },
     "courtOrder": {
       "title": "Going to court"

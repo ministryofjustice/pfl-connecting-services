@@ -23,7 +23,9 @@ router.get(paths.MEDIATION_CHECK, checkFormProgressFromConfig(FormSteps.MEDIATIO
 
 router.post(
   paths.MEDIATION_CHECK,
-  body('mediation').notEmpty().withMessage('Select an option'),
+  body('mediation')
+    .notEmpty()
+    .withMessage((_value, { req }) => req.__('pages.mediationCheck.error')),
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
