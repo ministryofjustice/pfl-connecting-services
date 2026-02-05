@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file
-# Security false positive suppressions for Care Arrangement Plan
+# Security false positive suppressions for Connecting Services
 
 version: v1.25.0
 

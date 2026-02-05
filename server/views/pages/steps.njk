@@ -1,8 +1,8 @@
-{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+{% extends "partials/layout.njk" %}
 
 {% set title = __("pages.steps.title") %}
 {% block pageTitle %}
-  Step by step navigation template – {{ __("serviceName") }} – GOV.UK Prototype Kit
+  {{ __("pages.steps.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
 {% block header %}
