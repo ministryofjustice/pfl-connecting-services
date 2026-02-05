@@ -35,7 +35,7 @@ router.post(
     addCompletedStep(req, FormSteps.MEDIATION_CHECK);
 
     if (req.body.mediation === 'yes') {
-      return res.redirect(paths.COURT);
+      return res.redirect(paths.COURT_ORDER);
     }
     return res.redirect(paths.MEDIATION);
   }

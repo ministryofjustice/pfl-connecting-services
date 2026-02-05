@@ -13,7 +13,7 @@ const router = Router();
  *
  * Routing logic:
  *   - YES → Safeguarding page (/getting-help)
- *   - NO  → Contact comfort page (/contact-comfort)
+ *   - NO  → Contact child arrangements page (/contact-child-arrangements)
  */
 router.get(paths.DOMESTIC_ABUSE, checkFormProgressFromConfig(FormSteps.DOMESTIC_ABUSE), (req: Request, res: Response) => {
   const errors = req.flash('errors');
@@ -45,7 +45,7 @@ router.post(
     if (req.body.abuse === 'yes') {
       return res.redirect(paths.SAFEGUARDING);
     }
-    return res.redirect(paths.CONTACT_COMFORT);
+    return res.redirect(paths.CONTACT_CHILD_ARRANGEMENTS);
   }
 );
 

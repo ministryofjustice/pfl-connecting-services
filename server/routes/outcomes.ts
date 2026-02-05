@@ -4,9 +4,9 @@ import paths from '../constants/paths';
 
 const router = Router();
 
-router.get(paths.COURT, (req: Request, res: Response) => {
-  res.render('pages/court', {
-    title: res.__('pages.court.title'),
+router.get(paths.COURT_ORDER, (req: Request, res: Response) => {
+  res.render('pages/courtOrder', {
+    title: res.__('pages.courtOrder.title'),
     backLinkHref: req.headers.referer || paths.START,
   });
 });

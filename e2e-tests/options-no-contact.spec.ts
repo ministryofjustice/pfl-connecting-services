@@ -7,12 +7,12 @@ test.describe.skip('Options no contact', () => {
     await expect(page).toHaveTitle("Options to explore if you are not comfortable contacting your ex-partner – Get help finding a child arrangement option – GOV.UK");
   });
 
-  test('should navigate to contact comfort page when back link is clicked', async ({ page }) => {
+  test('should navigate to contact child arrangements page when back link is clicked', async ({ page }) => {
     await page.goto('/options-no-contact');
 
     await page.locator('a.govuk-back-link').click();
 
-    await expect(page).toHaveURL(/\/contact-comfort/);
+    await expect(page).toHaveURL(/\/contact-child-arrangements/);
   });
 
   test('should navigate to family mediation council website', async ({ page }) => {

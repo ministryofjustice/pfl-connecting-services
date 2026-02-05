@@ -1,0 +1,59 @@
+{% extends "partials/layout.njk" %}
+{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% set title = __("pages.contactChildArrangements.title") %}
+{% block pageTitle %}
+  {{ __("pages.contactChildArrangements.title") }} – {{ __("serviceName") }} – GOV.UK
+{% endblock %}
+
+{% set legendText %}
+  {{ __("pages.contactChildArrangements.title") }}
+{% endset %}
+
+{% set radioItems = [
+  { value: "yes", text: __("pages.contactChildArrangements.content.options.first")  },
+  { value: "no", text: __("pages.contactChildArrangements.content.options.second") },
+  { value: "no-details", text: __("pages.contactChildArrangements.content.options.third") },
+  { value: "not-response", text: __("pages.contactChildArrangements.content.options.fourth") }
+] %}
+
+{% block content %}
+   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% include "partials/errorSummary.njk" %}
+      <form class="form" action="{{ paths.CONTACT_CHILD_ARRANGEMENTS }}" method="post">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+
+        {% set radioItems = [
+          { value: "yes", text: __("pages.contactChildArrangements.content.options.first")  },
+          { value: "no", text: __("pages.contactChildArrangements.content.options.second") },
+          { value: "no-details", text: __("pages.contactChildArrangements.content.options.third") },
+          { value: "not-response", text: __("pages.contactChildArrangements.content.options.fourth") }
+        ] %}
+
+        {{ govukRadios({
+          name: formFields.CONTACT,
+          fieldset: {
+            legend: {
+              text: legendText,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: radioItems,
+          errorMessage: errors | findError(formFields.CONTACT)
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {{ govukExitThisPage() }}
+    </div>
+  </div>
+{% endblock %}

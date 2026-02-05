@@ -26,7 +26,7 @@ describe('Question 5: Mediation', () => {
         .post(paths.MEDIATION_CHECK)
         .send({ mediation: 'yes' })
         .expect(302)
-        .expect('location', paths.COURT);
+        .expect('location', paths.COURT_ORDER);
     });
 
     it('should redirect to mediation page when answer is no', () => {

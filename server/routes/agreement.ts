@@ -20,7 +20,7 @@ router.get(paths.AGREEMENT, checkFormProgressFromConfig(FormSteps.AGREEMENT), (r
   const errors = req.flash('errors');
   res.render('pages/agreement', {
     title: res.__('pages.agreement.title'),
-    backLinkHref: paths.CONTACT_COMFORT,
+    backLinkHref: paths.CONTACT_CHILD_ARRANGEMENTS,
     errors,
     formValues: {
       agreement: req.session.agreement,
@@ -46,7 +46,7 @@ router.post(
     if (req.body.agreement === 'yes') {
       return res.redirect(paths.PARENTING_PLAN);
     }
-    return res.redirect(paths.HELP_2_AGREE);
+    return res.redirect(paths.HELP_OPTIONS);
   }
 );
 
