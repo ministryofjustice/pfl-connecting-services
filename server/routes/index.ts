@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import agreementRoutes from './agreement';
-import contactComfortRoutes from './contactComfort';
+import contactChildArrangementRoutes from './contactChildArrangements';
 import domesticAbuseRoutes from './domesticAbuse';
 import helpOptions from './helpOptions';
 import informationRoutes from './information';
@@ -22,8 +22,8 @@ const routes = (): Router => {
   // Agreement on child arrangements route
   router.use(agreementRoutes);
 
-  // Contact comfort route
-  router.use(contactComfortRoutes);
+  // Contact child arrangement route
+  router.use(contactChildArrangementRoutes);
 
   // Options no contact
   router.use(optionsNoContact);

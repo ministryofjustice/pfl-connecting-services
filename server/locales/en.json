@@ -82,13 +82,13 @@
         }
       }
     },
-    "contactComfort": {
+    "contactChildArrangements": {
       "title": "Are you comfortable contacting your ex-partner about child arrangements?",
       "content": {
         "options": {
           "first": "Yes",
-          "second": "No",
-          "third": "I do not have their contact details",
+          "second": "No, I am not comfortable contacting them",
+          "third": "No, I do not have their contact details",
           "fourth": "I can contact them but they do not respond"
         }
       },
@@ -138,7 +138,7 @@
         }
       }
     },
-    "court": {
+    "courtOrder": {
       "title": "Going to court"
     },
     "mediation": {
