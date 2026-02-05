@@ -7,6 +7,7 @@
   "next": "Next",
   "nextPage": "Next<span class=\"govuk-visually-hidden\"> page</span>",
   "previousPage": "Previous<span class=\"govuk-visually-hidden\"> page</span>",
+  "printThisPage": "Print this page",
   "printableVersion": "View a printable version of the whole guide",
   "phaseBannerText": "This is a new service – your <a class=\"govuk-link\" href=\"{feedbackUrl}\">feedback</a> will help us to improve it.",
   "footer": {
@@ -143,7 +144,60 @@
       "title": "Going to court"
     },
     "mediation": {
-      "title": "Mediation"
+      "title": "Explore: Mediation",
+      "content": {
+        "rightForYou": {
+          "title": "Why this could be right for you",
+          "content": {
+            "chooseAProfessional": "Mediation is when you and your ex-partner choose a professional to help you agree on the details of child arrangements.",
+            "sameRoom": "You do not have to be in the same room or call as your ex-partner."
+          }
+        },
+        "thingsToConsider": {
+          "title": "Important things to consider",
+          "content": {
+            "info": "If you or your children have experienced abuse from your ex-partner, tell the mediator. They can advise on the safest way to continue, or whether you should apply for a court order.",
+            "initialMeeting": "<strong>Initial meeting:</strong> You may need to go to a short meeting with a mediator to assess if mediation is the right option for you. This is sometimes called a Mediation Information and Assessment Meeting (MIAM).",
+            "cost": "<strong>Cost:</strong> Mediation is usually cheaper and quicker than going to court. You may be able to get legal aid to cover the cost if you are on a low income. The usual cost of a MIAM is around £120.",
+            "costInset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
+            "stayInControl": "<strong>You stay in control:</strong> Unlike in court, where a judge makes the decisions about child arrangements, in mediation you and your ex-partner decide what you agree to and what you don't.",
+            "childInclusiveMediation": "<strong>Child-inclusive mediation:</strong> Children can have a voice in the process if it's suitable. A mediator can talk to your child about what they want to make sure their views are heard.",
+            "courtOption": "<strong>Court is still an option:</strong> If the mediator does not think mediation is right for you, they might advise you to go to court instead.",
+            "mediationLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\"> Find out more about mediation</a>"
+          }
+        },
+        "otherWaysToAgree": {
+          "title": "Other ways to agree without going to court",
+          "description": "If you want to try another way to agree without going to court, you can look into:",
+          "content": {
+            "makingAParentingPlan": {
+              "title": "Making a parenting plan",
+              "description": "This could suit you if: If you and your ex-partner can agree on child arrangements, you can record it in a child arrangements plan, also called a 'parenting plan'.",
+              "link": "<a href=\"parenting-plan\"> Explore: Making a parenting plan</a>"
+            },
+            "arbitration": {
+              "title": "Arbitration",
+              "description": "This could suit you if: You'd prefer that someone like a judge or solicitor listens to both of your views and makes a legally-binding decision about the child arrangements.",
+              "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\"> Find out more about other ways to agree without going to court</a>"
+            }
+          }
+        },
+        "helpAndSupport": {
+          "title": "Help and support",
+          "description": "These are some of the services you may find helpful for making child arrangements by mediation.",
+          "mediationCouncilLink": "<a href=\"https://www.familymediationcouncil.org.uk/\">Family Mediation Council</a>",
+          "mediationCouncilText": "Find a trained mediator from a network of family mediation organisations in England and Wales.",
+          "legalAidAdviserLink": "<a href=\"https://find-legal-advice.justice.gov.uk/\">Find a legal aid adviser or family mediator</a>",
+          "legalAidAdviserText": "Use this service to find legal aid advisers in England and Wales."
+        }
+      },
+      "relatedContent": {
+        "title": "Related content",
+        "content": {
+          "makingChildArrangements": "<a href=\"https://www.gov.uk/looking-after-children-divorce\">Making child arrangements if you divorce or separate</a>",
+          "familyMediation": "<a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Family Mediation Voucher Scheme</a>"
+        }
+      }
     },
     "parentingPlan": {
       "title": "Parenting plan"
@@ -208,8 +262,7 @@
           "makingChildArrangements": "Making child arrangements if you divorce or separate",
           "familyMediation": "Family Mediation Voucher Scheme"
         }
-      },
-      "buttonText": "Print this page"
+      }
     },
     "guide": {
       "title": "Guide"
