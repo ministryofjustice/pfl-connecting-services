@@ -14,7 +14,7 @@ describe('Question 5: Mediation', () => {
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
           location: 'body',
-          msg: 'Select an option',
+          msg: 'Select whether you have tried any of these in the last 6 months',
           path: 'mediation',
           type: 'field',
         },

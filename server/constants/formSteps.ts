@@ -5,6 +5,7 @@ enum FormSteps {
   AGREEMENT = 'AGREEMENT',
   HELP_OPTIONS = 'HELP_OPTIONS',
   MEDIATION_CHECK = 'MEDIATION_CHECK',
+  MEDIATION = 'MEDIATION'
 }
 
 export default FormSteps;

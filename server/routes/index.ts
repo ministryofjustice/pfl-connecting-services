@@ -5,6 +5,7 @@ import contactChildArrangementRoutes from './contactChildArrangements';
 import domesticAbuseRoutes from './domesticAbuse';
 import helpOptions from './helpOptions';
 import informationRoutes from './information';
+import mediation from './mediation';
 import mediationCheck from './mediationCheck';
 import optionsNoContact from './optionsNoContact';
 import outcomeRoutes from './outcomes';
@@ -33,6 +34,9 @@ const routes = (): Router => {
 
   // Mediation check route
   router.use(mediationCheck);
+
+  // Mediation route
+  router.use(mediation);
 
   // Outcome page routes
   router.use(outcomeRoutes);
