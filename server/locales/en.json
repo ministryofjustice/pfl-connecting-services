@@ -249,9 +249,9 @@
           "title": "Help and support",
           "content": {
             "description": "These are some of the services you may find helpful for making child arrangements.",
-            "mediationCouncilLink": "<a href=\"https://www.familymediationcouncil.org.uk/\" id=\"mediation-link\">Family Mediation Council</a>",
+            "mediationCouncilLink": "<a id=\"mediation-link\" href=\"https://www.familymediationcouncil.org.uk/\" id=\"mediation-link\">Family Mediation Council</a>",
             "mediationCouncilText": "Find a trained mediator from a network of family mediation organisations in England and Wales.",
-            "citizensAdviceLink": "<a href=\"https://www.citizensadvice.org.uk/family/making-agreements-about-your-children/your-child-arrangements-arent-working/\" id=\"citizens-advice-link\">Citizens Advice</a>",
+            "citizensAdviceLink": "<a id=\"legal-advice-link\" href=\"https://www.citizensadvice.org.uk/family/making-agreements-about-your-children/your-child-arrangements-arent-working/\" id=\"citizens-advice-link\">Citizens Advice</a>",
             "citizensAdviceText": "Advice on what to do if your child arrangements aren't working  from a network of independent charities that provides free, confidential and impartial advice online, on the phone and in person."
           }
         }
