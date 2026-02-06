@@ -13,7 +13,7 @@
 {% endset %}
 
 {% set additionalText %}
-  <div id="mediation-check-additional-text">
+  <div id="other-options-additional-text">
     <p>
       <ul class="govuk-list govuk-list--bullet">
         <li>{{ __("pages.otherOptions.content.descriptionList.first") }}</li>
@@ -40,8 +40,8 @@
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
         {{ govukRadios({
-          name: formFields.MEDIATION,
-          describedBy: 'mediation-check-additional-text',
+          name: formFields.OTHER_OPTIONS,
+          describedBy: 'other-options-additional-text',
           fieldset: {
             legend: {
               text: legendText,
@@ -53,12 +53,12 @@
             html: additionalText
           },
           items: radioItems,
-          errorMessage: errors | findError(formFields.MEDIATION)
+          errorMessage: errors | findError(formFields.OTHER_OPTIONS)
         }) }}
 
         
         {{ govukButton({
-          text: "Continue"
+          text: __("continue")
         }) }}
 
       </form>

@@ -36,7 +36,7 @@ router.post(
     req.session.otherOptions = req.body.otherOptions;
     addCompletedStep(req, FormSteps.OTHER_OPTIONS);
 
-    if (req.body.mediation === 'yes') {
+    if (req.session.otherOptions === 'yes') {
       return res.redirect(paths.COURT_ORDER);
     }
     return res.redirect(paths.MEDIATION);

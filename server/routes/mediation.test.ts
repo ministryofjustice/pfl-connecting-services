@@ -23,11 +23,11 @@ describe('Mediation', () => {
       const dom = new JSDOM(response.text);
       const list = dom.window.document.querySelector('.govuk-list');
 
-      expect(list.textContent).toContain('Initial meeting');
-      expect(list.textContent).toContain('Cost');
-      expect(list.textContent).toContain('You stay in control');
-      expect(list.textContent).toContain('Child-inclusive mediation');
-      expect(list.textContent).toContain('Court is still an option');
+      expect(list).toHaveTextContent('Initial meeting');
+      expect(list).toHaveTextContent('Cost');
+      expect(list).toHaveTextContent('You stay in control');
+      expect(list).toHaveTextContent('Child-inclusive mediation');
+      expect(list).toHaveTextContent('Court is still an option');
     });
 
     it('should display Exit this page button', async () => {
@@ -39,9 +39,8 @@ describe('Mediation', () => {
     it('should display Print this page button', async () => {
       const response = await request(app).get(paths.MEDIATION).expect(200);
       const dom = new JSDOM(response.text);
-      const button = dom.window.document.querySelector('#print-this-page-button');
-      
-      expect(button.textContent).toContain('Print this page');
+      const button = dom.window.document.querySelector('#print-this-page-button');      
+      expect(button).toHaveTextContent('Print this page');
     });
   });
 });

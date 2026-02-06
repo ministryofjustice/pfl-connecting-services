@@ -15,7 +15,7 @@ describe('Other options', () => {
         {
           location: 'body',
           msg: 'Select whether you have tried any of these in the last 6 months',
-          path: 'mediation',
+          path: 'otherOptions',
           type: 'field',
         },
       ]);
@@ -24,7 +24,7 @@ describe('Other options', () => {
     it('should redirect to court page when answer is yes', () => {
       return request(app)
         .post(paths.OTHER_OPTIONS)
-        .send({ mediation: 'yes' })
+        .send({ otherOptions: 'yes' })
         .expect(302)
         .expect('location', paths.COURT_ORDER);
     });
@@ -32,7 +32,7 @@ describe('Other options', () => {
     it('should redirect to mediation page when answer is no', () => {
       return request(app)
         .post(paths.OTHER_OPTIONS)
-        .send({ mediation: 'no' })
+        .send({ otherOptions: 'no' })
         .expect(302)
         .expect('location', paths.MEDIATION);
     });
