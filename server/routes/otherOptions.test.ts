@@ -6,10 +6,10 @@ import { flashMock } from '../test-utils/testMocks';
 
 const app = testAppSetup();
 
-describe('Question 5: Mediation', () => {
-  describe(`POST ${paths.MEDIATION_CHECK}`, () => {
+describe('Other options', () => {
+  describe(`POST ${paths.OTHER_OPTIONS}`, () => {
     it('should reload page and set flash error when no option selected', async () => {
-      await request(app).post(paths.MEDIATION_CHECK).expect(302).expect('location', paths.MEDIATION_CHECK);
+      await request(app).post(paths.OTHER_OPTIONS).expect(302).expect('location', paths.OTHER_OPTIONS);
 
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
@@ -23,7 +23,7 @@ describe('Question 5: Mediation', () => {
 
     it('should redirect to court page when answer is yes', () => {
       return request(app)
-        .post(paths.MEDIATION_CHECK)
+        .post(paths.OTHER_OPTIONS)
         .send({ mediation: 'yes' })
         .expect(302)
         .expect('location', paths.COURT_ORDER);
@@ -31,7 +31,7 @@ describe('Question 5: Mediation', () => {
 
     it('should redirect to mediation page when answer is no', () => {
       return request(app)
-        .post(paths.MEDIATION_CHECK)
+        .post(paths.OTHER_OPTIONS)
         .send({ mediation: 'no' })
         .expect(302)
         .expect('location', paths.MEDIATION);

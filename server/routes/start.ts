@@ -13,6 +13,7 @@ router.get(paths.START, (req: Request, res: Response) => {
   req.session.agreement = undefined;
   req.session.help = undefined;
   req.session.mediation = undefined;
+  req.session.otherOptions = undefined;
   req.session.completedSteps = [];
 
   // Mark START as completed so user can proceed to DOMESTIC_ABUSE

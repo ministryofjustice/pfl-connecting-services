@@ -11,7 +11,7 @@ router.get(paths.MEDIATION, checkFormProgressFromConfig(FormSteps.MEDIATION), (r
   console.log(req.session.abuse);
   res.render('pages/mediation', {
     title: res.__('pages.mediation.title'),
-    backLinkHref: paths.MEDIATION_CHECK,
+    backLinkHref: paths.OTHER_OPTIONS,
     abuse: req.session.abuse
   });
 });

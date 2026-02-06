@@ -122,8 +122,8 @@
         }
       }
     },
-    "mediationCheck": {
-      "title": "Mediation question",
+    "otherOptions": {
+      "title": "Have you tried any other options?",
       "content": {
         "description": "Have you tried any of the following together in the last 6 months?",
         "descriptionList": {

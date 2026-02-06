@@ -26,9 +26,13 @@ export const flowConfig: Record<FormSteps, FlowStep> = {
     path: paths.HELP_OPTIONS,
     dependsOn: [FormSteps.AGREEMENT],
   },
-  [FormSteps.MEDIATION_CHECK]: {
-    path: paths.MEDIATION_CHECK,
+  [FormSteps.OTHER_OPTIONS]: {
+    path: paths.OTHER_OPTIONS,
     dependsOn: [FormSteps.HELP_OPTIONS],
+  },
+  [FormSteps.MEDIATION]: {
+    path: paths.MEDIATION,
+    dependsOn: [FormSteps.OTHER_OPTIONS],
   },
 };
 

@@ -42,7 +42,7 @@ describe('Question 4: Help', () => {
         .post(paths.HELP_OPTIONS)
         .send({ help: 'external' })
         .expect(302)
-        .expect('location', paths.MEDIATION_CHECK);
+        .expect('location', paths.OTHER_OPTIONS);
     });
   });
 });
