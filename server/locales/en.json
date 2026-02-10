@@ -120,7 +120,8 @@
           "second": "Someone else to guide our conversations",
           "third": "We cannot agree - someone else needs to make a decision for us"
         }
-      }
+      },
+      "error": "Select what would help you and your ex-partner to agree on child arrangements"
     },
     "otherOptions": {
       "title": "Have you tried any other options?",

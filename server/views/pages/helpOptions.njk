@@ -21,6 +21,8 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {% include "partials/errorSummary.njk" %}
+
       <form class="form" action="{{ paths.HELP_OPTIONS }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 

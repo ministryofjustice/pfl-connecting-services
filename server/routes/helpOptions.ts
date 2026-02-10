@@ -23,7 +23,9 @@ router.get(paths.HELP_OPTIONS, checkFormProgressFromConfig(FormSteps.HELP_OPTION
 
 router.post(
   paths.HELP_OPTIONS,
-  body('help').notEmpty().withMessage('Select an option'),
+  body('help')
+    .notEmpty()
+    .withMessage((_value, { req }) => req.__('pages.helpOptions.error')),
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
