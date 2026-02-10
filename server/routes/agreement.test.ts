@@ -1,9 +1,10 @@
 import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
+import { AGREEMENT } from '../constants/formFields';
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
-import { flashMock } from '../test-utils/testMocks';
+import { flashMock, flashMockErrors } from '../test-utils/testMocks';
 
 const app = testAppSetup();
 
@@ -18,6 +19,45 @@ describe('Agreement on child arrangements Question', () => {
         'Do you and your ex-partner agree on child arrangements?',
       );
       expect(dom.window.document.querySelector('h2.govuk-error-summary__title')).toBeNull();
+    });
+
+    it('should display error summary with correct error message when validation fails', async () => {
+      flashMockErrors.push({
+        type: 'field',
+        location: 'body',
+        path: AGREEMENT,
+        value: '',
+        msg: 'Select whether you and your ex-partner agree on child arrangements',
+      });
+
+      const response = await request(app).get(paths.AGREEMENT).expect(200);
+      const dom = new JSDOM(response.text);
+
+      const errorSummary = dom.window.document.querySelector('.govuk-error-summary');
+      expect(errorSummary).not.toBeNull();
+
+      const errorTitle = dom.window.document.querySelector('.govuk-error-summary__title');
+      expect(errorTitle).toHaveTextContent('There is a problem');
+
+      const errorLink = dom.window.document.querySelector('.govuk-error-summary__list a');
+      expect(errorLink).toHaveTextContent('Select whether you and your ex-partner agree on child arrangements');
+    });
+
+    it('should have error link that jumps to the first radio input (per GOV.UK Design System)', async () => {
+      flashMockErrors.push({
+        type: 'field',
+        location: 'body',
+        path: AGREEMENT,
+        value: '',
+        msg: 'Select whether you and your ex-partner agree on child arrangements',
+      });
+
+      const response = await request(app).get(paths.AGREEMENT).expect(200);
+      const dom = new JSDOM(response.text);
+
+      const errorLink = dom.window.document.querySelector('.govuk-error-summary__list a') as HTMLAnchorElement;
+      // Should link to #agreement (the first radio input ID), not #agreement-error
+      expect(errorLink?.getAttribute('href')).toBe('#agreement');
     });
 
     it('should display child arrangements as bullet list', async () => {

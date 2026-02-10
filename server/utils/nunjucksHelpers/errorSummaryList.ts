@@ -5,7 +5,10 @@ const errorSummaryList = (errors: FieldValidationError[] = []) => {
   return errors.map((error) => {
     return {
       text: error.msg,
-      href: error.path ? `#${error.path}-error` : undefined,
+      // Link directly to the form field ID (not the error message element)
+      // For radios/checkboxes, this links to the first input in the group
+      // per GOV.UK Design System guidelines
+      href: error.path ? `#${error.path}` : undefined,
     };
   });
 };
