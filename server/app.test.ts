@@ -96,6 +96,7 @@ describe('App', () => {
       const ga4Id = 'test-ga4-id';
 
       beforeEach(() => {
+        config.analytics.enabled = true; // Enable analytics for these tests
         config.analytics.ga4Id = ga4Id;
       });
 
@@ -132,7 +133,7 @@ describe('App', () => {
           .expect('Content-Type', /html/);
 
         expect(response.text).toContain(`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`);
-        expect(response.text).not.toContain('Cookies on Propose a child arrangements plan');
+        expect(response.text).not.toContain('Cookies on Get help finding a child arrangement option');
 
         const dom = new JSDOM(response.text);
 
