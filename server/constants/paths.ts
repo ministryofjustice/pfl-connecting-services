@@ -17,7 +17,7 @@ enum paths {
   AGREEMENT = '/agree',
   HELP_2_AGREE = 'help-to-agree',
   HELP_OPTIONS = '/help-options',
-  MEDIATION_CHECK = '/mediation-check',
+  OTHER_OPTIONS = '/other-options',
 
   // Outcome pages
   COURT_ORDER = '/court-order',

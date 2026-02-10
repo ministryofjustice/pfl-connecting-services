@@ -3,32 +3,32 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{% set title = __("pages.mediationCheck.title") %}
+{% set title = __("pages.otherOptions.title") %}
 {% block pageTitle %}
-  {{ __("pages.mediationCheck.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ __("pages.otherOptions.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
 {% set legendText %}
-  {{ __("pages.mediationCheck.content.description") }}
+  {{ __("pages.otherOptions.content.description") }}
 {% endset %}
 
 {% set additionalText %}
-  <div id="mediation-check-additional-text">
+  <div id="other-options-additional-text">
     <p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>{{ __("pages.mediationCheck.content.descriptionList.first") }}</li>
-        <li>{{ __("pages.mediationCheck.content.descriptionList.second") }}</li>
-        <li>{{ __("pages.mediationCheck.content.descriptionList.third") }}</li>
-        <li>{{ __("pages.mediationCheck.content.descriptionList.fourth") }}</li>
-        <li>{{ __("pages.mediationCheck.content.descriptionList.fifth") }}</li>
+        <li>{{ __("pages.otherOptions.content.descriptionList.first") }}</li>
+        <li>{{ __("pages.otherOptions.content.descriptionList.second") }}</li>
+        <li>{{ __("pages.otherOptions.content.descriptionList.third") }}</li>
+        <li>{{ __("pages.otherOptions.content.descriptionList.fourth") }}</li>
+        <li>{{ __("pages.otherOptions.content.descriptionList.fifth") }}</li>
       </ul>
     </p>
   </div>
 {% endset %}
 
 {% set radioItems = [
-  { value: "yes", text: __("pages.mediationCheck.content.options.yes")  },
-  { value: "no", text: __("pages.mediationCheck.content.options.no") }
+  { value: "yes", text: __("pages.otherOptions.content.options.yes")  },
+  { value: "no", text: __("pages.otherOptions.content.options.no") }
 ] %}
 
 {% block content %}
@@ -36,12 +36,12 @@
     <div class="govuk-grid-column-two-thirds">
       {% include "partials/errorSummary.njk" %}
 
-      <form class="form" action="{{ paths.MEDIATION_CHECK }}" method="post">
+      <form class="form" action="{{ paths.OTHER_OPTIONS }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
         {{ govukRadios({
-          name: formFields.MEDIATION,
-          describedBy: 'mediation-check-additional-text',
+          name: formFields.OTHER_OPTIONS,
+          describedBy: 'other-options-additional-text',
           fieldset: {
             legend: {
               text: legendText,
@@ -53,11 +53,12 @@
             html: additionalText
           },
           items: radioItems,
-          errorMessage: errors | findError(formFields.MEDIATION)
+          errorMessage: errors | findError(formFields.OTHER_OPTIONS)
         }) }}
 
+        
         {{ govukButton({
-          text: "Continue"
+          text: __("continue")
         }) }}
 
       </form>

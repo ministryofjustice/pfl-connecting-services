@@ -11,13 +11,6 @@ router.get(paths.COURT_ORDER, (req: Request, res: Response) => {
   });
 });
 
-router.get(paths.MEDIATION, (req: Request, res: Response) => {
-  res.render('pages/mediation', {
-    title: res.__('pages.mediation.title'),
-    backLinkHref: paths.MEDIATION_CHECK,
-  });
-});
-
 router.get(paths.PARENTING_PLAN, (req: Request, res: Response) => {
   res.render('pages/parenting-plan', {
     title: res.__('pages.parentingPlan.title'),

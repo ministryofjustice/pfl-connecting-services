@@ -6,16 +6,16 @@ import { flashMock } from '../test-utils/testMocks';
 
 const app = testAppSetup();
 
-describe('Question 5: Mediation', () => {
-  describe(`POST ${paths.MEDIATION_CHECK}`, () => {
+describe('Other options', () => {
+  describe(`POST ${paths.OTHER_OPTIONS}`, () => {
     it('should reload page and set flash error when no option selected', async () => {
-      await request(app).post(paths.MEDIATION_CHECK).expect(302).expect('location', paths.MEDIATION_CHECK);
+      await request(app).post(paths.OTHER_OPTIONS).expect(302).expect('location', paths.OTHER_OPTIONS);
 
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
           location: 'body',
-          msg: 'Select an option',
-          path: 'mediation',
+          msg: 'Select whether you have tried any of these in the last 6 months',
+          path: 'otherOptions',
           type: 'field',
         },
       ]);
@@ -23,16 +23,16 @@ describe('Question 5: Mediation', () => {
 
     it('should redirect to court page when answer is yes', () => {
       return request(app)
-        .post(paths.MEDIATION_CHECK)
-        .send({ mediation: 'yes' })
+        .post(paths.OTHER_OPTIONS)
+        .send({ otherOptions: 'yes' })
         .expect(302)
         .expect('location', paths.COURT_ORDER);
     });
 
     it('should redirect to mediation page when answer is no', () => {
       return request(app)
-        .post(paths.MEDIATION_CHECK)
-        .send({ mediation: 'no' })
+        .post(paths.OTHER_OPTIONS)
+        .send({ otherOptions: 'no' })
         .expect(302)
         .expect('location', paths.MEDIATION);
     });

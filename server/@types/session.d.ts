@@ -7,7 +7,7 @@ export interface CSSession {
   agreement?: 'yes' | 'not-discussed' | 'no';
   help?: 'plan' | 'external' | 'cannot';
   mediation?: 'yes' | 'no';
-
+  otherOptions?: 'yes' | 'no';
   // Flow tracking
   completedSteps?: string[];
 }

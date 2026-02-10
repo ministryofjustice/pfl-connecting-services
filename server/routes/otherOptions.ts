@@ -8,11 +8,11 @@ import addCompletedStep from '../utils/addCompletedStep';
 
 const router = Router();
 
-// Question 5 - Mediation Check
-router.get(paths.MEDIATION_CHECK, checkFormProgressFromConfig(FormSteps.MEDIATION_CHECK), (req: Request, res: Response) => {
+// Other options
+router.get(paths.OTHER_OPTIONS, checkFormProgressFromConfig(FormSteps.OTHER_OPTIONS), (req: Request, res: Response) => {
   const errors = req.flash('errors');
-  res.render('pages/mediationCheck', {
-    title: res.__('pages.mediationCheck.title'),
+  res.render('pages/otherOptions', {
+    title: res.__('pages.otherOptions.title'),
     backLinkHref: paths.HELP_OPTIONS,
     errors,
     formValues: {
@@ -22,19 +22,21 @@ router.get(paths.MEDIATION_CHECK, checkFormProgressFromConfig(FormSteps.MEDIATIO
 });
 
 router.post(
-  paths.MEDIATION_CHECK,
-  body('mediation').notEmpty().withMessage('Select an option'),
+  paths.OTHER_OPTIONS,
+  body('otherOptions')
+    .notEmpty()
+    .withMessage((_value, { req }) => req.__('pages.otherOptions.error')),
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       req.flash('errors', errors.array());
-      return res.redirect(paths.MEDIATION_CHECK);
+      return res.redirect(paths.OTHER_OPTIONS);
     }
 
-    req.session.mediation = req.body.mediation;
-    addCompletedStep(req, FormSteps.MEDIATION_CHECK);
+    req.session.otherOptions = req.body.otherOptions;
+    addCompletedStep(req, FormSteps.OTHER_OPTIONS);
 
-    if (req.body.mediation === 'yes') {
+    if (req.session.otherOptions === 'yes') {
       return res.redirect(paths.COURT_ORDER);
     }
     return res.redirect(paths.MEDIATION);

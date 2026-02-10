@@ -39,7 +39,7 @@ router.post(
     } else if (req.body.help === 'cannot') {
       return res.redirect(paths.COURT_ORDER);
     }
-    return res.redirect(paths.MEDIATION_CHECK);
+    return res.redirect(paths.OTHER_OPTIONS);
   }
 );
 

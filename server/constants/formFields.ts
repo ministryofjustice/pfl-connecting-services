@@ -4,6 +4,7 @@ export const CONTACT = 'contact';
 export const AGREEMENT = 'agreement';
 export const HELP = 'help';
 export const MEDIATION = 'mediation';
+export const OTHER_OPTIONS = 'otherOptions';
 
 // Shared fields
 export const PASSWORD = 'password';
@@ -16,6 +17,7 @@ const formFields = {
   AGREEMENT,
   HELP,
   MEDIATION,
+  OTHER_OPTIONS,
   PASSWORD,
   ACCEPT_OPTIONAL_COOKIES,
 };
