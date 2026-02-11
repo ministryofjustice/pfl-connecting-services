@@ -27,7 +27,7 @@ test.describe.skip('Agreement on child arrangements question', () => {
 
     await page.locator('button.govuk-button').click();
 
-    await expect(page).toHaveURL(/\/help-options/);
+    await expect(page).toHaveURL(/\/help-to-agree/);
   });
 
   test('should navigate to help to agree page when not discussed option selected', async ({ page }) => {
@@ -37,7 +37,7 @@ test.describe.skip('Agreement on child arrangements question', () => {
 
     await page.locator('button.govuk-button').click();
 
-    await expect(page).toHaveURL(/\/help-options/);
+    await expect(page).toHaveURL(/\/help-to-agree/);
   });
 
   test('should display error summary when Continue clicked without selecting an option', async ({ page }) => {

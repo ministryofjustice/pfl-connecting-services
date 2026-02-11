@@ -7,12 +7,12 @@ test.describe.skip('Other options', () => {
     await expect(page).toHaveTitle("Have you tried any of the following together in the last 6 months? – Get help finding a child arrangement option – GOV.UK");
   });
 
-  test('should navigate to help options page when back link is clicked', async ({ page }) => {
+  test('should navigate to help to agree page when back link is clicked', async ({ page }) => {
     await page.goto('/other-options');
 
     await page.locator('a.govuk-back-link').click();
 
-    await expect(page).toHaveURL(/\/help-options/);
+    await expect(page).toHaveURL(/\/help-to-agree/);
   });
 
   test('should navigate to court order page when yes option is selected', async ({ page }) => {

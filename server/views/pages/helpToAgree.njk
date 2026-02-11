@@ -3,25 +3,27 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{% set title = __("pages.helpOptions.title") %}
+{% set title = __("pages.helpToAgree.title") %}
 {% block pageTitle %}
-  {{ __("pages.helpOptions.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ __("pages.helpToAgree.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
 {% set legendText %}
-  {{ __("pages.helpOptions.title") }}
+  {{ __("pages.helpToAgree.title") }}
 {% endset %}
 
 {% set radioItems = [
-  { value: "plan", text: __("pages.helpOptions.content.options.first")  },
-  { value: "external", text: __("pages.helpOptions.content.options.second") },
-  { value: "cannot", text: __("pages.helpOptions.content.options.third") }
+  { value: "plan", text: __("pages.helpToAgree.content.options.first")  },
+  { value: "external", text: __("pages.helpToAgree.content.options.second") },
+  { value: "cannot", text: __("pages.helpToAgree.content.options.third") }
 ] %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="{{ paths.HELP_OPTIONS }}" method="post">
+      {% include "partials/errorSummary.njk" %}
+
+      <form class="form" action="{{ paths.HELP_TO_AGREE }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
         {{ govukRadios({
