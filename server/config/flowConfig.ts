@@ -22,13 +22,13 @@ export const flowConfig: Record<FormSteps, FlowStep> = {
     path: paths.AGREEMENT,
     dependsOn: [FormSteps.CONTACT_CHILD_ARRANGEMENTS],
   },
-  [FormSteps.HELP_OPTIONS]: {
-    path: paths.HELP_OPTIONS,
+  [FormSteps.HELP_TO_AGREE]: {
+    path: paths.HELP_TO_AGREE,
     dependsOn: [FormSteps.AGREEMENT],
   },
   [FormSteps.OTHER_OPTIONS]: {
     path: paths.OTHER_OPTIONS,
-    dependsOn: [FormSteps.HELP_OPTIONS],
+    dependsOn: [FormSteps.HELP_TO_AGREE],
   },
   [FormSteps.MEDIATION]: {
     path: paths.MEDIATION,

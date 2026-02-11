@@ -3,7 +3,7 @@ import { Router } from 'express';
 import agreementRoutes from './agreement';
 import contactChildArrangementRoutes from './contactChildArrangements';
 import domesticAbuseRoutes from './domesticAbuse';
-import helpOptions from './helpOptions';
+import helpToAgree from './helpToAgree';
 import informationRoutes from './information';
 import mediation from './mediation';
 import optionsNoContact from './optionsNoContact';
@@ -29,8 +29,8 @@ const routes = (): Router => {
   // Options no contact
   router.use(optionsNoContact);
 
-  // Help options route
-  router.use(helpOptions);
+  // Help to agree route
+  router.use(helpToAgree);
 
   // Other options check route
   router.use(otherOptions);
