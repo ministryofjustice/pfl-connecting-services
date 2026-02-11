@@ -7,7 +7,7 @@ const router = Router();
 router.get(paths.COURT_ORDER, (req: Request, res: Response) => {
   res.render('pages/courtOrder', {
     title: res.__('pages.courtOrder.title'),
-    backLinkHref: req.headers.referer || paths.START,
+    backLinkHref: paths.OTHER_OPTIONS,
   });
 });
 

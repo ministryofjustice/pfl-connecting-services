@@ -1,166 +1,171 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
-{% set title = __("pages.court.title") %}
+{% set title = __("pages.courtOrder.title") %}
 {% block pageTitle %}
-  {{ __("pages.court.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ __("pages.courtOrder.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Explore: Applying for a court order
+        {{ __("pages.courtOrder.title") }}
       </h1>
 
       <h2 class="govuk-heading-m">
-        Why this could be right for you
+        {{ __("pages.courtOrder.content.whyRightForYou.title") }}
       </h2>
 
-      <p>
-        You can apply for a court order if:
+      <p class="govuk-body">
+        {{ __("pages.courtOrder.content.whyRightForYou.canApplyIf") }}
       </p>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li>you cannot agree after <a href="https://www.gov.uk/looking-after-children-divorce/mediation">mediation</a> or <a href="https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution">getting help another way</a></li>
-        <li>there's been domestic abuse or any other kind of abuse</li>
-        <li>you cannot contact your ex-partner</li>
-        <li>you're applying for a consent order to make your <a href="https://www.gov.uk/looking-after-children-divorce/if-you-agree">parenting plan</a> legally binding</li>
+        <li>{{ __("pages.courtOrder.content.whyRightForYou.reasons.cannotAgree") | safe }}</li>
+        <li>{{ __("pages.courtOrder.content.whyRightForYou.reasons.domesticAbuse") }}</li>
+        <li>{{ __("pages.courtOrder.content.whyRightForYou.reasons.cannotContact") }}</li>
+        <li>{{ __("pages.courtOrder.content.whyRightForYou.reasons.consentOrder") | safe }}</li>
       </ul>
 
-      <p>
-        You can apply for a:
+      <p class="govuk-body">
+        {{ __("pages.courtOrder.content.whyRightForYou.canApplyFor") }}
       </p>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li>child arrangements order, which decides where your child lives and what contact takes place</li>
-        <li>specific issues order, if you need a decision on a question like what school they go to</li>
-        <li>prohibited steps order, to stop the other parent from making a decision about the child's upbringing</li>
+        <li>{{ __("pages.courtOrder.content.whyRightForYou.orderTypes.childArrangements") }}</li>
+        <li>{{ __("pages.courtOrder.content.whyRightForYou.orderTypes.specificIssues") }}</li>
+        <li>{{ __("pages.courtOrder.content.whyRightForYou.orderTypes.prohibitedSteps") }}</li>
       </ul>
 
       <h2 class="govuk-heading-m">
-        Important things to consider
+        {{ __("pages.courtOrder.content.thingsToConsider.title") }}
       </h2>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li><strong>Mediation:</strong> You will usually need to show you have tried mediation or another way to agree before you apply for a court order. If you cannot contact your ex-partner, you still need to attend the initial Mediation Information and Assessment Meeting (MIAM) alone before applying to go to court, unless you are exempt.</li>
-        <li><strong>Cost:</strong> It costs £263 to apply for a court order. You may be able to get help paying court fees if you're on benefits or a low income.</li>
-        <li><strong>Time:</strong> It usually takes around 10 months to get a court order, depending on where you live and your situation.</li>
+        <li>{{ __("pages.courtOrder.content.thingsToConsider.mediation") | safe }}</li>
+        <li>{{ __("pages.courtOrder.content.thingsToConsider.cost") | safe }}</li>
+        <li>{{ __("pages.courtOrder.content.thingsToConsider.time") | safe }}</li>
       </ul>
 
-      <p>
-        <a href="https://www.gov.uk/looking-after-children-divorce/types-of-court-order"> Find out more about court orders</a>
+      <p class="govuk-body">
+        {{ __("pages.courtOrder.content.thingsToConsider.findOutMore") | safe }}
       </p>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
       <h2 class="govuk-heading-m">
-        Other ways to agree without going to court
+        {{ __("pages.courtOrder.content.otherWays.title") }}
       </h2>
 
-      <p>
-        Court is the right option for some families. If you want to try another way to agree without going to court, you can look into:
+      <p class="govuk-body">
+        {{ __("pages.courtOrder.content.otherWays.description") }}
       </p>
 
       <h3 class="govuk-heading-s">
-        Mediation
+        {{ __("pages.courtOrder.content.otherWays.mediation.title") }}
       </h3>
 
-      <p>
-        This could suit you if: You'd like a professional to help you and your ex-partner agree on the details of a child arrangement. You do not have to be in the same room or video call as your ex-partner.
+      <p class="govuk-body">
+        {{ __("pages.courtOrder.content.otherWays.mediation.description") }}
       </p>
 
-      <div class="govuk-inset-text">
-      You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.
-      </div>
+      {{ govukInsetText({
+        text: __("pages.courtOrder.content.otherWays.mediation.inset")
+      }) }}
 
-      <p>
-        Already tried mediation? You can always try again, for example if your situation or child's needs have changed.
+      <p class="govuk-body">
+        {{ __("pages.courtOrder.content.otherWays.mediation.alreadyTried") }}
       </p>
 
-      <p>
-        <a href="mediation">Explore: Mediation</a>
+      <p class="govuk-body">
+        {{ __("pages.courtOrder.content.otherWays.mediation.link") | safe }}
       </p>
 
       <h3 class="govuk-heading-s">
-        Arbitration
+        {{ __("pages.courtOrder.content.otherWays.arbitration.title") }}
       </h3>
 
-      <p>
-        This could suit you if: You'd prefer that someone like a judge or solicitor listens to both of your views and makes a legally-binding decision about the child arrangements.
+      <p class="govuk-body">
+        {{ __("pages.courtOrder.content.otherWays.arbitration.description") }}
       </p>
 
-      <p>
-        <a href="https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution"> Find out more about other ways to agree without going to court</a>
+      <p class="govuk-body">
+        {{ __("pages.courtOrder.content.otherWays.arbitration.link") | safe }}
       </p>
 
       <h2 class="govuk-heading-m">
-        Help and support
+        {{ __("pages.courtOrder.content.helpAndSupport.title") }}
       </h2>
-      <p>These are some of the services you may find helpful for applying for a court order. You can also <a href="/service-finder">find more child arrangement support services</a>.
+
+      <p class="govuk-body">
+        {{ __("pages.courtOrder.content.helpAndSupport.description") }}
       </p>
 
       <table class="govuk-table">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header"></th>
-            <th scope="col" class="govuk-table__header"></th>
-          </tr>
-        </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/what-do-you-apply-family-court-about-your-children"> Advice Now</a></th>
-            <td class="govuk-table__cell">Information on child arrangements from a charity that provides easy-to-understand legal information, self-help tools and training for people facing urgent legal problems.</td>
+            <th scope="row" class="govuk-table__header">
+              <a href="{{ __('pages.courtOrder.content.helpAndSupport.services.adviceNow.url') }}">
+                {{ __("pages.courtOrder.content.helpAndSupport.services.adviceNow.name") }}
+              </a>
+            </th>
+            <td class="govuk-table__cell">{{ __("pages.courtOrder.content.helpAndSupport.services.adviceNow.description") }}</td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="https://www.cafcass.gov.uk/parent-carer-or-family-member/my-family-involved-private-law-proceedings/court-process-and-what-expect">Children and Family Court Advisory and Support Service (Cafcass)</a></th>
-            <td class="govuk-table__cell">Advice on the court process from Cafcass, which looks after the interests of children in family court cases in England.</td>
+            <th scope="row" class="govuk-table__header">
+              <a href="{{ __('pages.courtOrder.content.helpAndSupport.services.cafcass.url') }}">
+                {{ __("pages.courtOrder.content.helpAndSupport.services.cafcass.name") }}
+              </a>
+            </th>
+            <td class="govuk-table__cell">{{ __("pages.courtOrder.content.helpAndSupport.services.cafcass.description") }}</td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="https://www.gov.wales/cafcass-cymru/family-separation/information-for-parents">Cafcass Cymru</a></th>
-            <td class="govuk-table__cell">Child-focused advice from Cafcass Cymru, which safeguards children and makes sure their voices are heard in family courts across Wales.</td>
+            <th scope="row" class="govuk-table__header">
+              <a href="{{ __('pages.courtOrder.content.helpAndSupport.services.cafcassCymru.url') }}">
+                {{ __("pages.courtOrder.content.helpAndSupport.services.cafcassCymru.name") }}
+              </a>
+            </th>
+            <td class="govuk-table__cell">{{ __("pages.courtOrder.content.helpAndSupport.services.cafcassCymru.description") }}</td>
           </tr>
         </tbody>
       </table>
 
-      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-      Print this page
+      <button id="print-this-page-button" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        {{ __("pages.courtOrder.printThisPage") }}
       </button>
 
     </div>
 
     <div class="govuk-grid-column-one-third">
-
       <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
-          Related content
+          {{ __("pages.courtOrder.content.relatedContent.title") }}
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
             <li>
-              <a href="https://www.gov.uk/looking-after-children-divorce">
-                Making child arrangements if you divorce or separate
+              <a href="{{ __('pages.courtOrder.content.relatedContent.links.makingArrangements.url') }}">
+                {{ __("pages.courtOrder.content.relatedContent.links.makingArrangements.text") }}
               </a>
             </li>
             <li>
-              <a href="https://www.gov.uk/looking-after-children-divorce/apply-for-court-order">
-                Apply for a court order
+              <a href="{{ __('pages.courtOrder.content.relatedContent.links.applyForOrder.url') }}">
+                {{ __("pages.courtOrder.content.relatedContent.links.applyForOrder.text") }}
               </a>
             </li>
             <li>
-              <a href="https://www.gov.uk/parental-rights-responsibilities">
-                Parental rights and responsibilities
+              <a href="{{ __('pages.courtOrder.content.relatedContent.links.parentalRights.url') }}">
+                {{ __("pages.courtOrder.content.relatedContent.links.parentalRights.text") }}
               </a>
             </li>
           </ul>
         </nav>
       </aside>
-{{ govukExitThisPage() }}
-
+      {{ govukExitThisPage() }}
     </div>
   </div>
-
 {% endblock %}
