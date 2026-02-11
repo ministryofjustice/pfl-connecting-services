@@ -116,7 +116,7 @@ describe('Agreement on child arrangements Question', () => {
         .post(paths.AGREEMENT)
         .send({ agreement: 'no' })
         .expect(302)
-        .expect('location', paths.HELP_OPTIONS);
+        .expect('location', paths.HELP_TO_AGREE);
     });
 
     it('should redirect to help to agree when answer is not discussed', () => {
@@ -124,7 +124,7 @@ describe('Agreement on child arrangements Question', () => {
         .post(paths.AGREEMENT)
         .send({ agreement: 'not-discussed' })
         .expect(302)
-        .expect('location', paths.HELP_OPTIONS);
+        .expect('location', paths.HELP_TO_AGREE);
     });
 
     it('should store answer in session', async () => {

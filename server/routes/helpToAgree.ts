@@ -8,11 +8,11 @@ import addCompletedStep from '../utils/addCompletedStep';
 
 const router = Router();
 
-// Question 4 - Help Options
-router.get(paths.HELP_OPTIONS, checkFormProgressFromConfig(FormSteps.HELP_OPTIONS), (req: Request, res: Response) => {
+// Question 4 - Help to Agree
+router.get(paths.HELP_TO_AGREE, checkFormProgressFromConfig(FormSteps.HELP_TO_AGREE), (req: Request, res: Response) => {
   const errors = req.flash('errors');
-  res.render('pages/helpOptions', {
-    title: res.__('pages.helpOptions.title'),
+  res.render('pages/helpToAgree', {
+    title: res.__('pages.helpToAgree.title'),
     backLinkHref: paths.AGREEMENT,
     errors,
     formValues: {
@@ -22,17 +22,19 @@ router.get(paths.HELP_OPTIONS, checkFormProgressFromConfig(FormSteps.HELP_OPTION
 });
 
 router.post(
-  paths.HELP_OPTIONS,
-  body('help').notEmpty().withMessage('Select an option'),
+  paths.HELP_TO_AGREE,
+  body('help')
+    .notEmpty()
+    .withMessage((_value, { req }) => req.__('pages.helpToAgree.error')),
   (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       req.flash('errors', errors.array());
-      return res.redirect(paths.HELP_OPTIONS);
+      return res.redirect(paths.HELP_TO_AGREE);
     }
 
     req.session.help = req.body.help;
-    addCompletedStep(req, FormSteps.HELP_OPTIONS);
+    addCompletedStep(req, FormSteps.HELP_TO_AGREE);
 
     if (req.body.help === 'plan') {
       return res.redirect(paths.PARENTING_PLAN);

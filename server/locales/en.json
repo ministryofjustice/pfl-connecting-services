@@ -112,15 +112,16 @@
       },
       "error":"Select whether you and your ex-partner agree on child arrangements"
     },
-    "helpOptions": {
+    "helpToAgree": {
       "title": "What would help you both agree on child arrangements?",
       "content": {
         "options": {
           "first": "A plan we can follow ourselves",
           "second": "Someone else to guide our conversations",
-          "third": "We cannot agree - someone else needs to make a decision for us"
+          "third": "We cannot agree – someone else needs to make a decision for us"
         }
-      }
+      },
+      "error": "Select what would help you and your ex-partner to agree on child arrangements"
     },
     "otherOptions": {
       "title": "Have you tried any other options?",

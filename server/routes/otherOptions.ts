@@ -13,7 +13,7 @@ router.get(paths.OTHER_OPTIONS, checkFormProgressFromConfig(FormSteps.OTHER_OPTI
   const errors = req.flash('errors');
   res.render('pages/otherOptions', {
     title: res.__('pages.otherOptions.title'),
-    backLinkHref: paths.HELP_OPTIONS,
+    backLinkHref: paths.HELP_TO_AGREE,
     errors,
     formValues: {
       mediation: req.session.mediation,
