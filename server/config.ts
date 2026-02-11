@@ -47,6 +47,7 @@ const config = {
   staticResourceCacheDuration: getStringConfigValue('STATIC_RESOURCE_CACHE_DURATION'),
   analytics: {
     ga4Id: process.env.GA4_ID,
+    enabled: process.env.ENABLE_ANALYTICS !== 'false', // Defaults to true unless explicitly disabled
   },
   cache: getCacheConfig(),
   session: {
@@ -55,6 +56,7 @@ const config = {
   },
   passwords: getStringArray('BETA_ACCESS_PASSWORDS'),
   useAuth: getBoolConfigValue('USE_AUTH'),
+  isLiveService: process.env.IS_LIVE_SERVICE === 'true',
   feedbackUrl: getStringConfigValue('FEEDBACK_URL'),
   contactEmail: getStringConfigValue('CONTACT_EMAIL'),
   previewEnd: new Date(getStringConfigValue('PREVIEW_END')),
