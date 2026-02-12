@@ -377,6 +377,15 @@
           "buttonText": "Save cookie settings"
         }
       }
+    },
+    "contactUs": {
+      "title": "Contact us",
+      "content": {
+        "reportProblem": "To report a problem or suggest improvements to this service, you can email:",
+        "childArrangementsLink": "<a href=\"mailto:childarrangements@justice.gov.uk\" class=\"govuk-link\">childarrangements@justice.gov.uk</a>",
+        "feedbackEmailAddress": "This email address should only be used for feedback on the digital service.",
+        "cannotAnswerQuestions": "We cannot answer any questions about child arrangements."
+      }
     }
   },
   "errorSummary": {
