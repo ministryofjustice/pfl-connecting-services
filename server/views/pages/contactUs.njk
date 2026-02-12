@@ -1,13 +1,21 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+
+{% block pageTitle %}
+  {{ __("pages.contactUs.title") }} – {{ __("serviceName") }} – GOV.UK
+{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">{{ title }}</h1>
-      <p>{{ __('contactUs.reportProblem') }}</p>
-      <p>{{ contactEmail | customUrlize | safe }}</p>
-      <p>{{ __('contactUs.onlyUseForFeedback') }}</p>
-      <p>{{ __('contactUs.cannotAnswerQuestions') }}</p>
+      <h1 class="govuk-heading-l">{{ __("pages.contactUs.title") }}</h1>
+      <p>{{ __("pages.contactUs.content.reportProblem") }}</p>
+      <p>{{ __("pages.contactUs.content.childArrangementsLink") | safe }}</p>
+      <p>{{ __("pages.contactUs.content.feedbackEmailAddress") }}</p>
+      <p>{{ __("pages.contactUs.content.cannotAnswerQuestions") }}</p>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {{ govukExitThisPage() }}
     </div>
   </div>
 {% endblock %}
