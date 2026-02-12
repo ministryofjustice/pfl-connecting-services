@@ -163,13 +163,22 @@
         "thingsToConsider": {
           "title": "Important things to consider",
           "mediation": "<strong>Mediation:</strong> You will usually need to show you have tried mediation or another way to agree before you apply for a court order. If you cannot contact your ex-partner, you still need to attend the initial Mediation Information and Assessment Meeting (MIAM) alone before applying to go to court, unless you are exempt.",
-          "cost": "<strong>Cost:</strong> It costs £263 to apply for a court order. You may be able to get help paying court fees if you're on benefits or a low income.",
-          "time": "<strong>Time:</strong> It usually takes around 10 months to get a court order, depending on where you live and your situation.",
-          "findOutMore": "<a href=\"https://www.gov.uk/looking-after-children-divorce/types-of-court-order\">Find out more about court orders</a>"
+          "miamExemption": {
+            "warning": "You do not have to go to a MIAM if you can show there is a risk:",
+            "reasons": {
+              "life": "to your life, freedom, physical safety or home",
+              "harmToChild": "of harm to a child",
+              "unlawfullyTaken": "that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held"
+            },
+            "moreInfo": "If any of these apply, you can <a href=\"https://www.gov.uk/government/publications/urgent-court-hearings-about-child-arrangements-cb2/urgent-hearings-about-child-arrangements-cb2\">apply for an urgent court hearing about child arrangements</a>"
+          },
+          "cost": "<strong>Cost:</strong> It costs £263 to apply for a court order. You may be able to <a href=\"https://www.gov.uk/legal-aid/financial-eligibility\">get legal aid to help pay court fees</a> if you're on benefits or a low income.",
+          "time": "<strong>Time:</strong> It usually takes around 10 months to get a court order, depending on where you live and your situation."
         },
+        "nextStep": "<strong>Next step:</strong> <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">Apply for a court order</a>",
         "otherWays": {
           "title": "Other ways to agree without going to court",
-          "description": "If you want to try another way to agree without going to court, you can look into:",
+          "description": "Court is the right option for some families. If you want to try another way to agree without going to court, you can look into:",
           "mediation": {
             "title": "Mediation",
             "description": "This could suit you if: You'd like a professional to help you and your ex-partner agree on the details of a child arrangement. You do not have to be in the same room or video call as your ex-partner.",
