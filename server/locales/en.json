@@ -9,7 +9,7 @@
   "previousPage": "Previous<span class=\"govuk-visually-hidden\"> page</span>",
   "printThisPage": "Print this page",
   "printableVersion": "View a printable version of the whole guide",
-  "phaseBannerText": "This is a new service – your <a class=\"govuk-link\" href=\"{feedbackUrl}\">feedback</a> will help us to improve it.",
+  "phaseBannerText": "This is a new service. Help us improve it and <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">give your feedback (opens in new tab)</a>.",
   "footer": {
     "accessibility": "Accessibility statement",
     "contact": "Contact us",
