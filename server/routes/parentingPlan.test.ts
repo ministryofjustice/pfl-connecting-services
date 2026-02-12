@@ -68,6 +68,7 @@ describe('Parenting Plan', () => {
 
       expect(table).toHaveTextContent('Advice Now');
       expect(table).toHaveTextContent('Children and Family Court Advisory and Support Service (Cafcass)');
+      expect(table).toHaveTextContent('Cafcass Cymru');
     });
 
     it('should display related content section with correct links', async () => {

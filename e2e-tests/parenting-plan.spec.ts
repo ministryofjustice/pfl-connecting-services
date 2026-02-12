@@ -57,6 +57,7 @@ test.describe('Parenting Plan', () => {
     await expect(page.locator('text=Help and support')).toBeVisible();
     await expect(page.locator('.govuk-table')).toContainText('Advice Now');
     await expect(page.locator('.govuk-table')).toContainText('Cafcass');
+    await expect(page.locator('.govuk-table')).toContainText('Cafcass Cymru');
   });
 
   test('should display related content section', async ({ page }) => {
@@ -94,6 +95,13 @@ test.describe('Parenting Plan', () => {
 
     const cafcassLink = page.locator('a:has-text("Children and Family Court Advisory and Support Service (Cafcass)")');
     await expect(cafcassLink).toHaveAttribute('href', 'https://www.cafcass.gov.uk/parent-carer-or-family-member/my-family-involved-private-law-proceedings/resources-help-you-make-arrangements-are-your-childs-best-interests/how-parenting-plan-can-help');
+  });
+
+  test('should have Cafcass Cymru link pointing to correct URL', async ({ page }) => {
+    await page.goto('/parenting-plan');
+
+    const cafcassCymruLink = page.locator('a:has-text("Cafcass Cymru")');
+    await expect(cafcassCymruLink).toHaveAttribute('href', 'https://www.gov.wales/cafcass-cymru/family-separation/information-for-parents');
   });
 
   test('should have related content links pointing to correct URLs', async ({ page }) => {

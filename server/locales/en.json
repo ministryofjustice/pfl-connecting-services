@@ -250,6 +250,11 @@
               "name": "Children and Family Court Advisory and Support Service (Cafcass)",
               "url": "https://www.cafcass.gov.uk/parent-carer-or-family-member/my-family-involved-private-law-proceedings/resources-help-you-make-arrangements-are-your-childs-best-interests/how-parenting-plan-can-help",
               "description": "Use the 'Our Child's Plan' tool from Cafcass to make a parenting plan. Cafcass looks after the interests of children in family court cases in England."
+            },
+            "cafcassCymru": {
+              "name": "Cafcass Cymru",
+              "url": "https://www.gov.wales/cafcass-cymru/family-separation/information-for-parents",
+              "description": "Child-focused advice from Cafcass Cymru, which safeguards children and makes sure their voices are heard in family courts across Wales."
             }
           }
         },
