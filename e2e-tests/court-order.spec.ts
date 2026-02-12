@@ -18,7 +18,7 @@ test.describe('Court Order', () => {
 
     await expect(page.locator('h2').first()).toHaveText('Why this could be right for you');
     await expect(page.locator('.govuk-list--bullet').first()).toContainText('you cannot agree after');
-    await expect(page.locator('.govuk-list--bullet').first()).toContainText('domestic abuse');
+    await expect(page.locator('.govuk-list--bullet').first()).toContainText('domestic or any other kind of abuse');
   });
 
   test('should display "Important things to consider" section', async ({ page }) => {
@@ -33,7 +33,7 @@ test.describe('Court Order', () => {
   test('should display "Other ways to agree" section', async ({ page }) => {
     await page.goto('/court-order');
 
-    await expect(page.locator('text=Other ways to agree without going to court')).toBeVisible();
+    await expect(page.locator('h2:has-text("Other ways to agree without going to court")')).toBeVisible();
     await expect(page.locator('h3:has-text("Mediation")')).toBeVisible();
     await expect(page.locator('h3:has-text("Arbitration")')).toBeVisible();
   });
@@ -99,13 +99,15 @@ test.describe('Court Order', () => {
   test('should have related content links pointing to correct URLs', async ({ page }) => {
     await page.goto('/court-order');
 
-    const makingArrangementsLink = page.locator('a:has-text("Making child arrangements if you divorce or separate")');
+    const relatedContent = page.locator('.govuk-prototype-kit-common-templates-related-items');
+
+    const makingArrangementsLink = relatedContent.locator('a:has-text("Making child arrangements if you divorce or separate")');
     await expect(makingArrangementsLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce');
 
-    const applyForOrderLink = page.locator('a:has-text("Apply for a court order")');
+    const applyForOrderLink = relatedContent.locator('a:has-text("Apply for a court order")');
     await expect(applyForOrderLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce/apply-for-court-order');
 
-    const parentalRightsLink = page.locator('a:has-text("Parental rights and responsibilities")');
+    const parentalRightsLink = relatedContent.locator('a:has-text("Parental rights and responsibilities")');
     await expect(parentalRightsLink).toHaveAttribute('href', 'https://www.gov.uk/parental-rights-responsibilities');
   });
 
