@@ -14,7 +14,8 @@ router.get(paths.COURT_ORDER, (req: Request, res: Response) => {
 router.get(paths.PARENTING_PLAN, (req: Request, res: Response) => {
   res.render('pages/parenting-plan', {
     title: res.__('pages.parentingPlan.title'),
-    backLinkHref: req.headers.referer || paths.START,
+    backLinkHref: paths.AGREEMENT,
+    abuse: req.session.abuse,
   });
 });
 
