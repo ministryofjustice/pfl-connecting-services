@@ -1,5 +1,6 @@
 {
   "serviceName": "Get help finding a child arrangement option",
+  "tag": "Private beta",
   "yes": "Yes",
   "no": "No",
   "back": "Back",
@@ -20,16 +21,15 @@
   },
   "pages": {
     "domesticAbuse": {
-      "title": "Domestic abuse",
+      "title": "Have you experienced abuse from your ex partner?",
       "heading": "Have you or your children experienced abuse from your ex-partner?",
       "intro": "You may have been in an abusive relationship if you or your children have experienced any of the following:",
       "bullets": {
         "violence": "Abuse or violence, including physical, emotional and sexual",
         "financial": "Financial or economic abuse",
-        "coercive": "Coercive control (threats, humiliation, intimidation, degradation, isolation and control)",
+        "coercive": "Coercive control and psychological abuse (threats, humiliation, intimidation, degradation, isolation and control)",
         "childAbuse": "Child abuse, neglect, or child abduction",
-        "harassment": "Harassment and stalking",
-        "psychological": "Psychological abuse"
+        "harassment": "Harassment and stalking"
       },
       "error": "Select whether you or your children have experienced abuse from your ex-partner"
     },
