@@ -1,4 +1,5 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
@@ -6,30 +7,45 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">{{ __('pages.cookies.title') }}</h1>
+      <h1 class="govuk-heading-l">{{ __('pages.cookies.title') }}</h1>
 
-      {{ __('pages.cookies.aboutCookies') | safe }}
+      <p>{{ __('pages.cookies.content.putSmallFiles') }}</p>
 
-      <h2 class="govuk-heading-l">{{ __('pages.cookies.howCookiesAreUsed') }}</h2>
+      <p>{{ __('pages.cookies.content.usedTo') }}</p>
 
-      <h3 class="govuk-heading-m">{{ __('pages.cookies.essentialCookies') }}</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ __('pages.cookies.content.remember') }}</li>
+        <li>{{ __('pages.cookies.content.measure') }}</li>
+      </ul>
 
-      <p>{{ __('pages.cookies.essentialCookiesUse') }}</p>
+      <p>{{ __('pages.cookies.content.identifyYouPersonally') }}</p>
 
-      {{ __('pages.cookies.rememberingProgress') | safe }}
+      <p>{{ __('pages.cookies.content.messageBeforeStore') }}</p>
+
+      <p>{{ __('pages.cookies.content.manageCookiesLink') | safe }}</p>
+
+      <h2 class="govuk-heading-m">{{ __('pages.cookies.content.howCookiesAreUsed.title') }}</h2>
+
+      <h3 class="govuk-heading-s">{{ __('pages.cookies.content.howCookiesAreUsed.content.essentialCookies.title') }}</h3>
+
+      <p>{{ __('pages.cookies.content.howCookiesAreUsed.content.essentialCookies.description') }}</p>
+
+      <h3 class="govuk-heading-s">{{ __('pages.cookies.content.howCookiesAreUsed.content.rememberingProgress.title') }}</h3>
+
+      <p>{{ __('pages.cookies.content.howCookiesAreUsed.content.rememberingProgress.description') }}</p>
 
       {{
         govukTable({
           head: [
-            { text: __('pages.cookies.name') },
-            { text: __('pages.cookies.purpose') },
-            { text: __('pages.cookies.expires') }
+            { text: __('pages.cookies.content.howCookiesAreUsed.content.rememberingProgress.table.headerRow.name') },
+            { text: __('pages.cookies.content.howCookiesAreUsed.content.rememberingProgress.table.headerRow.purpose') },
+            { text: __('pages.cookies.content.howCookiesAreUsed.content.rememberingProgress.table.headerRow.expires') }
           ],
           rows: [
             [
               { text: cookieNames.SESSION },
-              { text: __('pages.cookies.sessionPurpose') },
-              { text: __('pages.cookies.sessionExpiry') }
+              { text: __('pages.cookies.content.howCookiesAreUsed.content.rememberingProgress.table.valueRow.purpose') },
+              { text: __('pages.cookies.content.howCookiesAreUsed.content.rememberingProgress.table.valueRow.expires') }
             ]
           ]
         })
@@ -37,46 +53,67 @@
 
       {% if ga4Id %}
 
-        {{ __('pages.cookies.cookiesMessage') | safe }}
+        <h2 class="govuk-heading-m">{{ __('pages.cookies.content.cookiesMessage.title') }}</h2>
+
+        <p>{{ __('pages.cookies.content.cookiesMessage.content.seeBanner') }}</p>
+
+        <p>{{ __('pages.cookies.content.cookiesMessage.content.setCookies') }}</p>
 
         {{
           govukTable({
             head: [
-              { text: __('pages.cookies.name') },
-              { text: __('pages.cookies.purpose') },
-              { text: __('pages.cookies.expires') }
+              { text: __('pages.cookies.content.cookiesMessage.content.table.headerRow.name') },
+              { text: __('pages.cookies.content.cookiesMessage.content.table.headerRow.purpose') },
+              { text: __('pages.cookies.content.cookiesMessage.content.table.headerRow.expires') }
             ],
             rows: [
               [
                 { text: cookieNames.ANALYTICS_CONSENT },
-                { text: __('pages.cookies.consentPurpose') },
-                { text: __('pages.cookies.consentExpiry') }
+                { text: __('pages.cookies.content.cookiesMessage.content.table.valueRow.purpose') },
+                { text: __('pages.cookies.content.cookiesMessage.content.table.valueRow.expires') }
               ]
             ]
           })
         }}
 
-        <h3 class="govuk-heading-m">{{ __('pages.cookies.optionalCookies') }}</h3>
+        <h2 class="govuk-heading-m">{{ __('pages.cookies.content.analyticsCookies.title') }}</h2>
 
-        {{ __('pages.cookies.aboutOptionalCookies') | safe }}
+        <h3 class="govuk-heading-s">{{ __('pages.cookies.content.analyticsCookies.measuringServiceUsage.title') }}</h3>
+
+        <p>{{ __('pages.cookies.content.analyticsCookies.measuringServiceUsage.content.googleAnalyticsSoftware') }}</p>
+
+        <p>{{ __('pages.cookies.content.analyticsCookies.measuringServiceUsage.content.googleAnalyticsStores') }}</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>{{ __('pages.cookies.content.analyticsCookies.measuringServiceUsage.content.pagesYouVisit') }}</li>
+          <li>{{ __('pages.cookies.content.analyticsCookies.measuringServiceUsage.content.howLongYouSpend') }}</li>
+          <li>{{ __('pages.cookies.content.analyticsCookies.measuringServiceUsage.content.howYouGotToService') }}</li>
+          <li>{{ __('pages.cookies.content.analyticsCookies.measuringServiceUsage.content.whatYouClick') }}</li>
+        </ul>
+
+        <p>{{ __('pages.cookies.content.analyticsCookies.measuringServiceUsage.content.weDoNotCollect') }}</p>
+
+        <p>{{ __('pages.cookies.content.analyticsCookies.measuringServiceUsage.content.setsTheCookies') }}</p>
 
         {{
           govukTable({
+            caption: __('pages.cookies.content.analyticsCookies.measuringServiceUsage.content.universalAnalytics'),
+            captionClasses: "govuk-table__caption--s",
             head: [
-              { text: __('pages.cookies.name') },
-              { text: __('pages.cookies.purpose') },
-              { text: __('pages.cookies.expires') }
+              { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.headerRow.name') },
+              { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.headerRow.purpose') },
+              { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.headerRow.expires') }
             ],
             rows: [
               [
-                { text: "_ga" },
-                { text: __('pages.cookies._gaCookiePurpose') },
-                { text: __('pages.cookies.gaCookiesExpiry') }
+                { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.valueRowOne.name') },
+                { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.valueRowOne.purpose') },
+                { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.valueRowOne.expires') }
               ],
               [
-                { text: "_ga_" + (ga4Id | replace("G-", "")) },
-                { text: __('pages.cookies._ga_IdCookiePurpose') },
-                { text: __('pages.cookies.gaCookiesExpiry') }
+                { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.valueRowTwo.name') + (ga4Id | replace("G-", "")) },
+                { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.valueRowTwo.purpose')},
+                { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.valueRowTwo.expires') }
               ]
             ]
           })
@@ -87,33 +124,35 @@
 
           {{
             govukRadios({
-              classes: "govuk-radios--inline",
               name: formFields.ACCEPT_OPTIONAL_COOKIES,
               fieldset: {
                 legend: {
-                  text: __('pages.cookies.acceptOptionalCookies'),
-                  classes: "govuk-fieldset__legend--s"
+                  text: __('pages.cookies.content.acceptAnalyticsCookies.title'),
+                  classes: "govuk-fieldset__legend--m"
                 }
               },
               items: [
                 {
                   value: "Yes",
-                  text: __('yes'),
+                  text: __('pages.cookies.content.acceptAnalyticsCookies.options.yes'),
                   checked: analyticsEnabled
                 },
                 {
                   value: "No",
-                  text: __('no'),
+                  text: __('pages.cookies.content.acceptAnalyticsCookies.options.no'),
                   checked: false if analyticsEnabled else true
                 }
               ]
             })
           }}
 
-          {{ govukButton({text: __('pages.cookies.saveCookieSettings')}) }}
+          {{ govukButton({text: __('pages.cookies.content.acceptAnalyticsCookies.buttonText')}) }}
         </form>
       {% endif %}
 
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {{ govukExitThisPage() }}
     </div>
   </div>
 {% endblock %}
