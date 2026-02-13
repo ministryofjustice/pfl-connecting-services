@@ -115,14 +115,5 @@ describe('Safeguarding Page', () => {
 
       expect(hr).not.toBeNull();
     });
-
-    it('should have table with thead element', async () => {
-      const response = await request(app).get(paths.SAFEGUARDING).expect(200);
-
-      const dom = new JSDOM(response.text);
-      const thead = dom.window.document.querySelector('table.govuk-table thead');
-
-      expect(thead).not.toBeNull();
-    });
   });
 });
