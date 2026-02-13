@@ -1,148 +1,173 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-{% set title = __("pages.parenting-plan.title") %}
+{% set title = __("pages.parentingPlan.title") %}
 {% block pageTitle %}
-  {{ __("pages.parenting-plan.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ __("pages.parentingPlan.title") }} – {{ __("serviceName") }} – GOV.UK
 {% endblock %}
 
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-        Explore: Making a parenting plan
+        {{ __("pages.parentingPlan.title") }}
       </h1>
 
       <h2 class="govuk-heading-m">
-        Why this could be right for you
+        {{ __("pages.parentingPlan.content.whyRightForYou.title") }}
       </h2>
 
-      <p>
-        You do not have to do any official paperwork if you and your ex-partner agree about child arrangements.
+      <p class="govuk-body">
+        {{ __("pages.parentingPlan.content.whyRightForYou.noPaperwork") }}
       </p>
 
-      <p>
-       Informal arrangements where nothing is written down work for some people, but if you'd prefer, you can record what you have agreed in a child arrangements plan, also called a 'parenting plan'.
+      <p class="govuk-body">
+        {{ __("pages.parentingPlan.content.whyRightForYou.informalArrangements") }}
+      </p>
+
+      {% if abuse == "yes" %}
+        {{ govukWarningText({
+          html: __("pages.parentingPlan.content.warningText"),
+          iconFallbackText: "Warning"
+        }) }}
+      {% endif %}
+
+      <h2 class="govuk-heading-m">
+        {{ __("pages.parentingPlan.content.thingsToConsider.title") }}
+      </h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ __("pages.parentingPlan.content.thingsToConsider.noCourt") | safe }}</li>
+        <li>{{ __("pages.parentingPlan.content.thingsToConsider.noCost") | safe }}</li>
+        <li>{{ __("pages.parentingPlan.content.thingsToConsider.easyToChange") | safe }}</li>
+        <li>{{ __("pages.parentingPlan.content.thingsToConsider.legallyBinding") | safe }}</li>
+      </ul>
+
+      <p class="govuk-body">
+        {{ __("pages.parentingPlan.content.thingsToConsider.findOutMore") | safe }}
       </p>
 
       <h2 class="govuk-heading-m">
-        Important things to consider
+        {{ __("pages.parentingPlan.content.nextStep.title") }}
       </h2>
-     
-      <ul class="govuk-list govuk-list--bullet">
-        <li><strong>No court:</strong> You do not have to go to court to make informal arrangements or a parenting plan.</li>
-        <li><strong>No cost:</strong> You can make a parenting plan using free online tools and templates.</li>
-        <li><strong>Easy to review and change:</strong> As your children get older and their needs change, or if your situation changes.</li>
-        <li><strong>Make it legally binding:</strong> You can apply to the family court for a 'consent order' based on your plan if you want to make an informal agreement legally binding . You will need to <a href="#">apply for a court order</a> to get your consent order approved, but there's usually no court hearing.</li>
-      </ul>
-      <p>
-        <a href="https://www.gov.uk/looking-after-children-divorce/if-you-agree">Find out more about what to do if you agree on child arrangements</a>
+
+      <p class="govuk-body">
+        {{ __("pages.parentingPlan.content.nextStep.description") }}
       </p>
 
-      <h2 class="govuk-heading-m">
-        Next step: Make a plan
-      </h2>
-      <p>The 'Propose a child arrangements plan' tool will help you build a plan that you can send to your ex-partner, covering:
-      </p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>where your children will live</li>
-        <li>when they spend time with each parent</li>
-        <li>handovers, holidays and whatever else matters to your children</li>
+        <li>{{ __("pages.parentingPlan.content.nextStep.items.whereLive") }}</li>
+        <li>{{ __("pages.parentingPlan.content.nextStep.items.spendTime") }}</li>
+        <li>{{ __("pages.parentingPlan.content.nextStep.items.handovers") }}</li>
       </ul>
 
-      <p><a href="#">Propose a child arrangements plan</a></p>
+      <p class="govuk-body">
+        {{ __("pages.parentingPlan.content.nextStep.link") | safe }}
+      </p>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
       <h2 class="govuk-heading-m">
-        Other ways to agree without going to court
+        {{ __("pages.parentingPlan.content.otherWays.title") }}
       </h2>
-      <h3 class="govuk-heading-s">
-        Mediation
-      </h3>
-      <p>
-        This could suit you if: You'd like a professional to help you and your ex-partner agree on the details of a child arrangement. You do not have to be in the same room or call as your ex-partner.
+
+      <p class="govuk-body">
+        {{ __("pages.parentingPlan.content.otherWays.description") }}
       </p>
-      <div class="govuk-inset-text">
-      You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.
-      </div>
-      <p>
-        <a href="mediation">Explore: Mediation</a>
+
+      <h3 class="govuk-heading-s">
+        {{ __("pages.parentingPlan.content.otherWays.mediation.title") }}
+      </h3>
+
+      <p class="govuk-body">
+        {{ __("pages.parentingPlan.content.otherWays.mediation.description") }}
+      </p>
+
+      {{ govukInsetText({
+        text: __("pages.parentingPlan.content.otherWays.mediation.inset")
+      }) }}
+
+      <p class="govuk-body">
+        {{ __("pages.parentingPlan.content.otherWays.mediation.link") | safe }}
       </p>
 
       <h2 class="govuk-heading-m">
-        Help and support
+        {{ __("pages.parentingPlan.content.helpAndSupport.title") }}
       </h2>
-      <p>These are some of the services you may find helpful for making child arrangements with your ex-partner. You can also <a href="/service-finder">find more child arrangement support services</a>.
+
+      <p class="govuk-body">
+        {{ __("pages.parentingPlan.content.helpAndSupport.description") }}
       </p>
 
       <table class="govuk-table">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header"></th>
-            <th scope="col" class="govuk-table__header"></th>
-          </tr>
-        </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/what-do-you-apply-family-court-about-your-children"> Advice Now</a></th>
-            <td class="govuk-table__cell">Information on child arrangements from a charity that provides easy-to-understand legal information, self-help tools and training for people facing urgent legal problems.</td>
+            <th scope="row" class="govuk-table__header">
+              <a href="{{ __('pages.parentingPlan.content.helpAndSupport.services.adviceNow.url') }}">
+                {{ __("pages.parentingPlan.content.helpAndSupport.services.adviceNow.name") }}
+              </a>
+            </th>
+            <td class="govuk-table__cell">{{ __("pages.parentingPlan.content.helpAndSupport.services.adviceNow.description") }}</td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="https://www.cafcass.gov.uk/parent-carer-or-family-member/my-family-involved-private-law-proceedings/resources-help-you-parenting-plan-are-your-childs-best-interests/how-parenting-plan-can-help">Children and Family Court Advisory and Support Service (Cafcass)</a></th>
-            <td class="govuk-table__cell">Use the 'Our Child's Plan' tool from Cafcass to make a parenting plan. Cafcass looks after the interests of children in family court cases in England.</td>
+            <th scope="row" class="govuk-table__header">
+              <a href="{{ __('pages.parentingPlan.content.helpAndSupport.services.cafcass.url') }}">
+                {{ __("pages.parentingPlan.content.helpAndSupport.services.cafcass.name") }}
+              </a>
+            </th>
+            <td class="govuk-table__cell">{{ __("pages.parentingPlan.content.helpAndSupport.services.cafcass.description") }}</td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header"><a href="https://www.gov.wales/parenting-plan-cafcass-cymru">Cafcass Cymru</a></th>
-            <td class="govuk-table__cell">A guide to making a parenting plan from the organisation that provides expert child-focused advice and support in family courts across Wales.</td>
+            <th scope="row" class="govuk-table__header">
+              <a href="{{ __('pages.parentingPlan.content.helpAndSupport.services.cafcassCymru.url') }}">
+                {{ __("pages.parentingPlan.content.helpAndSupport.services.cafcassCymru.name") }}
+              </a>
+            </th>
+            <td class="govuk-table__cell">{{ __("pages.parentingPlan.content.helpAndSupport.services.cafcassCymru.description") }}</td>
           </tr>
         </tbody>
       </table>
 
-      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-      Print this page
+      <button id="print-this-page-button" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        {{ __("pages.parentingPlan.printThisPage") }}
       </button>
 
     </div>
 
     <div class="govuk-grid-column-one-third">
-
       <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
-          Related content
+          {{ __("pages.parentingPlan.content.relatedContent.title") }}
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
             <li>
-              <a href="https://www.gov.uk/looking-after-children-divorce">
-                Making child arrangements if you divorce or separate
+              <a href="{{ __('pages.parentingPlan.content.relatedContent.links.makingArrangements.url') }}">
+                {{ __("pages.parentingPlan.content.relatedContent.links.makingArrangements.text") }}
               </a>
             </li>
             <li>
-              <a href="https://care-arrangement-plan.apps.live.cloud-platform.service.justice.gov.uk/">
-                Propose a child arrangements plan
+              <a href="{{ __('pages.parentingPlan.content.relatedContent.links.proposeAPlan.url') }}">
+                {{ __("pages.parentingPlan.content.relatedContent.links.proposeAPlan.text") }}
               </a>
             </li>
             <li>
-              <a href="#">
-                Child maintenance
+              <a href="{{ __('pages.parentingPlan.content.relatedContent.links.childMaintenance.url') }}">
+                {{ __("pages.parentingPlan.content.relatedContent.links.childMaintenance.text") }}
               </a>
             </li>
             <li>
-              <a href="https://www.gov.uk/parental-rights-responsibilities">
-                Parental rights and responsibilities
+              <a href="{{ __('pages.parentingPlan.content.relatedContent.links.parentalRights.url') }}">
+                {{ __("pages.parentingPlan.content.relatedContent.links.parentalRights.text") }}
               </a>
             </li>
           </ul>
         </nav>
       </aside>
-
-{{ govukExitThisPage() }}
-
+      {{ govukExitThisPage() }}
     </div>
   </div>
-
 {% endblock %}
