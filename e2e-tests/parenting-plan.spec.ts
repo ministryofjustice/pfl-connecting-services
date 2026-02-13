@@ -101,7 +101,7 @@ test.describe('Parenting Plan', () => {
     await page.goto('/parenting-plan');
 
     const cafcassCymruLink = page.locator('a:has-text("Cafcass Cymru")');
-    await expect(cafcassCymruLink).toHaveAttribute('href', 'https://www.gov.wales/cafcass-cymru/family-separation/information-for-parents');
+    await expect(cafcassCymruLink).toHaveAttribute('href', 'https://www.gov.wales/parenting-plan-cafcass-cymru');
   });
 
   test('should have related content links pointing to correct URLs', async ({ page }) => {
