@@ -142,7 +142,96 @@
       "error": "Select whether you have tried any of these in the last 6 months"
     },
     "courtOrder": {
-      "title": "Going to court"
+      "title": "Explore: Applying for a court order",
+      "content": {
+        "whyRightForYou": {
+          "title": "Why this could be right for you",
+          "canApplyIf": "You can apply for a court order if:",
+          "reasons": {
+            "cannotAgree": "you cannot agree after <a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\">mediation</a> or <a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">getting help another way</a>",
+            "domesticAbuse": "there's been domestic or any other kind of abuse",
+            "cannotContact": "you cannot contact your ex-partner",
+            "consentOrder": "you're applying for a consent order to make your <a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">parenting plan</a> legally binding"
+          },
+          "canApplyFor": "You can apply for a:",
+          "orderTypes": {
+            "childArrangements": "child arrangements order, which decides where your child lives and what contact takes place",
+            "specificIssues": "specific issues order, if you need a decision on a question like what school they go to",
+            "prohibitedSteps": "prohibited steps order, to stop the other parent from making a decision about the child's upbringing"
+          }
+        },
+        "thingsToConsider": {
+          "title": "Important things to consider",
+          "mediation": "<strong>Mediation:</strong> You will usually need to show you have tried mediation or another way to agree before you apply for a court order. If you cannot contact your ex-partner, you still need to attend the initial Mediation Information and Assessment Meeting (MIAM) alone before applying to go to court, unless you are exempt.",
+          "miamExemption": {
+            "warning": "You do not have to go to a MIAM if you can show there is a risk:",
+            "reasons": {
+              "life": "to your life, freedom, physical safety or home",
+              "harmToChild": "of harm to a child",
+              "unlawfullyTaken": "that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held"
+            },
+            "moreInfo": "If any of these apply, you can <a href=\"https://www.gov.uk/government/publications/urgent-court-hearings-about-child-arrangements-cb2/urgent-hearings-about-child-arrangements-cb2\">apply for an urgent court hearing about child arrangements</a>"
+          },
+          "cost": "<strong>Cost:</strong> It costs £263 to apply for a court order. You may be able to <a href=\"https://www.gov.uk/legal-aid/financial-eligibility\">get legal aid to help pay court fees</a> if you're on benefits or a low income.",
+          "time": "<strong>Time:</strong> It usually takes around 10 months to get a court order, depending on where you live and your situation."
+        },
+        "nextStep": "<strong>Next step:</strong> <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">Apply for a court order</a>",
+        "otherWays": {
+          "title": "Other ways to agree without going to court",
+          "description": "Court is the right option for some families. If you want to try another way to agree without going to court, you can look into:",
+          "mediation": {
+            "title": "Mediation",
+            "description": "This could suit you if: You'd like a professional to help you and your ex-partner agree on the details of a child arrangement. You do not have to be in the same room or video call as your ex-partner.",
+            "inset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
+            "alreadyTried": "Already tried mediation? You can always try again, for example if your situation or child's needs have changed.",
+            "link": "<a href=\"/mediation\">Explore: Mediation</a>"
+          },
+          "arbitration": {
+            "title": "Arbitration",
+            "description": "This could suit you if: You'd prefer that someone like a judge or solicitor listens to both of your views and makes a legally-binding decision about the child arrangements.",
+            "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">Find out more about other ways to agree without going to court</a>"
+          }
+        },
+        "helpAndSupport": {
+          "title": "Help and support",
+          "description": "These are some of the services you may find helpful for applying for a court order.",
+          "services": {
+            "adviceNow": {
+              "name": "Advice Now",
+              "url": "https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/what-do-you-apply-family-court-about-your-children",
+              "description": "Information on what to do before applying for a court order from a charity that provides easy-to-understand information for people facing urgent legal problems."
+            },
+            "cafcass": {
+              "name": "Children and Family Court Advisory and Support Service (Cafcass)",
+              "url": "https://www.cafcass.gov.uk/parent-carer-or-family-member/my-family-involved-private-law-proceedings/court-process-and-what-expect",
+              "description": "Advice on the court process from Cafcass, which looks after the interests of children in family court cases in England."
+            },
+            "cafcassCymru": {
+              "name": "Cafcass Cymru",
+              "url": "https://www.gov.wales/cafcass-cymru/family-separation/information-for-parents",
+              "description": "Child-focused advice from Cafcass Cymru, which safeguards children and makes sure their voices are heard in family courts across Wales."
+            }
+          }
+        },
+        "relatedContent": {
+          "title": "Related content",
+          "links": {
+            "makingArrangements": {
+              "text": "Making child arrangements if you divorce or separate",
+              "url": "https://www.gov.uk/looking-after-children-divorce"
+            },
+            "applyForOrder": {
+              "text": "Apply for a court order",
+              "url": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order"
+            },
+            "parentalRights": {
+              "text": "Parental rights and responsibilities",
+              "url": "https://www.gov.uk/parental-rights-responsibilities"
+            }
+          }
+        }
+      },
+      "printThisPage": "Print this page"
     },
     "mediation": {
       "title": "Explore: Mediation",
