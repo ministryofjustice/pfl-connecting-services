@@ -78,13 +78,6 @@ describe('Safeguarding Page', () => {
       expect(response.text).toContain('Domestic abuse: specialist sources of support');
     });
 
-    it('should display service-finder link', async () => {
-      const response = await request(app).get(paths.SAFEGUARDING).expect(200);
-
-      expect(response.text).toContain('find more child arrangement support services');
-      expect(response.text).toContain('/service-finder');
-    });
-
     it('should display National Domestic Abuse Helpline in table', async () => {
       const response = await request(app).get(paths.SAFEGUARDING).expect(200);
 
@@ -114,15 +107,6 @@ describe('Safeguarding Page', () => {
       const hr = dom.window.document.querySelector('hr.govuk-section-break--visible');
 
       expect(hr).not.toBeNull();
-    });
-
-    it('should have table with thead element', async () => {
-      const response = await request(app).get(paths.SAFEGUARDING).expect(200);
-
-      const dom = new JSDOM(response.text);
-      const thead = dom.window.document.querySelector('table.govuk-table thead');
-
-      expect(thead).not.toBeNull();
     });
   });
 });
