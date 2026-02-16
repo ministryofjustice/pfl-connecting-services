@@ -415,8 +415,9 @@
         "notComfortable": "If you are not comfortable contacting your ex-partner, there are still ways you can make child arrangements without going to court.",
         "solicitorCanContact": "With these options, your mediator or solicitor can contact your ex-partner for you.",
         "shuttleMediation": {
-          "title": "1. Shuttle mediation",
+          "title": "Shuttle mediation",
           "content": {
+            "thisCouldSuitYou": "This could suit you if: You do not want to have direct contact with your ex-partner.",
             "attendSession": "Shuttle mediation is where you and your ex-partner both attend a session with a mediator, but sit in different rooms or online meetings so you do not have to have any contact.",
             "mediatorMoves": "The mediator moves between rooms, listening to you both and helping you come to an agreement about child arrangements.",
             "getVoucher": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
@@ -424,16 +425,18 @@
           }
         },
         "solicitorNegotiation": {
-          "title": "2. Family solicitor negotiation",
+          "title": "Family solicitor negotiation",
           "content": {
+            "thisCouldSuitYou": "This could suit you if: You cannot contact your ex-partner or they do not reply to you.",
             "legalAdviser": "A family legal adviser can help you negotiate with your ex-partner without going to court. This is known as 'solicitor negotiation' or 'lawyer negotiation'.",
             "speakToExPartner": "You do not have to speak to your ex-partner if you choose a solicitor to negotiate for you.",
             "nextStep": "<strong>Next step:</strong><a href=\"https://solicitors.lawsociety.org.uk/\"> Find a legal adviser from the Law Society</a>"
           }
         },
         "collaborativeLaw": {
-          "title": "3. Collaborative law",
+          "title": "Collaborative law",
           "content": {
+            "thisCouldSuitYou": "This could suit you if: You want to focus on collaboration and practicality.",
             "hireLegalAdviser": "You and your ex-partner can each hire your own legal advisers to help you negotiate. You then all meet to try and agree on child arrangements.",
             "nextStep": "<strong>Next step:</strong><a href=\"https://resolution.org.uk/looking-for-help/splitting-up/your-process-options-for-divorce-and-dissolution/the-collaborative-process/\"> Find out more about collaborative law from Resolution</a>"
           }
