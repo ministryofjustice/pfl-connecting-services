@@ -3,12 +3,13 @@ import { Router } from 'express';
 import agreementRoutes from './agreement';
 import contactChildArrangementRoutes from './contactChildArrangements';
 import domesticAbuseRoutes from './domesticAbuse';
-import helpToAgree from './helpToAgree';
+import helpToAgreeRoutes from './helpToAgree';
 import informationRoutes from './information';
-import mediation from './mediation';
-import optionsNoContact from './optionsNoContact';
-import otherOptions from './otherOptions';
+import mediationRoutes from './mediation';
+import optionsNoContactRoutes from './optionsNoContact';
+import otherOptionsRoutes from './otherOptions';
 import outcomeRoutes from './outcomes';
+import safeguardingRoutes from './safeguarding';
 import startRoutes from './start';
 
 const routes = (): Router => {
@@ -27,16 +28,19 @@ const routes = (): Router => {
   router.use(contactChildArrangementRoutes);
 
   // Options no contact
-  router.use(optionsNoContact);
+  router.use(optionsNoContactRoutes);
 
   // Help to agree route
-  router.use(helpToAgree);
+  router.use(helpToAgreeRoutes);
 
   // Other options check route
-  router.use(otherOptions);
+  router.use(otherOptionsRoutes);
 
   // Mediation route
-  router.use(mediation);
+  router.use(mediationRoutes);
+
+  // Safeguarding route (/getting-help)
+  router.use(safeguardingRoutes);
 
   // Outcome page routes
   router.use(outcomeRoutes);
