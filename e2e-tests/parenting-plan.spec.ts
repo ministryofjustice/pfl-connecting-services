@@ -1,6 +1,60 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Parenting Plan', () => {
+  test('should not display warning text when accessed directly', async ({ page }) => {
+    await page.goto('/parenting-plan');
+
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+  });
+
+  test('should display warning text when user selected "Yes" for domestic abuse', async ({ page }) => {
+    // Go through the flow selecting "Yes" for domestic abuse
+    await page.goto('/');
+    await page.getByRole('button', { name: /start now/i }).click();
+
+    // Domestic abuse question - select Yes
+    await page.getByLabel('Yes').check();
+    await page.getByRole('button', { name: 'Continue' }).click();
+
+    // Safeguarding page (Getting help) - just click Continue
+    await page.getByRole('button', { name: 'Continue' }).click();
+
+    // Contact child arrangements - select Yes
+    await page.getByLabel('Yes').check();
+    await page.getByRole('button', { name: 'Continue' }).click();
+
+    // Agreement - select Yes (this goes directly to parenting plan)
+    await page.getByLabel('Yes').check();
+    await page.getByRole('button', { name: 'Continue' }).click();
+
+    // Should be on parenting plan page with warning text visible
+    await expect(page.locator('h1')).toHaveText('Explore: Making a parenting plan');
+    await expect(page.locator('.govuk-warning-text')).toBeVisible();
+    await expect(page.locator('.govuk-warning-text')).toContainText('It may not be appropriate for you to make child arrangements directly');
+  });
+
+  test('should not display warning text when user selected "No" for domestic abuse', async ({ page }) => {
+    // Go through the flow selecting "No" for domestic abuse
+    await page.goto('/');
+    await page.getByRole('button', { name: /start now/i }).click();
+
+    // Domestic abuse question - select No
+    await page.getByLabel('No').check();
+    await page.getByRole('button', { name: 'Continue' }).click();
+
+    // Contact child arrangements - select Yes
+    await page.getByLabel('Yes').check();
+    await page.getByRole('button', { name: 'Continue' }).click();
+
+    // Agreement - select Yes (this goes directly to parenting plan)
+    await page.getByLabel('Yes').check();
+    await page.getByRole('button', { name: 'Continue' }).click();
+
+    // Should be on parenting plan page without warning text
+    await expect(page.locator('h1')).toHaveText('Explore: Making a parenting plan');
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+  });
+
   test('should display the page with correct title', async ({ page }) => {
     await page.goto('/parenting-plan');
 
