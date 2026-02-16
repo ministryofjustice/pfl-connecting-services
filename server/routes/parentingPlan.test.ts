@@ -3,10 +3,15 @@ import request from 'supertest';
 
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
+import { sessionMock } from '../test-utils/testMocks';
 
 const app = testAppSetup();
 
 describe('Parenting Plan', () => {
+  beforeEach(() => {
+    sessionMock.abuse = undefined;
+  });
+
   describe(`GET ${paths.PARENTING_PLAN}`, () => {
     it('should render parenting plan page with correct heading', async () => {
       const response = await request(app).get(paths.PARENTING_PLAN).expect('Content-Type', /html/);
@@ -105,6 +110,35 @@ describe('Parenting Plan', () => {
       expect(title).toHaveTextContent('Explore: Making a parenting plan');
       expect(title).toHaveTextContent('Get help finding a child arrangement option');
       expect(title).toHaveTextContent('GOV.UK');
+    });
+
+    it('should not display warning text when abuse is not set', async () => {
+      const response = await request(app).get(paths.PARENTING_PLAN).expect(200);
+      const dom = new JSDOM(response.text);
+      const warningText = dom.window.document.querySelector('.govuk-warning-text');
+
+      expect(warningText).toBeNull();
+    });
+
+    it('should display warning text when abuse is "yes"', async () => {
+      sessionMock.abuse = 'yes';
+
+      const response = await request(app).get(paths.PARENTING_PLAN).expect(200);
+      const dom = new JSDOM(response.text);
+      const warningText = dom.window.document.querySelector('.govuk-warning-text');
+
+      expect(warningText).not.toBeNull();
+      expect(warningText).toHaveTextContent('It may not be appropriate for you to make child arrangements directly');
+    });
+
+    it('should not display warning text when abuse is "no"', async () => {
+      sessionMock.abuse = 'no';
+
+      const response = await request(app).get(paths.PARENTING_PLAN).expect(200);
+      const dom = new JSDOM(response.text);
+      const warningText = dom.window.document.querySelector('.govuk-warning-text');
+
+      expect(warningText).toBeNull();
     });
   });
 });
