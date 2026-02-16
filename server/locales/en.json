@@ -625,6 +625,44 @@
         },
         "statement": "This statement was prepared on 22 January 2026."
       }
+    },
+    "termsAndConditions": {
+      "title": "Terms and conditions",
+      "content": {
+        "responsibility": {
+          "title": "Responsibility for the service",
+          "description": "The Ministry of Justice (MOJ) runs this service. We try to make sure the information we provide is accurate and complete and the service is always available and virus free.",
+          "noLiability": "The MoJ accepts no liability for:",
+          "items": {
+            "unableToAccess": "you being unable to access the service (for example due to high demand or because we've taken it down for maintenance)",
+            "indirectDamages": "indirect damages arising from you using the service or relying on its content",
+            "externalWebsites": "the content and availability of external websites that link to the service or which link from it"
+          }
+        },
+        "information": {
+          "title": "Information about you and your site visits",
+          "collectAndProcess": "We collect and process information related to:",
+          "items": {
+            "childArrangement": "child arrangement planning to help you identify child arrangement planning options suitable for your circumstances",
+            "howYouUse": "how you use the service to help make sure it is meeting the needs of its users and to help us make improvements"
+          },
+          "agreeToCollect": "By using this service you agree to us collecting this information.",
+          "doNotCollectPII": "However, we do not collect personally identifiable information (PII), such as names, addresses, or contact details, in accordance with our <a href=\"/privacy-notice\" class=\"govuk-link\">privacy notice</a> and <a href=\"/cookies\" class=\"govuk-link\">cookie policy</a>."
+        },
+        "limitations": {
+          "title": "Limitations of the service",
+          "description": "Using this service does not guarantee that you will be able to resolve your child arrangements."
+        },
+        "misuse": {
+          "title": "Misuse",
+          "description": "You must not impersonate another person, provide false or misleading information, or use this service on behalf of someone else without their consent."
+        },
+        "restrictions": {
+          "title": "Restrictions on use",
+          "description": "If you have a court order in place that restricts your contact with the other parent or child, such as a no contact order, non-molestation order, or any other legal restriction, you must not use this service to contact them.",
+          "legalConsequences": "Doing so could be a breach of the order and may have legal consequences. If you are unsure whether a court order or other legal restriction affects your ability to use this service, seek legal advice before proceeding."
+        }
+      }
     }
   },
   "errorSummary": {

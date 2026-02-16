@@ -7,7 +7,7 @@ enum paths {
   CONTACT_US = '/contact-us',
   COOKIES = '/cookies',
   PRIVACY_NOTICE = '/privacy-notice',
-  TERMS_AND_CONDITIONS = '/terms-and-conditions',
+  TERMS_AND_CONDITIONS = '/terms-conditions',
 
   // Connecting Services specific paths
   DOMESTIC_ABUSE = '/domestic-abuse',
