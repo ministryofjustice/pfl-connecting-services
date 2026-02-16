@@ -1,6 +1,6 @@
 {
   "serviceName": "Get help finding a child arrangement option",
-  "tag": "Private beta",
+  "tag": "Private Beta",
   "yes": "Yes",
   "no": "No",
   "back": "Back",
@@ -553,6 +553,39 @@
         "childArrangementsLink": "<a href=\"mailto:childarrangements@justice.gov.uk\" class=\"govuk-link\">childarrangements@justice.gov.uk</a>",
         "feedbackEmailAddress": "This email address should only be used for feedback on the digital service.",
         "cannotAnswerQuestions": "We cannot answer any questions about child arrangements."
+      }
+    },
+    "privacyNotice": {
+      "title": "Privacy notice",
+      "content": {
+        "committed": "The Ministry of Justice (MoJ) is committed to the protection and security of your personal information.",
+        "notice": "This notice describes how and why we are using such information.",
+        "noticeDescription": "This privacy notice describes how we collect and use personal information during and after your relationship with us, in accordance with data protection law. This notice will be updated regularly.",
+        "typesOfPersonalData": {
+          "title": "The type of personal data we process",
+          "content": {
+            "collectAndProcessInformation": "We collect and process information related to child arrangement planning to help you identify child arrangement planning options suitable for your circumstances. However, we do not collect personally identifiable information (PII), such as names, addresses, or contact details.",
+            "gatheringInformation": "Because we are not gathering information that can be used to identify you, many data protection rights do not apply.",
+            "typesOfInformation": "The types of information that we collect which are not personally identifiable may include:",
+            "userInteractions": "user interactions with our platform, including navigation behaviour and feature usage, to improve our service",
+            "doNotShareAnswers": "We do not share the answers you provide with any other organisation or government department."
+          }
+        },
+        "howToComplain": {
+          "title": "How to complain",
+          "dataProtectionOfficer": {
+            "description": "If you have any concerns about our use of your personal data, you can contact the MoJ data protection officer:",
+            "address": "Data Protection Officer<br>Ministry of Justice<br>10th Floor, Post Point 10.31<br>102 Petty France<br>London<br>SW1H 9AJ",
+            "website": "<a href=\"mailto:dpo@justice.gov.uk\" class=\"govuk-link\">dpo@justice.gov.uk</a>"
+          },
+          "informationCommissionersOffice": {
+            "description": "You can also complain to the ICO if you are unhappy with how we have used your data.",
+            "address": "Information Commissioner's Office<br>Wycliffe House<br>Water Lane<br>Wilmslow<br>Cheshire<br>SK9 5AF",
+            "helplineNumber": "Helpline number: 0303 123 1113",
+            "website": "ICO website: <a href=\"https://www.ico.org.uk\" class=\"govuk-link\">https://www.ico.org.uk</a>"
+          }
+        },
+        "statement": "This statement was prepared on 22 January 2026."
       }
     }
   },
