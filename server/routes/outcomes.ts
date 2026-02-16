@@ -21,11 +21,4 @@ router.get(paths.PARENTING_PLAN, (req: Request, res: Response) => {
   });
 });
 
-router.get(paths.SAFEGUARDING, (req: Request, res: Response) => {
-  res.render('pages/safeguarding', {
-    title: res.__('pages.safeguarding.title'),
-    backLinkHref: paths.DOMESTIC_ABUSE,
-  });
-});
-
 export default router;
