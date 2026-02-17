@@ -16,8 +16,9 @@ test.describe('Homepage', () => {
     const privacyLink = page.getByRole('link', { name: /privacy/i });
     await expect(privacyLink).toBeVisible();
 
-    const accessibilityLink = page.getByRole('link', { name: /accessibility/i });
-    await expect(accessibilityLink).toBeVisible();
+    // TODO: Re-enable when accessibility statement is added back for public beta
+    // const accessibilityLink = page.getByRole('link', { name: /accessibility/i });
+    // await expect(accessibilityLink).toBeVisible();
   });
 
   test('should navigate to cookies page', async ({ page }) => {
