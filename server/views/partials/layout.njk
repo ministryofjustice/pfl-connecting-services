@@ -47,7 +47,7 @@
   {{
     govukPhaseBanner({
       tag: {
-        text: "Beta"
+        text: __('tag')
       },
       html: __('phaseBannerText', {feedbackUrl: feedbackUrl})
     })
@@ -59,14 +59,13 @@
 {% endblock %}
 
 {% block footer %}
+  {# TODO: Re-enable accessibility statement link before public beta launch
+     { href: paths.ACCESSIBILITY_STATEMENT, text: __('footer.accessibility') }
+  #}
   {{
     govukFooter({
       meta: {
         items: [
-          {
-            href: paths.ACCESSIBILITY_STATEMENT,
-            text: __('footer.accessibility')
-          },
           {
             href: paths.CONTACT_US,
             text: __('footer.contact')

@@ -23,10 +23,10 @@ describe('Domestic Abuse Question', () => {
     it('should display examples of abuse as bullet list', async () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
 
-      expect(response.text).toContain('You may have been in an abusive relationship');
-      expect(response.text).toContain('Psychological abuse');
-      expect(response.text).toContain('Coercive control');
+      expect(response.text).toContain('Abuse or violence, including physical, emotional and sexual');
       expect(response.text).toContain('Financial or economic abuse');
+      expect(response.text).toContain('Coercive control and psychological abuse (threats, humiliation, intimidation, degradation, isolation and control)');
+      expect(response.text).toContain('Child abuse, neglect, or child abduction');
       expect(response.text).toContain('Harassment and stalking');
     });
 
