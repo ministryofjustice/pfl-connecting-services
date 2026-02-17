@@ -5,6 +5,7 @@ import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
 import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
 import addCompletedStep from '../utils/addCompletedStep';
+import { getBackUrl } from '../utils/sessionHelpers';
 
 const router = Router();
 
@@ -13,7 +14,7 @@ router.get(paths.CONTACT_CHILD_ARRANGEMENTS, checkFormProgressFromConfig(FormSte
   const errors = req.flash('errors');
   res.render('pages/contactChildArrangements', {
     title: res.__('pages.contactChildArrangements.title'),
-    backLinkHref: paths.DOMESTIC_ABUSE,
+    backLinkHref: getBackUrl(req.session, paths.DOMESTIC_ABUSE),
     errors,
     formValues: {
       contact: req.session.contact,
