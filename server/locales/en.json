@@ -663,6 +663,61 @@
           "legalConsequences": "Doing so could be a breach of the order and may have legal consequences. If you are unsure whether a court order or other legal restriction affects your ability to use this service, seek legal advice before proceeding."
         }
       }
+    },
+    "accessibilityStatement": {
+      "title": "Accessibility statement",
+      "content": {
+        "appliesTo": "This accessibility statement applies to the 'Get help finding a child arrangement option' service.",
+        "runBy": "This website is run by the Ministry of Justice (MoJ). We want as many people as possible to be able to use this website. For example, that means you should be able to:",
+        "abilities": {
+          "changeColours": "change colours, contrast levels and fonts using browser or device settings",
+          "zoomIn": "zoom in up to 400% without the text spilling off the screen",
+          "navigate": "navigate most of the website using a keyboard or speech recognition software",
+          "listen": "listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)"
+        },
+        "simpleText": "We've also made the website text as simple as possible to understand.",
+        "abilityNet": "<a href=\"https://mcmw.abilitynet.org.uk/\" class=\"govuk-link\">AbilityNet</a> has advice on making your device easier to use if you have a disability.",
+        "howAccessible": {
+          "title": "How accessible this website is",
+          "tested": "We have tested this service with assistive technologies including screen readers and voice-to-text technology.",
+          "notFullyTested": "However, the service has not yet had a full test against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard, so there may be further issues we are unaware of."
+        },
+        "feedback": {
+          "title": "Feedback and contact information",
+          "contact": "If you find any problems not listed on this page or think we're not meeting accessibility requirements, email <a href=\"mailto:childarrangements@justice.gov.uk\" class=\"govuk-link\">childarrangements@justice.gov.uk</a>."
+        },
+        "enforcement": {
+          "title": "Enforcement procedure",
+          "responsible": "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the 'accessibility regulations').",
+          "complaint": "If you're not happy with how we respond to your complaint, contact the <a href=\"https://www.equalityadvisoryservice.com/\" class=\"govuk-link\">Equality Advisory and Support Service (EASS)</a>."
+        },
+        "technical": {
+          "title": "Technical information about this website's accessibility",
+          "commitment": "The Ministry of Justice (MoJ) is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018."
+        },
+        "compliance": {
+          "title": "Compliance status",
+          "tested": "The service has been tested by the MOJ Accessibility Team (Summer 2025) and user research has been carried out internally with users with access needs. Most issues identified in this testing were addressed. The service has not yet had a full test against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard. This testing is planned to take place in Summer 2026.",
+          "partiallyCompliant": "This website is partially compliant with the Web Content Accessibility Guidelines version 2.2 AA standard, due to the non-compliances listed below."
+        },
+        "nonAccessible": {
+          "title": "Non-accessible content",
+          "nonCompliance": {
+            "title": "Non-compliance with the accessibility regulations",
+            "exitButton": "Screen reader users may experience the following issues with the 'Exit this page' button, which allows you to leave the service quickly.",
+            "issues": {
+              "lastElement": "The button is read as the last element on a page, but is present on all pages in the service.",
+              "shiftKey": "The button can be activated by clicking the Shift key three times if navigating using a keyboard. As the Shift key is a common navigation shortcut in screen reader software, the button may accidentally be activated."
+            },
+            "planToResolve": "We plan to resolve these issues by Summer 2026."
+          }
+        },
+        "preparation": {
+          "title": "Preparation of this accessibility statement",
+          "preparedOn": "This statement was prepared on 9 February 2026. It was last reviewed on 17 February 2026.",
+          "lastTested": "This service was last tested in Summer 2025 against the WCAG 2.2 AA standard."
+        }
+      }
     }
   },
   "errorSummary": {
