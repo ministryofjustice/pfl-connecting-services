@@ -3,7 +3,7 @@ enum paths {
   PASSWORD = '/password',
   START = '/',
   START_ADDITIONAL = '/start',
-  ACCESSIBILITY_STATEMENT = '/accessibility-statement',
+  ACCESSIBILITY_STATEMENT = '/accessibility',
   CONTACT_US = '/contact-us',
   COOKIES = '/cookies',
   PRIVACY_NOTICE = '/privacy-notice',
