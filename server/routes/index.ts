@@ -5,7 +5,6 @@ import contactChildArrangementRoutes from './contactChildArrangements';
 import CourtOrderRoutes from './courtOrder';
 import domesticAbuseRoutes from './domesticAbuse';
 import helpToAgreeRoutes from './helpToAgree';
-import informationRoutes from './information';
 import mediationRoutes from './mediation';
 import optionsNoContactRoutes from './optionsNoContact';
 import otherOptionsRoutes from './otherOptions';
@@ -48,9 +47,6 @@ const routes = (): Router => {
 
   // Parenting plan route
   router.use(parentingPlanRoutes);
-
-  // Information page routes
-  router.use(informationRoutes);
 
   return router;
 };
