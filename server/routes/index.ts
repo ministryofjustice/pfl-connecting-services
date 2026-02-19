@@ -2,13 +2,14 @@ import { Router } from 'express';
 
 import agreementRoutes from './agreement';
 import contactChildArrangementRoutes from './contactChildArrangements';
+import CourtOrderRoutes from './courtOrder';
 import domesticAbuseRoutes from './domesticAbuse';
 import helpToAgreeRoutes from './helpToAgree';
 import informationRoutes from './information';
 import mediationRoutes from './mediation';
 import optionsNoContactRoutes from './optionsNoContact';
 import otherOptionsRoutes from './otherOptions';
-import outcomeRoutes from './outcomes';
+import parentingPlanRoutes from './parentingPlan';
 import safeguardingRoutes from './safeguarding';
 import startRoutes from './start';
 
@@ -42,8 +43,11 @@ const routes = (): Router => {
   // Safeguarding route (/getting-help)
   router.use(safeguardingRoutes);
 
-  // Outcome page routes
-  router.use(outcomeRoutes);
+  // Court order route
+  router.use(CourtOrderRoutes);
+
+  // Parenting plan route
+  router.use(parentingPlanRoutes);
 
   // Information page routes
   router.use(informationRoutes);

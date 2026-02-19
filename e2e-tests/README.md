@@ -1,6 +1,6 @@
 # E2E Tests
 
-End-to-end tests for the Care Arrangement Plan application using Playwright.
+End-to-end tests for the Connecting Services application using Playwright.
 
 ## Quick Start
 
