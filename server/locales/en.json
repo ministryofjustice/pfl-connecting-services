@@ -89,7 +89,7 @@
         "options": {
           "first": "Yes",
           "second": "No, I am not comfortable contacting them",
-          "third": "No, I do not have their contact details",
+          "third": "I do not have their contact details",
           "fourth": "I can contact them but they do not respond"
         }
       },
