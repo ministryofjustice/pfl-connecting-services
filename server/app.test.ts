@@ -4,15 +4,17 @@ import request from 'supertest';
 import config from './config';
 import cookieNames from './constants/cookieNames';
 import paths from './constants/paths';
+import cy from './locales/cy.json';
+import en from './locales/en.json';
 import testAppSetup from './test-utils/testAppSetup';
-import { mockNow } from './test-utils/testMocks';
+import { mockNow , sessionMock} from './test-utils/testMocks';
 
 const app = testAppSetup();
 
 type languages = 'en' | 'cy';
 const homepageLanguageStrings = {
   en: 'Get help finding a child arrangement option',
-  cy: 'Cynnig cynllun trefniant plentyn',
+  cy: 'Cael help i ddod o hyd i opsiwn trefniant plant',
 };
 
 describe('App', () => {
@@ -22,8 +24,7 @@ describe('App', () => {
         config.includeWelshLanguage = true;
       });
 
-      // eslint-disable-next-line jest/no-disabled-tests
-      it.skip.each(['en', 'cy'])('should return %s when the Accept-Language header is %s', (language: languages) => {
+      it.each(['en', 'cy'])('should return %s when the Accept-Language header is %s', (language: languages) => {
         return request(testAppSetup())
           .get(paths.START)
           .set('Accept-Language', language)
@@ -33,8 +34,7 @@ describe('App', () => {
           });
       });
 
-      // eslint-disable-next-line jest/no-disabled-tests
-      it.skip.each(['en', 'cy'])('should return %s when the lang query parameter is %s', (language: languages) => {
+      it.each(['en', 'cy'])('should return %s when the lang query parameter is %s', (language: languages) => {
         return request(testAppSetup())
           .get(`${paths.START}?lang=${language}`)
           .expect((response) => {
@@ -100,12 +100,11 @@ describe('App', () => {
         config.analytics.ga4Id = ga4Id;
       });
 
-      // eslint-disable-next-line jest/no-disabled-tests
-      it.skip('should show the banner and not load ga4 if the consent cookie does not exist', async () => {
+      it('should show the banner and not load ga4 if the consent cookie does not exist', async () => {
         const response = await request(app).get(paths.START).expect('Content-Type', /html/);
 
         expect(response.text).not.toContain('www.googletagmanager.com');
-        expect(response.text).toContain('Cookies on Propose a child arrangements plan');
+        expect(response.text).toContain('Cookies on Get help finding a child arrangement option');
 
         const dom = new JSDOM(response.text);
 
@@ -142,8 +141,7 @@ describe('App', () => {
     });
   });
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  describe.skip('Authentication', () => {
+  describe('Authentication', () => {
     const pathsWithNoAuthentication = [
       paths.PASSWORD,
       paths.CONTACT_US,
@@ -169,6 +167,79 @@ describe('App', () => {
 
     it.each(pathsWithNoAuthentication)('should not redirect to password page for %s when not authenticated', (path) => {
       return request(app).get(path).expect(200);
+    });
+  });
+
+  describe('Language persistence via session', () => {
+    beforeEach(() => {
+      config.includeWelshLanguage = true;
+      // Reset session lang between tests
+      delete sessionMock.lang;
+    });
+
+    it('should store the language in session when lang query parameter is used', async () => {
+      const testApp = testAppSetup();
+
+      await request(testApp)
+        .get(`${paths.START}?lang=cy`)
+        .expect((response) => {
+          expect(response.text).toContain(homepageLanguageStrings.cy);
+        });
+
+      expect(sessionMock.lang).toBe('cy');
+    });
+
+    it('should use session language on subsequent requests without lang parameter', async () => {
+      sessionMock.lang = 'cy';
+      const testApp = testAppSetup();
+
+      await request(testApp)
+        .get(paths.START)
+        .expect((response) => {
+          expect(response.text).toContain(homepageLanguageStrings.cy);
+        });
+    });
+
+    it('should not store an invalid language in session', async () => {
+      const testApp = testAppSetup();
+
+      await request(testApp)
+        .get(`${paths.START}?lang=fr`)
+        .expect((response) => {
+          expect(response.text).toContain(homepageLanguageStrings.en);
+        });
+
+      expect(sessionMock.lang).toBeUndefined();
+    });
+  });
+
+  describe('Translation completeness', () => {
+    const getKeys = (obj: Record<string, unknown>, prefix = ''): string[] => {
+      return Object.entries(obj).flatMap(([key, value]) => {
+        const fullKey = prefix ? `${prefix}.${key}` : key;
+        if (value && typeof value === 'object' && !Array.isArray(value)) {
+          return getKeys(value as Record<string, unknown>, fullKey);
+        }
+        return fullKey;
+      });
+    };
+
+    const enKeys = getKeys(en);
+    const cyKeys = getKeys(cy);
+
+    it('should have Welsh translations for all English keys', () => {
+      const missingInCy = enKeys.filter((key) => !cyKeys.includes(key));
+      if (missingInCy.length > 0) {
+        console.warn(`Missing Welsh translations (${missingInCy.length}):\n${missingInCy.join('\n')}`);
+      }
+
+      expect(missingInCy).toEqual([]);
+      expect(true).toBe(true);
+    });
+
+    it('should not have Welsh keys that do not exist in English', () => {
+      const extraInCy = cyKeys.filter((key) => !enKeys.includes(key));
+      expect(extraInCy).toEqual([]);
     });
   });
 

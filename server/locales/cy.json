@@ -1,5 +1,742 @@
 {
-  "serviceName": "Cael help i wneud trefniadau plant",
-  "back": "Yn ôl",
-  "continue": "Parhau"
+  "serviceName": "Cael help i ddod o hyd i opsiwn trefniant plant",
+  "tag": "Beta Preifat",
+  "yes": "Oes",
+  "no": "Nac ydw",
+  "back": "Yn ol",
+  "continue": "Parhewch",
+  "next": "Nesaf",
+  "nextPage": "Next<span class=\"govuk-visually-hidden\"> page</span>",
+  "previousPage": "Previous<span class=\"govuk-visually-hidden\"> page</span>",
+  "printThisPage": "Print this page",
+  "printableVersion": "View a printable version of the whole guide",
+  "phaseBannerText": "This is a new service. Help us improve it and <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">give your feedback (opens in new tab)</a>.",
+  "footer": {
+    "accessibility": "Accessibility statement",
+    "contact": "Contact us",
+    "cookies": "Cookies",
+    "feedback": "Feedback",
+    "privacy": "Privacy notice",
+    "termsAndConditions": "Terms and conditions"
+  },
+  "pages": {
+    "domesticAbuse": {
+      "title": "Have you experienced abuse from your ex partner?",
+      "heading": "Have you or your children experienced abuse from your ex-partner?",
+      "intro": "You may have been in an abusive relationship if you or your children have experienced any of the following:",
+      "bullets": {
+        "violence": "Abuse or violence, including physical, emotional and sexual",
+        "financial": "Financial or economic abuse",
+        "coercive": "Coercive control and psychological abuse (threats, humiliation, intimidation, degradation, isolation and control)",
+        "childAbuse": "Child abuse, neglect, or child abduction",
+        "harassment": "Harassment and stalking"
+      },
+      "error": "Select whether you or your children have experienced abuse from your ex-partner"
+    },
+    "start": {
+      "title": "Get help finding a child arrangement option ",
+      "description": "Use this service to find out about your options for making child arrangements if you are a parent separating from your child's other parent.",
+      "howItWorks": {
+        "title": "How it works",
+        "content": {
+          "circumstances": "You will be asked questions about your circumstances, including your current relationship with your ex-partner.",
+          "personalDetails": "You will not be asked for any personal details and your answers will not be saved or shared with anyone.",
+          "tenMinutes": "It takes about 10 minutes to use this service."
+        }
+      },
+      "exitTheService": {
+        "title": "If you need to exit the service quickly",
+        "description": "Each page of this service has an 'Exit this page' button to help keep you safe and protect your privacy if you need it."
+      },
+      "relatedContent": {
+        "title": "Related content",
+        "content": {
+          "makingChildArrangements": "Making child arrangements if you divorce or separate",
+          "childMaintenance": "Child maintenance",
+          "parentalRights": "Parental rights and responsibilities"
+        }
+      }
+    },
+    "helpMakingChildArrangements": {
+      "title": "Get help making child arrangements",
+      "content": {
+        "howToStart": "<p>If you are unsure how you can start making child arrangements with your ex-partner, you can get help.</p>",
+        "ifYouNeedHelp": {
+          "title": "If you need help deciding how to make child arrangements",
+          "content": "<p>Use the 'Get help finding a child arrangement option' service to find out about your options for making child arrangements if you are a parent separating from your child's other parent.</p>"
+        },
+        "howItWorks": {
+          "title": "How it works",
+          "content": "<p>You will be asked questions about your circumstances, including your current relationship with your ex-partner. You will not be asked for any personal details.</p><p>It takes about 10 minutes to use this service.</p>"
+        },
+        "exitTheService": {
+          "title": "If you need to exit the service quickly",
+          "content": "<p>Each page of this service has an 'Exit this page' button to help keep you safe and protect your privacy if you need it.</p>"
+        },
+        "getHelpChildArrangementOption": {
+          "title": "Get help finding a child arrangement option",
+          "content": "<p>Your answers will not be saved or shared with anyone.</p>"
+        },
+        "supportWhenMakingChildArrangements": {
+          "title": "If you need support when making child arrangements",
+          "content": "<p>Search for services to help you make child arrangements, including legal aid and impartial advice services.</p><p><a href=\"/beta-1/service-finder\">Find child arrangement support services</a></p>"
+        }
+      }
+    },
+    "contactChildArrangements": {
+      "title": "Are you comfortable contacting your ex-partner about child arrangements?",
+      "content": {
+        "options": {
+          "first": "Yes",
+          "second": "No, I am not comfortable contacting them",
+          "third": "No, I do not have their contact details",
+          "fourth": "I can contact them but they do not respond"
+        }
+      },
+      "error": "Select whether you are comfortable contacting your ex-partner"
+    },
+    "agreement": {
+      "title": "Do you and your ex-partner agree on child arrangements?",
+      "content": {
+        "description": "This includes things like:",
+        "descriptionList": {
+          "first": "where your children will live",
+          "second": "when they spend time with each parent",
+          "third": "handovers, holidays and whatever else matters to your children"
+        },
+        "options": {
+          "first": "Yes, we agree on some or most things",
+          "second": "No, we do not agree",
+          "third": "We have not discussed it yet"
+        }
+      },
+      "error":"Select whether you and your ex-partner agree on child arrangements"
+    },
+    "helpToAgree": {
+      "title": "What would help you both agree on child arrangements?",
+      "content": {
+        "options": {
+          "first": "A plan we can follow ourselves",
+          "second": "Someone else to guide our conversations",
+          "third": "We cannot agree – someone else needs to make a decision for us"
+        }
+      },
+      "error": "Select what would help you and your ex-partner to agree on child arrangements"
+    },
+    "otherOptions": {
+      "title": "Have you tried any other options?",
+      "content": {
+        "description": "Have you tried any of the following together in the last 6 months?",
+        "descriptionList": {
+          "first": "Family mediation",
+          "second": "Arbitration",
+          "third": "Solicitor negotiation",
+          "fourth": "Collaborative law",
+          "fifth": "Neutral evaluation"
+        },
+        "options": {
+          "yes": "Yes, we have tried one or more of these",
+          "no": "No, we have not tried any of these"
+        }
+      },
+      "error": "Select whether you have tried any of these in the last 6 months"
+    },
+    "courtOrder": {
+      "title": "Explore: Applying for a court order",
+      "content": {
+        "whyRightForYou": {
+          "title": "Why this could be right for you",
+          "canApplyIf": "You can apply for a court order if:",
+          "reasons": {
+            "cannotAgree": "you cannot agree after <a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\">mediation</a> or <a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">getting help another way</a>",
+            "domesticAbuse": "there's been domestic or any other kind of abuse",
+            "cannotContact": "you cannot contact your ex-partner",
+            "consentOrder": "you're applying for a consent order to make your <a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">parenting plan</a> legally binding"
+          },
+          "canApplyFor": "You can apply for a:",
+          "orderTypes": {
+            "childArrangements": "child arrangements order, which decides where your child lives and what contact takes place",
+            "specificIssues": "specific issues order, if you need a decision on a question like what school they go to",
+            "prohibitedSteps": "prohibited steps order, to stop the other parent from making a decision about the child's upbringing"
+          }
+        },
+        "thingsToConsider": {
+          "title": "Important things to consider",
+          "mediation": "<strong>Mediation:</strong> You will usually need to show you have tried mediation or another way to agree before you apply for a court order. If you cannot contact your ex-partner, you still need to attend the initial Mediation Information and Assessment Meeting (MIAM) alone before applying to go to court, unless you are exempt.",
+          "miamExemption": {
+            "warning": "You do not have to go to a MIAM if you can show there is a risk:",
+            "reasons": {
+              "life": "to your life, freedom, physical safety or home",
+              "harmToChild": "of harm to a child",
+              "unlawfullyTaken": "that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held"
+            },
+            "moreInfo": "If any of these apply, you can <a href=\"https://www.gov.uk/government/publications/urgent-court-hearings-about-child-arrangements-cb2/urgent-hearings-about-child-arrangements-cb2\">apply for an urgent court hearing about child arrangements</a>"
+          },
+          "cost": "<strong>Cost:</strong> It costs £263 to apply for a court order. You may be able to <a href=\"https://www.gov.uk/legal-aid/financial-eligibility\">get legal aid to help pay court fees</a> if you're on benefits or a low income.",
+          "time": "<strong>Time:</strong> It usually takes around 10 months to get a court order, depending on where you live and your situation."
+        },
+        "nextStep": "<strong>Next step:</strong> <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">Apply for a court order</a>",
+        "otherWays": {
+          "title": "Other ways to agree without going to court",
+          "description": "Court is the right option for some families. If you want to try another way to agree without going to court, you can look into:",
+          "mediation": {
+            "title": "Mediation",
+            "description": "This could suit you if: You'd like a professional to help you and your ex-partner agree on the details of a child arrangement. You do not have to be in the same room or video call as your ex-partner.",
+            "inset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
+            "alreadyTried": "Already tried mediation? You can always try again, for example if your situation or child's needs have changed.",
+            "link": "<a href=\"/mediation\">Explore: Mediation</a>"
+          },
+          "arbitration": {
+            "title": "Arbitration",
+            "description": "This could suit you if: You'd prefer that someone like a judge or solicitor listens to both of your views and makes a legally-binding decision about the child arrangements.",
+            "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">Find out more about other ways to agree without going to court</a>"
+          }
+        },
+        "helpAndSupport": {
+          "title": "Help and support",
+          "description": "These are some of the services you may find helpful for applying for a court order.",
+          "services": {
+            "adviceNow": {
+              "name": "Advice Now",
+              "url": "https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/what-do-you-apply-family-court-about-your-children",
+              "description": "Information on what to do before applying for a court order from a charity that provides easy-to-understand information for people facing urgent legal problems."
+            },
+            "cafcass": {
+              "name": "Children and Family Court Advisory and Support Service (Cafcass)",
+              "url": "https://www.cafcass.gov.uk/parent-carer-or-family-member/my-family-involved-private-law-proceedings/court-process-and-what-expect",
+              "description": "Advice on the court process from Cafcass, which looks after the interests of children in family court cases in England."
+            },
+            "cafcassCymru": {
+              "name": "Cafcass Cymru",
+              "url": "https://www.gov.wales/cafcass-cymru/family-separation/information-for-parents",
+              "description": "Child-focused advice from Cafcass Cymru, which safeguards children and makes sure their voices are heard in family courts across Wales."
+            }
+          }
+        },
+        "relatedContent": {
+          "title": "Related content",
+          "links": {
+            "makingArrangements": {
+              "text": "Making child arrangements if you divorce or separate",
+              "url": "https://www.gov.uk/looking-after-children-divorce"
+            },
+            "applyForOrder": {
+              "text": "Apply for a court order",
+              "url": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order"
+            },
+            "parentalRights": {
+              "text": "Parental rights and responsibilities",
+              "url": "https://www.gov.uk/parental-rights-responsibilities"
+            }
+          }
+        }
+      },
+      "printThisPage": "Print this page"
+    },
+    "mediation": {
+      "title": "Explore: Mediation",
+      "content": {
+        "rightForYou": {
+          "title": "Why this could be right for you",
+          "content": {
+            "chooseAProfessional": "Mediation is when you and your ex-partner choose a professional to help you agree on the details of child arrangements.",
+            "sameRoom": "You do not have to be in the same room or call as your ex-partner."
+          }
+        },
+        "thingsToConsider": {
+          "title": "Important things to consider",
+          "content": {
+            "info": "If you or your children have experienced abuse from your ex-partner, tell the mediator. They can advise on the safest way to continue, or whether you should apply for a court order.",
+            "initialMeeting": "<strong>Initial meeting:</strong> You may need to go to a short meeting with a mediator to assess if mediation is the right option for you. This is sometimes called a Mediation Information and Assessment Meeting (MIAM).",
+            "cost": "<strong>Cost:</strong> Mediation is usually cheaper and quicker than going to court. You may be able to get legal aid to cover the cost if you are on a low income. The usual cost of a MIAM is around £120.",
+            "costInset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
+            "stayInControl": "<strong>You stay in control:</strong> Unlike in court, where a judge makes the decisions about child arrangements, in mediation you and your ex-partner decide what you agree to and what you don't.",
+            "childInclusiveMediation": "<strong>Child-inclusive mediation:</strong> Children can have a voice in the process if it's suitable. A mediator can talk to your child about what they want to make sure their views are heard.",
+            "courtOption": "<strong>Court is still an option:</strong> If the mediator does not think mediation is right for you, they might advise you to go to court instead.",
+            "mediationLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\"> Find out more about mediation</a>"
+          }
+        },
+        "otherWaysToAgree": {
+          "title": "Other ways to agree without going to court",
+          "description": "If you want to try another way to agree without going to court, you can look into:",
+          "content": {
+            "makingAParentingPlan": {
+              "title": "Making a parenting plan",
+              "description": "This could suit you if: If you and your ex-partner can agree on child arrangements, you can record it in a child arrangements plan, also called a 'parenting plan'.",
+              "link": "<a href=\"parenting-plan\"> Explore: Making a parenting plan</a>"
+            },
+            "arbitration": {
+              "title": "Arbitration",
+              "description": "This could suit you if: You'd prefer that someone like a judge or solicitor listens to both of your views and makes a legally-binding decision about the child arrangements.",
+              "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\"> Find out more about other ways to agree without going to court</a>"
+            }
+          }
+        },
+        "helpAndSupport": {
+          "title": "Help and support",
+          "description": "These are some of the services you may find helpful for making child arrangements by mediation.",
+          "mediationCouncilLink": "<a href=\"https://www.familymediationcouncil.org.uk/\">Family Mediation Council</a>",
+          "mediationCouncilText": "Find a trained mediator from a network of family mediation organisations in England and Wales.",
+          "legalAidAdviserLink": "<a href=\"https://find-legal-advice.justice.gov.uk/\">Find a legal aid adviser or family mediator</a>",
+          "legalAidAdviserText": "Use this service to find legal aid advisers in England and Wales."
+        }
+      },
+      "relatedContent": {
+        "title": "Related content",
+        "content": {
+          "makingChildArrangements": "<a href=\"https://www.gov.uk/looking-after-children-divorce\">Making child arrangements if you divorce or separate</a>",
+          "familyMediation": "<a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Family Mediation Voucher Scheme</a>"
+        }
+      }
+    },
+    "parentingPlan": {
+      "title": "Explore: Making a parenting plan",
+      "content": {
+        "whyRightForYou": {
+          "title": "Why this could be right for you",
+          "noPaperwork": "You do not have to do any official paperwork if you and your ex-partner agree about child arrangements.",
+          "informalArrangements": "Informal arrangements where nothing is written down work for some people, but if you'd prefer, you can record what you have agreed in a child arrangements plan, also called a 'parenting plan'."
+        },
+        "warningText": "It may not be appropriate for you to make child arrangements directly with your ex-partner if there is any risk of harm to you or the children. Find out <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help#get-help-and-support\">how to get help with domestic abuse</a>.",
+        "thingsToConsider": {
+          "title": "Important things to consider",
+          "noCourt": "<strong>No court:</strong> You do not have to go to court to make informal arrangements or a parenting plan.",
+          "noCost": "<strong>No cost:</strong> You can make a parenting plan using free online tools and templates.",
+          "easyToChange": "<strong>Easy to review and change:</strong> As your children get older and their needs change, or if your situation changes.",
+          "legallyBinding": "<strong>Make it legally binding:</strong> You can apply to the family court for a 'consent order' based on your plan if you want to make an informal agreement legally binding. You will need to <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">apply for a court order</a> to get your consent order approved, but there's usually no court hearing.",
+          "findOutMore": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Find out more about what to do if you agree on child arrangements</a>"
+        },
+        "nextStep": {
+          "title": "Next step: Make a plan",
+          "description": "The 'Propose a child arrangements plan' tool will help you build a plan that you can send to your ex-partner, covering:",
+          "items": {
+            "whereLive": "where your children will live",
+            "spendTime": "when they spend time with each parent",
+            "handovers": "handovers, holidays and whatever else matters to your children"
+          },
+          "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Propose a child arrangements plan</a>"
+        },
+        "otherWays": {
+          "title": "Other ways to agree without going to court",
+          "description": "If you want to try another way to agree without going to court, you can look into:",
+          "mediation": {
+            "title": "Mediation",
+            "description": "This could suit you if: You'd like a professional to help you and your ex-partner agree on the details of a child arrangement. You do not have to be in the same room or call as your ex-partner.",
+            "inset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
+            "link": "<a href=\"/mediation\">Explore: Mediation</a>"
+          }
+        },
+        "helpAndSupport": {
+          "title": "Help and support",
+          "description": "These are some of the services you may find helpful for making child arrangements with your ex-partner.",
+          "services": {
+            "adviceNow": {
+              "name": "Advice Now",
+              "url": "https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements",
+              "description": "Information on child arrangements from a charity that provides easy-to-understand legal information, self-help tools and training for people facing urgent legal problems."
+            },
+            "cafcass": {
+              "name": "Children and Family Court Advisory and Support Service (Cafcass)",
+              "url": "https://www.cafcass.gov.uk/parent-carer-or-family-member/my-family-involved-private-law-proceedings/resources-help-you-make-arrangements-are-your-childs-best-interests/how-parenting-plan-can-help",
+              "description": "Use the 'Our Child's Plan' tool from Cafcass to make a parenting plan. Cafcass looks after the interests of children in family court cases in England."
+            },
+            "cafcassCymru": {
+              "name": "Cafcass Cymru",
+              "url": "https://www.gov.wales/parenting-plan-cafcass-cymru",
+              "description": "A guide to making a parenting plan from the organisation that provides expert child-focused advice and support in family courts across Wales."
+            }
+          }
+        },
+        "relatedContent": {
+          "title": "Related content",
+          "links": {
+            "makingArrangements": {
+              "text": "Making child arrangements if you divorce or separate",
+              "url": "https://www.gov.uk/looking-after-children-divorce"
+            },
+            "proposeAPlan": {
+              "text": "Propose a child arrangements plan",
+              "url": "https://www.gov.uk/looking-after-children-divorce/if-you-agree"
+            },
+            "childMaintenance": {
+              "text": "Child maintenance",
+              "url": "https://www.gov.uk/child-maintenance-service"
+            },
+            "parentalRights": {
+              "text": "Parental rights and responsibilities",
+              "url": "https://www.gov.uk/parental-rights-responsibilities"
+            }
+          }
+        }
+      },
+      "printThisPage": "Print this page"
+    },
+    "safeguarding": {
+      "title": "Getting help",
+      "content": {
+        "description": "You may have been in an abusive relationship. Domestic abuse or violence is a crime. It is important to remember that there is help and support available to you.",
+        "warningText": "If you are in immediate danger, call 999 and ask for the police.",
+        "wantToContinue": {
+          "title": "If you want to continue",
+          "description": "If you feel confident that you can carry on without any danger to yourself or the children, continue using the service."
+        },
+        "getHelpProtecting": {
+          "title": "Get help protecting yourself and your children",
+          "content": {
+            "domesticAbuse": "If you are a victim of domestic abuse, you can <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help#get-a-court-order-to-protect-you-or-your-child\">apply for a court order to protect yourself and your child</a>.",
+            "citizensAdvice": "Citizens Advice has <a href=\"https://www.citizensadvice.org.uk/family/making-agreements-about-your-children/making-child-arrangements/\">advice on making child arrangements when there's been domestic abuse</a>.",
+            "findOut": "Find out <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help\">how to get help with domestic abuse</a>.",
+            "specificHelp": "If you want to access help specifically to cater to your background and needs or want support and help for specific types of abuse there are several organisations that can help - see <a href=\"https://www.gov.uk/government/publications/domestic-abuse-get-help-for-specific-needs-or-situations/domestic-abuse-specialist-sources-of-support\">Domestic abuse: specialist sources of support</a>."
+          }
+        },
+        "helpAndSupport": {
+          "title": "Help and support",
+          "description": "<p>There is free, confidential support available to help you and your family.",
+          "table": {
+            "rowOne": {
+              "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge's National Domestic Abuse Helpline</a>",
+              "data": "<p>Free, confidential advice, 24 hours a day.<p><p>Telephone: 0808 2000 247</p>"
+            },
+            "rowTwo": {
+              "heading": "<a href=\"https://www.gov.wales/live-fear-free\">Live Fear Free (Wales)</a>",
+              "data": "<p>24 hour service with specialists who make referrals and link to other services and advice.</p><p>Telephone: 0808 80 10 100</p>"
+            },
+            "rowThree": {
+              "heading": "<a href=\"https://mensadviceline.org.uk/\">Men's Advice Line</a>",
+              "data": "<p>A supportive helpline for all male victims of domestic abuse and those supporting them.</p><p>Telephone: 0808 801 0327</p>"
+            }
+          }
+        }
+      }
+    },
+    "optionsNoContact": {
+      "title": "Options to explore if you are not comfortable contacting your ex-partner",
+      "content": {
+        "notComfortable": "If you are not comfortable contacting your ex-partner, there are still ways you can make child arrangements without going to court.",
+        "solicitorCanContact": "With these options, your mediator or solicitor can contact your ex-partner for you.",
+        "shuttleMediation": {
+          "title": "Shuttle mediation",
+          "content": {
+            "thisCouldSuitYou": "This could suit you if: You do not want to have direct contact with your ex-partner.",
+            "attendSession": "Shuttle mediation is where you and your ex-partner both attend a session with a mediator, but sit in different rooms or online meetings so you do not have to have any contact.",
+            "mediatorMoves": "The mediator moves between rooms, listening to you both and helping you come to an agreement about child arrangements.",
+            "getVoucher": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
+            "nextStep": "<strong>Next step:</strong><a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\"> Find out more about mediation</a>"
+          }
+        },
+        "solicitorNegotiation": {
+          "title": "Family solicitor negotiation",
+          "content": {
+            "thisCouldSuitYou": "This could suit you if: You cannot contact your ex-partner or they do not reply to you.",
+            "legalAdviser": "A family legal adviser can help you negotiate with your ex-partner without going to court. This is known as 'solicitor negotiation' or 'lawyer negotiation'.",
+            "speakToExPartner": "You do not have to speak to your ex-partner if you choose a solicitor to negotiate for you.",
+            "nextStep": "<strong>Next step:</strong><a href=\"https://solicitors.lawsociety.org.uk/\"> Find a legal adviser from the Law Society</a>"
+          }
+        },
+        "collaborativeLaw": {
+          "title": "Collaborative law",
+          "content": {
+            "thisCouldSuitYou": "This could suit you if: You want to focus on collaboration and practicality.",
+            "hireLegalAdviser": "You and your ex-partner can each hire your own legal advisers to help you negotiate. You then all meet to try and agree on child arrangements.",
+            "nextStep": "<strong>Next step:</strong><a href=\"https://resolution.org.uk/looking-for-help/splitting-up/your-process-options-for-divorce-and-dissolution/the-collaborative-process/\"> Find out more about collaborative law from Resolution</a>"
+          }
+        },
+        "otherWaysToAgree": {
+          "title": "Other ways to agree without going to court",
+          "description": "If you want to try another way to agree without going to court, you can look into:"
+        },
+        "arbitration": {
+          "title": "Arbitration",
+          "content": {
+            "arbitrationText": "This could suit you if: You'd prefer that someone like a judge or solicitor listens to both of your views and makes a legally-binding decision about the child arrangements.",
+            "arbitrationLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\"> Find out more about other ways to agree without going to court</a>"
+          }
+        },
+        "helpAndSupport": {
+          "title": "Help and support",
+          "content": {
+            "description": "These are some of the services you may find helpful for making child arrangements.",
+            "mediationCouncilLink": "<a id=\"mediation-link\" href=\"https://www.familymediationcouncil.org.uk/\" id=\"mediation-link\">Family Mediation Council</a>",
+            "mediationCouncilText": "Find a trained mediator from a network of family mediation organisations in England and Wales.",
+            "citizensAdviceLink": "<a id=\"legal-advice-link\" href=\"https://www.citizensadvice.org.uk/family/making-agreements-about-your-children/your-child-arrangements-arent-working/\" id=\"citizens-advice-link\">Citizens Advice</a>",
+            "citizensAdviceText": "Advice on what to do if your child arrangements aren't working  from a network of independent charities that provides free, confidential and impartial advice online, on the phone and in person."
+          }
+        }
+      },
+      "relatedContent": {
+        "title": "Related content",
+        "content": {
+          "makingChildArrangements": "Making child arrangements if you divorce or separate",
+          "familyMediation": "Family Mediation Voucher Scheme"
+        }
+      }
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": {
+        "putSmallFiles": "The Get help finding a child arrangement service puts small files (known as 'cookies') onto your computer to collect information about how you browse the service.",
+        "usedTo": "Cookies are used to:",
+        "remember": "remember your progress",
+        "measure": "measure how you use the service so it can be updated and improved based on your needs",
+        "identifyYouPersonally": "Get help finding a child arrangement cookies aren't used to identify you personally.",
+        "messageBeforeStore": "You'll normally see a message before we store a cookie on your computer.",
+        "manageCookiesLink": "<a href=\"https://www.aboutcookies.org/\" class=\"govuk-link\">Find out more about how to manage cookies</a>",
+        "howCookiesAreUsed": {
+          "title": "How cookies are used in this service",
+          "content": {
+            "essentialCookies": {
+              "title": "Essential cookies",
+              "description": "Essential cookies are needed for the service to work. We do not need to ask for permission to use them."
+            },
+            "rememberingProgress": {
+              "title": "Remembering your progress",
+              "description": "We will store cookies to remember your application progress in this computer and to expire your session after 120 minutes of inactivity or when you close your browser.",
+              "table": {
+                "headerRow": {
+                  "name": "Name",
+                  "purpose": "Purpose",
+                  "expires": "Expires"
+                },
+                "valueRow": {
+                  "name": "",
+                  "purpose": "Saves your current progress in this computer and tracks inactivity periods",
+                  "expires": "After 120 minutes of inactivity or when you close your browser"
+                }
+              }
+            }
+          }
+        },
+        "cookiesMessage": {
+          "title": "Cookies message",
+          "content": {
+            "seeBanner": "You may see a banner when you visit Get help finding a child arrangement option inviting you to accept or reject optional cookies.",
+            "setCookies": "We'll set cookies so that your computer knows you've seen it and not to show it again, and also to store your settings.",
+            "table": {
+              "headerRow": {
+                "name": "Name",
+                "purpose": "Purpose",
+                "expires": "Expires"
+              },
+              "valueRow": {
+                "name": "",
+                "purpose": "Saves your cookie consent settings",
+                "expires": "1 year"
+              }
+            }
+          }
+        },
+        "analyticsCookies": {
+          "title": "Analytics cookies (optional)",
+          "measuringServiceUsage": {
+            "title": "Measuring service usage (Google Analytics)",
+            "content": {
+              "googleAnalyticsSoftware": "We use Google Analytics software to collect information about how you use Get help finding a child arrangement option. We do this to help make sure the service is meeting the needs of its users and to help us make improvements.",
+              "googleAnalyticsStores": "Google Analytics stores information about:",
+              "pagesYouVisit": "the pages you visit",
+              "howLongYouSpend": "how long you spend on each page",
+              "howYouGotToService": "how you got to the service",
+              "whatYouClick": "what you click on while you're visiting the service",
+              "weDoNotCollect": "We don't collect or store your personal information (for example your name or address) so this information can't be used to identify who you are.",
+              "setsTheCookies": "Google Analytics sets the following cookies:",
+              "universalAnalytics": "Universal analytics"
+            }
+          },
+          "universalAnalytics": {
+            "title": "Universal analytics",
+            "table": {
+              "headerRow": {
+                "name": "Name",
+                "purpose": "Purpose",
+                "expires": "Expires"
+              },
+              "valueRowOne": {
+                "name": "_ga",
+                "purpose": "This helps us count how many people visit Get help finding a child arrangement option by tracking if you've visited before",
+                "expires": "2 years"
+              },
+              "valueRowTwo": {
+                "name": "_ga_",
+                "purpose": "Used by Google Analytics to find and track an individual session with your device",
+                "expires": "2 years"
+              }
+            }
+          }
+        },
+        "acceptAnalyticsCookies": {
+          "title": "Do you want to accept analytics cookies?",
+          "options": {
+            "yes": "Yes",
+            "no": "No"
+          },
+          "buttonText": "Save cookie settings"
+        }
+      }
+    },
+    "contactUs": {
+      "title": "Contact us",
+      "content": {
+        "reportProblem": "To report a problem or suggest improvements to this service, you can email:",
+        "childArrangementsLink": "<a href=\"mailto:childarrangements@justice.gov.uk\" class=\"govuk-link\">childarrangements@justice.gov.uk</a>",
+        "feedbackEmailAddress": "This email address should only be used for feedback on the digital service.",
+        "cannotAnswerQuestions": "We cannot answer any questions about child arrangements."
+      }
+    },
+    "privacyNotice": {
+      "title": "Privacy notice",
+      "content": {
+        "committed": "The Ministry of Justice (MoJ) is committed to the protection and security of your personal information.",
+        "notice": "This notice describes how and why we are using such information.",
+        "noticeDescription": "This privacy notice describes how we collect and use personal information during and after your relationship with us, in accordance with data protection law. This notice will be updated regularly.",
+        "typesOfPersonalData": {
+          "title": "The type of personal data we process",
+          "content": {
+            "collectAndProcessInformation": "We collect and process information related to child arrangement planning to help you identify child arrangement planning options suitable for your circumstances. However, we do not collect personally identifiable information (PII), such as names, addresses, or contact details.",
+            "gatheringInformation": "Because we are not gathering information that can be used to identify you, many data protection rights do not apply.",
+            "typesOfInformation": "The types of information that we collect which are not personally identifiable may include:",
+            "userInteractions": "user interactions with our platform, including navigation behaviour and feature usage, to improve our service",
+            "doNotShareAnswers": "We do not share the answers you provide with any other organisation or government department."
+          }
+        },
+        "howToComplain": {
+          "title": "How to complain",
+          "dataProtectionOfficer": {
+            "description": "If you have any concerns about our use of your personal data, you can contact the MoJ data protection officer:",
+            "address": "Data Protection Officer<br>Ministry of Justice<br>10th Floor, Post Point 10.31<br>102 Petty France<br>London<br>SW1H 9AJ",
+            "website": "<a href=\"mailto:dpo@justice.gov.uk\" class=\"govuk-link\">dpo@justice.gov.uk</a>"
+          },
+          "informationCommissionersOffice": {
+            "description": "You can also complain to the ICO if you are unhappy with how we have used your data.",
+            "address": "Information Commissioner's Office<br>Wycliffe House<br>Water Lane<br>Wilmslow<br>Cheshire<br>SK9 5AF",
+            "helplineNumber": "Helpline number: 0303 123 1113",
+            "website": "ICO website: <a href=\"https://www.ico.org.uk\" class=\"govuk-link\">https://www.ico.org.uk</a>"
+          }
+        },
+        "statement": "This statement was prepared on 22 January 2026."
+      }
+    },
+    "termsAndConditions": {
+      "title": "Terms and conditions",
+      "content": {
+        "responsibility": {
+          "title": "Responsibility for the service",
+          "description": "The Ministry of Justice (MOJ) runs this service. We try to make sure the information we provide is accurate and complete and the service is always available and virus free.",
+          "noLiability": "The MoJ accepts no liability for:",
+          "items": {
+            "unableToAccess": "you being unable to access the service (for example due to high demand or because we've taken it down for maintenance)",
+            "indirectDamages": "indirect damages arising from you using the service or relying on its content",
+            "externalWebsites": "the content and availability of external websites that link to the service or which link from it"
+          }
+        },
+        "information": {
+          "title": "Information about you and your site visits",
+          "collectAndProcess": "We collect and process information related to:",
+          "items": {
+            "childArrangement": "child arrangement planning to help you identify child arrangement planning options suitable for your circumstances",
+            "howYouUse": "how you use the service to help make sure it is meeting the needs of its users and to help us make improvements"
+          },
+          "agreeToCollect": "By using this service you agree to us collecting this information.",
+          "doNotCollectPII": "However, we do not collect personally identifiable information (PII), such as names, addresses, or contact details, in accordance with our <a href=\"/privacy-notice\" class=\"govuk-link\">privacy notice</a> and <a href=\"/cookies\" class=\"govuk-link\">cookie policy</a>."
+        },
+        "limitations": {
+          "title": "Limitations of the service",
+          "description": "Using this service does not guarantee that you will be able to resolve your child arrangements."
+        },
+        "misuse": {
+          "title": "Misuse",
+          "description": "You must not impersonate another person, provide false or misleading information, or use this service on behalf of someone else without their consent."
+        },
+        "restrictions": {
+          "title": "Restrictions on use",
+          "description": "If you have a court order in place that restricts your contact with the other parent or child, such as a no contact order, non-molestation order, or any other legal restriction, you must not use this service to contact them.",
+          "legalConsequences": "Doing so could be a breach of the order and may have legal consequences. If you are unsure whether a court order or other legal restriction affects your ability to use this service, seek legal advice before proceeding."
+        }
+      }
+    },
+    "accessibilityStatement": {
+      "title": "Accessibility statement",
+      "content": {
+        "appliesTo": "This accessibility statement applies to the 'Get help finding a child arrangement option' service.",
+        "runBy": "This website is run by the Ministry of Justice (MoJ). We want as many people as possible to be able to use this website. For example, that means you should be able to:",
+        "abilities": {
+          "changeColours": "change colours, contrast levels and fonts using browser or device settings",
+          "zoomIn": "zoom in up to 400% without the text spilling off the screen",
+          "navigate": "navigate most of the website using a keyboard or speech recognition software",
+          "listen": "listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)"
+        },
+        "simpleText": "We've also made the website text as simple as possible to understand.",
+        "abilityNet": "<a href=\"https://mcmw.abilitynet.org.uk/\" class=\"govuk-link\">AbilityNet</a> has advice on making your device easier to use if you have a disability.",
+        "howAccessible": {
+          "title": "How accessible this website is",
+          "tested": "We have tested this service with assistive technologies including screen readers and voice-to-text technology.",
+          "notFullyTested": "However, the service has not yet had a full test against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard, so there may be further issues we are unaware of."
+        },
+        "feedback": {
+          "title": "Feedback and contact information",
+          "contact": "If you find any problems not listed on this page or think we're not meeting accessibility requirements, email <a href=\"mailto:childarrangements@justice.gov.uk\" class=\"govuk-link\">childarrangements@justice.gov.uk</a>."
+        },
+        "enforcement": {
+          "title": "Enforcement procedure",
+          "responsible": "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the 'accessibility regulations').",
+          "complaint": "If you're not happy with how we respond to your complaint, contact the <a href=\"https://www.equalityadvisoryservice.com/\" class=\"govuk-link\">Equality Advisory and Support Service (EASS)</a>."
+        },
+        "technical": {
+          "title": "Technical information about this website's accessibility",
+          "commitment": "The Ministry of Justice (MoJ) is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018."
+        },
+        "compliance": {
+          "title": "Compliance status",
+          "tested": "The service has been tested by the MOJ Accessibility Team (Summer 2025) and user research has been carried out internally with users with access needs. Most issues identified in this testing were addressed. The service has not yet had a full test against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard. This testing is planned to take place in Summer 2026.",
+          "partiallyCompliant": "This website is partially compliant with the Web Content Accessibility Guidelines version 2.2 AA standard, due to the non-compliances listed below."
+        },
+        "nonAccessible": {
+          "title": "Non-accessible content",
+          "nonCompliance": {
+            "title": "Non-compliance with the accessibility regulations",
+            "exitButton": "Screen reader users may experience the following issues with the 'Exit this page' button, which allows you to leave the service quickly.",
+            "issues": {
+              "lastElement": "The button is read as the last element on a page, but is present on all pages in the service.",
+              "shiftKey": "The button can be activated by clicking the Shift key three times if navigating using a keyboard. As the Shift key is a common navigation shortcut in screen reader software, the button may accidentally be activated."
+            },
+            "planToResolve": "We plan to resolve these issues by Summer 2026."
+          }
+        },
+        "preparation": {
+          "title": "Preparation of this accessibility statement",
+          "preparedOn": "This statement was prepared on 9 February 2026. It was last reviewed on 17 February 2026.",
+          "lastTested": "This service was last tested in Summer 2025 against the WCAG 2.2 AA standard."
+        }
+      }
+    }
+  },
+  "errorSummary": {
+    "title": "There is a problem"
+  },
+  "errors": {
+    "notFound": {
+      "title": "Page not found",
+      "check": "Please check the web address is correct.",
+      "startAgain": "Start again"
+    },
+    "generic": {
+      "title": "Sorry, there is a problem with the service",
+      "errorLogged": "The error has been logged.",
+      "tryReloading": "You can try reloading the page or <a href=\"/\" class=\"govuk-link--no-visited-state\">start again</a>."
+    },
+    "rateLimit": {
+      "title": "Too many requests have been made",
+      "info": "The page has been reloaded too many times in a short period.",
+      "tryReloading": "Please wait a period of 15 minutes, then try reloading the page or <a href=\"/\" class=\"govuk-link--no-visited-state\">start again</a>."
+    }
+  },
+  "cookieBanner": {
+    "title": "Cookies on Get help finding a child arrangement option",
+    "acceptCookies": "Accept analytics cookies",
+    "rejectCookies": "Reject analytics cookies",
+    "viewCookies": "View cookies",
+    "hideCookieMessage": "Hide cookie message",
+    "useEssentialCookies": "We use some essential cookies to make this service work.",
+    "useAnalyticsCookies": "We’d also like to use analytics cookies so we can understand how you use the service and make improvements.",
+    "acceptedAnalyticsCookies": "You have accepted analytics cookies. You can <a href={{ cookiesUrl }} >change your cookie settings</a> at any time.",
+    "rejectedAnalyticsCookies": "You have rejected analytics cookies. You can <a href={{ cookiesUrl }} >change your cookie settings</a> at any time."
+  }
 }
