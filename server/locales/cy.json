@@ -471,18 +471,6 @@
         }
       }
     },
-    "guide": {
-      "title": "Guide"
-    },
-    "steps": {
-      "title": "Steps"
-    },
-    "compare": {
-      "title": "Compare options"
-    },
-    "serviceFinder": {
-      "title": "Find services"
-    },
     "cookies": {
       "title": "Cookies",
       "content": {
