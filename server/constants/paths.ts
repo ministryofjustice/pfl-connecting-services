@@ -2,7 +2,6 @@ enum paths {
   // Auth & static pages
   PASSWORD = '/password',
   START = '/',
-  START_ADDITIONAL = '/start',
   ACCESSIBILITY_STATEMENT = '/accessibility',
   CONTACT_US = '/contact-us',
   COOKIES = '/cookies',
@@ -22,12 +21,6 @@ enum paths {
   COURT_ORDER = '/court-order',
   MEDIATION = '/mediation',
   PARENTING_PLAN = '/parenting-plan',
-
-  // Information pages
-  GUIDE = '/guide',
-  STEPS = '/steps',
-  COMPARE = '/compare',
-  SERVICE_FINDER = '/service-finder',
 }
 
 export default paths;
