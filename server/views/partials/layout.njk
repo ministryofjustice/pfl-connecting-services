@@ -1,9 +1,18 @@
 {% extends "govuk/template.njk" %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 {% set htmlLang = getLocale() %}
 {% set mainClasses = "app-container govuk-body" %}
 {% set govukRebrand = true %}
+
+{% block header %}
+  {{ govukHeader() }}
+  {{ govukServiceNavigation({
+    serviceName: __('serviceName'),
+    serviceUrl: paths.START
+  }) }}
+{% endblock %}
 
 {% block pageTitle %}
   {% if errors | length %}

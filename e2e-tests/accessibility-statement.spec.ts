@@ -16,7 +16,7 @@ test.describe('Accessibility Statement', () => {
   test('should display intro text about the service', async ({ page }) => {
     await page.goto('/accessibility');
 
-    await expect(page.locator('text=Get help finding a child arrangement option')).toBeVisible();
+    await expect(page.locator('text=This accessibility statement applies to')).toBeVisible();
     await expect(page.locator('text=This website is run by the Ministry of Justice')).toBeVisible();
   });
 
