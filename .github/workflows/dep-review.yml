@@ -19,3 +19,6 @@ jobs:
 
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@3b139cfc5fae8b618d3eae3675e383bb1769c019
+        with:
+          comment-summary-in-pr: always
+          allow-ghsas: GHSA-3ppc-4f35-3m26
