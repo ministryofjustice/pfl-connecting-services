@@ -25,4 +25,4 @@ jobs:
       - name: Run SCA
         uses: ministryofjustice/devsecops-actions/sca@v1.3.0
         with:
-          token: ${{ secrets.SCA_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
