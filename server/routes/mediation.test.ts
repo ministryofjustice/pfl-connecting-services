@@ -21,13 +21,14 @@ describe('Mediation', () => {
     it('should display examples of abuse as bullet list', async () => {
       const response = await request(app).get(paths.MEDIATION).expect(200);
       const dom = new JSDOM(response.text);
-      const list = dom.window.document.querySelector('.govuk-list');
+      const lists = dom.window.document.querySelectorAll('.govuk-list--bullet');
+      const allListContent = Array.from(lists).map(list => list.textContent).join(' ');
 
-      expect(list).toHaveTextContent('Initial meeting');
-      expect(list).toHaveTextContent('Cost');
-      expect(list).toHaveTextContent('You stay in control');
-      expect(list).toHaveTextContent('Child-inclusive mediation');
-      expect(list).toHaveTextContent('Court is still an option');
+      expect(allListContent).toContain('Initial meeting');
+      expect(allListContent).toContain('Cost');
+      expect(allListContent).toContain('You stay in control');
+      expect(allListContent).toContain('Child-inclusive mediation');
+      expect(allListContent).toContain('Court is still an option');
     });
 
     it('should display Exit this page button', async () => {
