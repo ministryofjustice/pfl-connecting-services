@@ -41,6 +41,3 @@ jobs:
 
           # Custom Configurations
           dependency-check-suppression-file: "dependency-check-suppression.xml"
-
-          # Container Scanning
-          docker-images-file: "docker-images.json"
