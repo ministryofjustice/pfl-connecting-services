@@ -48,23 +48,25 @@
 
       <ul class="govuk-list govuk-list--bullet">
         <li>{{ __("pages.courtOrder.content.thingsToConsider.mediation") | safe }}</li>
+      </ul>
 
-        {% if abuse == "yes" %}
-          <div class="govuk-warning-text">
-            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-visually-hidden">Warning</span>
-              {{ __("pages.courtOrder.content.thingsToConsider.miamExemption.warning") }}
-              <ul class="govuk-list govuk-list--bullet">
-                <li><strong>{{ __("pages.courtOrder.content.thingsToConsider.miamExemption.reasons.life") }}</strong></li>
-                <li><strong>{{ __("pages.courtOrder.content.thingsToConsider.miamExemption.reasons.harmToChild") }}</strong></li>
-                <li><strong>{{ __("pages.courtOrder.content.thingsToConsider.miamExemption.reasons.unlawfullyTaken") }}</strong></li>
-              </ul>
-              {{ __("pages.courtOrder.content.thingsToConsider.miamExemption.moreInfo") | safe }}
-            </strong>
-          </div>
-        {% endif %}
+      {% if abuse == "yes" %}
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            {{ __("pages.courtOrder.content.thingsToConsider.miamExemption.warning") }}
+            <ul class="govuk-list govuk-list--bullet">
+              <li><strong>{{ __("pages.courtOrder.content.thingsToConsider.miamExemption.reasons.life") }}</strong></li>
+              <li><strong>{{ __("pages.courtOrder.content.thingsToConsider.miamExemption.reasons.harmToChild") }}</strong></li>
+              <li><strong>{{ __("pages.courtOrder.content.thingsToConsider.miamExemption.reasons.unlawfullyTaken") }}</strong></li>
+            </ul>
+            {{ __("pages.courtOrder.content.thingsToConsider.miamExemption.moreInfo") | safe }}
+          </strong>
+        </div>
+      {% endif %}
 
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ __("pages.courtOrder.content.thingsToConsider.cost") | safe }}</li>
         <li>{{ __("pages.courtOrder.content.thingsToConsider.time") | safe }}</li>
       </ul>
