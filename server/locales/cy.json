@@ -60,26 +60,26 @@
     "helpMakingChildArrangements": {
       "title": "Get help making child arrangements",
       "content": {
-        "howToStart": "<p>If you are unsure how you can start making child arrangements with your ex-partner, you can get help.</p>",
+        "howToStart": "<p class=\"govuk-body\">If you are unsure how you can start making child arrangements with your ex-partner, you can get help.</p>",
         "ifYouNeedHelp": {
           "title": "If you need help deciding how to make child arrangements",
-          "content": "<p>Use the 'Get help finding a child arrangement option' service to find out about your options for making child arrangements if you are a parent separating from your child's other parent.</p>"
+          "content": "<p class=\"govuk-body\">Use the 'Get help finding a child arrangement option' service to find out about your options for making child arrangements if you are a parent separating from your child's other parent.</p>"
         },
         "howItWorks": {
           "title": "How it works",
-          "content": "<p>You will be asked questions about your circumstances, including your current relationship with your ex-partner. You will not be asked for any personal details.</p><p>It takes about 10 minutes to use this service.</p>"
+          "content": "<p class=\"govuk-body\">You will be asked questions about your circumstances, including your current relationship with your ex-partner. You will not be asked for any personal details.</p><p class=\"govuk-body\">It takes about 10 minutes to use this service.</p>"
         },
         "exitTheService": {
           "title": "If you need to exit the service quickly",
-          "content": "<p>Each page of this service has an 'Exit this page' button to help keep you safe and protect your privacy if you need it.</p>"
+          "content": "<p class=\"govuk-body\">Each page of this service has an 'Exit this page' button to help keep you safe and protect your privacy if you need it.</p>"
         },
         "getHelpChildArrangementOption": {
           "title": "Get help finding a child arrangement option",
-          "content": "<p>Your answers will not be saved or shared with anyone.</p>"
+          "content": "<p class=\"govuk-body\">Your answers will not be saved or shared with anyone.</p>"
         },
         "supportWhenMakingChildArrangements": {
           "title": "If you need support when making child arrangements",
-          "content": "<p>Search for services to help you make child arrangements, including legal aid and impartial advice services.</p><p><a href=\"/beta-1/service-finder\">Find child arrangement support services</a></p>"
+          "content": "<p class=\"govuk-body\">Search for services to help you make child arrangements, including legal aid and impartial advice services.</p><p class=\"govuk-body\"><a href=\"/beta-1/service-finder\">Find child arrangement support services</a></p>"
         }
       }
     },
@@ -391,19 +391,19 @@
         },
         "helpAndSupport": {
           "title": "Help and support",
-          "description": "<p>There is free, confidential support available to help you and your family.",
+          "description": "<p class=\"govuk-body\">There is free, confidential support available to help you and your family.",
           "table": {
             "rowOne": {
               "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge's National Domestic Abuse Helpline</a>",
-              "data": "<p>Free, confidential advice, 24 hours a day.<p><p>Telephone: 0808 2000 247</p>"
+              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day.<p class=\"govuk-body\"><p class=\"govuk-body\">Telephone: 0808 2000 247</p>"
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.gov.wales/live-fear-free\">Live Fear Free (Wales)</a>",
-              "data": "<p>24 hour service with specialists who make referrals and link to other services and advice.</p><p>Telephone: 0808 80 10 100</p>"
+              "data": "<p class=\"govuk-body\">24 hour service with specialists who make referrals and link to other services and advice.</p><p class=\"govuk-body\">Telephone: 0808 80 10 100</p>"
             },
             "rowThree": {
               "heading": "<a href=\"https://mensadviceline.org.uk/\">Men's Advice Line</a>",
-              "data": "<p>A supportive helpline for all male victims of domestic abuse and those supporting them.</p><p>Telephone: 0808 801 0327</p>"
+              "data": "<p class=\"govuk-body\">A supportive helpline for all male victims of domestic abuse and those supporting them.</p><p class=\"govuk-body\">Telephone: 0808 801 0327</p>"
             }
           }
         }
