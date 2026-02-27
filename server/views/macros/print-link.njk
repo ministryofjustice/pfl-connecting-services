@@ -1,11 +1,11 @@
 {% macro govukPrintLink(params) %}
 <div class="govuk-print-link {{- ' ' + params.classes if params.classes }}">
-<button
-    class="govuk-print-link__button js-print-link" 
-    type="button" 
-    {% if params.attributes %}{% for attribute, value in params.attributes %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
-    hidden>
-    {{ params.text if params.text else __("printThisPage") }}
-</button>
+    <button
+        id="print-this-page-button"
+        class="govuk-print-link__button" 
+        type="button" 
+        {% if params.attributes %}{% for attribute, value in params.attributes %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}>
+        {{ params.text if params.text else __("printThisPage") }}
+    </button>
 </div>
 {% endmacro %}
