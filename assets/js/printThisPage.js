@@ -10,3 +10,13 @@ const setupPrintThisPage = () => {
 }
 
 export default setupPrintThisPage;
+
+window.onload = function () {
+  var printLinks = document.querySelectorAll('.js-print-link');
+  printLinks.forEach(function (link) {
+    link.removeAttribute('hidden');
+    link.addEventListener('click', function () {
+      window.print();
+    });
+  });
+};

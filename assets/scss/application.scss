@@ -56,3 +56,40 @@
 .govuk-summary-list__key-mediation-width {
   width: 32%;
 }
+
+.govuk-print-link__button {
+  @include govuk-font($size: 19);
+  @include govuk-link-common;
+  @include govuk-link-style-default;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  background-size: 16px 18px;
+  padding: 10px;
+  text-decoration: none;
+  border: 1px solid #505a5f;
+  color: #1d70b8;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 18px;
+    margin-right: 10px;
+    background: url("/assets/images/icon-print.png") no-repeat;
+    background-size: 16px 18px;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.govuk-print-link__button:hover {
+  background-color: #f3f2f1;
+}
+
+.govuk-print-link__button:focus {
+  border: none;
+}
