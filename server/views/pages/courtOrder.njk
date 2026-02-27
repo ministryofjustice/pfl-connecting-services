@@ -3,6 +3,7 @@
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "../macros/print-link.njk" import govukPrintLink %}
 
 {% set title = __("pages.courtOrder.title") %}
 {% block pageTitle %}
@@ -154,9 +155,9 @@
         </tbody>
       </table>
 
-      <button id="print-this-page-button" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-        {{ __("pages.courtOrder.printThisPage") }}
-      </button>
+      {{ govukPrintLink({
+        text: __("printThisPage")
+      }) }}
 
     </div>
 
