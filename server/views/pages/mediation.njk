@@ -1,5 +1,6 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+{% from "../macros/print-link.njk" import govukPrintLink %}
 
 {% set title = __("pages.mediation.title") %}
 {% block pageTitle %}
@@ -117,9 +118,9 @@
         </div>
       </dl>
 
-      <button id="print-this-page-button" onclick="printPage()" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-        {{ __("printThisPage") }}
-      </button>
+      {{ govukPrintLink({
+        text: __("printThisPage")
+      }) }}
     </div>
 
     <div class="govuk-grid-column-one-third">
