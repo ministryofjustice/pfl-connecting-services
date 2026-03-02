@@ -2,6 +2,7 @@
 {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "../macros/print-link.njk" import govukPrintLink %}
 
 {% set title = __("pages.parentingPlan.title") %}
 {% block pageTitle %}
@@ -131,10 +132,9 @@
         </tbody>
       </table>
 
-      <button id="print-this-page-button" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-        {{ __("pages.parentingPlan.printThisPage") }}
-      </button>
-
+      {{ govukPrintLink({
+        text: __("printThisPage")
+      }) }}
     </div>
 
     <div class="govuk-grid-column-one-third">
