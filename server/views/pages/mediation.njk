@@ -1,5 +1,6 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+{% from "../macros/print-link.njk" import govukPrintLink %}
 
 {% set title = __("pages.mediation.title") %}
 {% block pageTitle %}
@@ -16,10 +17,10 @@
       <h2 class="govuk-heading-m">
         {{ __("pages.mediation.content.rightForYou.title") }}
       </h2>
-      <p>
+      <p class="govuk-body">
         {{ __("pages.mediation.content.rightForYou.content.chooseAProfessional") }}
       </p>
-      <p>
+      <p class="govuk-body">
         {{ __("pages.mediation.content.rightForYou.content.sameRoom") }}
       </p>
 
@@ -40,15 +41,19 @@
       <ul class="govuk-list govuk-list--bullet">
         <li>{{ __("pages.mediation.content.thingsToConsider.content.initialMeeting") | safe }}</li>
         <li>{{ __("pages.mediation.content.thingsToConsider.content.cost") | safe }}</li>
-        <div class="govuk-inset-text">
-          {{ __("pages.mediation.content.thingsToConsider.content.costInset") }}
-        </div>
+      </ul>
+
+      <div class="govuk-inset-text">
+        {{ __("pages.mediation.content.thingsToConsider.content.costInset") }}
+      </div>
+
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ __("pages.mediation.content.thingsToConsider.content.stayInControl") | safe }}</li>
         <li>{{ __("pages.mediation.content.thingsToConsider.content.childInclusiveMediation") | safe }}</li>
         <li>{{ __("pages.mediation.content.thingsToConsider.content.courtOption") | safe }}</li>
       </ul>
 
-      <p>
+      <p class="govuk-body">
         {{ __("pages.mediation.content.thingsToConsider.content.mediationLink") | safe }}
       </p>
 
@@ -57,34 +62,34 @@
       <h2 class="govuk-heading-m">
         {{ __("pages.mediation.content.otherWaysToAgree.title") }}
       </h2>
-      <p>
+      <p class="govuk-body">
         {{ __("pages.mediation.content.otherWaysToAgree.description") }}
       </p>
 
       <h3 class="govuk-heading-s">
         {{ __("pages.mediation.content.otherWaysToAgree.content.makingAParentingPlan.title") }}
       </h3>
-      <p>
+      <p class="govuk-body">
         {{ __("pages.mediation.content.otherWaysToAgree.content.makingAParentingPlan.description") }}
       </p>
-      <p>
+      <p class="govuk-body">
         {{ __("pages.mediation.content.otherWaysToAgree.content.makingAParentingPlan.link") | safe }}
       </p>
 
       <h3 class="govuk-heading-s">
         {{ __("pages.mediation.content.otherWaysToAgree.content.arbitration.title") }}
       </h3>
-      <p>
+      <p class="govuk-body">
         {{ __("pages.mediation.content.otherWaysToAgree.content.arbitration.description") }}
       </p>
-      <p>
+      <p class="govuk-body">
         {{ __("pages.mediation.content.otherWaysToAgree.content.arbitration.link") | safe }}
       </p>
 
       <h2 class="govuk-heading-m">
         {{ __("pages.mediation.content.helpAndSupport.title") }}
       </h2>
-      <p>
+      <p class="govuk-body">
         {{ __("pages.mediation.content.helpAndSupport.description") }}
       </p>
 
@@ -113,9 +118,9 @@
         </div>
       </dl>
 
-      <button id="print-this-page-button" onclick="printPage()" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-        {{ __("printThisPage") }}
-      </button>
+      {{ govukPrintLink({
+        text: __("printThisPage")
+      }) }}
     </div>
 
     <div class="govuk-grid-column-one-third">
