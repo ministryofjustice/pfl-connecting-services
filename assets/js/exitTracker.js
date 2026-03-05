@@ -1,76 +1,117 @@
 const setupExitTracking = () => {
-  /**
-   * Sends an analytics event to the server
-   * @param {string} endpoint - The API endpoint to send to
-   * @param {object} data - The data to send
-   */
+  if (window.analyticsEnvironmentEnabled === false) {
+    return;
+  }
+
+  let hasLoggedPageExit = false;
+  let isFormSubmitting = false;
+  let isInternalNavigation = false;
+  let isDownloading = false;
+  let isExternalNavigation = false;
+
   function sendAnalyticsEvent(endpoint, data) {
-    // Use sendBeacon for reliable tracking even if user navigates away
     if (navigator.sendBeacon) {
       const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
       navigator.sendBeacon(endpoint, blob);
     } else {
-      // Fallback for browsers that don't support sendBeacon
       fetch(endpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
         keepalive: true,
-      }).catch(() => {
-        // Silently fail - analytics shouldn't break user experience
-      });
+      }).catch(() => {});
     }
   }
 
-  /**
-   * Gets the current page path for analytics
-   * @returns {string} The current page path
-   */
-  function getCurrentPagePath() {
-    return window.location.pathname;
+  function logPageExit(destination) {
+    if (hasLoggedPageExit || isFormSubmitting || isInternalNavigation || isDownloading) {
+      return;
+    }
+    hasLoggedPageExit = true;
+
+    const eventData = { exitPage: window.location.pathname };
+    if (destination) {
+      eventData.destinationUrl = destination;
+    }
+
+    sendAnalyticsEvent('/api/analytics/page-exit', eventData);
   }
 
-  
-  // Track quick exit button clicks
-  // The GOV.UK Exit This Page component adds a button with class 'govuk-exit-this-page__button'
-  // This branch uses Escape key instead of Shift+3 for accessibility
-  document.addEventListener('click', (event) => {
-    const exitButton = event.target.closest('.govuk-exit-this-page__button');
+  function logQuickExit() {
+    sendAnalyticsEvent('/api/analytics/quick-exit', { exitPage: window.location.pathname });
+  }
 
+  document.addEventListener('submit', () => {
+    isFormSubmitting = true;
+  });
+
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    const isNavigatingAway = link
+      && link.hostname === window.location.hostname
+      && !link.hasAttribute('download')
+      && link.target !== '_blank'
+      && !link.pathname.startsWith('/download')
+      && link.pathname !== window.location.pathname;
+
+    if (isNavigatingAway) {
+      isInternalNavigation = true;
+    }
+
+    if (link && link.hostname !== window.location.hostname) {
+      isExternalNavigation = true;
+    }
+
+    const staysOnPage = link && (
+      link.hasAttribute('download')
+      || link.pathname.startsWith('/download')
+      || link.target === '_blank'
+    );
+
+    if (staysOnPage) {
+      isDownloading = true;
+      setTimeout(() => { isDownloading = false; }, 1000);
+    }
+
+    const exitButton = event.target.closest('.govuk-exit-this-page__button');
     if (exitButton) {
-      const exitPage = getCurrentPagePath();
-      sendAnalyticsEvent('/api/analytics/quick-exit', { exitPage });
+      logQuickExit();
     }
   });
 
-  // Track keyboard shortcut for Exit This Page (Escape key)
-  // This replaces the default Shift+3 shortcut for better accessibility
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      logPageExit();
+    }
+  });
+
+  window.addEventListener('pagehide', (event) => {
+    if (!event.persisted || isExternalNavigation) {
+      logPageExit();
+    }
+  });
+
   document.addEventListener('keydown', (event) => {
-    // Check if Escape key is pressed without modifiers
-    if (event.key === 'Escape' && !event.ctrlKey && !event.altKey && !event.metaKey && !event.shiftKey) {
-      // Check if the Exit This Page component exists on the page
-      const exitButton = document.querySelector('.govuk-exit-this-page__button');
+    if (event.key !== 'Escape' || event.ctrlKey || event.altKey || event.metaKey || event.shiftKey) {
+      return;
+    }
 
-      if (exitButton) {
-        // Don't log if user is in an input field (Escape is for clearing input)
-        const activeElement = document.activeElement;
-        const isInputField =
-          activeElement &&
-          (activeElement.tagName === 'INPUT' ||
-            activeElement.tagName === 'TEXTAREA' ||
-            activeElement.tagName === 'SELECT' ||
-            activeElement.isContentEditable);
+    const exitButton = document.querySelector('.govuk-exit-this-page__button');
+    if (!exitButton) {
+      return;
+    }
 
-        // Don't log if user is in a modal/dialog
-        const isInDialog = activeElement && activeElement.closest('[role="dialog"]');
+    const activeElement = document.activeElement;
+    const isInputField =
+      activeElement &&
+      (activeElement.tagName === 'INPUT' ||
+        activeElement.tagName === 'TEXTAREA' ||
+        activeElement.tagName === 'SELECT' ||
+        activeElement.isContentEditable);
+    const isInDialog = activeElement && activeElement.closest('[role="dialog"]');
 
-        if (!isInputField && !isInDialog) {
-          const exitPage = getCurrentPagePath();
-          sendAnalyticsEvent('/api/analytics/quick-exit', { exitPage });
-        }
-      }
+    if (!isInputField && !isInDialog) {
+      logQuickExit();
     }
   });
 };
