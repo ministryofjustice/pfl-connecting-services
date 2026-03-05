@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Node
-        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: ${{ vars.NODE_VERSION }}
 
@@ -47,7 +47,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: ⚡️ SCA
-        uses: ministryofjustice/devsecops-actions/sca@a8dedfac1489dcf27363b02141bbc2fc04cacce2 # v1.3.0
+        uses: ministryofjustice/devsecops-actions/sca@fd24afab8804eb5c1f40ac490350f1e63628607f # v1.3.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           dependency-review-config-file: "./.github/dependency-review-config.yml"
