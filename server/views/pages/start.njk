@@ -33,7 +33,10 @@
         {{ __("pages.start.exitTheService.title") }}
       </h3>
 
-      <p class="govuk-body">{{ __("pages.start.exitTheService.description") }}</p>
+      <p class="govuk-body">
+        {{ __("pages.start.exitTheService.description") }}
+        {{ __("exitThisPage")  | safe }}
+      </p>
 
       {{
         govukButton({

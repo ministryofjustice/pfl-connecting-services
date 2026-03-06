@@ -32,6 +32,9 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      {{ __("exitThisPage")  | safe }}
+
       {% include "partials/errorSummary.njk" %}
 
       <form class="form" action="{{ paths.OTHER_OPTIONS }}" method="post">
