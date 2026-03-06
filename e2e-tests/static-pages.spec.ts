@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe.skip('Static Pages', () => {
+test.describe('Static Pages', () => {
   const staticPages = [
     { url: '/cookies', title: /cookies/i },
     { url: '/privacy-notice', title: /privacy/i },
@@ -11,7 +11,8 @@ test.describe.skip('Static Pages', () => {
 
   for (const { url, title } of staticPages) {
     test(`should load ${url} page successfully`, async ({ page }) => {
-      await page.goto(url);
+      await page.goto('/');
+      await page.getByRole('link', { name: title }).click();
 
       const heading = page.locator('h1');
       await expect(heading).toBeVisible();
