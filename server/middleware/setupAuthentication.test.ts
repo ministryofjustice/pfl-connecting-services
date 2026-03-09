@@ -32,14 +32,4 @@ describe('When a route is called', () => {
         .expect('location', `${paths.PASSWORD}?${expectedRedirectUrlQueryParameters}`);
     });
   });
-
-  describe('and client has authentication cookie', () => {
-    beforeEach(() => {
-      config.passwords = [testPassword];
-    });
-
-    it.skip('should not redirect to password page', () => {
-      return request(app).get(`/`).set('Cookie', [validAuthenticationCookie]).expect(200);
-    });
-  });
 });
