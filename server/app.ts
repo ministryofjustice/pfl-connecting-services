@@ -45,6 +45,7 @@ const createApp = (): express.Application => {
   app.use(setupRequestLogging());
   app.use(setUpStaticResources());
   app.use(setUpCsrf());
+  app.use(setUpWebSession());
   app.use(setupFlashMessages());
   app.use(setupAnalytics());
   app.use(setupHistory());
