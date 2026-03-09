@@ -6,7 +6,8 @@ import session, { MemoryStore, Store } from 'express-session';
 import config from '../config';
 import cookieNames from '../constants/cookieNames';
 import createCacheClient from '../data/cacheClient';
-import logger from '../logging/logger';;
+import logger from '../logging/logger';
+import setUpCsrf from './setUpCsrf';
 
 const setUpWebSession = (): Router => {
   let store: Store;
@@ -30,6 +31,8 @@ const setUpWebSession = (): Router => {
       rolling: true,
     }),
   );
+
+  router.use(setUpCsrf);
 
   // Update a value in the cookie so that the set-cookie will be sent.
   // Only changes every minute so that it's not sent with every request.
