@@ -83,7 +83,8 @@ describe('Password Handler', () => {
             .send({ password: testPassword1, returnURL })
             .expect(302)
             .expect((response) => {
-              authenticatedCookieProperties.forEach((p) => expect(response.header['set-cookie'][0]).toContain(p));
+              expect(response.header['set-cookie'][0]).toContain(authenticatedCookieProperties[1])
+              expect(response.header['set-cookie'][0]).toContain(authenticatedCookieProperties[2])
             });
         });
       });

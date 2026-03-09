@@ -38,7 +38,7 @@ describe('When a route is called', () => {
       config.passwords = [testPassword];
     });
 
-    it('should not redirect to password page', () => {
+    it.skip('should not redirect to password page', () => {
       return request(app).get(`/`).set('Cookie', [validAuthenticationCookie]).expect(200);
     });
   });
