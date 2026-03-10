@@ -183,15 +183,3 @@ spec:
         severity: connecting-services-dev
       annotations:
         message: ElastiCache instance {{ $labels.cache_cluster_id }} swap usage is high (above 50MB).
-
-  # TEMPORARY: Remove this entire test-alerts group after verifying Slack integration
-  - name: test-alerts
-    rules:
-    - alert: SlackIntegrationTest
-      annotations:
-        message: TEST ALERT - Verifying Slack integration for connecting-services-dev. This alert can be safely ignored and will be removed after verification.
-        summary: Test alert to verify Slack notifications work.
-      expr: vector(1) > 0
-      for: 1m
-      labels:
-        severity: connecting-services-dev
