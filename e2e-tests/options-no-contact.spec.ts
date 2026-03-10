@@ -8,13 +8,14 @@ test.beforeEach(async ({ page }) => {
   await selectContactChildArrangementsOption(page, 'No, I am not comfortable contacting them');
 });
 
-test.describe('Options no contact', () => {
+test.describe('Options no contact Page', () => {
+
   test('should display the page with correct url and title', async ({ page }) => {
     await expect(page).toHaveURL(/options-no-contact/);
     await expect(page.locator('h1')).toContainText('Options to explore if you are not comfortable contacting your ex-partner');
   });
 
-  test('should also navigate to options no contact when "I can contact them but they do not respond" is selected on Contact Child Arrangments page', async ({ page }) => {
+  test('should also navigate to options no contact when "I can contact them but they do not respond" is selected on Contact Child Arrangements page', async ({ page }) => {
     await page.locator('a.govuk-back-link').click();
     await selectContactChildArrangementsOption(page, 'I can contact them but they do not respond');
     await expect(page).toHaveURL(/options-no-contact/);
