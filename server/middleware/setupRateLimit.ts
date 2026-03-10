@@ -20,7 +20,7 @@ const setupRateLimit = () => {
 
   const generalLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: isTestEnvironment ? 10000 : 250, // Much higher limit for tests to avoid false failures
+    max: isTestEnvironment ? 15000 : 250, // Much higher limit for tests to avoid false failures
     standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
     validate: { trustProxy: true },
@@ -32,21 +32,6 @@ const setupRateLimit = () => {
       return '/health' === req.path || req.path.startsWith('/assets');
     },
     handler: rateLimitHandler,
-  });
-
-  // download/PDF generation endpoints (resource-intensive)
-  const downloadLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000,// 15 minutes
-    max: isTestEnvironment ? 1000 : 20,// Higher limit for tests
-    standardHeaders: true,
-    legacyHeaders: false,
-    validate: { trustProxy: true },
-    keyGenerator: (req: Request) => {
-      return req.ip || 'unknown';
-    },
-    store: createRedisStore('download:'),
-    handler: rateLimitHandler,
-    skipSuccessfulRequests: false, // Count all requests, even successful ones
   });
 
   const authLimiter = rateLimit({
@@ -64,10 +49,6 @@ const setupRateLimit = () => {
   });
 
   // Apply specific limiters first (more specific routes)
-  router.use('/download-pdf', downloadLimiter);
-  router.use('/download-html', downloadLimiter);
-  router.use('/print-pdf', downloadLimiter);
-  router.use('/download-paper-form', downloadLimiter);
   router.use('/password', authLimiter);
 
   // Apply general limiter to all other routes
