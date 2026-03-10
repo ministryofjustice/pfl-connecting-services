@@ -2,10 +2,13 @@
 <div class="govuk-print-link {{- ' ' + params.classes if params.classes }}">
     <button
         id="print-this-page-button"
-        class="govuk-print-link__button" 
-        type="button" 
+        class="govuk-print-link__button js-visible"
+        type="button"
         {% if params.attributes %}{% for attribute, value in params.attributes %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}>
         {{ params.text if params.text else __("printThisPage") }}
     </button>
+    <noscript>
+        <p class="govuk-body">{{ __("printThisPageNoJs") }}</p>
+    </noscript>
 </div>
 {% endmacro %}
