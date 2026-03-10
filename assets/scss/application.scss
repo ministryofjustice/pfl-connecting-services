@@ -98,3 +98,12 @@
     box-shadow: 0 -2px #fd0, 0 4px #0b0c0c;
     text-decoration: none;
 }
+
+// Hide JS-dependent elements when JavaScript is disabled
+.js-visible {
+    display: none;
+}
+
+.js-enabled .js-visible {
+    display: inline-flex;
+}
