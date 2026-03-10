@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangmentsOption } from './fixtures/test-helpers';
+import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption } from './fixtures/test-helpers';
 
 test.beforeEach(async ({ page }) => {
   await startJourney(page);
@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
   await selectContactChildArrangementsOption(page, 'Yes');
 });
 
-test.describe('Agreement on child arrangements question', () => {
+test.describe('Agreement on child arrangements Page', () => {
 
   test('should display the page with correct url and title', async ({ page }) => {
     await expect(page).toHaveURL(/agree/);
@@ -16,17 +16,17 @@ test.describe('Agreement on child arrangements question', () => {
   });
 
   test('should navigate to parenting plan page when yes option selected', async ({ page }) => {
-    await selectAgreeOnChildArrangmentsOption(page, 'Yes, we agree on some or most things'); 
+    await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things'); 
     await expect(page).toHaveURL(/\/parenting-plan/);
   });
 
   test('should navigate to help to agree page when No, we do not agree option is selected', async ({ page }) => {
-    await selectAgreeOnChildArrangmentsOption(page,'No, we do not agree');
+    await selectAgreeOnChildArrangementsOption(page,'No, we do not agree');
     await expect(page).toHaveURL(/\/help-to-agree/);
   });
 
   test('should navigate to help to agree page when not discussed option selected', async ({ page }) => {
-    await selectAgreeOnChildArrangmentsOption(page, 'We have not discussed it yet')
+    await selectAgreeOnChildArrangementsOption(page, 'We have not discussed it yet')
     await expect(page).toHaveURL(/\/help-to-agree/);
   });
 
