@@ -46,6 +46,23 @@
     "rate-limit-redis": "^4.2.1",
     "redis": "4.7.1"
   },
+  "overrides": {
+    "glob": {
+      "minimatch": "^10.2.3"
+    },
+    "eslint-plugin-import": {
+      "minimatch": "^3.1.4"
+    },
+    "eslint": {
+      "minimatch": "^3.1.4"
+    },
+    "@eslint/eslintrc": {
+      "minimatch": "^3.1.4"
+    },
+    "@eslint/config-array": {
+      "minimatch": "^3.1.4"
+    }
+  },
   "devDependencies": {
     "@eslint/js": "9.28.0",
     "@jgoz/esbuild-plugin-typecheck": "4.0.4",
