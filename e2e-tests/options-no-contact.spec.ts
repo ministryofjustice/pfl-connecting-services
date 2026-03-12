@@ -27,13 +27,13 @@ test.describe('Options no contact Page', () => {
     await expect(page).toHaveURL(/contact-child-arrangements/);
   });
 
-  test('should navigate to family mediation council website', async ({ page }) => {
-    await page.locator('#mediation-link').click();
-    await expect(page).toHaveURL('https://www.familymediationcouncil.org.uk/');
+  test('should navigate to resolution website', async ({ page }) => {
+    await page.locator('#resolution-link').click();
+    await expect(page).toHaveURL('https://resolution.org.uk/find-a-law-professional/');
   });
 
-  test('should navigate to citizens advice website', async ({ page }) => {
-    await page.locator('#legal-advice-link').click();
-    await expect(page).toHaveURL('https://www.citizensadvice.org.uk/family/making-agreements-about-your-children/your-child-arrangements-arent-working/');
+  test('should navigate to advice now website', async ({ page }) => {
+    await page.locator('#advice-now-link').click();
+    await expect(page).toHaveURL('https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements');
   });
 });
