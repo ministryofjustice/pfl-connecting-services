@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe.skip('Accessibility', () => {
+test.describe('Accessibility', () => {
   test('should have proper heading hierarchy on homepage', async ({ page }) => {
     await page.goto('/');
 
@@ -16,7 +16,7 @@ test.describe.skip('Accessibility', () => {
     await page.goto('/');
     await page.getByRole('button', { name: /start now/i }).click();
 
-    // Check radio button labels are accessible on safety-check page
+    // Check radio button labels are accessible on domestic abuse page
     const yesRadio = page.getByLabel(/yes/i).first();
     await expect(yesRadio).toBeVisible();
     await expect(yesRadio).toHaveAttribute('type', 'radio');
