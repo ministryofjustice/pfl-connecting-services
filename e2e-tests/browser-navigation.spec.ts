@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 import { verifyBackNavigation, verifyForwardNavigation } from './fixtures/navigation-helpers';
-import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectOtherOptions } from './fixtures/test-helpers';
 import { contactChildArrangementOption, agreeOnChildArrangementOption, helpToAgreeOnChildArrangementOption, otherOptions, staticPages } from './fixtures/test-data';
+import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectOtherOptions } from './fixtures/test-helpers';
 
 test.describe('Browser Navigation and Data persistence between pages', () => {
    test('should navigate back from domestic abuse page to homepage', async ({ page }) => {
