@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectOtherOptions } from './fixtures/test-helpers';
+import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption } from './fixtures/test-helpers';
 
 test.describe('Session Expiry', () => {
   test('should redirect to start page when session expires mid-journey', async ({ page }) => {
