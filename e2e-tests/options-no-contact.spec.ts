@@ -26,4 +26,14 @@ test.describe('Options no contact Page', () => {
     await page.locator('a.govuk-back-link').click();
     await expect(page).toHaveURL(/contact-child-arrangements/);
   });
+
+  test('should navigate to resolution website', async ({ page }) => {
+    await page.locator('#resolution-link').click();
+    await expect(page).toHaveURL('https://resolution.org.uk/find-a-law-professional/');
+  });
+ 
+  test('should navigate to advice now website', async ({ page }) => {
+    await page.locator('#advice-now-link').click();
+    await expect(page).toHaveURL('https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements');
+  });
 });
