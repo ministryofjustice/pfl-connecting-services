@@ -1,0 +1,76 @@
+{% extends "partials/layout.njk" %}
+{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% set title = __("pages.childSafety.title") %}
+{% block pageTitle %}
+  {{ title }}
+  – {{ __("serviceName") }} – GOV.UK
+{% endblock %}
+
+
+{% set legendText %}
+  {{ __("pages.childSafety.heading") }}
+{% endset %}
+
+
+{% set additionalText %}
+  <div id="child-safety-additional-text">
+    <p class="govuk-body">{{ __("pages.childSafety.intro") }}</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>{{ __("pages.childSafety.bullets.domesticAbuse") }}</li>
+      <li>{{ __("pages.childSafety.bullets.abduction") }}</li>
+      <li>{{ __("pages.childSafety.bullets.abuseNeglect") }}</li>
+      <li>{{ __("pages.childSafety.bullets.substances") }}</li>
+      <li>{{ __("pages.childSafety.bullets.otherConcerns") }}</li>
+    </ul>
+  </div>
+{% endset %}
+
+{%
+  set radioItems = [
+    { value: "yes", text: __("yes"), checked: formValues.childSafety === "yes" },
+    { value: "no", text: __("no"), checked: formValues.childSafety === "no" }
+  ]
+%}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ __("exitThisPage") | safe }}
+      {% include "partials/errorSummary.njk" %}
+
+      <form class="form" action="{{ paths.CHILD_SAFETY }}" method="post">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+
+        {{
+          govukRadios({
+            name: formFields.CHILD_SAFETY,
+            describedBy: 'child-safety-additional-text',
+            fieldset: {
+              legend: {
+                text: legendText,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: additionalText
+            },
+            items: radioItems,
+            errorMessage: errors | findError(formFields.CHILD_SAFETY)
+          })
+        }}
+
+        {{
+          govukButton({
+            text: __("continue")
+          })
+        }}
+      </form>
+    </div>
+    <div class="govuk-grid-column-one-third">{{ govukExitThisPage() }}</div>
+  </div>
+{% endblock %}

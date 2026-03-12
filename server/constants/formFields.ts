@@ -1,4 +1,5 @@
 // Form field names for Connecting Services
+export const CHILD_SAFETY = 'childSafety';
 export const ABUSE = 'abuse';
 export const CONTACT = 'contact';
 export const AGREEMENT = 'agreement';
@@ -12,6 +13,7 @@ export const ACCEPT_OPTIONAL_COOKIES = 'acceptOptionalCookies';
 
 // Default export for compatibility with existing imports
 const formFields = {
+  CHILD_SAFETY,
   ABUSE,
   CONTACT,
   AGREEMENT,

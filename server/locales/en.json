@@ -35,6 +35,19 @@
       },
       "error": "Select whether you or your children have experienced abuse from your ex-partner"
     },
+    "childSafety": {
+      "title": "Are the children safe?",
+      "heading": "Are the children safe?",
+      "intro": "Children may be at risk if there has been:",
+      "bullets": {
+        "domesticAbuse": "any form of domestic abuse or violence, even if the abuse was not directed at the children",
+        "abduction": "actual or attempted child abduction",
+        "abuseNeglect": "child abuse or neglect",
+        "substances": "misuse of drugs, alcohol or other substances",
+        "otherConcerns": "any other safety or welfare concerns that place anyone at significant risk of harm"
+      },
+      "error": "Select yes if the children are safe"
+    },
     "start": {
       "title": "Get help finding a child arrangement option ",
       "description": "Use this service to find out about your options for making child arrangements if you are a parent separating from your child's other parent.",

@@ -1,11 +1,25 @@
 import { test, expect } from '@playwright/test';
 
 import { verifyBackNavigation, verifyForwardNavigation } from './fixtures/navigation-helpers';
-import { contactChildArrangementOption, agreeOnChildArrangementOption, helpToAgreeOnChildArrangementOption, otherOptions, staticPages } from './fixtures/test-data';
-import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectOtherOptions } from './fixtures/test-helpers';
+import {
+  contactChildArrangementOption,
+  agreeOnChildArrangementOption,
+  helpToAgreeOnChildArrangementOption,
+  otherOptions,
+  staticPages,
+} from './fixtures/test-data';
+import {
+  startJourney,
+  selectChildSafetyOption,
+  selectDomesticAbuseOption,
+  selectContactChildArrangementsOption,
+  selectAgreeOnChildArrangementsOption,
+  selectHelpToAgreeOnChildArrangementsOption,
+  selectOtherOptions,
+} from './fixtures/test-helpers';
 
 test.describe('Browser Navigation and Data persistence between pages', () => {
-   test('should navigate back from domestic abuse page to homepage', async ({ page }) => {
+  test('should navigate back from child safety page to homepage', async ({ page }) => {
     await startJourney(page);
 
     await verifyBackNavigation(page, '/');
@@ -13,180 +27,211 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
     await expect(page.getByRole('button', { name: /start now/i })).toBeVisible();
   });
 
-   test('should navigate back from getting help page to domestic abuse page, with data persisting', async ({ page }) => {
+  test('should navigate back from domestic abuse page to child safety page, with data persisting', async ({ page }) => {
     await startJourney(page);
+    await selectChildSafetyOption(page, 'Yes');
 
-    await selectDomesticAbuseOption(page, 'Yes')
+    await verifyBackNavigation(page, /child-safety/, async () => {
+      await expect(page.getByLabel(/yes/i)).toBeChecked();
+    });
+
+    await page.getByRole('button', { name: /continue/i }).click();
+    await expect(page).toHaveURL(/domestic-abuse/);
+  });
+
+  test('should navigate back from getting help page to domestic abuse page, with data persisting', async ({ page }) => {
+    await startJourney(page);
+    await selectChildSafetyOption(page, 'Yes');
+    await selectDomesticAbuseOption(page, 'Yes');
     await expect(page).toHaveURL(/getting-help/);
 
-    await verifyBackNavigation(page, /domestic-abuse/, 
-      async () => {
-        await expect(page.getByLabel(/yes/i)).toBeChecked();
-      }
-    );
+    await verifyBackNavigation(page, /domestic-abuse/, async () => {
+      await expect(page.getByLabel(/yes/i)).toBeChecked();
+    });
 
     // Verify we can proceed forward
     await page.getByRole('button', { name: /continue/i }).click();
     await expect(page).toHaveURL(/getting-help/);
   });
 
-  test('should navigate back from contact child arrangements to domestic abuse page, with data persisting ', async ({ page }) => {
+  test('should navigate back from contact child arrangements to domestic abuse page, with data persisting ', async ({
+    page,
+  }) => {
     await startJourney(page);
-
-    await selectDomesticAbuseOption(page, 'No')
+    await selectChildSafetyOption(page, 'Yes');
+    await selectDomesticAbuseOption(page, 'No');
     await expect(page).toHaveURL(/contact-child-arrangements/);
 
-    await verifyBackNavigation(page, /domestic-abuse/, 
-      async () => {
-       await expect(page.getByLabel(/no/i)).toBeChecked();
-      }
-    );
+    await verifyBackNavigation(page, /domestic-abuse/, async () => {
+      await expect(page.getByLabel(/no/i)).toBeChecked();
+    });
 
     await page.getByRole('button', { name: /continue/i }).click();
     await expect(page).toHaveURL(/contact-child-arrangements/);
   });
 
-   test('should navigate back from contact child arrangements to getting help, with data persisting ', async ({ page }) => {
+  test('should navigate back from contact child arrangements to getting help, with data persisting ', async ({
+    page,
+  }) => {
     await startJourney(page);
-
-    await selectDomesticAbuseOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'Yes');
+    await selectDomesticAbuseOption(page, 'Yes');
     await page.getByRole('button', { name: /continue/i }).click();
     await expect(page).toHaveURL(/contact-child-arrangements/);
 
-    await verifyBackNavigation(page, /getting-help/, 
-      async () => {
-       await expect(page.getByRole('button', { name: /continue/i })).toBeVisible();
-      }
-    );
+    await verifyBackNavigation(page, /getting-help/, async () => {
+      await expect(page.getByRole('button', { name: /continue/i })).toBeVisible();
+    });
 
     await page.getByRole('button', { name: /continue/i }).click();
     await expect(page).toHaveURL(/contact-child-arrangements/);
   });
 
   for (const { label, nextUrl } of contactChildArrangementOption) {
-  test(`should navigate back from varying pages to contact child arrangements, with chosen "${label}" being checked`, async ({ page }) => {
-    await startJourney(page);
-    await selectDomesticAbuseOption(page, 'No');
+    test(`should navigate back from varying pages to contact child arrangements, with chosen "${label}" being checked`, async ({
+      page,
+    }) => {
+      await startJourney(page);
+      await selectChildSafetyOption(page, 'Yes');
+      await selectDomesticAbuseOption(page, 'No');
 
-    await page.getByLabel(label).check();
-    await page.getByRole('button', { name: /continue/i }).click();
-    await expect(page).toHaveURL(nextUrl);
+      await page.getByLabel(label).check();
+      await page.getByRole('button', { name: /continue/i }).click();
+      await expect(page).toHaveURL(nextUrl);
 
-    await verifyBackNavigation(page, /contact-child-arrangements/, async () => {
-      await expect(page.getByLabel(label)).toBeChecked();
+      await verifyBackNavigation(page, /contact-child-arrangements/, async () => {
+        await expect(page.getByLabel(label)).toBeChecked();
+      });
+
+      await page.getByRole('button', { name: /continue/i }).click();
+      await expect(page).toHaveURL(nextUrl);
     });
-
-    await page.getByRole('button', { name: /continue/i }).click();
-    await expect(page).toHaveURL(nextUrl);
-  });
   }
 
   for (const { label, nextUrl } of agreeOnChildArrangementOption) {
-  test(`should navigate back from varying pages to agree om child arrangements, with chosen "${label}" being checked`, async ({ page }) => {
-    await startJourney(page);
-    await selectDomesticAbuseOption(page, 'No');
-    await selectContactChildArrangementsOption(page, 'Yes')
+    test(`should navigate back from varying pages to agree om child arrangements, with chosen "${label}" being checked`, async ({
+      page,
+    }) => {
+      await startJourney(page);
+      await selectChildSafetyOption(page, 'Yes');
+      await selectDomesticAbuseOption(page, 'No');
+      await selectContactChildArrangementsOption(page, 'Yes');
 
-    await page.getByLabel(label).check();
-    await page.getByRole('button', { name: /continue/i }).click();
-    await expect(page).toHaveURL(nextUrl);
+      await page.getByLabel(label).check();
+      await page.getByRole('button', { name: /continue/i }).click();
+      await expect(page).toHaveURL(nextUrl);
 
-    await verifyBackNavigation(page, /agree/, async () => {
-      await expect(page.getByLabel(label)).toBeChecked();
+      await verifyBackNavigation(page, /agree/, async () => {
+        await expect(page.getByLabel(label)).toBeChecked();
+      });
+
+      await page.getByRole('button', { name: /continue/i }).click();
+      await expect(page).toHaveURL(nextUrl);
     });
-
-    await page.getByRole('button', { name: /continue/i }).click();
-    await expect(page).toHaveURL(nextUrl);
-  });
   }
 
   for (const { label, nextUrl } of helpToAgreeOnChildArrangementOption) {
-  test(`should navigate back from varying pages to help to agree on child arrangements, with chosen "${label}" being checked`, async ({ page }) => {
-    await startJourney(page);
-    await selectDomesticAbuseOption(page, 'No');
-    await selectContactChildArrangementsOption(page, 'Yes')
-    await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
+    test(`should navigate back from varying pages to help to agree on child arrangements, with chosen "${label}" being checked`, async ({
+      page,
+    }) => {
+      await startJourney(page);
+      await selectChildSafetyOption(page, 'Yes');
+      await selectDomesticAbuseOption(page, 'No');
+      await selectContactChildArrangementsOption(page, 'Yes');
+      await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
 
-    await page.getByLabel(label).check();
-    await page.getByRole('button', { name: /continue/i }).click();
-    await expect(page).toHaveURL(nextUrl);
+      await page.getByLabel(label).check();
+      await page.getByRole('button', { name: /continue/i }).click();
+      await expect(page).toHaveURL(nextUrl);
 
-    await verifyBackNavigation(page, /help-to-agree/, async () => {
-      await expect(page.getByLabel(label)).toBeChecked();
+      await verifyBackNavigation(page, /help-to-agree/, async () => {
+        await expect(page.getByLabel(label)).toBeChecked();
+      });
+
+      await page.getByRole('button', { name: /continue/i }).click();
+      await expect(page).toHaveURL(nextUrl);
     });
-
-    await page.getByRole('button', { name: /continue/i }).click();
-    await expect(page).toHaveURL(nextUrl);
-  });
   }
-  
+
   for (const { label, nextUrl } of otherOptions) {
-  test(`should navigate back from varying pages to help to other options, with chosen "${label}" being checked`, async ({ page }) => {
-    await startJourney(page);
-    await selectDomesticAbuseOption(page, 'No');
-    await selectContactChildArrangementsOption(page, 'Yes')
-    await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
-    await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations')
+    test(`should navigate back from varying pages to help to other options, with chosen "${label}" being checked`, async ({
+      page,
+    }) => {
+      await startJourney(page);
+      await selectChildSafetyOption(page, 'Yes');
+      await selectDomesticAbuseOption(page, 'No');
+      await selectContactChildArrangementsOption(page, 'Yes');
+      await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
+      await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
 
-    await page.getByLabel(label).check();
-    await page.getByRole('button', { name: /continue/i }).click();
-    await expect(page).toHaveURL(nextUrl);
+      await page.getByLabel(label).check();
+      await page.getByRole('button', { name: /continue/i }).click();
+      await expect(page).toHaveURL(nextUrl);
 
-    await verifyBackNavigation(page, /other-options/, async () => {
-      await expect(page.getByLabel(label)).toBeChecked();
+      await verifyBackNavigation(page, /other-options/, async () => {
+        await expect(page.getByLabel(label)).toBeChecked();
+      });
+
+      await page.getByRole('button', { name: /continue/i }).click();
+      await expect(page).toHaveURL(nextUrl);
     });
-
-    await page.getByRole('button', { name: /continue/i }).click();
-    await expect(page).toHaveURL(nextUrl);
-  });
   }
 });
 
 test.describe('Browser Navigation - Multiple Forward and Backward Navigation', () => {
-  test(`should navigate back form the furthest page: mediation, to the domestic abuse page and then forward, with data persisting`, async ({ page }) => {
+  test(`should navigate back form the furthest page: mediation, to the child safety page and then forward, with data persisting`, async ({
+    page,
+  }) => {
     await startJourney(page);
+    await selectChildSafetyOption(page, 'Yes');
     await selectDomesticAbuseOption(page, 'Yes');
     await page.getByRole('button', { name: /continue/i }).click();
-    await selectContactChildArrangementsOption(page, 'Yes')
-    await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
-    await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations')
-    await selectOtherOptions(page, 'No, we have not tried any of these')
+    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
+    await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
+    await selectOtherOptions(page, 'No, we have not tried any of these');
 
     // Go Back
     await verifyBackNavigation(page, /other-options/, async () => {
-      await expect(page.getByLabel("No, we have not tried any of these")).toBeChecked();
+      await expect(page.getByLabel('No, we have not tried any of these')).toBeChecked();
     });
     await verifyBackNavigation(page, /help-to-agree/, async () => {
-      await expect(page.getByLabel("Someone else to guide our conversations")).toBeChecked();
+      await expect(page.getByLabel('Someone else to guide our conversations')).toBeChecked();
     });
     await verifyBackNavigation(page, /agree/, async () => {
-      await expect(page.getByLabel("No, we do not agree")).toBeChecked();
+      await expect(page.getByLabel('No, we do not agree')).toBeChecked();
     });
-     await verifyBackNavigation(page, /contact-child-arrangements/, async () => {
-      await expect(page.getByLabel("Yes")).toBeChecked();
+    await verifyBackNavigation(page, /contact-child-arrangements/, async () => {
+      await expect(page.getByLabel('Yes')).toBeChecked();
     });
-     await verifyBackNavigation(page, /getting-help/, async () => {
-       await expect(page.getByRole('button', { name: /continue/i })).toBeVisible();
+    await verifyBackNavigation(page, /getting-help/, async () => {
+      await expect(page.getByRole('button', { name: /continue/i })).toBeVisible();
     });
-     await verifyBackNavigation(page, /domestic-abuse/, async () => {
-      await expect(page.getByLabel("Yes")).toBeChecked();
+    await verifyBackNavigation(page, /domestic-abuse/, async () => {
+      await expect(page.getByLabel('Yes')).toBeChecked();
+    });
+    await verifyBackNavigation(page, /child-safety/, async () => {
+      await expect(page.getByLabel('Yes')).toBeChecked();
     });
 
     // Go Forward
+    await verifyForwardNavigation(page, /domestic-abuse/, async () => {
+      await expect(page.getByLabel('Yes')).toBeChecked();
+    });
     await verifyForwardNavigation(page, /getting-help/, async () => {
-       await expect(page.getByRole('button', { name: /continue/i })).toBeVisible();
+      await expect(page.getByRole('button', { name: /continue/i })).toBeVisible();
     });
     await verifyForwardNavigation(page, /contact-child-arrangements/, async () => {
-      await expect(page.getByLabel("Yes")).toBeChecked();
+      await expect(page.getByLabel('Yes')).toBeChecked();
     });
     await verifyForwardNavigation(page, /agree/, async () => {
-      await expect(page.getByLabel("No, we do not agree")).toBeChecked();
+      await expect(page.getByLabel('No, we do not agree')).toBeChecked();
     });
     await verifyForwardNavigation(page, /help-to-agree/, async () => {
-      await expect(page.getByLabel("Someone else to guide our conversations")).toBeChecked();
+      await expect(page.getByLabel('Someone else to guide our conversations')).toBeChecked();
     });
     await verifyForwardNavigation(page, /other-options/, async () => {
-      await expect(page.getByLabel("No, we have not tried any of these")).toBeChecked();
+      await expect(page.getByLabel('No, we have not tried any of these')).toBeChecked();
     });
     await verifyForwardNavigation(page, /mediation/);
   });
@@ -195,6 +240,7 @@ test.describe('Browser Navigation - Multiple Forward and Backward Navigation', (
 test.describe('Browser Navigation - Error Messages', () => {
   test('should handle validation error page navigation using browser back button', async ({ page }) => {
     await startJourney(page);
+    await selectChildSafetyOption(page, 'Yes');
     await selectDomesticAbuseOption(page, 'No');
 
     // Submit without filling to trigger error
@@ -208,7 +254,7 @@ test.describe('Browser Navigation - Error Messages', () => {
     await expect(errorSummary).not.toBeVisible();
 
     // User can navigate to agree on child arrangements and complete the form
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'Yes');
     await expect(page).toHaveURL(/agree/);
   });
 });
