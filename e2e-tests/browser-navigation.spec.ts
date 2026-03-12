@@ -186,7 +186,7 @@ test.describe('Browser Navigation - Multiple Forward and Backward Navigation', (
       await expect(page.getByLabel("Someone else to guide our conversations")).toBeChecked();
     });
     await verifyForwardNavigation(page, /other-options/, async () => {
-      await expect(page.getByLabel("No, we have not tried any of these")).toBeChecked();
+      await expect(page.getByLabel("No, we have not tried yet")).toBeChecked();
     });
     await verifyForwardNavigation(page, /mediation/);
   });
