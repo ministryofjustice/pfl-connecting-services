@@ -128,20 +128,15 @@
     "otherOptions": {
       "title": "Have you tried any other options?",
       "content": {
-        "description": "Have you tried any of the following together in the last 6 months?",
-        "descriptionList": {
-          "first": "Family mediation",
-          "second": "Arbitration",
-          "third": "Solicitor negotiation",
-          "fourth": "Collaborative law",
-          "fifth": "Neutral evaluation"
-        },
+        "description": "Have you tried any other ways of making child arrangements in the last 6 months?",
+        "mediation": "If you decide to go to court, you'll usually need to show you've tried mediation or another way of agreeing first.",
+        "court": "If you have already tried mediation, arbitration or negotiating using a solicitor, the court will consider this when you apply.",
         "options": {
-          "yes": "Yes, we have tried one or more of these",
-          "no": "No, we have not tried any of these"
+          "yes": "Yes, we have tried mediation or a similar method",
+          "no": "No, we have not tried yet"
         }
       },
-      "error": "Select whether you have tried any of these in the last 6 months"
+      "error": "Select whether you have tried any other ways of making child arrangements in the last 4 months"
     },
     "courtOrder": {
       "title": "Explore: Applying for a court order",

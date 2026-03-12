@@ -14,7 +14,7 @@ describe('Other options', () => {
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
           location: 'body',
-          msg: 'Select whether you have tried any of these in the last 6 months',
+          msg: 'Select whether you have tried any other ways of making child arrangements in the last 4 months',
           path: 'otherOptions',
           type: 'field',
         },
