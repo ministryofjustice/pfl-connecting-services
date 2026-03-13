@@ -10,7 +10,8 @@ router.get(paths.MEDIATION, (req: Request, res: Response) => {
   res.render('pages/mediation', {
     title: res.__('pages.mediation.title'),
     backLinkHref: getBackUrl(req.session, paths.OTHER_OPTIONS),
-    abuse: req.session.abuse
+    abuse: req.session.abuse,
+    childSafety: req.session.childSafety,
   });
 });
 
