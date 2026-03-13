@@ -10,6 +10,7 @@ router.get(paths.PARENTING_PLAN, (req: Request, res: Response) => {
     title: res.__('pages.parentingPlan.title'),
     backLinkHref: getBackUrl(req.session, paths.START),
     abuse: req.session.abuse,
+    childSafety: req.session.childSafety,
   });
 });
 

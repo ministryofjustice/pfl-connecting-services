@@ -15,17 +15,21 @@ const router = Router();
  *   - YES → Safeguarding page (/getting-help)
  *   - NO  → Contact child arrangements page (/contact-child-arrangements)
  */
-router.get(paths.DOMESTIC_ABUSE, checkFormProgressFromConfig(FormSteps.DOMESTIC_ABUSE), (req: Request, res: Response) => {
-  const errors = req.flash('errors');
-  res.render('pages/domesticAbuse', {
-    title: res.__('pages.domesticAbuse.title'),
-    backLinkHref: paths.START,
-    errors,
-    formValues: {
-      abuse: req.session.abuse,
-    },
-  });
-});
+router.get(
+  paths.DOMESTIC_ABUSE,
+  checkFormProgressFromConfig(FormSteps.DOMESTIC_ABUSE),
+  (req: Request, res: Response) => {
+    const errors = req.flash('errors');
+    res.render('pages/domesticAbuse', {
+      title: res.__('pages.domesticAbuse.title'),
+      backLinkHref: paths.CHILD_SAFETY,
+      errors,
+      formValues: {
+        abuse: req.session.abuse,
+      },
+    });
+  },
+);
 
 router.post(
   paths.DOMESTIC_ABUSE,
@@ -46,7 +50,7 @@ router.post(
       return res.redirect(paths.SAFEGUARDING);
     }
     return res.redirect(paths.CONTACT_CHILD_ARRANGEMENTS);
-  }
+  },
 );
 
 export default router;

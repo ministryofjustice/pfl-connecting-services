@@ -9,6 +9,7 @@ enum paths {
   TERMS_AND_CONDITIONS = '/terms-conditions',
 
   // Connecting Services specific paths
+  CHILD_SAFETY = '/child-safety',
   DOMESTIC_ABUSE = '/domestic-abuse',
   SAFEGUARDING = '/getting-help',
   CONTACT_CHILD_ARRANGEMENTS = '/contact-child-arrangements',
