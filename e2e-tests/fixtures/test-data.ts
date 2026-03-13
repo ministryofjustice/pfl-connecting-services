@@ -51,11 +51,11 @@ export const helpToAgreeOnChildArrangementOption = [
 
 export const otherOptions = [
   {
-    label: 'Yes, we have tried one or more of these',
+    label: 'Yes, we have tried mediation or a similar method',
     nextUrl: /court-order/,
   },
   {
-    label: 'No, we have not tried any of these',
+    label: 'No, we have not tried yet',
     nextUrl: /mediation/,
   }
 ];

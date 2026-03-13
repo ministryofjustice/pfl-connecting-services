@@ -1,10 +1,10 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 
 {% set title = __("pages.start.title") %}
 {% block pageTitle %}
-  {{ __("serviceName") }} – GOV.UK
+  {{ __("serviceName") }}
+  – GOV.UK
 {% endblock %}
 
 {% block header %}
@@ -16,12 +16,27 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">{{ __("pages.start.title") }}</h1>
-      <p class="govuk-body">{{ __("pages.start.description") }}</p>
-      
 
-      <h2 class="govuk-heading-m">
-        {{ __("pages.start.howItWorks.title") }}
-      </h2>
+      <h2 class="govuk-heading-m">{{ __("pages.start.whoShouldUse.title") }}</h2>
+
+      <p class="govuk-body">{{ __("pages.start.whoShouldUse.description") }}</p>
+
+      <p class="govuk-body">{{ __("pages.start.whoShouldUse.avoidCourt") }}</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ __("pages.start.whoShouldUse.bullets.whereLive") }}</li>
+        <li>{{ __("pages.start.whoShouldUse.bullets.timeSpent") }}</li>
+      </ul>
+
+      <p class="govuk-body">{{ __("pages.start.whoShouldUse.childArrangements") }}</p>
+
+      <h2 class="govuk-heading-m">{{ __("pages.start.whoShouldNotUse.title") }}</h2>
+
+      <p class="govuk-body">{{ __("pages.start.whoShouldNotUse.parentalResponsibility") }}</p>
+
+      <p class="govuk-body">{{ __("pages.start.whoShouldNotUse.financialArrangements") | safe }}</p>
+
+      <h2 class="govuk-heading-m">{{ __("pages.start.howItWorks.title") }}</h2>
 
       <p class="govuk-body">{{ __("pages.start.howItWorks.content.circumstances") }}</p>
 
@@ -29,14 +44,9 @@
 
       <p class="govuk-body">{{ __("pages.start.howItWorks.content.tenMinutes") }}</p>
 
-      <h3 class="govuk-heading-s">
-        {{ __("pages.start.exitTheService.title") }}
-      </h3>
+      <h2 class="govuk-heading-m">{{ __("pages.start.exitTheService.title") }}</h2>
 
-      <p class="govuk-body">
-        {{ __("pages.start.exitTheService.description") }}
-        {{ __("exitThisPage")  | safe }}
-      </p>
+      <p class="govuk-body">{{ __("pages.start.exitTheService.description") }}</p>
 
       {{
         govukButton({
@@ -45,10 +55,29 @@
           href: paths.DOMESTIC_ABUSE
         })
       }}
-
     </div>
-    
-    {%- include "partials/relatedContent.njk" -%}
 
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m subsection-title">{{ __("pages.start.relatedContent.title") }}</h2>
+      <nav role="navigation">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li class="govuk-!-margin-bottom-2">
+            <a href="{{ __('pages.start.relatedContent.links.makingChildArrangements') }}">
+              {{ __("pages.start.relatedContent.content.makingChildArrangements") }}
+            </a>
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a href="{{ __('pages.start.relatedContent.links.childMaintenance') }}">
+              {{ __("pages.start.relatedContent.content.childMaintenance") }}
+            </a>
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a href="{{ __('pages.start.relatedContent.links.parentalRights') }}">
+              {{ __("pages.start.relatedContent.content.parentalRights") }}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 {% endblock %}

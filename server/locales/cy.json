@@ -36,8 +36,22 @@
       "error": "Select whether you or your children have experienced abuse from your ex-partner"
     },
     "start": {
-      "title": "Get help finding a child arrangement option ",
-      "description": "Use this service to find out about your options for making child arrangements if you are a parent separating from your child's other parent.",
+      "title": "Get help finding a child arrangement option",
+      "whoShouldUse": {
+        "title": "Who should use this service",
+        "description": "Use this service to find out about your options for making child arrangements in England and Wales if you are separating from your child's other parent.",
+        "avoidCourt": "You may be able to avoid going to court if you can agree on things like:",
+        "bullets": {
+          "whereLive": "where the children will live",
+          "timeSpent": "how much time they'll spend with each person"
+        },
+        "childArrangements": "This is called making child arrangements (sometimes known as 'child custody' or 'child contact')."
+      },
+      "whoShouldNotUse": {
+        "title": "Who should not use this service",
+        "parentalResponsibility": "You should not use this service if the court has removed or restricted parental responsibility for anyone in relation to a child.",
+        "financialArrangements": "This service is not for making financial arrangements. <a href=\"https://www.gov.uk/child-maintenance-service\">Find out more about child maintenance</a> for information on how a child's living costs can be paid when their parents separate."
+      },
       "howItWorks": {
         "title": "How it works",
         "content": {
@@ -56,6 +70,11 @@
           "makingChildArrangements": "Making child arrangements if you divorce or separate",
           "childMaintenance": "Child maintenance",
           "parentalRights": "Parental rights and responsibilities"
+        },
+        "links": {
+          "makingChildArrangements": "https://www.gov.uk/looking-after-children-divorce",
+          "childMaintenance": "https://www.gov.uk/child-maintenance-service",
+          "parentalRights": "https://www.gov.uk/parental-rights-responsibilities"
         }
       }
     },
@@ -112,7 +131,7 @@
           "third": "We have not discussed it yet"
         }
       },
-      "error":"Select whether you and your ex-partner agree on child arrangements"
+      "error": "Select whether you and your ex-partner agree on child arrangements"
     },
     "helpToAgree": {
       "title": "What would help you both agree on child arrangements?",
@@ -128,20 +147,15 @@
     "otherOptions": {
       "title": "Have you tried any other options?",
       "content": {
-        "description": "Have you tried any of the following together in the last 6 months?",
-        "descriptionList": {
-          "first": "Family mediation",
-          "second": "Arbitration",
-          "third": "Solicitor negotiation",
-          "fourth": "Collaborative law",
-          "fifth": "Neutral evaluation"
-        },
+        "description": "Have you tried any other ways of making child arrangements in the last 6 months?",
+        "mediation": "If you decide to go to court, you'll usually need to show you've tried mediation or another way of agreeing first.",
+        "court": "If you have already tried mediation, arbitration or negotiating using a solicitor, the court will consider this when you apply.",
         "options": {
-          "yes": "Yes, we have tried one or more of these",
-          "no": "No, we have not tried any of these"
+          "yes": "Yes, we have tried mediation or a similar method",
+          "no": "No, we have not tried yet"
         }
       },
-      "error": "Select whether you have tried any of these in the last 6 months"
+      "error": "Select whether you have tried any other ways of making child arrangements in the last 4 months"
     },
     "courtOrder": {
       "title": "Explore: Applying for a court order",
