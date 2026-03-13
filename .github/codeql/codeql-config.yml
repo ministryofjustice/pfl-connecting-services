@@ -1,0 +1,18 @@
+name: "CodeQL config for pfl-connecting-services-app"
+
+# Query filters to exclude known false positives
+query-filters:
+  # Exclude the "Missing CSRF middleware" query (js/missing-token-validation)
+  #
+  # This is a false positive because:
+  # 1. CSRF protection is applied globally via csrf-sync library in server/middleware/setUpCsrf.ts
+  # 2. The setUpCsrf() middleware is registered BEFORE all routes in server/app.ts (line 47)
+  # 3. All POST routes go through this middleware which validates the _csrf token from request body
+  # 4. CodeQL doesn't recognize the csrf-sync library pattern
+  #
+  # The middleware uses csrfSynchronisedProtection from csrf-sync which:
+  # - Generates tokens via req.csrfToken()
+  # - Validates tokens from req.body._csrf on POST requests
+  # - Is applied to all routes except /api/analytics/* (which are stateless beacon endpoints)
+  - exclude:
+      id: js/missing-token-validation
