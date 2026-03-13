@@ -27,7 +27,7 @@ describe('Parenting Plan', () => {
       const response = await request(app).get(paths.PARENTING_PLAN).expect(200);
 
       expect(response.text).toContain('Why this could be right for you');
-      expect(response.text).toContain('You do not have to do any official paperwork');
+      expect(response.text).toContain('You do not have to go to court or do any official paperwork if you and your ex-partner agree about child arrangements.');
       expect(response.text).toContain('parenting plan');
     });
 
@@ -69,9 +69,9 @@ describe('Parenting Plan', () => {
     it('should display help and support table with services', async () => {
       const response = await request(app).get(paths.PARENTING_PLAN).expect(200);
       const dom = new JSDOM(response.text);
-      const table = dom.window.document.querySelector('.govuk-table');
+      const table = dom.window.document.querySelector('.govuk-summary-list');
 
-      expect(table).toHaveTextContent('Advice Now');
+      expect(table).toHaveTextContent('Advicenow');
       expect(table).toHaveTextContent('Children and Family Court Advisory and Support Service (Cafcass)');
       expect(table).toHaveTextContent('Cafcass Cymru');
     });

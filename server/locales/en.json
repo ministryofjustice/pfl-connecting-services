@@ -147,20 +147,15 @@
     "otherOptions": {
       "title": "Have you tried any other options?",
       "content": {
-        "description": "Have you tried any of the following together in the last 6 months?",
-        "descriptionList": {
-          "first": "Family mediation",
-          "second": "Arbitration",
-          "third": "Solicitor negotiation",
-          "fourth": "Collaborative law",
-          "fifth": "Neutral evaluation"
-        },
+        "description": "Have you tried any other ways of making child arrangements in the last 4 months?",
+        "mediation": "If you decide to go to court, you'll usually need to show you've tried mediation or another way of agreeing first.",
+        "court": "If you have already tried mediation, arbitration or negotiating using a solicitor, the court will consider this when you apply.",
         "options": {
-          "yes": "Yes, we have tried one or more of these",
-          "no": "No, we have not tried any of these"
+          "yes": "Yes, we have tried mediation or a similar method",
+          "no": "No, we have not tried yet"
         }
       },
-      "error": "Select whether you have tried any of these in the last 6 months"
+      "error": "Select whether you have tried any other ways of making child arrangements in the last 4 months"
     },
     "courtOrder": {
       "title": "Explore: Applying for a court order",
@@ -314,7 +309,7 @@
       "content": {
         "whyRightForYou": {
           "title": "Why this could be right for you",
-          "noPaperwork": "You do not have to do any official paperwork if you and your ex-partner agree about child arrangements.",
+          "noPaperwork": "You do not have to go to court or do any official paperwork if you and your ex-partner agree about child arrangements.",
           "informalArrangements": "Informal arrangements where nothing is written down work for some people, but if you'd prefer, you can record what you have agreed in a child arrangements plan, also called a 'parenting plan'."
         },
         "warningText": "It may not be appropriate for you to make child arrangements directly with your ex-partner if there is any risk of harm to you or the children. Find out <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help#get-help-and-support\">how to get help with domestic abuse</a>.",
@@ -323,7 +318,7 @@
           "noCourt": "<strong>No court:</strong> You do not have to go to court to make informal arrangements or a parenting plan.",
           "noCost": "<strong>No cost:</strong> You can make a parenting plan using free online tools and templates.",
           "easyToChange": "<strong>Easy to review and change:</strong> As your children get older and their needs change, or if your situation changes.",
-          "legallyBinding": "<strong>Make it legally binding:</strong> You can apply to the family court for a 'consent order' based on your plan if you want to make an informal agreement legally binding. You will need to <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">apply for a court order</a> to get your consent order approved, but there's usually no court hearing.",
+          "legallyBinding": "<strong>Make it legally binding:</strong> You can get a legal adviser and apply to the family court for a 'consent order' based on your plan if you want to make an informal agreement legally binding. You will need to <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">apply for a court order</a> to get your consent order approved, but there's usually no court hearing.",
           "findOutMore": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Find out more about what to do if you agree on child arrangements</a>"
         },
         "nextStep": {
@@ -351,9 +346,9 @@
           "description": "These are some of the services you may find helpful for making child arrangements with your ex-partner.",
           "services": {
             "adviceNow": {
-              "name": "Advice Now",
+              "name": "Advicenow",
               "url": "https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements",
-              "description": "Information on child arrangements from a charity that provides easy-to-understand legal information, self-help tools and training for people facing urgent legal problems."
+              "description": "Information on child arrangements from a charity that provides online legal information and support tools for people facing everyday legal issues with limited access to a lawyer."
             },
             "cafcass": {
               "name": "Children and Family Court Advisory and Support Service (Cafcass)",
