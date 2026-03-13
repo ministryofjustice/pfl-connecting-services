@@ -114,7 +114,7 @@ test.describe('should display explore court order through different journey flow
   test('should display explore a court order when parent and ex-partner have tried one or more other options', async ({ page }) => {
     await selectAgreeOnChildArrangementsOption(page, "No, we do not agree");
     await selectHelpToAgreeOnChildArrangementsOption(page,'Someone else to guide our conversations');
-    await selectOtherOptions(page, "Yes, we have tried one or more of these")
+    await selectOtherOptions(page, "Yes, we have tried mediation or a similar method")
 
     await expect(page).toHaveURL(/court-order/);
     await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
@@ -131,7 +131,7 @@ test.describe('should display explore court order through different journey flow
   test('should display explore a court order when parent and ex-partner have not discussed child arrangements and have tried one or more other options', async ({ page }) => {
     await selectAgreeOnChildArrangementsOption(page, 'We have not discussed it yet');
     await selectHelpToAgreeOnChildArrangementsOption(page,'Someone else to guide our conversations');
-    await selectOtherOptions(page, "Yes, we have tried one or more of these")
+    await selectOtherOptions(page, "Yes, we have tried mediation or a similar method")
 
     await expect(page).toHaveURL(/court-order/);
     await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
