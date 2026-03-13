@@ -71,7 +71,7 @@ test.describe('Parenting Plan', () => {
     await page.goto('/parenting-plan');
 
     await expect(page.locator('h2').first()).toHaveText('Why this could be right for you');
-    await expect(page.locator('text=You do not have to do any official paperwork')).toBeVisible();
+    await expect(page.locator('text=You do not have to go to court or do any official paperwork if you and your ex-partner agree about child arrangements.')).toBeVisible();
   });
 
   test('should display "Important things to consider" section', async ({ page }) => {
@@ -109,9 +109,9 @@ test.describe('Parenting Plan', () => {
     await page.goto('/parenting-plan');
 
     await expect(page.locator('text=Help and support')).toBeVisible();
-    await expect(page.locator('.govuk-table')).toContainText('Advice Now');
-    await expect(page.locator('.govuk-table')).toContainText('Cafcass');
-    await expect(page.locator('.govuk-table')).toContainText('Cafcass Cymru');
+    await expect(page.locator('.govuk-summary-list')).toContainText('Advicenow');
+    await expect(page.locator('.govuk-summary-list')).toContainText('Cafcass');
+    await expect(page.locator('.govuk-summary-list')).toContainText('Cafcass Cymru');
   });
 
   test('should display related content section', async ({ page }) => {
@@ -140,7 +140,7 @@ test.describe('Parenting Plan', () => {
   test('should have Advice Now link pointing to correct URL', async ({ page }) => {
     await page.goto('/parenting-plan');
 
-    const adviceNowLink = page.locator('a:has-text("Advice Now")');
+    const adviceNowLink = page.locator('a:has-text("Advicenow")');
     await expect(adviceNowLink).toHaveAttribute('href', 'https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements');
   });
 
