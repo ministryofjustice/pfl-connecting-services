@@ -49,7 +49,7 @@ export async function selectHelpToAgreeOnChildArrangementsOption(
 
 export async function selectOtherOptions(
   page: Page,
-  choiceLabel: 'Yes, we have tried one or more of these' | 'No, we have not tried any of these',
+  choiceLabel: 'Yes, we have tried mediation or a similar method' | 'No, we have not tried yet',
 ) {
   await page.getByLabel(choiceLabel).check();
   await page.getByRole('button', { name: /continue/i }).click();

@@ -105,34 +105,44 @@
         {{ __("pages.parentingPlan.content.helpAndSupport.description") }}
       </p>
 
-      <table class="govuk-table">
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">
-              <a href="{{ __('pages.parentingPlan.content.helpAndSupport.services.adviceNow.url') }}">
-                {{ __("pages.parentingPlan.content.helpAndSupport.services.adviceNow.name") }}
-              </a>
-            </th>
-            <td class="govuk-table__cell">{{ __("pages.parentingPlan.content.helpAndSupport.services.adviceNow.description") }}</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">
-              <a href="{{ __('pages.parentingPlan.content.helpAndSupport.services.cafcass.url') }}">
-                {{ __("pages.parentingPlan.content.helpAndSupport.services.cafcass.name") }}
-              </a>
-            </th>
-            <td class="govuk-table__cell">{{ __("pages.parentingPlan.content.helpAndSupport.services.cafcass.description") }}</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">
-              <a href="{{ __('pages.parentingPlan.content.helpAndSupport.services.cafcassCymru.url') }}">
-                {{ __("pages.parentingPlan.content.helpAndSupport.services.cafcassCymru.name") }}
-              </a>
-            </th>
-            <td class="govuk-table__cell">{{ __("pages.parentingPlan.content.helpAndSupport.services.cafcassCymru.description") }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-parenting-plan-width">
+          </dt>
+          <dd class="govuk-summary-list__value">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-parenting-plan-width">
+            <a href="{{ __('pages.parentingPlan.content.helpAndSupport.services.adviceNow.url') }}">
+              {{ __("pages.parentingPlan.content.helpAndSupport.services.adviceNow.name") }}
+            </a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ __("pages.parentingPlan.content.helpAndSupport.services.adviceNow.description") }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-parenting-plan-width">
+            <a href="{{ __('pages.parentingPlan.content.helpAndSupport.services.cafcass.url') }}">
+              {{ __("pages.parentingPlan.content.helpAndSupport.services.cafcass.name") }}
+            </a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ __("pages.parentingPlan.content.helpAndSupport.services.cafcass.description") }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-parenting-plan-width">
+            <a href="{{ __('pages.parentingPlan.content.helpAndSupport.services.cafcassCymru.url') }}">
+              {{ __("pages.parentingPlan.content.helpAndSupport.services.cafcassCymru.name") }}
+            </a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ __("pages.parentingPlan.content.helpAndSupport.services.cafcassCymru.description") }}
+          </dd>
+        </div>
+      </dl>
 
       {{ govukPrintLink({
         text: __("printThisPage")
