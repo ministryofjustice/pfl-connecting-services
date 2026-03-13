@@ -57,6 +57,10 @@
   width: 32%;
 }
 
+.govuk-summary-list__key-parenting-plan-width {
+  width: 32%;
+}
+
 .govuk-print-link__button {
   @include govuk-font($size: 19);
   @include govuk-link-common;
