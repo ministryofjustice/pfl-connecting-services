@@ -23,10 +23,6 @@ test.describe('Court Order Page', () => {
     await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
   });
 
-  test('should display correct page heading', async ({ page }) => {
-    await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
-  });
-
   test('should display "Why this could be right for you" section', async ({ page }) => {
     await expect(page.locator('h2').first()).toHaveText('Why this could be right for you');
     await expect(page.locator('.govuk-list--bullet').first()).toContainText('you cannot agree after');

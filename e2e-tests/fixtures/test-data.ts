@@ -61,9 +61,9 @@ export const otherOptions = [
 ];
 
 export const staticPages = [
-  { name: 'accessibility statement', path: '/accessibility-statement' },
+  { name: 'accessibility statement', path: '/accessibility' },
   { name: 'cookies', path: '/cookies' },
   { name: 'privacy notice', path: '/privacy-notice' },
   { name: 'contact us', path: '/contact-us' },
-  { name: 'terms and conditions', path: '/terms-and-conditions' },
+  { name: 'terms and conditions', path: '/terms-conditions' },
 ];
