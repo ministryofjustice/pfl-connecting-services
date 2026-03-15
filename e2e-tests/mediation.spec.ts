@@ -10,7 +10,7 @@ test.describe('Court Order Page', () => {
     await selectContactChildArrangementsOption(page, 'Yes');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
-    await selectOtherOptions(page, 'No, we have not tried any of these')
+    await selectOtherOptions(page, 'No, we have not tried yet')
   });
 
   test('should display the page with correct url and title', async ({ page }) => {
