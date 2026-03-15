@@ -14,7 +14,7 @@ test.describe('Other options', () => {
   
   test('should display the page with correct url and title', async ({ page }) => {
     await expect(page).toHaveURL(/other-options/);
-    await expect(page.locator('h1')).toContainText('Have you tried any of the following together in the last 6 months?');
+    await expect(page.locator('h1')).toContainText('Have you tried any other ways of making child arrangements in the last 4 months?');
   });
 
   test('should navigate to help to agree page when back link is clicked', async ({ page }) => {
