@@ -69,7 +69,7 @@ describe('Child Safety Question', () => {
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
           location: 'body',
-          msg: 'Select yes if the children are safe',
+          msg: 'Select whether the children are safe',
           path: 'childSafety',
           type: 'field',
         },
