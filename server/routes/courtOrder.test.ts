@@ -79,7 +79,7 @@ describe('Court Order', () => {
     it('should display related content section with correct links', async () => {
       const response = await request(app).get(paths.COURT_ORDER).expect(200);
       const dom = new JSDOM(response.text);
-      const relatedContent = dom.window.document.querySelector('.govuk-prototype-kit-common-templates-related-items');
+      const relatedContent = dom.window.document.querySelector('.govuk-grid-column-one-third');
 
       expect(relatedContent).toHaveTextContent('Related content');
       expect(relatedContent).toHaveTextContent('Making child arrangements if you divorce or separate');
