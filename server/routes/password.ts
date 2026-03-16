@@ -29,7 +29,6 @@ const handlePostPassword = (request: Request, response: Response) => {
   const errors = validationResult(request);
 
   if (errors.isEmpty()) {
-    // lgtm[js/missing-token-validation] CSRF protection applied globally via setUpCsrf middleware in app.ts
     response.cookie(cookieNames.AUTHENTICATION, encryptPassword(request.body.password), {
       maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
       secure: config.useHttps,

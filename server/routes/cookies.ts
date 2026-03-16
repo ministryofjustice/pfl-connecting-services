@@ -20,7 +20,6 @@ const cookiesRoutes = (router: Router) => {
     logger.info(`Accepted analytics. POST ${paths.COOKIES}`);
     const acceptAnalytics = request.body[ACCEPT_OPTIONAL_COOKIES] as yesOrNo;
 
-    // lgtm[js/missing-token-validation] CSRF protection applied globally via setUpCsrf middleware in app.ts
     response.cookie(cookieNames.ANALYTICS_CONSENT, JSON.stringify({ acceptAnalytics }), {
       maxAge: 1000 * 60 * 60 * 24 * 365, // One Year
       secure: config.useHttps,

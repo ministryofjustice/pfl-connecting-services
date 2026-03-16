@@ -11,7 +11,6 @@ const analyticsRoutes = (router: Router) => {
    * POST endpoint for logging link clicks (both internal and external)
    * Called by client-side JavaScript when a user clicks a link
    */
-  // lgtm[js/missing-token-validation] Analytics endpoints exempt from CSRF - use sendBeacon during page unload, no sensitive data modified
   router.post('/api/analytics/link-click', (request, response) => {
     const { url, linkText, linkType, currentPage } = request.body;
 
@@ -31,7 +30,6 @@ const analyticsRoutes = (router: Router) => {
    * POST endpoint for logging page exits
    * Called by client-side JavaScript when a user closes tab/window or navigates away
    */
-  // lgtm[js/missing-token-validation] Analytics endpoints exempt from CSRF - use sendBeacon during page unload, no sensitive data modified
   router.post('/api/analytics/page-exit', (request, response) => {
     const { exitPage, destinationUrl } = request.body;
 
@@ -51,7 +49,6 @@ const analyticsRoutes = (router: Router) => {
    * POST endpoint for logging quick exits
    * Called by client-side JavaScript when a user clicks the quick exit button
    */
-  // lgtm[js/missing-token-validation] Analytics endpoints exempt from CSRF - use sendBeacon during page unload, no sensitive data modified
   router.post('/api/analytics/quick-exit', (request, response) => {
     const { exitPage } = request.body;
 
