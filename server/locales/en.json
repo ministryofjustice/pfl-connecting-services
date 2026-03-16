@@ -283,7 +283,7 @@
           "content": {
             "info": "If you or your children have experienced abuse from your ex-partner, tell the mediator. They can advise on the safest way to continue, or whether you should apply for a court order.",
             "initialMeeting": "<strong>Initial meeting:</strong> You may need to go to a short meeting with a mediator to assess if mediation is the right option for you. This is sometimes called a Mediation Information and Assessment Meeting (MIAM).",
-            "cost": "<strong>Cost:</strong> Mediation is usually cheaper and quicker than going to court. You may be able to get legal aid to cover the cost if you are on a low income. The usual cost of a MIAM is around £120.",
+            "cost": "<strong>Cost:</strong> Mediation is usually cheaper and quicker than going to court. You may be able to get <a href=\"https://www.gov.uk/legal-aid\">legal aid</a> to cover the cost if you are on a low income. The usual cost of a MIAM is around £120.",
             "costInset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
             "stayInControl": "<strong>You stay in control:</strong> Unlike in court, where a judge makes the decisions about child arrangements, in mediation you and your ex-partner decide what you agree to and what you don't.",
             "childInclusiveMediation": "<strong>Child-inclusive mediation:</strong> Children can have a voice in the process if it's suitable. A mediator can talk to your child about what they want to make sure their views are heard.",
@@ -300,9 +300,9 @@
               "description": "This could suit you if: If you and your ex-partner can agree on child arrangements, you can record it in a child arrangements plan, also called a 'parenting plan'.",
               "link": "<a href=\"parenting-plan\"> Explore: Making a parenting plan</a>"
             },
-            "arbitration": {
-              "title": "Arbitration",
-              "description": "This could suit you if: You'd prefer that someone like a judge or solicitor listens to both of your views and makes a legally-binding decision about the child arrangements.",
+            "otherOptionsToExplore": {
+              "title": "Other options to explore",
+              "description": "There are other ways to help you agree on child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR) and are usually quicker than going to court. The type you choose will depend on your circumstances, for example your financial situation, where you live and whether you're in contact with your ex-partner.",
               "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\"> Find out more about other ways to agree without going to court</a>"
             }
           }
@@ -313,7 +313,9 @@
           "mediationCouncilLink": "<a href=\"https://www.familymediationcouncil.org.uk/\">Family Mediation Council</a>",
           "mediationCouncilText": "Find a trained mediator from a network of family mediation organisations in England and Wales.",
           "legalAidAdviserLink": "<a href=\"https://find-legal-advice.justice.gov.uk/\">Find a legal aid adviser or family mediator</a>",
-          "legalAidAdviserText": "Use this service to find legal aid advisers in England and Wales."
+          "legalAidAdviserText": "Use this service to find legal aid advisers in England and Wales.",
+          "adviceNowLink": "<a href=\"https://www.advicenow.org.uk/get-help/family-and-children/family-mediation/\">Advicenow</a>",
+          "adviceNowText": "Information on how family mediation can help you from a charity that provides easy-to-understand information for people facing everyday legal issues with limited access to a lawyer."
         }
       },
       "relatedContent": {
