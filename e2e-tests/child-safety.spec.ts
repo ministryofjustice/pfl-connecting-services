@@ -53,7 +53,7 @@ test.describe('Child Safety Page', () => {
     await expect(page.locator('.govuk-error-summary__title')).toHaveText('There is a problem');
 
     const errorLink = page.locator('.govuk-error-summary__list a');
-    await expect(errorLink).toHaveText('Select yes if the children are safe');
+    await expect(errorLink).toHaveText('Select whether the children are safe');
   });
 
   test('should have error link that focuses the first radio input when clicked', async ({ page }) => {
@@ -71,7 +71,7 @@ test.describe('Child Safety Page', () => {
     await page.getByRole('button', { name: /continue/i }).click();
 
     const inlineError = page.locator('.govuk-error-message');
-    await expect(inlineError).toContainText('Select yes if the children are safe');
+    await expect(inlineError).toContainText('Select whether the children are safe');
   });
 
   test('should navigate back to start page when back link clicked', async ({ page }) => {
