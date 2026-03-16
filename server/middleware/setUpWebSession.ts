@@ -19,8 +19,7 @@ const setUpWebSession = (): Router => {
   }
 
   const router = Router();
-  // lgtm[js/missing-token-validation] CSRF protection is applied via setUpCsrf middleware in app.ts, registered after this session middleware
-  router.use(
+  router.use( // codeql[js/missing-token-validation] CSRF protection applied via setUpCsrf middleware
     session({
       store,
       name: cookieNames.SESSION,
