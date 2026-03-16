@@ -5,6 +5,7 @@ import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
 import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
 import addCompletedStep from '../utils/addCompletedStep';
+import { getBackUrl } from '../utils/sessionHelpers';
 
 const router = Router();
 
@@ -22,7 +23,7 @@ router.get(
     const errors = req.flash('errors');
     res.render('pages/domesticAbuse', {
       title: res.__('pages.domesticAbuse.title'),
-      backLinkHref: paths.CHILD_SAFETY,
+      backLinkHref: getBackUrl(req.session, paths.CHILD_SAFETY),
       errors,
       formValues: {
         abuse: req.session.abuse,

@@ -21,10 +21,10 @@ describe('Court Order', () => {
     it('should display "Why this could be right for you" section with reasons', async () => {
       const response = await request(app).get(paths.COURT_ORDER).expect(200);
       const dom = new JSDOM(response.text);
-      const list = dom.window.document.querySelector('ul');
+      const list = dom.window.document.querySelector('.govuk-list');
 
       expect(list).toHaveTextContent('you cannot agree after');
-      expect(list).toHaveTextContent('domestic abuse or you or the children are at risk');
+      expect(list).toHaveTextContent('domestic or any other kind of abuse');
       expect(list).toHaveTextContent('cannot contact your ex-partner');
       expect(list).toHaveTextContent('consent order');
     });
@@ -32,19 +32,19 @@ describe('Court Order', () => {
     it('should display order types list', async () => {
       const response = await request(app).get(paths.COURT_ORDER).expect(200);
       const dom = new JSDOM(response.text);
-      const list = dom.window.document.querySelectorAll('ul');
+      const lists = dom.window.document.querySelectorAll('.govuk-list');
 
       // Second list contains order types
-      expect(list[3]).toHaveTextContent('Child arrangements order');
-      expect(list[3]).toHaveTextContent('Specific issue order');
-      expect(list[3]).toHaveTextContent('Prohibited steps order');
+      expect(lists[1]).toHaveTextContent('child arrangements order');
+      expect(lists[1]).toHaveTextContent('specific issues order');
+      expect(lists[1]).toHaveTextContent('prohibited steps order');
     });
 
     it('should display "Important things to consider" section', async () => {
       const response = await request(app).get(paths.COURT_ORDER).expect(200);
 
       expect(response.text).toContain('Important things to consider');
-      expect(response.text).toContain('Mediation Information and Assessment Meeting (MIAM):');
+      expect(response.text).toContain('Mediation:');
       expect(response.text).toContain('Cost:');
       expect(response.text).toContain('Time:');
     });
@@ -54,7 +54,7 @@ describe('Court Order', () => {
 
       expect(response.text).toContain('Other ways to agree without going to court');
       expect(response.text).toContain('Mediation');
-      expect(response.text).toContain('Other options to explore');
+      expect(response.text).toContain('Arbitration');
     });
 
     it('should display mediation inset text about voucher scheme', async () => {
@@ -68,12 +68,11 @@ describe('Court Order', () => {
     it('should display help and support table with services', async () => {
       const response = await request(app).get(paths.COURT_ORDER).expect(200);
       const dom = new JSDOM(response.text);
-      const summaryList = dom.window.document.querySelector('.govuk-summary-list');
+      const table = dom.window.document.querySelector('.govuk-table');
 
-      expect(summaryList).toHaveTextContent('Advicenow');
-      expect(summaryList).toHaveTextContent('Children and Family Court Advisory and Support Service (Cafcass)');
-      expect(summaryList).toHaveTextContent('LawWorks');
-      expect(summaryList).toHaveTextContent('National Association of Child Contact Centres (NACCC)');
+      expect(table).toHaveTextContent('Advice Now');
+      expect(table).toHaveTextContent('Children and Family Court Advisory and Support Service (Cafcass)');
+      expect(table).toHaveTextContent('Cafcass Cymru');
     });
 
     it('should display related content section with correct links', async () => {
