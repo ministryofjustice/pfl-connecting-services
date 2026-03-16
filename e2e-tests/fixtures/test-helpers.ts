@@ -3,11 +3,8 @@ import { Page } from '@playwright/test';
 export async function startJourney(page: Page) {
   // Start from homepage - with USE_AUTH=false this goes directly to child-safety
   await page.goto('/');
-  await page.waitForLoadState('networkidle');
-  await Promise.all([
-    page.waitForURL(/child-safety/),
-    page.getByRole('button', { name: /start now/i }).click(),
-  ]);
+  await page.getByRole('button', { name: /start now/i }).click();
+  await page.waitForURL(/child-safety/);
 }
 
 export async function selectChildSafetyOption(page: Page, choiceLabel: 'Yes' | 'No') {
