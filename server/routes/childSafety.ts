@@ -13,7 +13,7 @@ const router = Router();
  *
  * Routing logic:
  *   - YES (children are safe) → Domestic abuse page (/domestic-abuse)
- *   - NO (children are not safe) → Safeguarding page (/getting-help)
+ *   - NO (children are not safe) → Child safety help page (/child-safety-help)
  */
 router.get(paths.CHILD_SAFETY, checkFormProgressFromConfig(FormSteps.CHILD_SAFETY), (req: Request, res: Response) => {
   const errors = req.flash('errors');
@@ -45,7 +45,7 @@ router.post(
     if (req.body.childSafety === 'yes') {
       return res.redirect(paths.DOMESTIC_ABUSE);
     }
-    return res.redirect(paths.SAFEGUARDING);
+    return res.redirect(paths.CHILD_SAFETY_HELP);
   },
 );
 

@@ -39,9 +39,9 @@ test.describe('Child Safety Page', () => {
     await expect(page).toHaveURL(/domestic-abuse/);
   });
 
-  test('should navigate to safeguarding page when No option selected (children not safe)', async ({ page }) => {
+  test('should navigate to child safety help page when No option selected (children not safe)', async ({ page }) => {
     await selectChildSafetyOption(page, 'No');
-    await expect(page).toHaveURL(/getting-help/);
+    await expect(page).toHaveURL(/child-safety-help/);
   });
 
   test('should display error summary when Continue clicked without selecting an option', async ({ page }) => {

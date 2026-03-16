@@ -20,6 +20,14 @@ describe('Domestic Abuse Question', () => {
       expect(dom.window.document.querySelector('h2.govuk-error-summary__title')).toBeNull();
     });
 
+    it('should display intro text about domestic abuse', async () => {
+      const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
+
+      expect(response.text).toContain(
+        'There may have been domestic abuse in the relationship if you or your children have experienced any of the following:',
+      );
+    });
+
     it('should display examples of abuse as bullet list', async () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
 
@@ -28,6 +36,14 @@ describe('Domestic Abuse Question', () => {
       expect(response.text).toContain('Coercive control and psychological abuse (threats, humiliation, intimidation, degradation, isolation and control)');
       expect(response.text).toContain('Child abuse, neglect, or child abduction');
       expect(response.text).toContain('Harassment and stalking');
+    });
+
+    it('should display Answer Yes guidance text', async () => {
+      const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
+
+      expect(response.text).toContain(
+        'Answer &#39;Yes&#39; if you have experienced any of the above, whether or not you have reported your experience to the police.',
+      );
     });
 
     it('should display two radio options: Yes and No', async () => {

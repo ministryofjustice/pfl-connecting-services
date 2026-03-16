@@ -10,6 +10,7 @@ enum paths {
 
   // Connecting Services specific paths
   CHILD_SAFETY = '/child-safety',
+  CHILD_SAFETY_HELP = '/child-safety-help',
   DOMESTIC_ABUSE = '/domestic-abuse',
   SAFEGUARDING = '/getting-help',
   CONTACT_CHILD_ARRANGEMENTS = '/contact-child-arrangements',

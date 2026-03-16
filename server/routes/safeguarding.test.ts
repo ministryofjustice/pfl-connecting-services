@@ -13,7 +13,7 @@ describe('Safeguarding Page', () => {
 
       const dom = new JSDOM(response.text);
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent('Getting help');
+      expect(dom.window.document.querySelector('h1')).toHaveTextContent('Getting help if you have experienced abuse');
       expect(response.status).toBe(200);
     });
 
@@ -38,6 +38,8 @@ describe('Safeguarding Page', () => {
 
       expect(response.text).toContain('You may have been in an abusive relationship');
       expect(response.text).toContain('Domestic abuse or violence is a crime');
+      expect(response.text).toContain('Domestic abuse does not only mean physical violence');
+      expect(response.text).toContain('emotional, sexual, psychological and financial abuse');
     });
 
     it('should display Continue button linking to question 2', async () => {
