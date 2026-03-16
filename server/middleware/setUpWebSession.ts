@@ -19,7 +19,7 @@ const setUpWebSession = (): Router => {
   }
 
   const router = Router();
-  router.use( // codeql[js/missing-token-validation] CSRF protection applied via setUpCsrf middleware
+  router.use(
     session({
       store,
       name: cookieNames.SESSION,
