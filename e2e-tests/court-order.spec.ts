@@ -57,7 +57,7 @@ test.describe('Court Order Page', () => {
   });
 
   test('should display related content section', async ({ page }) => {
-    const relatedContent = page.locator('.govuk-prototype-kit-common-templates-related-items');
+    const relatedContent = page.locator('.govuk-grid-column-one-third');
     await expect(relatedContent).toContainText('Related content');
     await expect(relatedContent).toContainText('Making child arrangements if you divorce or separate');
     await expect(relatedContent).toContainText('Apply for a court order');
@@ -99,7 +99,7 @@ test.describe('Court Order Page', () => {
   });
 
   test('should have related content links pointing to correct URLs', async ({ page }) => {
-    const relatedContent = page.locator('.govuk-prototype-kit-common-templates-related-items');
+    const relatedContent = page.locator('.govuk-grid-column-one-third');
 
     const makingArrangementsLink = relatedContent.locator(
       'a:has-text("Making child arrangements if you divorce or separate")',
