@@ -26,12 +26,14 @@ test.describe('Court Order Page', () => {
   test('should display "Why this could be right for you" section', async ({ page }) => {
     await expect(page.locator('h2').first()).toHaveText('Why this could be right for you');
     await expect(page.locator('.govuk-list--bullet').first()).toContainText('you cannot agree after');
-    await expect(page.locator('.govuk-list--bullet').first()).toContainText('domestic or any other kind of abuse');
+    await expect(page.locator('.govuk-list--bullet').first()).toContainText('domestic abuse or you or the children');
+    await expect(page.locator('.govuk-list--bullet').first()).toContainText('contact your ex-partner');
+    await expect(page.locator('.govuk-list--bullet').first()).toContainText('consent order to make your parenting plan');
   });
 
   test('should display "Important things to consider" section', async ({ page }) => {
     await expect(page.locator('text=Important things to consider')).toBeVisible();
-    await expect(page.locator('text=Mediation:')).toBeVisible();
+    await expect(page.locator('text=Mediation Information and Assessment Meeting (MIAM):')).toBeVisible();
     await expect(page.locator('text=Cost:')).toBeVisible();
     await expect(page.locator('text=Time:')).toBeVisible();
   });
@@ -39,7 +41,7 @@ test.describe('Court Order Page', () => {
   test('should display "Other ways to agree" section', async ({ page }) => {
     await expect(page.locator('h2:has-text("Other ways to agree without going to court")')).toBeVisible();
     await expect(page.locator('h3:has-text("Mediation")')).toBeVisible();
-    await expect(page.locator('h3:has-text("Arbitration")')).toBeVisible();
+    await expect(page.locator('h3:has-text("Other options to explore")')).toBeVisible();
   });
 
   test('should display mediation voucher inset text', async ({ page }) => {
@@ -48,9 +50,10 @@ test.describe('Court Order Page', () => {
 
   test('should display help and support table with services', async ({ page }) => {
     await expect(page.locator('text=Help and support')).toBeVisible();
-    await expect(page.locator('.govuk-table')).toContainText('Advice Now');
-    await expect(page.locator('.govuk-table')).toContainText('Cafcass');
-    await expect(page.locator('.govuk-table')).toContainText('Cafcass Cymru');
+    await expect(page.locator('.govuk-summary-list')).toContainText('Advicenow');
+    await expect(page.locator('.govuk-summary-list')).toContainText('Cafcass');
+    await expect(page.locator('.govuk-summary-list')).toContainText('LawWorks');
+    await expect(page.locator('.govuk-summary-list')).toContainText('NACCC');
   });
 
   test('should display related content section', async ({ page }) => {
@@ -69,11 +72,11 @@ test.describe('Court Order Page', () => {
     await expect(page.locator('button:has-text("Print this page")')).toBeVisible();
   });
 
-  test('should have Advice Now link pointing to correct URL', async ({ page }) => {
-    const adviceNowLink = page.locator('a:has-text("Advice Now")');
+  test('should have Advicenow link pointing to correct URL', async ({ page }) => {
+    const adviceNowLink = page.locator('a:has-text("Advicenow")');
     await expect(adviceNowLink).toHaveAttribute(
       'href',
-      'https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/what-do-you-apply-family-court-about-your-children',
+      'https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/what-do-you-apply-family-court-about-your-children'
     );
   });
 
@@ -85,12 +88,14 @@ test.describe('Court Order Page', () => {
     );
   });
 
-  test('should have Cafcass Cymru link pointing to correct URL', async ({ page }) => {
-    const cafcassCymruLink = page.locator('a:has-text("Cafcass Cymru")');
-    await expect(cafcassCymruLink).toHaveAttribute(
-      'href',
-      'https://www.gov.wales/cafcass-cymru/family-separation/information-for-parents',
-    );
+  test('should have LawWorks link pointing to correct URL', async ({ page }) => {
+    const lawWorksLink = page.locator('a:has-text("LawWorks")');
+    await expect(lawWorksLink).toHaveAttribute('href', 'https://www.lawworks.org.uk/legal-advice-individuals');
+  });
+
+  test('should have National Association of Child Contact Centres (NACCC) link pointing to correct URL', async ({ page }) => {
+    const nacccLink = page.locator('a:has-text("National Association of Child Contact Centres (NACCC)")');
+    await expect(nacccLink).toHaveAttribute('href', 'https://naccc.org.uk/for-parents/types-of-contact/');
   });
 
   test('should have related content links pointing to correct URLs', async ({ page }) => {
