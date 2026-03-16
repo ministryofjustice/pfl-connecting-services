@@ -20,6 +20,8 @@ test.describe('Session Expiry', () => {
     await selectDomesticAbuseOption(page, 'No')
     await selectContactChildArrangementsOption(page, 'I can contact them but they do not respond')
     await page.context().clearCookies();
+    // Reload to ensure clean state after cookie clear
+    await page.reload();
     // Start a fresh journey after session expires - user should be able to continue
     await startJourney(page);
     await expect(page).toHaveURL(/child-safety/);
