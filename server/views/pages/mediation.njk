@@ -31,7 +31,7 @@
         {{ __("pages.mediation.content.thingsToConsider.title") }}
       </h2>
 
-      {% if abuse == "yes" %}
+      {% if abuse == "yes" or childSafety == "no" %}
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">

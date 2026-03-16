@@ -1,12 +1,20 @@
 import { test, expect } from '@playwright/test';
 
-import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectOtherOptions} from './fixtures/test-helpers';
+import {
+  startJourney,
+  selectChildSafetyOption,
+  selectDomesticAbuseOption,
+  selectContactChildArrangementsOption,
+  selectAgreeOnChildArrangementsOption,
+  selectHelpToAgreeOnChildArrangementsOption,
+  selectOtherOptions,
+} from './fixtures/test-helpers';
 
 test.describe('Court Order Page', () => {
-
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
-    await selectDomesticAbuseOption(page, "No");
+    await selectChildSafetyOption(page, 'Yes');
+    await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'I do not have their contact details');
   });
 
@@ -63,27 +71,41 @@ test.describe('Court Order Page', () => {
 
   test('should have Advice Now link pointing to correct URL', async ({ page }) => {
     const adviceNowLink = page.locator('a:has-text("Advice Now")');
-    await expect(adviceNowLink).toHaveAttribute('href', 'https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/what-do-you-apply-family-court-about-your-children');
+    await expect(adviceNowLink).toHaveAttribute(
+      'href',
+      'https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/what-do-you-apply-family-court-about-your-children',
+    );
   });
 
   test('should have Cafcass link pointing to correct URL', async ({ page }) => {
     const cafcassLink = page.locator('a:has-text("Children and Family Court Advisory and Support Service (Cafcass)")');
-    await expect(cafcassLink).toHaveAttribute('href', 'https://www.cafcass.gov.uk/parent-carer-or-family-member/my-family-involved-private-law-proceedings/court-process-and-what-expect');
+    await expect(cafcassLink).toHaveAttribute(
+      'href',
+      'https://www.cafcass.gov.uk/parent-carer-or-family-member/my-family-involved-private-law-proceedings/court-process-and-what-expect',
+    );
   });
 
   test('should have Cafcass Cymru link pointing to correct URL', async ({ page }) => {
     const cafcassCymruLink = page.locator('a:has-text("Cafcass Cymru")');
-    await expect(cafcassCymruLink).toHaveAttribute('href', 'https://www.gov.wales/cafcass-cymru/family-separation/information-for-parents');
+    await expect(cafcassCymruLink).toHaveAttribute(
+      'href',
+      'https://www.gov.wales/cafcass-cymru/family-separation/information-for-parents',
+    );
   });
 
   test('should have related content links pointing to correct URLs', async ({ page }) => {
     const relatedContent = page.locator('.govuk-prototype-kit-common-templates-related-items');
 
-    const makingArrangementsLink = relatedContent.locator('a:has-text("Making child arrangements if you divorce or separate")');
+    const makingArrangementsLink = relatedContent.locator(
+      'a:has-text("Making child arrangements if you divorce or separate")',
+    );
     await expect(makingArrangementsLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce');
 
     const applyForOrderLink = relatedContent.locator('a:has-text("Apply for a court order")');
-    await expect(applyForOrderLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce/apply-for-court-order');
+    await expect(applyForOrderLink).toHaveAttribute(
+      'href',
+      'https://www.gov.uk/looking-after-children-divorce/apply-for-court-order',
+    );
 
     const parentalRightsLink = relatedContent.locator('a:has-text("Parental rights and responsibilities")');
     await expect(parentalRightsLink).toHaveAttribute('href', 'https://www.gov.uk/parental-rights-responsibilities');
@@ -96,45 +118,58 @@ test.describe('Court Order Page', () => {
 });
 
 test.describe('should display explore court order through different journey flows.', () => {
-
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
-    await selectDomesticAbuseOption(page, "No");
+    await selectChildSafetyOption(page, 'Yes');
+    await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'Yes');
   });
 
-  test('should display explore a court order when parent and ex-partner need someone else to make a decision on child arrangements', async ({ page }) => {
-    await selectAgreeOnChildArrangementsOption(page, "No, we do not agree");
-    await selectHelpToAgreeOnChildArrangementsOption(page,'We cannot agree – someone else needs to make a decision for us');
+  test('should display explore a court order when parent and ex-partner need someone else to make a decision on child arrangements', async ({
+    page,
+  }) => {
+    await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
+    await selectHelpToAgreeOnChildArrangementsOption(
+      page,
+      'We cannot agree – someone else needs to make a decision for us',
+    );
 
     await expect(page).toHaveURL(/court-order/);
     await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
   });
 
-  test('should display explore a court order when parent and ex-partner have tried one or more other options', async ({ page }) => {
-    await selectAgreeOnChildArrangementsOption(page, "No, we do not agree");
-    await selectHelpToAgreeOnChildArrangementsOption(page,'Someone else to guide our conversations');
-    await selectOtherOptions(page, "Yes, we have tried mediation or a similar method")
+  test('should display explore a court order when parent and ex-partner have tried one or more other options', async ({
+    page,
+  }) => {
+    await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
+    await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
+    await selectOtherOptions(page, 'Yes, we have tried mediation or a similar method');
 
     await expect(page).toHaveURL(/court-order/);
     await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
   });
 
-    test('should display explore a court order when parent and ex-partner have not discussed child arrangements and need someone else to make a decision on child arrangements', async ({ page }) => {
+  test('should display explore a court order when parent and ex-partner have not discussed child arrangements and need someone else to make a decision on child arrangements', async ({
+    page,
+  }) => {
     await selectAgreeOnChildArrangementsOption(page, 'We have not discussed it yet');
-    await selectHelpToAgreeOnChildArrangementsOption(page,'We cannot agree – someone else needs to make a decision for us');
+    await selectHelpToAgreeOnChildArrangementsOption(
+      page,
+      'We cannot agree – someone else needs to make a decision for us',
+    );
 
     await expect(page).toHaveURL(/court-order/);
     await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
   });
 
-  test('should display explore a court order when parent and ex-partner have not discussed child arrangements and have tried one or more other options', async ({ page }) => {
+  test('should display explore a court order when parent and ex-partner have not discussed child arrangements and have tried one or more other options', async ({
+    page,
+  }) => {
     await selectAgreeOnChildArrangementsOption(page, 'We have not discussed it yet');
-    await selectHelpToAgreeOnChildArrangementsOption(page,'Someone else to guide our conversations');
-    await selectOtherOptions(page, "Yes, we have tried mediation or a similar method")
+    await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
+    await selectOtherOptions(page, 'Yes, we have tried mediation or a similar method');
 
     await expect(page).toHaveURL(/court-order/);
     await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
   });
 });
-

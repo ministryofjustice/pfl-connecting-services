@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import agreementRoutes from './agreement';
+import childSafetyRoutes from './childSafety';
 import contactChildArrangementRoutes from './contactChildArrangements';
 import CourtOrderRoutes from './courtOrder';
 import domesticAbuseRoutes from './domesticAbuse';
@@ -17,6 +18,9 @@ const routes = (): Router => {
 
   // Start page route
   router.use(startRoutes);
+
+  // Child safety question route
+  router.use(childSafetyRoutes);
 
   // Domestic abuse question route
   router.use(domesticAbuseRoutes);

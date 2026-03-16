@@ -12,6 +12,10 @@ test.describe('Parenting Plan', () => {
     await page.goto('/');
     await page.getByRole('button', { name: /start now/i }).click();
 
+    // Child safety question - select Yes (children are safe)
+    await page.getByLabel('Yes').check();
+    await page.getByRole('button', { name: 'Continue' }).click();
+
     // Domestic abuse question - select Yes
     await page.getByLabel('Yes').check();
     await page.getByRole('button', { name: 'Continue' }).click();
@@ -37,6 +41,10 @@ test.describe('Parenting Plan', () => {
     // Go through the flow selecting "No" for domestic abuse
     await page.goto('/');
     await page.getByRole('button', { name: /start now/i }).click();
+
+    // Child safety question - select Yes (children are safe)
+    await page.getByLabel('Yes').check();
+    await page.getByRole('button', { name: 'Continue' }).click();
 
     // Domestic abuse question - select No
     await page.getByLabel('No').check();

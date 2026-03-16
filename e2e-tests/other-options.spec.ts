@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption} from './fixtures/test-helpers';
+import { startJourney, selectChildSafetyOption, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption} from './fixtures/test-helpers';
 
 test.describe('Other options', () => {
 
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
+    await selectChildSafetyOption(page, 'Yes');
     await selectDomesticAbuseOption(page, "No");
     await selectContactChildArrangementsOption(page, 'Yes');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
