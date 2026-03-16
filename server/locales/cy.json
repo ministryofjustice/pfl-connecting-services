@@ -23,14 +23,13 @@
   },
   "pages": {
     "domesticAbuse": {
-      "title": "Have you experienced abuse from your ex partner?",
-      "heading": "Have you or your children experienced abuse from your ex-partner?",
-      "intro": "There may have been domestic abuse in the relationship if you or your children have experienced any of the following:",
+      "title": "Have you experienced abuse from your ex-partner?",
+      "heading": "Have you experienced abuse from your ex-partner?",
+      "intro": "There may have been domestic abuse in the relationship if you have experienced any of the following:",
       "bullets": {
         "violence": "Abuse or violence, including physical, emotional and sexual",
         "financial": "Financial or economic abuse",
         "coercive": "Coercive control and psychological abuse (threats, humiliation, intimidation, degradation, isolation and control)",
-        "childAbuse": "Child abuse, neglect, or child abduction",
         "harassment": "Harassment and stalking"
       },
       "answerYes": "Answer 'Yes' if you have experienced any of the above, whether or not you have reported your experience to the police.",
