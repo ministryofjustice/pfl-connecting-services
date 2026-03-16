@@ -84,12 +84,12 @@ describe('Child Safety Question', () => {
         .expect('location', paths.DOMESTIC_ABUSE);
     });
 
-    it('should redirect to safeguarding page when answer is no (children not safe)', () => {
+    it('should redirect to child safety help page when answer is no (children not safe)', () => {
       return request(app)
         .post(paths.CHILD_SAFETY)
         .send({ childSafety: 'no' })
         .expect(302)
-        .expect('location', paths.SAFEGUARDING);
+        .expect('location', paths.CHILD_SAFETY_HELP);
     });
 
     it('should store answer in session', async () => {
