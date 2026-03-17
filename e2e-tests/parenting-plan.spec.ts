@@ -192,6 +192,7 @@ test.describe('should display explore making a parenting plan through different 
 
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
+    await selectChildSafetyOption(page, 'Yes')
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'Yes')
   });
