@@ -189,15 +189,12 @@ test.describe('Parenting Plan Correct view', () => {
 });
 
 test.describe('should display explore making a parenting plan through different journey flows.', () => {
-
-  test.beforeEach(async ({ page }) => {
+  test('should display explore making a parenting plan when parent and ex-partner want a plan they can follow themselves for child arrangements', async ({ page }) => {
     await startJourney(page);
     await selectChildSafetyOption(page, 'Yes')
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'Yes')
-  });
-
-  test('should display explore making a parenting plan when parent and ex-partner want a plan they can follow themselves for child arrangements', async ({ page }) => {
+    await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
     await selectHelpToAgreeOnChildArrangementsOption(page, 'A plan we can follow ourselves');
     await expect(page).toHaveURL(/parenting-plan/);
     await expect(page.locator('h1')).toContainText('Explore: Making a parenting plan');
