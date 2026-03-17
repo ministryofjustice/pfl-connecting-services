@@ -2,6 +2,7 @@ import 'express-session';
 
 export interface CSSession {
   // Question answers
+  childSafety?: 'yes' | 'no';
   abuse?: 'yes' | 'no';
   contact?: 'yes' | 'no' | 'no-details' | 'no-response';
   agreement?: 'yes' | 'not-discussed' | 'no';

@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectOtherOptions} from './fixtures/test-helpers';
+import { startJourney, selectChildSafetyOption, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectOtherOptions} from './fixtures/test-helpers';
 
 test.describe('Court Order Page', () => {
 
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
+    await selectChildSafetyOption(page, 'Yes');
     await selectDomesticAbuseOption(page, "No");
     await selectContactChildArrangementsOption(page, 'Yes');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
@@ -35,7 +36,7 @@ test.describe('Court Order Page', () => {
   test('should display "Other ways to agree" section', async ({ page }) => {
     await expect(page.locator('h2:has-text("Other ways to agree without going to court")')).toBeVisible();
     await expect(page.locator('h3:has-text("Making a parenting plan")')).toBeVisible();
-    await expect(page.locator('h3:has-text("Arbitration")')).toBeVisible();
+    await expect(page.locator('h3:has-text("Other options to explore")')).toBeVisible();
   });
 
    test('should display help and support table with services', async ({ page }) => {

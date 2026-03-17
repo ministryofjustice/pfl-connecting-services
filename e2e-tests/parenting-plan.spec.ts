@@ -14,6 +14,10 @@ test.describe('Parenting Plan', () => {
     await page.goto('/');
     await page.getByRole('button', { name: /start now/i }).click();
 
+    // Child safety question - select Yes (children are safe)
+    await page.getByLabel('Yes').check();
+    await page.getByRole('button', { name: 'Continue' }).click();
+
     // Domestic abuse question - select Yes
     await page.getByLabel('Yes').check();
     await page.getByRole('button', { name: 'Continue' }).click();
@@ -39,6 +43,10 @@ test.describe('Parenting Plan', () => {
     // Go through the flow selecting "No" for domestic abuse
     await page.goto('/');
     await page.getByRole('button', { name: /start now/i }).click();
+
+    // Child safety question - select Yes (children are safe)
+    await page.getByLabel('Yes').check();
+    await page.getByRole('button', { name: 'Continue' }).click();
 
     // Domestic abuse question - select No
     await page.getByLabel('No').check();
@@ -115,7 +123,7 @@ test.describe('Parenting Plan Correct view', () => {
 
   test('should display related content section', async ({ page }) => {
 
-    const relatedContent = page.locator('.govuk-prototype-kit-common-templates-related-items');
+    const relatedContent = page.locator('.govuk-grid-column-one-third');
     await expect(relatedContent).toContainText('Related content');
     await expect(relatedContent).toContainText('Making child arrangements if you divorce or separate');
     await expect(relatedContent).toContainText('Propose a child arrangements plan');
@@ -156,7 +164,7 @@ test.describe('Parenting Plan Correct view', () => {
     const makingArrangementsLink = page.locator('a:has-text("Making child arrangements if you divorce or separate")');
     await expect(makingArrangementsLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce');
 
-    const proposeAPlanLink = page.locator('.govuk-prototype-kit-common-templates-related-items a:has-text("Propose a child arrangements plan")');
+    const proposeAPlanLink = page.locator('.govuk-grid-column-one-third a:has-text("Propose a child arrangements plan")');
     await expect(proposeAPlanLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce/if-you-agree');
 
     const childMaintenanceLink = page.locator('a:has-text("Child maintenance")');

@@ -35,16 +35,6 @@
         <li>{{ __("pages.courtOrder.content.whyRightForYou.reasons.consentOrder") | safe }}</li>
       </ul>
 
-      <p class="govuk-body">
-        {{ __("pages.courtOrder.content.whyRightForYou.canApplyFor") }}
-      </p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>{{ __("pages.courtOrder.content.whyRightForYou.orderTypes.childArrangements") }}</li>
-        <li>{{ __("pages.courtOrder.content.whyRightForYou.orderTypes.specificIssues") }}</li>
-        <li>{{ __("pages.courtOrder.content.whyRightForYou.orderTypes.prohibitedSteps") }}</li>
-      </ul>
-
       <h2 class="govuk-heading-m">
         {{ __("pages.courtOrder.content.thingsToConsider.title") }}
       </h2>
@@ -53,7 +43,7 @@
         <li>{{ __("pages.courtOrder.content.thingsToConsider.mediation") | safe }}</li>
       </ul>
 
-      {% if abuse == "yes" %}
+      {% if abuse == "yes" or childSafety == "no" %}
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
@@ -72,6 +62,16 @@
       <ul class="govuk-list govuk-list--bullet">
         <li>{{ __("pages.courtOrder.content.thingsToConsider.cost") | safe }}</li>
         <li>{{ __("pages.courtOrder.content.thingsToConsider.time") | safe }}</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        {{ __("pages.courtOrder.content.courtOrder.title") }}
+      </h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ __("pages.courtOrder.content.courtOrder.descriptionList.first") }}</li>
+        <li>{{ __("pages.courtOrder.content.courtOrder.descriptionList.second") }}</li>
+        <li>{{ __("pages.courtOrder.content.courtOrder.descriptionList.third") }}</li>
       </ul>
 
       <p class="govuk-body">
@@ -109,15 +109,15 @@
       </p>
 
       <h3 class="govuk-heading-s">
-        {{ __("pages.courtOrder.content.otherWays.arbitration.title") }}
+        {{ __("pages.courtOrder.content.otherWays.otherOptions.title") }}
       </h3>
 
       <p class="govuk-body">
-        {{ __("pages.courtOrder.content.otherWays.arbitration.description") }}
+        {{ __("pages.courtOrder.content.otherWays.otherOptions.description") }}
       </p>
 
       <p class="govuk-body">
-        {{ __("pages.courtOrder.content.otherWays.arbitration.link") | safe }}
+        {{ __("pages.courtOrder.content.otherWays.otherOptions.link") | safe }}
       </p>
 
       <h2 class="govuk-heading-m">
@@ -128,34 +128,54 @@
         {{ __("pages.courtOrder.content.helpAndSupport.description") }}
       </p>
 
-      <table class="govuk-table">
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">
-              <a href="{{ __('pages.courtOrder.content.helpAndSupport.services.adviceNow.url') }}">
-                {{ __("pages.courtOrder.content.helpAndSupport.services.adviceNow.name") }}
-              </a>
-            </th>
-            <td class="govuk-table__cell">{{ __("pages.courtOrder.content.helpAndSupport.services.adviceNow.description") }}</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">
-              <a href="{{ __('pages.courtOrder.content.helpAndSupport.services.cafcass.url') }}">
-                {{ __("pages.courtOrder.content.helpAndSupport.services.cafcass.name") }}
-              </a>
-            </th>
-            <td class="govuk-table__cell">{{ __("pages.courtOrder.content.helpAndSupport.services.cafcass.description") }}</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">
-              <a href="{{ __('pages.courtOrder.content.helpAndSupport.services.cafcassCymru.url') }}">
-                {{ __("pages.courtOrder.content.helpAndSupport.services.cafcassCymru.name") }}
-              </a>
-            </th>
-            <td class="govuk-table__cell">{{ __("pages.courtOrder.content.helpAndSupport.services.cafcassCymru.description") }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-mediation-width">
+          </dt>
+          <dd class="govuk-summary-list__value">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-mediation-width">
+            <a href="{{ __('pages.courtOrder.content.helpAndSupport.services.adviceNow.url') }}">
+              {{ __("pages.courtOrder.content.helpAndSupport.services.adviceNow.name") }}
+            </a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ __("pages.courtOrder.content.helpAndSupport.services.adviceNow.description") }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-mediation-width">
+            <a href="{{ __('pages.courtOrder.content.helpAndSupport.services.cafcass.url') }}">
+              {{ __("pages.courtOrder.content.helpAndSupport.services.cafcass.name") }}
+            </a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+              {{ __("pages.courtOrder.content.helpAndSupport.services.cafcass.description") }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-mediation-width">
+            <a href="{{ __('pages.courtOrder.content.helpAndSupport.services.lawWorks.url') }}">
+              {{ __("pages.courtOrder.content.helpAndSupport.services.lawWorks.name") }}
+            </a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ __("pages.courtOrder.content.helpAndSupport.services.lawWorks.description") }}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-mediation-width">
+            <a href="{{ __('pages.courtOrder.content.helpAndSupport.services.naccc.url') }}">
+              {{ __("pages.courtOrder.content.helpAndSupport.services.naccc.name") }}
+            </a>
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ __("pages.courtOrder.content.helpAndSupport.services.naccc.description") }}
+          </dd>
+        </div>
+      </dl>
 
       {{ govukPrintLink({
         text: __("printThisPage")
@@ -164,30 +184,28 @@
     </div>
 
     <div class="govuk-grid-column-one-third">
-      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          {{ __("pages.courtOrder.content.relatedContent.title") }}
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="{{ __('pages.courtOrder.content.relatedContent.links.makingArrangements.url') }}">
-                {{ __("pages.courtOrder.content.relatedContent.links.makingArrangements.text") }}
-              </a>
-            </li>
-            <li>
-              <a href="{{ __('pages.courtOrder.content.relatedContent.links.applyForOrder.url') }}">
-                {{ __("pages.courtOrder.content.relatedContent.links.applyForOrder.text") }}
-              </a>
-            </li>
-            <li>
-              <a href="{{ __('pages.courtOrder.content.relatedContent.links.parentalRights.url') }}">
-                {{ __("pages.courtOrder.content.relatedContent.links.parentalRights.text") }}
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+      <h2 class="govuk-heading-m subsection-title" id="sub-section">
+        {{ __("pages.courtOrder.content.relatedContent.title") }}
+      </h2>
+      <nav role="navigation" aria-labelledby="sub-section">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="{{ __('pages.courtOrder.content.relatedContent.links.makingArrangements.url') }}">
+              {{ __("pages.courtOrder.content.relatedContent.links.makingArrangements.text") }}
+            </a>
+          </li>
+          <li>
+            <a href="{{ __('pages.courtOrder.content.relatedContent.links.applyForOrder.url') }}">
+              {{ __("pages.courtOrder.content.relatedContent.links.applyForOrder.text") }}
+            </a>
+          </li>
+          <li>
+            <a href="{{ __('pages.courtOrder.content.relatedContent.links.parentalRights.url') }}">
+              {{ __("pages.courtOrder.content.relatedContent.links.parentalRights.text") }}
+            </a>
+          </li>
+        </ul>
+      </nav>
       {{ govukExitThisPage() }}
     </div>
   </div>

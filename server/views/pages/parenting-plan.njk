@@ -31,7 +31,7 @@
         {{ __("pages.parentingPlan.content.whyRightForYou.informalArrangements") }}
       </p>
 
-      {% if abuse == "yes" %}
+      {% if abuse == "yes" or childSafety == "no" %}
         {{ govukWarningText({
           html: __("pages.parentingPlan.content.warningText"),
           iconFallbackText: "Warning"
@@ -150,35 +150,33 @@
     </div>
 
     <div class="govuk-grid-column-one-third">
-      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          {{ __("pages.parentingPlan.content.relatedContent.title") }}
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="{{ __('pages.parentingPlan.content.relatedContent.links.makingArrangements.url') }}">
-                {{ __("pages.parentingPlan.content.relatedContent.links.makingArrangements.text") }}
-              </a>
-            </li>
-            <li>
-              <a href="{{ __('pages.parentingPlan.content.relatedContent.links.proposeAPlan.url') }}">
-                {{ __("pages.parentingPlan.content.relatedContent.links.proposeAPlan.text") }}
-              </a>
-            </li>
-            <li>
-              <a href="{{ __('pages.parentingPlan.content.relatedContent.links.childMaintenance.url') }}">
-                {{ __("pages.parentingPlan.content.relatedContent.links.childMaintenance.text") }}
-              </a>
-            </li>
-            <li>
-              <a href="{{ __('pages.parentingPlan.content.relatedContent.links.parentalRights.url') }}">
-                {{ __("pages.parentingPlan.content.relatedContent.links.parentalRights.text") }}
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+      <h2 class="govuk-heading-m subsection-title" id="sub-section">
+        {{ __("pages.parentingPlan.content.relatedContent.title") }}
+      </h2>
+      <nav role="navigation" aria-labelledby="sub-section">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="{{ __('pages.parentingPlan.content.relatedContent.links.makingArrangements.url') }}">
+              {{ __("pages.parentingPlan.content.relatedContent.links.makingArrangements.text") }}
+            </a>
+          </li>
+          <li>
+            <a href="{{ __('pages.parentingPlan.content.relatedContent.links.proposeAPlan.url') }}">
+              {{ __("pages.parentingPlan.content.relatedContent.links.proposeAPlan.text") }}
+            </a>
+          </li>
+          <li>
+            <a href="{{ __('pages.parentingPlan.content.relatedContent.links.childMaintenance.url') }}">
+              {{ __("pages.parentingPlan.content.relatedContent.links.childMaintenance.text") }}
+            </a>
+          </li>
+          <li>
+            <a href="{{ __('pages.parentingPlan.content.relatedContent.links.parentalRights.url') }}">
+              {{ __("pages.parentingPlan.content.relatedContent.links.parentalRights.text") }}
+            </a>
+          </li>
+        </ul>
+      </nav>
       {{ govukExitThisPage() }}
     </div>
   </div>
