@@ -7,7 +7,7 @@ on a per-environment basis.
 - [Dev](https://github.com/ministryofjustice/cloud-platform-environments/tree/main/namespaces/live.cloud-platform.service.justice.gov.uk/connecting-services-dev)
 - [Prod](https://github.com/ministryofjustice/cloud-platform-environments/tree/main/namespaces/live.cloud-platform.service.justice.gov.uk/connecting-services-prod)
 
-The just defines the infrastructure for the express app. This includes:
+This just defines the infrastructure for the express app. This includes:
 
 - [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) - defining web access to the app
 - [Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) - provisioning the required
@@ -16,7 +16,7 @@ The just defines the infrastructure for the express app. This includes:
 - [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) - secret config values for the app
 
 # Alerts
-The following sections are short runbooks to explain what each alert means, and actions that could be taken toremedy the issue.
+The following sections are short runbooks to explain what each alert means, and actions that could be taken to remedy the issue.
 
 
 # SlowResponse
@@ -40,20 +40,20 @@ Additional action could include:
 
 # High4xxRate
 This alert fires when, over a 3 minute period, x% of responses are 4xx responses.
-Note: As this alert was frequently being triggered by bots hitting 4xx pages throughout non-working hours, it hasbeen restricted to only firing during weekdays and working hours.
+Note: As this alert was frequently being triggered by bots hitting 4xx pages throughout non-working hours, it has been restricted to only firing during weekdays and working hours.
 This could indicate an issue with the database, or that a significant percentage of content has been deleted without adding a redirect.
 Action could include:
-- Reviewing Grafana to understand the extent and timeline of the timeline and identify the specific 4cc codes (e.g. is it mostly 400 or 404?).
+- Reviewing Grafana to understand the extent and timeline and identify the specific 4xx codes (e.g. is it mostly 400 or 404?).
 - Checking the health of infrastructure.
 - Verifying content was not unintentionally deleted.
 - Investigating client request patterns to see if a new integration or client application is misbehaving.
 
 # High5xxRate
 This alert fires when, over a 3 minute period, 5% of responses are 5xx errors.
-This could indicate an issue with the codebase throwing a php error. Or, an issue with failing infrastructure like RDS orElastiCache triggering a php error.
+This could indicate an issue with the codebase throwing an application error. Or, an issue with failing infrastructure like RDS or ElastiCache triggering an error.
 Action could include:
-- Reviewing logs for a php error message.
-- Reviewing recent deployments, looking for a php bug.
+- Reviewing logs for an error message.
+- Reviewing recent deployments, looking for a bug.
 - Checking the health of infrastructure.
 
 # ElastiCacheCPUUtilizationHigh

@@ -8,7 +8,7 @@ Date: 2025-01-27
 
 ## Context
 
-In the future, we may want to email the care arrangement plan to one or both parents.
+In the future, we may want to email information or documents to users.
 
 ## Considerations
 
@@ -17,11 +17,10 @@ gives a useful dashboard to track email stats. It would also allow us to easily 
 if that was ever desired. It has support for sending documents.
 
 - We would need to consider how we get consent for emailing someone. Would we need them to verify their email prior to
-  sending the plan to them?
-- How would we get consent to email the person not filling in the form?
-- If we allow sending the plan to the parent _not_ filling in the form, we need to be aware that this is an avenue for
-  fraud - unless we verify the person filling in the form is who they say they are, any third party could send a parent
-  plan claiming to be one of the parents.
+  sending content to them?
+- How would we get consent to email a third party?
+- If we allow sending content to a third party, we need to be aware that this is an avenue for
+  fraud - unless we verify the person filling in the form is who they say they are.
 
 ## Decision
 
