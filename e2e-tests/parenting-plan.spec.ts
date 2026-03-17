@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption} from './fixtures/test-helpers';
+import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectChildSafetyOption} from './fixtures/test-helpers';
 
 test.describe('Parenting Plan', () => {
   test('should not display warning text when accessed directly', async ({ page }) => {
@@ -70,6 +70,7 @@ test.describe('Parenting Plan Correct view', () => {
 
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
+    await selectChildSafetyOption(page, 'Yes')
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'Yes')
     await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')

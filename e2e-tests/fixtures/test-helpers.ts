@@ -31,7 +31,10 @@ export async function selectContactChildArrangementsOption(
 
 export async function selectAgreeOnChildArrangementsOption(
   page: Page,
-  choiceLabel: 'Yes, we agree on some or most things' | 'No, we do not agree' | 'We have not discussed it yet',
+  choiceLabel: 
+  |'Yes, we agree on some or most things' 
+  | 'No, we do not agree' 
+  | 'We have not discussed it yet',
 ) {
   await page.getByLabel(choiceLabel).check();
   await page.getByRole('button', { name: /continue/i }).click();
@@ -50,7 +53,9 @@ export async function selectHelpToAgreeOnChildArrangementsOption(
 
 export async function selectOtherOptions(
   page: Page,
-  choiceLabel: 'Yes, we have tried mediation or a similar method' | 'No, we have not tried yet',
+  choiceLabel: 
+  | 'Yes, we have tried mediation or a similar method' 
+  | 'No, we have not tried yet',
 ) {
   await page.getByLabel(choiceLabel).check();
   await page.getByRole('button', { name: /continue/i }).click();
