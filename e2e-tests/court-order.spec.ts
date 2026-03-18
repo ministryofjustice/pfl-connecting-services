@@ -178,3 +178,74 @@ test.describe('should display explore court order through different journey flow
     await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
   });
 });
+
+test.describe('Court Order, Conditional Warning messages', () => {
+  test('should not display warning text when accessed directly', async ({ page }) => {
+    await page.goto('/court-order');
+
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+  });
+
+  test('should display warning text on explore a court order, when user selected "Yes" for domestic abuse', async ({ page }) => {
+    await startJourney(page)
+    await selectChildSafetyOption(page, 'Yes')
+
+    // Domestic abuse question - select Yes
+    await selectDomesticAbuseOption(page, 'Yes')
+
+    await page.getByRole('button', { name: 'Continue' }).click();
+    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+
+    // Should be on explore a court order page with warning text visible
+    await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
+    await expect(page.locator('.govuk-warning-text')).toBeVisible();
+    await expect(page.locator('.govuk-warning-text')).toContainText('You do not have to go to a MIAM if you can show there is a risk:');
+  });
+
+  test('should not display warning text on explore a court order, when user selected "No" for domestic abuse', async ({ page }) => {
+    await startJourney(page)
+    await selectChildSafetyOption(page, 'Yes')
+
+    // Domestic abuse question - select No
+    await selectDomesticAbuseOption(page, 'No')
+
+    await page.getByRole('button', { name: 'Continue' }).click();
+    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+
+    // Should be on explore a court order page without warning text
+    await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+  });
+
+   test('should display warning text on explore a court order, when user selected "No" for child safety question', async ({ page }) => {
+    await startJourney(page)
+
+    // Child safety question - select No
+    await selectChildSafetyOption(page, 'No')
+    await page.getByRole('button', { name: 'Continue' }).click();
+
+    await selectDomesticAbuseOption(page, 'No')
+
+    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+
+    // Should be on explore a court order page with warning text visible
+    await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
+    await expect(page.locator('.govuk-warning-text')).toBeVisible();
+    await expect(page.locator('.govuk-warning-text')).toContainText('You do not have to go to a MIAM if you can show there is a risk:');
+  });
+
+  test('should not display warning text on explore a court order, when user selected "Yes" for child safety question', async ({ page }) => {
+    await startJourney(page)
+
+    // Child safety question - select Yes
+    await selectChildSafetyOption(page, 'Yes')
+
+    await selectDomesticAbuseOption(page, 'No')
+
+    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+
+    // Should be on explore a court order page without warning text
+    await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+  });
+});
