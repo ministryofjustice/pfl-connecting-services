@@ -3,70 +3,6 @@ import { test, expect } from '@playwright/test';
 import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectChildSafetyOption} from './fixtures/test-helpers';
 
 test.describe('Parenting Plan', () => {
-  test('should not display warning text when accessed directly', async ({ page }) => {
-    await page.goto('/parenting-plan');
-
-    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
-  });
-
-  test('should display warning text on parenting plan, when user selected "Yes" for domestic abuse', async ({ page }) => {
-    // Go through the flow selecting "Yes" for domestic abuse
-    await page.goto('/');
-    await page.getByRole('button', { name: /start now/i }).click();
-
-    // Child safety question - select Yes (children are safe)
-    await page.getByLabel('Yes').check();
-    await page.getByRole('button', { name: 'Continue' }).click();
-
-    // Domestic abuse question - select Yes
-    await page.getByLabel('Yes').check();
-    await page.getByRole('button', { name: 'Continue' }).click();
-
-    // Safeguarding page (Getting help) - just click Continue
-    await page.getByRole('button', { name: 'Continue' }).click();
-
-    // Contact child arrangements - select Yes
-    await page.getByLabel('Yes').check();
-    await page.getByRole('button', { name: 'Continue' }).click();
-
-    // Agreement - select Yes (this goes directly to parenting plan)
-    await page.getByLabel('Yes').check();
-    await page.getByRole('button', { name: 'Continue' }).click();
-
-    // Should be on parenting plan page with warning text visible
-    await expect(page.locator('h1')).toHaveText('Explore: Making a parenting plan');
-    await expect(page.locator('.govuk-warning-text')).toBeVisible();
-    await expect(page.locator('.govuk-warning-text')).toContainText('It may not be appropriate for you to make child arrangements directly');
-  });
-
-  test('should not display warning text on parenting plan, when user selected "No" for domestic abuse', async ({ page }) => {
-    // Go through the flow selecting "No" for domestic abuse
-    await page.goto('/');
-    await page.getByRole('button', { name: /start now/i }).click();
-
-    // Child safety question - select Yes (children are safe)
-    await page.getByLabel('Yes').check();
-    await page.getByRole('button', { name: 'Continue' }).click();
-
-    // Domestic abuse question - select No
-    await page.getByLabel('No').check();
-    await page.getByRole('button', { name: 'Continue' }).click();
-
-    // Contact child arrangements - select Yes
-    await page.getByLabel('Yes').check();
-    await page.getByRole('button', { name: 'Continue' }).click();
-
-    // Agreement - select Yes (this goes directly to parenting plan)
-    await page.getByLabel('Yes').check();
-    await page.getByRole('button', { name: 'Continue' }).click();
-
-    // Should be on parenting plan page without warning text
-    await expect(page.locator('h1')).toHaveText('Explore: Making a parenting plan');
-    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
-  });
-});
-
-test.describe('Parenting Plan Correct view', () => {
 
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
@@ -185,6 +121,81 @@ test.describe('Parenting Plan Correct view', () => {
 
     const findOutMoreLink = page.locator('a:has-text("Find out more about what to do if you agree on child arrangements")');
     await expect(findOutMoreLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce/if-you-agree');
+  });
+});
+
+test.describe('Parenting Plan, Conditional Warning messages', () => {
+  test('should not display warning text when accessed directly', async ({ page }) => {
+    await page.goto('/parenting-plan');
+
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+  });
+
+  test('should display warning text on parenting plan, when user selected "Yes" for domestic abuse', async ({ page }) => {
+    await startJourney(page)
+    await selectChildSafetyOption(page, 'Yes')
+
+    // Domestic abuse question - select Yes
+    await selectDomesticAbuseOption(page, 'Yes')
+
+    await page.getByRole('button', { name: 'Continue' }).click();
+    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
+
+    // Should be on parenting plan page with warning text visible
+    await expect(page.locator('h1')).toHaveText('Explore: Making a parenting plan');
+    await expect(page.locator('.govuk-warning-text')).toBeVisible();
+    await expect(page.locator('.govuk-warning-text')).toContainText('It may not be appropriate for you to make child arrangements directly');
+  });
+
+  test('should not display warning text on parenting plan, when user selected "No" for domestic abuse', async ({ page }) => {
+    await startJourney(page)
+    await selectChildSafetyOption(page, 'Yes')
+
+    // Domestic abuse question - select No
+    await selectDomesticAbuseOption(page, 'No')
+
+    await page.getByRole('button', { name: 'Continue' }).click();
+    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
+
+    // Should be on parenting plan page without warning text
+    await expect(page.locator('h1')).toHaveText('Explore: Making a parenting plan');
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+  });
+
+   test('should display warning text on parenting plan, when user selected "No" for child safety question', async ({ page }) => {
+    await startJourney(page)
+
+    // Child safety question - select No
+    await selectChildSafetyOption(page, 'No')
+    await page.getByRole('button', { name: 'Continue' }).click();
+
+    await selectDomesticAbuseOption(page, 'No')
+
+    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
+
+    // Should be on parenting plan page with warning text visible
+    await expect(page.locator('h1')).toHaveText('Explore: Making a parenting plan');
+    await expect(page.locator('.govuk-warning-text')).toBeVisible();
+    await expect(page.locator('.govuk-warning-text')).toContainText('It may not be appropriate for you to make child arrangements directly');
+  });
+
+  test('should not display warning text on parenting plan, when user selected "Yes" for child safety question', async ({ page }) => {
+    await startJourney(page)
+
+    // Child safety question - select Yes
+    await selectChildSafetyOption(page, 'Yes')
+
+    await selectDomesticAbuseOption(page, 'No')
+
+    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
+
+    // Should be on parenting plan page with warning text visible
+    await expect(page.locator('h1')).toHaveText('Explore: Making a parenting plan');
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
   });
 });
 
