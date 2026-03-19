@@ -1,12 +1,11 @@
 {% extends "partials/layout.njk" %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">{{ title }}</h1>
+      <h1 class="govuk-heading-l">{{ __('errors.notFound.title') }}</h1>
       <p class="govuk-body">{{ __('errors.notFound.check') }}</p>
-      {{ govukButton({text: __('errors.notFound.startAgain'), href: paths.START }) }}
+      <p class="govuk-body">{{ __('errors.notFound.homePage') | safe }}</p>
     </div>
   </div>
 {% endblock %}
