@@ -1,5 +1,4 @@
 {% extends "partials/layout.njk" %}
-{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -71,6 +70,8 @@
         }}
       </form>
     </div>
-    <div class="govuk-grid-column-one-third">{{ govukExitThisPage() }}</div>
+    <div class="govuk-grid-column-one-third">
+      {% include "partials/exitThisPage.njk" %}
+    </div>
   </div>
 {% endblock %}

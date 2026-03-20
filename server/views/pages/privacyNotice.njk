@@ -1,5 +1,4 @@
 {% extends "partials/layout.njk" %}
-{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
 
 {% block pageTitle %}
   {{ __("pages.privacyNotice.title") }} – {{ __("serviceName") }} – GOV.UK
@@ -38,7 +37,7 @@
       <p class="govuk-body">{{ __('pages.privacyNotice.content.statement') }}</p>
     </div>
     <div class="govuk-grid-column-one-third">
-      {{ govukExitThisPage() }}
+      {% include "partials/exitThisPage.njk" %}
     </div>
   </div>
 {% endblock %}

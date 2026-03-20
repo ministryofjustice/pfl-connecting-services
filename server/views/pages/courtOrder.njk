@@ -1,5 +1,4 @@
 {% extends "partials/layout.njk" %}
-{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
@@ -202,7 +201,7 @@
           </li>
         </ul>
       </nav>
-      {{ govukExitThisPage() }}
+      {% include "partials/exitThisPage.njk" %}
     </div>
   </div>
 {% endblock %}
