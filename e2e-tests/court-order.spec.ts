@@ -25,10 +25,10 @@ test.describe('Court Order Page', () => {
 
   test('should display "Why this could be right for you" section', async ({ page }) => {
     await expect(page.locator('h2').first()).toHaveText('Why this could be right for you');
-    await expect(page.locator('.govuk-list--bullet').first()).toContainText('you cannot agree after');
+    await expect(page.locator('.govuk-list--bullet').first()).toContainText('you cannot agree, even after trying options such as');
     await expect(page.locator('.govuk-list--bullet').first()).toContainText('domestic abuse or you or the children');
     await expect(page.locator('.govuk-list--bullet').first()).toContainText('contact your ex-partner');
-    await expect(page.locator('.govuk-list--bullet').first()).toContainText('consent order to make your parenting plan');
+    await expect(page.locator('.govuk-list--bullet').first()).toContainText('consent order to consider making your parenting plan');
   });
 
   test('should display "Important things to consider" section', async ({ page }) => {
@@ -199,7 +199,7 @@ test.describe('Court Order, Conditional Warning messages', () => {
     // Should be on explore a court order page with warning text visible
     await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
     await expect(page.locator('.govuk-warning-text')).toBeVisible();
-    await expect(page.locator('.govuk-warning-text')).toContainText('You do not have to go to a MIAM if you can show there is a risk:');
+    await expect(page.locator('.govuk-warning-text')).toContainText('You do not have to go to a MIAM before applying to court if you have a valid reason');
   });
 
   test('should not display warning text on explore a court order, when user selected "No" for domestic abuse', async ({ page }) => {
@@ -231,7 +231,7 @@ test.describe('Court Order, Conditional Warning messages', () => {
     // Should be on explore a court order page with warning text visible
     await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
     await expect(page.locator('.govuk-warning-text')).toBeVisible();
-    await expect(page.locator('.govuk-warning-text')).toContainText('You do not have to go to a MIAM if you can show there is a risk:');
+    await expect(page.locator('.govuk-warning-text')).toContainText('You do not have to go to a MIAM before applying to court if you have a valid reason');
   });
 
   test('should not display warning text on explore a court order, when user selected "Yes" for child safety question', async ({ page }) => {
