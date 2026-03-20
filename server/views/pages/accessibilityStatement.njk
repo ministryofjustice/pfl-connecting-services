@@ -1,5 +1,4 @@
 {% extends "partials/layout.njk" %}
-{% from "govuk/components/exit-this-page/macro.njk" import govukExitThisPage %}
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -52,7 +51,7 @@
       <p class="govuk-body govuk-!-margin-bottom-0">{{ __('pages.accessibilityStatement.content.preparation.lastTested') }}</p>
     </div>
     <div class="govuk-grid-column-one-third">
-      {{ govukExitThisPage() }}
+      {% include "partials/exitThisPage.njk" %}
     </div>
   </div>
 {% endblock %}
