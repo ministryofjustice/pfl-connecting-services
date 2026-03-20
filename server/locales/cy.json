@@ -51,7 +51,7 @@
     "childSafetyHelp": {
       "title": "Getting help if your children are not safe",
       "content": {
-        "description": "It is important to remember that there is help and support available to you if you or your children are unsafe.",
+        "description": "It is important to remember that there is help and support available to you if your children are unsafe.",
         "warningText": "Contact the police if a child you're responsible for is in immediate danger or at risk of being taken out of the UK without your consent.",
         "wantToContinue": {
           "title": "If you want to continue using this service",
@@ -216,12 +216,12 @@
       "content": {
         "whyRightForYou": {
           "title": "Why this could be right for you",
-          "canApplyIf": "You can apply for a court order if:",
+          "canApplyIf": "You might decide to apply for a court order if:",
           "reasons": {
-            "cannotAgree": "you cannot agree after <a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\">mediation</a> or <a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">getting help another way</a>",
+            "cannotAgree": "you cannot agree, even after trying options such as <a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\">mediation</a> or <a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">getting help another way</a>",
             "domesticAbuse": "there's been domestic abuse or you or the children are at risk",
             "cannotContact": "you cannot contact your ex-partner",
-            "consentOrder": "you're applying for a consent order to make your <a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">parenting plan</a> legally binding"
+            "consentOrder": "you're applying for a consent order to consider making your <a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">parenting plan</a> legally binding"
           }
         },
         "thingsToConsider": {
@@ -234,7 +234,9 @@
               "harmToChild": "of harm to a child",
               "unlawfullyTaken": "that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held"
             },
-            "moreInfo": "If any of these apply, you can <a href=\"https://www.gov.uk/government/publications/urgent-court-hearings-about-child-arrangements-cb2/urgent-hearings-about-child-arrangements-cb2\">apply for an urgent court hearing about child arrangements</a>"
+            "validReason": "You do not have to go to a MIAM before applying to court if you have a valid reason such as child protection concerns or evidence of domestic abuse.",
+            "validReasonLink": "<a href=\"https://apply-to-court-about-child-arrangements.service.justice.gov.uk/about/miam_exemptions\">Find out more about valid reasons not to attend a MIAM</a>",
+            "moreInfo": "You may be able to <a href=\"https://www.gov.uk/government/publications/urgent-court-hearings-about-child-arrangements-cb2/urgent-hearings-about-child-arrangements-cb2\">apply for an urgent court hearing about child arrangements</a>."
           },
           "cost": "<strong>Cost:</strong> It costs £263 to apply for a court order. You may be able to <a href=\"https://www.gov.uk/legal-aid/financial-eligibility\">get legal aid to help pay court fees</a> if you're on benefits or a low income.",
           "time": "<strong>Time:</strong> It usually takes around 10 months to get a court order, depending on where you live and your situation."
@@ -243,8 +245,8 @@
           "title": "Court orders you can apply for",
           "descriptionList": {
             "first": "Child arrangements order: To decide where your child lives and the time they spend with each parent",
-            "second": "Specific issue order: If you need the court to make a decision on a question like what school they go to",
-            "third": "Prohibited steps order: To stop the other parent from making a decision about the child's upbringing"
+            "second": "Specific issue order: To decide on a particular question relating to your child, like what school they should go to",
+            "third": "Prohibited steps order: To stop the other parent from making a particular decision about the child's upbringing without the agreement of the court"
           }
         },
         "nextStep": "<strong>Next step:</strong> <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">Apply for a court order</a>",
@@ -328,7 +330,7 @@
             "costInset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
             "stayInControl": "<strong>You stay in control:</strong> Unlike in court, where a judge makes the decisions about child arrangements, in mediation you and your ex-partner decide what you agree to and what you don't.",
             "childInclusiveMediation": "<strong>Child-inclusive mediation:</strong> Children can have a voice in the process if it's suitable. A mediator can talk to your child about what they want to make sure their views are heard.",
-            "courtOption": "<strong>Court is still an option:</strong> If the mediator does not think mediation is right for you, they might advise you to go to court instead.",
+            "courtOption": "<strong>Court is still an option:</strong> If the mediator does not think mediation is right for you, you might decide to go to court instead.",
             "mediationLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\"> Find out more about mediation</a>"
           }
         },
@@ -338,7 +340,7 @@
           "content": {
             "makingAParentingPlan": {
               "title": "Making a parenting plan",
-              "description": "This could suit you if: If you and your ex-partner can agree on child arrangements, you can record it in a child arrangements plan, also called a 'parenting plan'.",
+              "description": "If you and your ex-partner can agree on child arrangements, you can record it in a child arrangements plan, also called a 'parenting plan'.",
               "link": "<a href=\"parenting-plan\"> Explore: Making a parenting plan</a>"
             },
             "otherOptionsToExplore": {
@@ -381,7 +383,7 @@
           "noCourt": "<strong>No court:</strong> You do not have to go to court to make informal arrangements or a parenting plan.",
           "noCost": "<strong>No cost:</strong> You can make a parenting plan using free online tools and templates.",
           "easyToChange": "<strong>Easy to review and change:</strong> As your children get older and their needs change, or if your situation changes.",
-          "legallyBinding": "<strong>Make it legally binding:</strong> You can get a legal adviser and apply to the family court for a 'consent order' based on your plan if you want to make an informal agreement legally binding. You will need to <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">apply for a court order</a> to get your consent order approved, but there's usually no court hearing.",
+          "legallyBinding": "<strong>Make it legally binding:</strong> You can get a legal adviser to prepare a draft 'consent order' based on your plan if you want to make an informal agreement legally binding. You will need to <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">apply for a court order</a> to get your consent order approved, but there's usually no court hearing. The court must be satisfied that the arrangements are in the child's best interests.",
           "findOutMore": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Find out more about what to do if you agree on child arrangements</a>"
         },
         "nextStep": {
@@ -488,7 +490,7 @@
       }
     },
     "optionsNoContact": {
-      "title": "Options to explore if you are not comfortable contacting your ex-partner",
+      "title": "Options to explore if you are not comfortable contacting your ex-partner yourself",
       "content": {
         "notComfortable": "If you are not comfortable contacting your ex-partner, there are still ways you can make child arrangements without going to court.",
         "solicitorCanContact": "With these options, your mediator or solicitor can contact your ex-partner for you.",
@@ -521,7 +523,7 @@
         },
         "otherWaysToAgree": {
           "title": "Other ways to agree without going to court",
-          "description": "There are other ways to help you agree on child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR) and are usually quicker than going to court. The type you choose will depend on your circumstances, for example your financial situation, where you live and whether you're in contact with your ex-partner.",
+          "description": "There are other ways to help you make child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR) and are usually quicker than going to court. The type you choose will depend on your circumstances, for example your financial situation, where you live and whether you're in contact with your ex-partner.",
           "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution/\"> Find out more about other ways to agree without going to court</a>"
         },
         "helpAndSupport": {
