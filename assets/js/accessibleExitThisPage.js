@@ -47,12 +47,6 @@ const setupAccessibleExitThisPage = () => {
     if (indicator) {
       indicator.remove();
     }
-
-    // Update screen reader text to mention Escape key
-    const srText = button.querySelector('.govuk-visually-hidden');
-    if (srText) {
-      srText.textContent = 'Emergency exit this page (Press Escape key for keyboard shortcut)';
-    }
   });
 
   // Set up Escape key handler
