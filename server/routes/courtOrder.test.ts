@@ -23,7 +23,7 @@ describe('Court Order', () => {
       const dom = new JSDOM(response.text);
       const list = dom.window.document.querySelector('ul');
 
-      expect(list).toHaveTextContent('you cannot agree after');
+      expect(list).toHaveTextContent('you cannot agree, even after trying options such as');
       expect(list).toHaveTextContent('domestic abuse or you or the children are at risk');
       expect(list).toHaveTextContent('cannot contact your ex-partner');
       expect(list).toHaveTextContent('consent order');
