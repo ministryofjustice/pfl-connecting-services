@@ -75,21 +75,7 @@ test.describe('Accessibility Statement', () => {
 
     await expect(page.locator('h2:has-text("Compliance status")')).toBeVisible();
     await expect(page.locator('text=MOJ Accessibility Team')).toBeVisible();
-    await expect(page.locator('text=partially compliant')).toBeVisible();
-  });
-
-  test('should display "Non-accessible content" section', async ({ page }) => {
-    await page.goto('/accessibility');
-
-    await expect(page.locator('h2:has-text("Non-accessible content")')).toBeVisible();
-    await expect(page.locator('h3:has-text("Non-compliance with the accessibility regulations")')).toBeVisible();
-  });
-
-  test('should display Exit this page button issues', async ({ page }) => {
-    await page.goto('/accessibility');
-
-    await expect(page.locator('text=Screen reader users may experience the following issues')).toBeVisible();
-    await expect(page.locator('text=Shift key')).toBeVisible();
+    await expect(page.locator('text=fully compliant')).toBeVisible();
   });
 
   test('should display "Preparation of this accessibility statement" section', async ({ page }) => {

@@ -565,7 +565,7 @@
             },
             "rememberingProgress": {
               "title": "Remembering your progress",
-              "description": "We will store cookies to remember your application progress in this computer and to expire your session after 120 minutes of inactivity or when you close your browser.",
+              "description": "We will store cookies to remember your application progress in this computer and to expire your session after 30 minutes of inactivity or when you close your browser.",
               "table": {
                 "headerRow": {
                   "name": "Name",
@@ -575,7 +575,7 @@
                 "valueRow": {
                   "name": "",
                   "purpose": "Saves your current progress in this computer and tracks inactivity periods",
-                  "expires": "After 120 minutes of inactivity or when you close your browser"
+                  "expires": "After 30 minutes of inactivity or when you close your browser"
                 }
               }
             }
@@ -743,7 +743,7 @@
         "howAccessible": {
           "title": "How accessible this website is",
           "tested": "We have tested this service with assistive technologies including screen readers and voice-to-text technology.",
-          "notFullyTested": "However, the service has not yet had a full test against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard, so there may be further issues we are unaware of."
+          "notFullyTested": "The service has had a full internal audit against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard."
         },
         "feedback": {
           "title": "Feedback and contact information",
@@ -760,24 +760,12 @@
         },
         "compliance": {
           "title": "Compliance status",
-          "tested": "The service has been tested by the MOJ Accessibility Team (Summer 2025) and user research has been carried out internally with users with access needs. Most issues identified in this testing were addressed. The service has not yet had a full test against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard. This testing is planned to take place in Summer 2026.",
-          "partiallyCompliant": "This website is partially compliant with the Web Content Accessibility Guidelines version 2.2 AA standard, due to the non-compliances listed below."
-        },
-        "nonAccessible": {
-          "title": "Non-accessible content",
-          "nonCompliance": {
-            "title": "Non-compliance with the accessibility regulations",
-            "exitButton": "Screen reader users may experience the following issues with the 'Exit this page' button, which allows you to leave the service quickly.",
-            "issues": {
-              "lastElement": "The button is read as the last element on a page, but is present on all pages in the service.",
-              "shiftKey": "The button can be activated by clicking the Shift key three times if navigating using a keyboard. As the Shift key is a common navigation shortcut in screen reader software, the button may accidentally be activated."
-            },
-            "planToResolve": "We plan to resolve these issues by Summer 2026."
-          }
+          "tested": "The service has been tested by the MOJ Accessibility Team (Summer 2025) and user research has been carried out internally with users with access needs. The issues identified in this testing were addressed. The service has had a full internal accessibility audit against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard. External testing is planned to take place in Summer 2026.",
+          "partiallyCompliant": "This website is fully compliant with the Web Content Accessibility Guidelines version 2.2 AA standard."
         },
         "preparation": {
           "title": "Preparation of this accessibility statement",
-          "preparedOn": "This statement was prepared on 9 February 2026. It was last reviewed on 17 February 2026.",
+          "preparedOn": "This statement was prepared on 9 February 2026. It was last reviewed on 23 March 2026.",
           "lastTested": "This service was last tested in Summer 2025 against the WCAG 2.2 AA standard."
         }
       }
