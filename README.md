@@ -19,6 +19,30 @@ This is a Node.js app (v22) running on [Express](https://expressjs.com/) with
 
 This app is heavily inspired from MoJ's [hmpps-template-typescript](https://github.com/ministryofjustice/hmpps-template-typescript).
 
+## Contents
+
+- [Open beta](#open-beta)
+- [Installation](#installation)
+- [Running](#running)
+  - [Running with a cache](#running-with-a-cache)
+  - [Running in Docker](#running-in-docker)
+- [Project Structure](#project-structure)
+- [Language Support](#language-support)
+- [Tests](#tests)
+- [Static Checks](#static-checks)
+- [E2E Tests](#e2e-tests)
+  - [Pre-commit hooks](#pre-commit-hooks)
+- [Pipeline](#pipeline)
+- [Analytics](#analytics)
+- [Architecture](#architecture)
+- [Infrastructure](#infrastructure)
+- [Local Development Shortcuts](#local-development-shortcuts)
+  - [Seeding the session](#seeding-the-session)
+- [Contributing](#contributing)
+- [Preview testing](#preview-testing)
+- [TODO](#todo)
+- [Known issues](#known-issues)
+
 ## Open beta
 
 To move the service into an open beta, the following changes should be made
@@ -71,6 +95,27 @@ With the app running, run tests locally in Docker, with the command
 docker compose exec -e NODE_ENV=test app npm run test
 ```
 
+## Project Structure
+
+The main app code lives in the `server` directory, where it is separated into folders based on functionality. Tests should
+be at the same level as the file they test, and names `<<file>>.test.ts`.
+
+End to end tests are in the `e2e-tests` directory. Test files should have the name `<<file>>.spec.ts`.
+
+## Language Support
+
+The app has support for English and Welsh. All text should be added to `server/locales`, instead of being added directly
+to the Nunjucks template. If you have added an item `home.title` to the locales files, you can access it from the template:
+
+```html
+<h1>{{ __('home.title') }}</h1>
+```
+
+If there is no Welsh translation, the English value will be used as a fallback.
+
+The Welsh support can be toggled on/off using the `INCLUDE_WELSH_LANGUAGE` environment variable, allowing us to do
+releases before full Welsh translation is complete.
+
 ## Tests
 
 We use [Jest](https://jestjs.io/) for unit tests. To run them run `npm run test`.
@@ -94,6 +139,50 @@ We use Prettier to ensure consistent styling. Run `npm run prettier` to check fo
 
 It is recommended to use your IDE to run ESLint and Prettier on save, to ensure files are formatted correctly.
 
+## E2E Tests
+
+We use [Playwright](https://playwright.dev/) for end-to-end tests. See the [Playwright quickstart guide](e2e-tests/PLAYWRIGHT_QUICKSTART.md) for a first-time walkthrough, or the [E2E tests README](e2e-tests/README.md) for full reference. To run them:
+
+```shell
+npm run e2e
+```
+
+Locally, tests run across all three browsers (Chromium, Firefox, WebKit). In CI, only Chromium is used for stability.
+
+### Pre-commit hooks
+
+[Husky](https://typicode.github.io/husky/) runs two checks before each commit:
+
+- **Lint** — runs `npm run lint` and warns if there are issues
+- **Playwright cross-browser check** — warns if `playwright-results.xml` is missing or does not include results for all three browsers
+
+Neither check blocks the commit. The Playwright results file is automatically deleted after each commit, so you will be reminded to re-run the tests before your next commit.
+
+## API Documentation
+
+### Authenticated route list
+
+- [Agreement](/agree)
+- [Child safety](/child-safety)
+- [Child safety help](/child-safety-help)
+- [Contact child arrangements](/contact-child-arrangements)
+- [Court order](/court-order)
+- [Domestic abuse](/domestic-abuse)
+- [Help to agree](/help-to-agree)
+- [Mediation](/mediation)
+- [Options no contact](/options-no-contact)
+- [Other options](/other-options)
+- [Parenting plan](/parenting-plan)
+- [Safeguarding](/getting-help)
+
+### Public route list
+
+- [Accessiibility statement](/accessibility)
+- [Contact us](/contact-us)
+- [Cookies](/cookies)
+- [Privacy notice](/privacy-notice)
+- [Terms and conditions](/terms-conditions)
+
 ## Pipeline
 
 We have two pipelines. One runs for pull requests, and prevents the merge unless the tests and static analysis are passing.
@@ -101,27 +190,6 @@ The second runs on merges to the `main` branch, and runs these tests, then relea
 There is a manual step in this pipeline to release to production.
 
 Secrets used in the deployment pipeline are stored as GitHub Actions secrets, and are saved per-environment.
-
-## Project Structure
-
-The main app code lives in the `server` directory, where it is separated into folders based on functionality. Tests should
-be at the same level as the file they test, and names `<<file>>.test.ts`.
-
-End to end tests are in the `e2e-tests` directory. Test files should have the name `<<file>>.spec.ts`.
-
-## Language Support
-
-The app has support for English and Welsh. All text should be added to `server/locales`, instead of being added directly
-to the Nunjucks template. If you have added an item `home.title` to the locales files, you can access it from the template:
-
-```html
-<h1>{{ __('home.title') }}</h1>
-```
-
-If there is no Welsh translation, the English value will be used as a fallback.
-
-The Welsh support can be toggled on/off using the `INCLUDE_WELSH_LANGUAGE` environment variable, allowing us to do
-releases before full Welsh translation is complete.
 
 ## Analytics
 
