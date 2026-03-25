@@ -26,7 +26,7 @@ A Node.js application built with Express and TypeScript that helps users navigat
   - [Session Management](#session-management)
   - [Redis Cache](#redis-cache)
   - [Application Features](#application-features)
-  - [Logging & Security](#logging-&-security)
+  - [Logging and Security](#logging-and-security)
 - [Running the Application](#running-the-application)
   - [Development Mode](#development-mode)
   - [Production Build](#production-build)
@@ -37,9 +37,10 @@ A Node.js application built with Express and TypeScript that helps users navigat
   - [End-to-End Tests](#end-to-end-tests)
   - [Static Analysis](#static-analysis)
 - [Project Structure](#project-structure)
+- [Language Support](#language-support)
 - [API Routes](#api-routes)
-  - [Authenticated Routes (Require Session](#authenticated-routes-(require-session))
-  - [Public Routes (No Authentication Required](#public-routes-(no-authentication-required))
+  - [Authenticated Routes (Require Session)](#authenticated-routes-(require-session))
+  - [Public Routes (No Authentication Required)](#public-routes-(no-authentication-required))
   - [System Routes](#system-routes)
 - [Development Workflow](#development-workflow)
   - [Pre-commit Hooks](#pre-commit-hooks)
@@ -49,9 +50,8 @@ A Node.js application built with Express and TypeScript that helps users navigat
 - [Deployment](#deployment)
   - [Environments](#environments)
   - [Infrastructure](#infrastructure)
-  - [CI/CD Pipeline](#ci/cd-pipeline)
+  - [CI and CD Pipelines](#ci-and-cd-pipelines)
 - [Analytics](#analytics)
-  - [Preview testing analytics](#preview-testing-analytics)
 - [Troubleshooting](#troubleshooting)
   - [Common Issues](#common-issues)
   - [Debug Mode](#debug-mode)
@@ -301,6 +301,11 @@ Quality gates:
 
 ## Project Structure
 
+The main app code lives in the `server` directory, where it is separated into folders based on functionality. Tests should
+be at the same level as the file they test, and names `<<file>>.test.ts`.
+
+End to end tests are in the `e2e-tests` directory. Test files should have the name `<<file>>.spec.ts`.
+
 ```
 ├── server/                          # Main application code
 │   ├── @types/                      # TypeScript type definitions
@@ -549,13 +554,6 @@ With the app running, run tests locally in Docker, with the command
 ```shell
 docker compose exec -e NODE_ENV=test app npm run test
 ```
-
-## Project Structure
-
-The main app code lives in the `server` directory, where it is separated into folders based on functionality. Tests should
-be at the same level as the file they test, and names `<<file>>.test.ts`.
-
-End to end tests are in the `e2e-tests` directory. Test files should have the name `<<file>>.spec.ts`.
 
 ## Language Support
 
