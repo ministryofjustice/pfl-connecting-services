@@ -39,8 +39,8 @@ A Node.js application built with Express and TypeScript that helps users navigat
 - [Project Structure](#project-structure)
 - [Language Support](#language-support)
 - [API Routes](#api-routes)
-  - [Authenticated Routes (Require Session)](#authenticated-routes-(require-session))
-  - [Public Routes (No Authentication Required)](#public-routes-(no-authentication-required))
+  - [Authenticated Routes](#authenticated-routes)
+  - [Public Routes](#public-routes)
   - [System Routes](#system-routes)
 - [Development Workflow](#development-workflow)
   - [Pre-commit Hooks](#pre-commit-hooks)
@@ -364,7 +364,7 @@ The application supports English and Welsh with comprehensive internationalizati
 
 ## API Routes
 
-### Authenticated Routes (Require Session)
+### Authenticated Routes
 - `/agree` - Agreement and consent page
 - `/child-safety` - Child safety information and guidance
 - `/child-safety-help` - Additional child safety support
@@ -378,7 +378,7 @@ The application supports English and Welsh with comprehensive internationalizati
 - `/parenting-plan` - Parenting plan creation guidance
 - `/safeguarding` - Safeguarding and protection information
 
-### Public Routes (No Authentication Required)
+### Public Routes
 - `/` - Homepage
 - `/accessibility` - Accessibility statement
 - `/contact-us` - Contact information
@@ -409,18 +409,17 @@ The project uses Husky for Git hooks:
 ### Branching Strategy
 
 - `main`: Production-ready code
-- `develop`: Integration branch for features
 - Feature branches: `feature/description-of-feature`
 - Hotfix branches: `hotfix/description-of-fix`
 
 ### Pull Request Process
 
-1. Create feature branch from `develop`
+1. Create feature branch from `main`
 2. Implement changes with tests
 3. Ensure all checks pass
 4. Create PR with description
 5. Code review and approval
-6. Merge to `develop`, then to `main`
+6. Merge feature branch to `main`
 
 ## Deployment
 
