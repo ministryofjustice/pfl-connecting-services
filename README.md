@@ -63,7 +63,7 @@ A Node.js application built with Express and TypeScript that helps users navigat
   - [Adding New Routes](#adding-new-routes)
 - [License](#license)
 - [Architecture](#architecture)
-- [Infrastructure](#infrastructure)
+- [Deployment and Infrastructure details](#deployment-and-infrastructure-details)
 - [Common tasks](#common-tasks)
   - [Adding a new question](#adding-a-new-question)
 - [TODO](#todo)
@@ -106,7 +106,8 @@ A Node.js application built with Express and TypeScript that helps users navigat
 
 1. **Clone the repository**:
    ```bash
-   git clone git@ssh.dev.azure.com:v3/ACE-C514/pfl-connecting-services/pfl-connecting-services.git
+   HTTPS: https://github.com/ministryofjustice/pfl-connecting-services.git
+   GitHub CLI: gh repo clone ministryofjustice/pfl-connecting-services
    cd pfl-connecting-services
    ```
 
@@ -129,7 +130,7 @@ A Node.js application built with Express and TypeScript that helps users navigat
 
 ## Environment Variables
 
-The application uses the following environment variables:
+The application uses the following environment variables ([example file](https://github.com/ministryofjustice/pfl-connecting-services/blob/main/.env.example)):
 
 ### Basic Configuration
 - `PORT`: Server port (default: 3000)
@@ -437,7 +438,7 @@ The project uses Husky for Git hooks:
 - **Scaling**: Horizontal Pod Autoscaling based on CPU/memory
 - **Security**: Network policies, secrets management
 
-### CI/CD Pipeline
+### CI and CD Pipelines
 
 - **Build**: Automated builds on push to main/develop
 - **Test**: Full test suite execution in CI
@@ -446,6 +447,11 @@ The project uses Husky for Git hooks:
 - **Monitoring**: Health checks and alerting
 
 ## Analytics
+
+We used GA4 for tracking. GA4 will only be enabled if the environment variable `GA4_ID` exists.
+
+If the user does not have a `cookie_policy` cookie, GA4 will not activate, and the cookie consent banner will load. Once
+that cookie exists, tracking will be enabled depending on the consent setting within in.
 
 GA4 analytics integration with privacy compliance:
 
@@ -533,7 +539,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For detailed architecture documentation, see [architecture-docs/README.md](architecture-docs/README.md).
 
-## Infrastructure
+## Deployment and Infrastructure details
 
 For deployment and infrastructure details, see [deploy/README.md](deploy/README.md).
 ```
@@ -642,30 +648,6 @@ The second runs on merges to the `main` branch, and runs these tests, then relea
 There is a manual step in this pipeline to release to production.
 
 Secrets used in the deployment pipeline are stored as GitHub Actions secrets, and are saved per-environment.
-
-## Analytics
-
-We used GA4 for tracking. GA4 will only be enabled if the environment variable `GA4_ID` exists.
-
-If the user does not have a `cookie_policy` cookie, GA4 will not activate, and the cookie consent banner will load. Once
-that cookie exists, tracking will be enabled depending on the consent setting within in.
-
-### Preview testing analytics
-
-For preview testing, we wish to get numbers using the service, and GA4 is not reliable for this due to ad-blockers or
-users denying consent. There are server logs which can be used for this purpose (although they may need de-duplicating
-based off IP address).
-
-- To see users starting the service, count the numbers of successful logins: `Received successful login request`
-- To see users completing the service, count the number of hits to the share page: `Responded to GET /share-plan with 200`
-
-## Architecture
-
-For documentation on the project architecture, see [here](./architecture-docs/README.md)
-
-## Infrastructure
-
-For documentation on our infrastructure, see [here](./deploy/README.md)
 
 ## Common Tasks
 
