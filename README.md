@@ -1,10 +1,73 @@
+<div align="center">
+
+
+# <img alt="MoJ logo" src="https://moj-logos.s3.eu-west-2.amazonaws.com/moj-uk-logo.png" width="200"><br>Care Arrangement Plan
+
+[![Standards Icon]][Standards Link]
+[![License Icon]][License Link]
+
+</div>
+
+<br>
+<br>
+
 # PFL Connecting Services
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-PFL Connecting Services - Help making child arrangements
-
 A Node.js application built with Express and TypeScript that helps users navigate child arrangement processes. The application uses the GOV.UK Design System for consistent user experience and supports both English and Welsh languages.
+
+## Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+  - [Basic Configuration](#basic-configuration)
+  - [Session Management](#session-management)
+  - [Redis Cache](#redis-cache)
+  - [Application Features](#application-features)
+  - [Logging & Security](#logging-&-security)
+- [Running the Application](#running-the-application)
+  - [Development Mode](#development-mode)
+  - [Production Build](#production-build)
+  - [Running with Redis Cache](#running-with-redis-cache)
+  - [Running in Docker](#running-in-docker)
+- [Testing](#testing)
+  - [Unit Tests](#unit-tests)
+  - [End-to-End Tests](#end-to-end-tests)
+  - [Static Analysis](#static-analysis)
+- [Project Structure](#project-structure)
+- [API Routes](#api-routes)
+  - [Authenticated Routes (Require Session](#authenticated-routes-(require-session))
+  - [Public Routes (No Authentication Required](#public-routes-(no-authentication-required))
+  - [System Routes](#system-routes)
+- [Development Workflow](#development-workflow)
+  - [Pre-commit Hooks](#pre-commit-hooks)
+  - [Code Quality](#code-quality)
+  - [Branching Strategy](#branching-strategy)
+  - [Pull Request Process](#pull-request-process)
+- [Deployment](#deployment)
+  - [Environments](#environments)
+  - [Infrastructure](#infrastructure)
+  - [CI/CD Pipeline](#ci/cd-pipeline)
+- [Analytics](#analytics)
+  - [Preview testing analytics](#preview-testing-analytics)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+  - [Debug Mode](#debug-mode)
+  - [Health Checks](#health-checks)
+- [Contributing](#contributing)
+  - [Code Standards](#code-standards)
+  - [Commit Guidelines](#commit-guidelines)
+  - [Adding New Features](#adding-new-features)
+  - [Adding New Routes](#adding-new-routes)
+- [License](#license)
+- [Architecture](#architecture)
+- [Infrastructure](#infrastructure)
+- [Common tasks](#common-tasks)
+  - [Adding a new question](#adding-a-new-question)
+- [TODO](#todo)
+- [Known issues](#known-issues)
 
 ## Features
 
