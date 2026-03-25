@@ -25,6 +25,7 @@ To move the service into an open beta, the following changes should be made
 ## Contents
 
 - [Features](#features)
+- [Overall Solution Architecture](#overall-solution-architecture)
 - [Tech Stack](#tech-stack)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -91,6 +92,26 @@ To move the service into an open beta, the following changes should be made
 - **Analytics Integration**: GA4 analytics with cookie consent management
 - **Docker Support**: Full containerization with multi-stage builds for development and production
 - **Health Monitoring**: Application health checks and structured logging with Bunyan
+
+## Overall Solution Architecture
+
+​- Cloud Native Development​​
+
+The service runs as a Node.js Express app within an EKS Kubernetes cluster, ensuring scalability and standard compliance.​​
+
+​- Stateless Architecture​​
+
+No persistent storage or databases are used; user data is temporary and session-based (30 minutes), minimizing security risks.​​
+
+​- Monitoring and Observability​​
+
+Integrated logging tools like OpenSearch supplemented by Grafana dashboards, provide monitoring and observability for system health and performance.​​
+
+​- Simplicity and Compliance​
+
+​​Design emphasizes simplicity, compliance, and user experience by avoiding unnecessary complexity and personal data collection and persistent data storage.
+
+![Overall Solution Architecture](./assets/images/overall-solution-architecture.png)
 
 ## Tech Stack
 
