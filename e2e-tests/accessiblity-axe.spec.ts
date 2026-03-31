@@ -1,9 +1,9 @@
 import { AxeBuilder } from '@axe-core/playwright';
-
 import { test, expect, Page} from '@playwright/test';
+
 import { startJourney, selectChildSafetyOption, selectDomesticAbuseOption} from './fixtures/test-helpers';
 
-export async function runAxeScan(page: Page) {
+export default async function runAxeScan(page: Page) {
   return await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
     .analyze();
