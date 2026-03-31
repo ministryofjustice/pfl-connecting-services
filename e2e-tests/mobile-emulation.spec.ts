@@ -32,15 +32,15 @@ for (const device of mobileDevices) {
 
       // child-safety
       await assertNoHorizontalScroll(page, /child-safety/);
-      await page.getByLabel(/no/i).first().check();
+      await page.getByLabel(/no/i).check();
       await page.getByRole('button', { name: /continue/i }).tap();
 
-      // child-safety
+      // child-safety-help
       await assertNoHorizontalScroll(page, /child-safety-help/);
       await page.getByRole('button', { name: /continue/i }).tap();
       
       // domestic abuse
-      await page.getByLabel(/yes/i).first().check();
+      await page.getByLabel(/yes/i).check();
       await page.getByRole('button', { name: /continue/i }).tap();
 
       // getting-help
