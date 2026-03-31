@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 import { startJourney, selectChildSafetyOption, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectOtherOptions} from './fixtures/test-helpers';
 
-test.describe('Court Order Page', () => {
+test.describe('Mediation Page', () => {
 
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
