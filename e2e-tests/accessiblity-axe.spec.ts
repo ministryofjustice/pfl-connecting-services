@@ -11,7 +11,7 @@ export default async function runAxeScan(page: Page) {
 
 test.describe('Accessibility - Axe Core Scanning', () => {
   test('should pass axe accessibility scan on all pages of the service', async ({ page }) => {
-    //Home Page
+    //home page
     await page.goto('/');
 
     const results = await runAxeScan(page);
