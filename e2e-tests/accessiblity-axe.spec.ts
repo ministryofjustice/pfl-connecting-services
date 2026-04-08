@@ -137,7 +137,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
     const accessibilityScanResults = await new AxeBuilder({ page }).withTags(['wcag2a']).include('form').analyze();
 
     // Filter for label-related violations
-    const labelViolations = accessibilityScanResults.violations.filter((violation) => violation.id.includes('label'));
+    const labelViolations = accessibilityScanResults.violations.filter((violation: { id: string }) => violation.id.includes('label'));
 
     expect(labelViolations).toEqual([]);
   });
@@ -206,7 +206,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
 
     // Filter for landmark violations
     const landmarkViolations = accessibilityScanResults.violations.filter(
-      (violation) => violation.id.includes('landmark') || violation.id.includes('region'),
+      (violation: { id: string }) => violation.id.includes('landmark') || violation.id.includes('region'),
     );
 
     expect(landmarkViolations).toEqual([]);
@@ -221,7 +221,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
       const accessibilityScanResults = await new AxeBuilder({ page }).withTags(['wcag2a']).analyze();
 
       // Filter for heading violations
-      const headingViolations = accessibilityScanResults.violations.filter((violation) =>
+      const headingViolations = accessibilityScanResults.violations.filter((violation: { id: string }) =>
         violation.id.includes('heading'),
       );
 
@@ -235,7 +235,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
     const accessibilityScanResults = await new AxeBuilder({ page }).withTags(['wcag2aa']).analyze();
 
     // Filter for color contrast violations
-    const contrastViolations = accessibilityScanResults.violations.filter((violation) =>
+    const contrastViolations = accessibilityScanResults.violations.filter((violation: { id: string }) =>
       violation.id.includes('color-contrast'),
     );
 
@@ -249,7 +249,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
 
     // Filter for button/link violations
     const buttonLinkViolations = accessibilityScanResults.violations.filter(
-      (violation) =>
+      (violation: { id: string }) =>
         violation.id.includes('button') ||
         violation.id.includes('link') ||
         violation.id.includes('button-name') ||
@@ -265,7 +265,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
     const accessibilityScanResults = await new AxeBuilder({ page }).withTags(['wcag2a']).analyze();
 
     // Filter for image violations
-    const imageViolations = accessibilityScanResults.violations.filter((violation) =>
+    const imageViolations = accessibilityScanResults.violations.filter((violation: { id: string }) =>
       violation.id.includes('image-alt'),
     );
 
@@ -300,7 +300,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
 
         // Filter critical and serious violations
         const criticalViolations = accessibilityScanResults.violations.filter(
-          (violation) => violation.impact === 'critical' || violation.impact === 'serious',
+          (violation: { impact?: string }) => violation.impact === 'critical' || violation.impact === 'serious',
         );
 
         expect(criticalViolations).toEqual([]);
