@@ -6,15 +6,15 @@ name: SCA ⚡️
 run-name: Software Composition Analysis ⚡️
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
+  #schedule:
+  #  - cron: "0 0 * * *"
 
-  pull_request:
-    branches: ["main", "develop", "release/*"]
-    types: [opened, synchronize, reopened]
+  #pull_request:
+  #  branches: ["main", "develop", "release/*"]
+  #  types: [opened, synchronize, reopened]
 
   workflow_dispatch:
-  branch_protection_rule:
+  #branch_protection_rule:
 
 permissions: {}
 
