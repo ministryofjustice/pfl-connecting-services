@@ -1,10 +1,10 @@
 {
   "serviceName": "Cael help i ddod o hyd i opsiwn trefniant plant",
   "tag": "Beta Preifat",
-  "yes": "Oes",
-  "no": "Nac ydw",
+  "yes": "Ydyn",
+  "no": "Nac ydyn",
   "back": "Yn ol",
-  "continue": "Parhewch",
+  "continue": "Parhau",
   "next": "Nesaf",
   "nextPage": "Next<span class=\"govuk-visually-hidden\"> page</span>",
   "previousPage": "Previous<span class=\"govuk-visually-hidden\"> page</span>",
@@ -24,17 +24,17 @@
   },
   "pages": {
     "domesticAbuse": {
-      "title": "Have you experienced abuse from your ex-partner?",
-      "heading": "Have you experienced abuse from your ex-partner?",
-      "intro": "There may have been domestic abuse in the relationship if you have experienced any of the following:",
+      "title": "A ydych wedi profi unrhyw gamdriniaeth gan eich cyn-bartner?",
+      "heading": "A ydych wedi profi unrhyw gamdriniaeth gan eich cyn-bartner?",
+      "intro": "Gall fod cam-drin domestig wedi bod yn y berthynas os ydych wedi profi unrhyw un o'r canlynol:",
       "bullets": {
-        "violence": "Abuse or violence, including physical, emotional and sexual",
-        "financial": "Financial or economic abuse",
-        "coercive": "Coercive control and psychological abuse (threats, humiliation, intimidation, degradation, isolation and control)",
-        "harassment": "Harassment and stalking"
+        "violence": "Camdriniaeth neu drais, gan gynnwys cam-drin corfforol, emosiynol a rhywiol",
+        "financial": "Cam-drin ariannol neu economaidd",
+        "coercive": "Rheolaeth drwy orfodaeth a cham-drin seicolegol (bygythiadau, codi cywilydd ar rywun, brawychu, diraddio, ynysu a rheoli)",
+        "harassment": "Aflonyddu a stelcio"
       },
-      "answerYes": "Answer 'Yes' if you have experienced any of the above, whether or not you have reported your experience to the police.",
-      "error": "Select whether you or your children have experienced abuse from your ex-partner"
+      "answerYes": "Atebwch ‘Do’ os ydych wedi profi unrhyw un o'r uchod, p'un a ydych wedi riportio eich profiad i'r heddlu neu beidio.",
+      "error": "Dewiswch a ydych wedi profi unrhyw gamdriniaeth gan eich cyn-bartner neu beidio"
     },
     "childSafety": {
       "title": "Are the children safe?",
@@ -50,41 +50,41 @@
       "error": "Select whether the children are safe"
     },
     "childSafetyHelp": {
-      "title": "Getting help if your children are not safe",
+      "title": "Cael cymorth os nad yw eich plant yn ddiogel",
       "content": {
-        "description": "It is important to remember that there is help and support available to you if your children are unsafe.",
-        "warningText": "Contact the police if a child you're responsible for is in immediate danger or at risk of being taken out of the UK without your consent.",
+        "description": "Mae'n bwysig cofio bod cymorth a chefnogaeth ar gael i chi os nad ydych chi neu'ch plant yn ddiogel.",
+        "warningText": "Cysylltwch â'r heddlu neu'r gwasanaethau cymdeithasol os yw plentyn yr ydych yn gyfrifol amdano/amdani mewn perygl o gael ei dynnu/thynnu allan o'r DU heb eich caniatâd.",
         "wantToContinue": {
-          "title": "If you want to continue using this service",
-          "description": "If you feel confident that you can carry on without any danger to yourself or the children, you can continue using the service."
+          "title": "Os ydych am barhau i ddefnyddio'r gwasanaeth hwn",
+          "description": "Os ydych yn teimlo'n hyderus y gallwch barhau heb unrhyw berygl i chi na'r plant, gallwch barhau i ddefnyddio'r gwasanaeth hwn."
         },
         "getHelpProtecting": {
-          "title": "Get help protecting your children",
+          "title": "Cael cymorth i amddiffyn eich plant",
           "immediateRisk": {
-            "title": "If there is an immediate risk to your children",
-            "content": "If there is a risk of harm to a child, a risk that they may be unlawfully taken from the UK, or that a child that is currently outside of England and Wales may be unlawfully held, you can <a href=\"https://www.gov.uk/government/publications/urgent-court-hearings-about-child-arrangements-cb2/urgent-hearings-about-child-arrangements-cb2\">apply for an urgent court hearing about child arrangements</a>.",
-            "alsoFind": "You can also <a href=\"https://www.gov.uk/return-or-contact-abducted-child\">find out how to get your child back from abroad or arrange contact</a>."
+            "title": "Os oes risg uniongyrchiol i'ch plant",
+            "content": "Os oes risg o niwed i blentyn, risg y gallant gael eu cymryd allan o'r DU yn anghyfreithlon, neu gall plentyn sydd tu allan i Gymru a Lloegr gael ei ddal yn anghyfreithlon, gallwch <a href=\"https://www.gov.uk/government/publications/urgent-court-hearings-about-child-arrangements-cb2/urgent-hearings-about-child-arrangements-cb2\">wneud cais am wrandawiad llys brys ynghylch trefniadau plant</a>.",
+            "alsoFind": "Gallwch hefyd <a href=\"https://www.gov.uk/return-or-contact-abducted-child\">Ganfod sut i gael eich plentyn yn ôl o dramor neu drefnu cyswllt</a>."
           },
           "domesticAbuse": {
-            "title": "If you or your children have experienced domestic abuse",
-            "content": "If you have experienced any kind of domestic abuse, you can <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help#get-a-court-order-to-protect-you-or-your-child\">apply for a court order to protect yourself and your child</a>."
+            "title": "Os ydych chi neu eich plant wedi profi cam-drin domestig",
+            "content": "Os ydych wedi profi unrhyw fath o gam-drin domestig, gallwch <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help#get-a-court-order-to-protect-you-or-your-child\">wneud cais am orchymyn llys i ddiogelu eich hun a'ch plentyn</a>."
           }
         },
         "helpAndSupport": {
-          "title": "Help and support",
-          "description": "There is free, confidential support available to help you and your family.",
+          "title": "Cymorth a chefnogaeth",
+          "description": "Mae cymorth rhad ac am ddim a chyfrinachol ar gael i helpu chi a'ch teulu.",
           "table": {
             "rowOne": {
-              "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge's National Domestic Abuse Helpline</a>",
-              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day.</p><p class=\"govuk-body\">Telephone: 0808 2000 247</p>"
+              "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Llinell Gymorth Cam-drin Domestig Cenedlaethol Refuge</a>",
+              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day.</p><p class=\"govuk-body\">Rhif ffôn: 0808 2000 247</p>"
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.gov.wales/live-fear-free\">Live Fear Free (Wales)</a>",
               "data": "<p class=\"govuk-body\">24 hour service with specialists who make referrals and link to other services and advice.</p><p class=\"govuk-body\">Telephone: 0808 80 10 100</p>"
             },
             "rowThree": {
-              "heading": "<a href=\"https://www.reunite.org/\">Reunite International Child Abduction Centre</a>",
-              "data": "<p class=\"govuk-body\">An independent charity that provides advice and support on the issues surrounding the international movement of children.</p><p class=\"govuk-body\">Telephone: 0116 2556 234</p>"
+              "heading": "<a href=\"https://www.reunite.org/\">Reunite - Canolfan Ryngwladol Herwgydio Plant</a>",
+              "data": "<p class=\"govuk-body\">Elusen annibynnol sy'n darparu cyngor ar y materion sy'n ymwneud â symud plant yn rhyngwladol.</p><p class=\"govuk-body\">Telephone: 0116 2556 234</p>"
             }
           }
         }
@@ -547,72 +547,72 @@
       }
     },
     "cookies": {
-      "title": "Cookies",
+      "title": "Cwcis",
       "content": {
-        "putSmallFiles": "The Get help finding a child arrangement service puts small files (known as 'cookies') onto your computer to collect information about how you browse the service.",
-        "usedTo": "Cookies are used to:",
-        "remember": "remember your progress",
-        "measure": "measure how you use the service so it can be updated and improved based on your needs",
-        "identifyYouPersonally": "Get help finding a child arrangement cookies aren't used to identify you personally.",
-        "messageBeforeStore": "You'll normally see a message before we store a cookie on your computer.",
-        "manageCookiesLink": "<a href=\"https://www.aboutcookies.org/\" class=\"govuk-link\">Find out more about how to manage cookies</a>",
+        "putSmallFiles": "Mae’r gwasanaeth cael help i ddod o hyd i drefniadau plant yn rhoi ffeiliau bach (a elwir yn 'cwcis') ar eich cyfrifiadur i gasglu gwybodaeth am y ffordd yr ydych chi’n pori drwy’r gwasanaeth.",
+        "usedTo": "Mae cwcis yn cael eu defnyddio i:",
+        "remember": "gofio eich cynnydd",
+        "measure": "mesur sut rydych yn defnyddio'r gwasanaeth fel y gellir ei ddiweddaru a'i wella yn seiliedig ar eich anghenion",
+        "identifyYouPersonally": "Nid yw cwcis Cael help i wneud trefniadau plant yn cael eu defnyddio i'ch adnabod chi'n bersonol.",
+        "messageBeforeStore": "Fel arfer byddwch yn gweld neges cyn i ni storio cwci ar eich cyfrifiadur.",
+        "manageCookiesLink": "<a href=\"https://www.aboutcookies.org/\" class=\"govuk-link\">Darganfyddwch fwy am sut i reoli cwcis.</a>",
         "howCookiesAreUsed": {
-          "title": "How cookies are used in this service",
+          "title": "Sut defnyddir cwcis yn y gwasanaeth hwn",
           "content": {
             "essentialCookies": {
-              "title": "Essential cookies",
-              "description": "Essential cookies are needed for the service to work. We do not need to ask for permission to use them."
+              "title": "Cwcis hanfodol",
+              "description": "Mae angen cwcis hanfodol i wneud i'r gwasanaeth weithio. Nid oes rhaid inni ofyn am ganiatâd i’w defnyddio."
             },
             "rememberingProgress": {
-              "title": "Remembering your progress",
-              "description": "We will store cookies to remember your application progress in this computer and to expire your session after 30 minutes of inactivity or when you close your browser.",
+              "title": "Cofio sut yr ydych chi’n symud ymlaen drwy’r gwasanaeth",
+              "description": "Byddwn yn storio cwcis i gofio sut yr ydych chi’n symud ymlaen drwy’r gwasanaeth gan ddefnyddio’r cyfrifiadur hwn ac i ddod â'ch sesiwn i ben pan fyddwch heb wneud dim am 120 munud neu pan fyddwch yn cau eich porwr.",
               "table": {
                 "headerRow": {
-                  "name": "Name",
-                  "purpose": "Purpose",
-                  "expires": "Expires"
+                  "name": "Enw",
+                  "purpose": "Pwrpas",
+                  "expires": "Daw i ben ar"
                 },
                 "valueRow": {
                   "name": "",
-                  "purpose": "Saves your current progress in this computer and tracks inactivity periods",
-                  "expires": "After 30 minutes of inactivity or when you close your browser"
+                  "purpose": "Cofio sut yr ydych chi’n symud ymlaen drwy’r gwasanaeth gan ddefnyddio’r cyfrifiadur hwn ac olrhain pan fyddwch heb wneud dim.",
+                  "expires": "Ar ôl 30 munud i chi wneud dim byd neu pan fyddwch yn cau eich porwr gwe"
                 }
               }
             }
           }
         },
         "cookiesMessage": {
-          "title": "Cookies message",
+          "title": "Neges am gwcis",
           "content": {
-            "seeBanner": "You may see a banner when you visit Get help finding a child arrangement option inviting you to accept or reject optional cookies.",
-            "setCookies": "We'll set cookies so that your computer knows you've seen it and not to show it again, and also to store your settings.",
+            "seeBanner": "Efallai welwch chi faner pan fyddwch yn ymweld â'r dudalen Cael help i ddod o hyd i opsiwn trefniadau plant yn eich gwahodd i dderbyn neu wrthod cwcis dewisol.",
+            "setCookies": "Byddwn yn storio cwcis ar eich cyfrifiadur fel ei fod yn gwybod eich bod wedi’i gweld ac yn gwybod i beidio â'i dangos eto. Bydd hefyd yn storio eich gosodiadau.",
             "table": {
               "headerRow": {
-                "name": "Name",
-                "purpose": "Purpose",
-                "expires": "Expires"
+                "name": "Enw",
+                "purpose": "Pwrpas",
+                "expires": "Daw i ben ar"
               },
               "valueRow": {
                 "name": "",
-                "purpose": "Saves your cookie consent settings",
-                "expires": "1 year"
+                "purpose": "Cadw eich gosodiadau caniatâu cwcis",
+                "expires": "1 flwyddyn"
               }
             }
           }
         },
         "analyticsCookies": {
-          "title": "Analytics cookies (optional)",
+          "title": "Cwcis dadansoddol (dewisol)",
           "measuringServiceUsage": {
-            "title": "Measuring service usage (Google Analytics)",
+            "title": "Mesur defnydd o’r wefan (Google Analytics)",
             "content": {
-              "googleAnalyticsSoftware": "We use Google Analytics software to collect information about how you use Get help finding a child arrangement option. We do this to help make sure the service is meeting the needs of its users and to help us make improvements.",
-              "googleAnalyticsStores": "Google Analytics stores information about:",
-              "pagesYouVisit": "the pages you visit",
-              "howLongYouSpend": "how long you spend on each page",
-              "howYouGotToService": "how you got to the service",
-              "whatYouClick": "what you click on while you're visiting the service",
-              "weDoNotCollect": "We don't collect or store your personal information (for example your name or address) so this information can't be used to identify who you are.",
-              "setsTheCookies": "Google Analytics sets the following cookies:",
+              "googleAnalyticsSoftware": "Rydym yn defnyddio meddalwedd Google Analytics i gasglu gwybodaeth am y ffordd rydych yn defnyddio’r gwasanaeth Cael help i ddod o hyd i opsiwn trefniadau plant. Rydym yn gwneud hyn i helpu i sicrhau bod y gwasanaeth yn diwallu anghenion ei ddefnyddwyr ac i'n helpu i wneud gwelliannau.",
+              "googleAnalyticsStores": "Mae Google Analytics yn storio gwybodaeth am:",
+              "pagesYouVisit": "Y tudalennau rydych yn ymweld â nhw",
+              "howLongYouSpend": "Faint o amser rydych yn ei dreulio ar bob tudalen",
+              "howYouGotToService": "Sut y daethoch o hyd i'r gwasanaeth",
+              "whatYouClick": "Yr hyn rydych yn clicio arno wrth ddefnyddio'r gwasanaeth",
+              "weDoNotCollect": "Nid ydym yn casglu neu storio eich gwybodaeth bersonol (er enghraifft eich enw neu gyfeiriad) fel na ellir defnyddio’r wybodaeth hon i’ch adnabod.",
+              "setsTheCookies": "Mae Google Analytics yn gosod y cwcis canlynol:",
               "universalAnalytics": "Universal analytics"
             }
           },
@@ -620,153 +620,153 @@
             "title": "Universal analytics",
             "table": {
               "headerRow": {
-                "name": "Name",
-                "purpose": "Purpose",
-                "expires": "Expires"
+                "name": "Enw",
+                "purpose": "Pwrpas",
+                "expires": "Daw i ben ar"
               },
               "valueRowOne": {
                 "name": "_ga",
-                "purpose": "This helps us count how many people visit Get help finding a child arrangement option by tracking if you've visited before",
-                "expires": "2 years"
+                "purpose": "Mae hyn yn ein helpu i gyfrif faint o bobl sy'n ymweld â'r gwasanaeth Cael help i ddod o hyd i opsiwn trefniadau plant  drwy olrhain os ydych wedi ymweld o'r blaen",
+                "expires": "2 oed"
               },
               "valueRowTwo": {
                 "name": "_ga_",
-                "purpose": "Used by Google Analytics to find and track an individual session with your device",
-                "expires": "2 years"
+                "purpose": "Defnyddir gan Google Analytics i ddod o hyd i sesiwn unigol gyda'ch dyfais a'i olrhain.",
+                "expires": "2 oed"
               }
             }
           }
         },
         "acceptAnalyticsCookies": {
-          "title": "Do you want to accept analytics cookies?",
+          "title": "Ydych chi eisiau derbyn cwcis dadansoddeg?",
           "options": {
-            "yes": "Yes",
-            "no": "No"
+            "yes": "Oes",
+            "no": "Nac oes"
           },
-          "buttonText": "Save cookie settings"
+          "buttonText": "Cadw eich gosodiadau cwcis"
         }
       }
     },
     "contactUs": {
-      "title": "Contact us",
+      "title": "Cysylltu â ni",
       "content": {
-        "reportProblem": "To report a problem or suggest improvements to this service, you can email:",
+        "reportProblem": "I adrodd am broblem neu awgrymu gwelliannau i'r gwasanaeth hwn, gallwch anfon e-bost i:",
         "childArrangementsLink": "<a href=\"mailto:childarrangements@justice.gov.uk\" class=\"govuk-link\">childarrangements@justice.gov.uk</a>",
-        "feedbackEmailAddress": "This email address should only be used for feedback on the digital service.",
-        "cannotAnswerQuestions": "We cannot answer any questions about child arrangements."
+        "feedbackEmailAddress": "Dim ond i roi adborth ar y gwasanaeth digidol y dylid defnyddio'r cyfeiriad e-bost hwn.",
+        "cannotAnswerQuestions": "Ni allwn ateb cwestiynau am drefniadau plant."
       }
     },
     "privacyNotice": {
-      "title": "Privacy notice",
+      "title": "Hysbysiad Preifatrwydd",
       "content": {
-        "committed": "The Ministry of Justice (MoJ) is committed to the protection and security of your personal information.",
-        "notice": "This notice describes how and why we are using such information.",
-        "noticeDescription": "This privacy notice describes how we collect and use personal information during and after your relationship with us, in accordance with data protection law. This notice will be updated regularly.",
+        "committed": "Mae’r Weinyddiaeth Gyfiawnder (MoJ) wedi ymrwymo i ddiogelu a chadw eich gwybodaeth bersonol yn saff.",
+        "notice": "Mae'r hysbysiad hwn yn disgrifio sut a pryd rydym yn defnyddio gwybodaeth o'r fath.",
+        "noticeDescription": "Mae'r hysbysiad preifatrwydd hwn yn disgrifio sut rydym yn casglu ac yn defnyddio gwybodaeth bersonol yn ystod ac ar ôl eich perthynas â ni, yn unol â chyfraith diogelu data. Bydd yr hysbysiad hwn yn cael ei ddiweddaru'n rheolaidd.",
         "typesOfPersonalData": {
-          "title": "The type of personal data we process",
+          "title": "Math o ddata personol rydym yn ei brosesu",
           "content": {
-            "collectAndProcessInformation": "We collect and process information related to child arrangement planning to help you identify child arrangement planning options suitable for your circumstances. However, we do not collect personally identifiable information (PII), such as names, addresses, or contact details.",
-            "gatheringInformation": "Because we are not gathering information that can be used to identify you, many data protection rights do not apply.",
-            "typesOfInformation": "The types of information that we collect which are not personally identifiable may include:",
-            "userInteractions": "user interactions with our platform, including navigation behaviour and feature usage, to improve our service",
-            "doNotShareAnswers": "We do not share the answers you provide with any other organisation or government department."
+            "collectAndProcessInformation": "Rydym yn casglu a phrosesu gwybodaeth sy'n ymwneud â  chynllunio trefniadau plant i'ch helpu i adnabod opsiynau trefniadau plant sy'n briodol ar gyfer eich amgylchiadau chi. Fodd bynnag, nid ydym yn casglu gwybodaeth ble gellir adnabod rhywun yn bersonol (PII), fel enwau, cyfeiriadau neu fanylion cyswllt.",
+            "gatheringInformation": "Oherwydd nid ydym yn casglu gwybodaeth y gellir ei defnyddio i'ch adnabod, nid yw llawer o hawliau diogelu data yn berthnasol.",
+            "typesOfInformation": "Gall y mathau o wybodaeth rydym yn eu casglu nad ydynt yn rhai ble gellir adnabod rhywun yn bersonol gynnwys:",
+            "userInteractions": "rhyngweithio defnyddwyr gyda'n platfform, gan gynnwys ymddygiad llywio'r wefan a defnydd o nodweddion, i wella ein gwasanaeth",
+            "doNotShareAnswers": "Nid ydym yn rhannu'r atebion rydych yn eu darparu gydag unrhyw sefydliad arall neu adran o'r llywodraeth."
           }
         },
         "howToComplain": {
-          "title": "How to complain",
+          "title": "Sut i wneud cwyn",
           "dataProtectionOfficer": {
-            "description": "If you have any concerns about our use of your personal data, you can contact the MoJ data protection officer:",
-            "address": "Data Protection Officer<br>Ministry of Justice<br>10th Floor, Post Point 10.31<br>102 Petty France<br>London<br>SW1H 9AJ",
+            "description": "Os oes gennych unrhyw bryderon am ein defnydd o'ch data personol, gallwch gysylltu â swyddog diogelu data'r MoJ:",
+            "address": "Swyddog Diogelu Data<br>Y Weinyddiaeth Gyfiawnder / Ministry of Justice<br>10th Floor, Post Point 10.31<br>102 Petty France<br>Llundain / London<br>SW1H 9AJ",
             "website": "<a href=\"mailto:dpo@justice.gov.uk\" class=\"govuk-link\">dpo@justice.gov.uk</a>"
           },
           "informationCommissionersOffice": {
-            "description": "You can also complain to the ICO if you are unhappy with how we have used your data.",
-            "address": "Information Commissioner's Office<br>Wycliffe House<br>Water Lane<br>Wilmslow<br>Cheshire<br>SK9 5AF",
-            "helplineNumber": "Helpline number: 0303 123 1113",
-            "website": "ICO website: <a href=\"https://www.ico.org.uk\" class=\"govuk-link\">https://www.ico.org.uk</a>"
+            "description": "Gallwch hefyd wneud cwyn i Swyddfa'r Comisiynydd Gwybodaeth (ICO) os ydych yn anhapus â sut rydym wedi defnyddio'ch data.",
+            "address": "Swyddfa’r Comisiynydd Gwybodaeth<br>Wycliffe House<br>Water Lane<br>Wilmslow<br>Swydd Gaer<br>SK9 5AF",
+            "helplineNumber": "Llinell Ffôn Cymorth: 0303 123 1113",
+            "website": "Gwefan ICO: <a href=\"https://www.ico.org.uk\" class=\"govuk-link\">https://www.ico.org.uk</a>"
           }
         },
-        "statement": "This statement was prepared on 22 January 2026."
+        "statement": "Paratowyd y datganiad hwn ar 22 Ionawr 2026."
       }
     },
     "termsAndConditions": {
-      "title": "Terms and conditions",
+      "title": "Telerau ac amodau",
       "content": {
         "responsibility": {
-          "title": "Responsibility for the service",
-          "description": "The Ministry of Justice (MOJ) runs this service. We try to make sure the information we provide is accurate and complete and the service is always available and virus free.",
-          "noLiability": "The MoJ accepts no liability for:",
+          "title": "Cyfrifoldeb am y gwasanaeth",
+          "description": "Y Weinyddiaeth Gyfiawnder (MOJ) sy'n rhedeg y gwasanaeth hwn. Rydym yn ceisio sicrhau bod yr wybodaeth a ddarparwn yn gywir ac yn gyflawn a bod y gwasanaeth wastad ar gael ac yn rhydd o unrhyw firysau.",
+          "noLiability": "Nid yw'r MoJ yn cymryd cyfrifoldeb am:",
           "items": {
-            "unableToAccess": "you being unable to access the service (for example due to high demand or because we've taken it down for maintenance)",
-            "indirectDamages": "indirect damages arising from you using the service or relying on its content",
-            "externalWebsites": "the content and availability of external websites that link to the service or which link from it"
+            "unableToAccess": "chi'n methu â chael mynediad at y gwasanaeth (er enghraifft, oherwydd galw uchel neu oherwydd ein bod wedi atal y gwasanaeth i gynnal gwaith cynnal a chadw)",
+            "indirectDamages": "niwed anuniongyrchol sy'n codi o chi'n defnyddio'r gwasanaeth neu'n dibynnu ar ei gynnwys",
+            "externalWebsites": "cynnwys ag argaeledd gwefannau allanol sy'n cysylltu i'r gwasanaeth neu o'r gwasanaeth"
           }
         },
         "information": {
-          "title": "Information about you and your site visits",
-          "collectAndProcess": "We collect and process information related to:",
+          "title": "Gwybodaeth amdanoch chi a'ch ymweliadau i'r wefan",
+          "collectAndProcess": "Rydym yn casglu a phrosesu gwybodaeth sy'n ymwneud â:",
           "items": {
-            "childArrangement": "child arrangement planning to help you identify child arrangement planning options suitable for your circumstances",
-            "howYouUse": "how you use the service to help make sure it is meeting the needs of its users and to help us make improvements"
+            "childArrangement": "cynllunio trefniadau plant i'ch helpu i adnabod opsiynau cynllunio trefniadau plant sy'n briodol i'ch amgylchiadau chi",
+            "howYouUse": "sut i ddefnyddio'r gwasanaeth i sicrhau ei fod yn bodloni anghenion ei ddefnyddwyr a helpu ni i wneud gwelliannau"
           },
-          "agreeToCollect": "By using this service you agree to us collecting this information.",
-          "doNotCollectPII": "However, we do not collect personally identifiable information (PII), such as names, addresses, or contact details, in accordance with our <a href=\"/privacy-notice\" class=\"govuk-link\">privacy notice</a> and <a href=\"/cookies\" class=\"govuk-link\">cookie policy</a>."
+          "agreeToCollect": "Trwy ddefnyddio'r gwasanaeth gwn rydych yn cytuno i ni gasglu'r wybodaeth hon.",
+          "doNotCollectPII": "Fodd bynnag, nid ydym yn casglu gwybodaeth ble gellir adnabod rhywun yn bersonol (PII), fel enwau, cyfeiriadau neu fanylion cyswllt, yn unol â'n <a href=\"/privacy-notice\" class=\"govuk-link\">hysbysiad preifatrwydd</a> a'r <a href=\"/cookies\" class=\"govuk-link\">polisi cwcis</a>."
         },
         "limitations": {
-          "title": "Limitations of the service",
-          "description": "Using this service does not guarantee that you will be able to resolve your child arrangements."
+          "title": "Cyfyngiadau'r gwasanaeth",
+          "description": "Nid yw defnyddio'r gwasanaeth hwn yn gwarantu y byddwch yn datrys eich problem trefniadau plant."
         },
         "misuse": {
-          "title": "Misuse",
-          "description": "You must not impersonate another person, provide false or misleading information, or use this service on behalf of someone else without their consent."
+          "title": "Camddefnydd",
+          "description": "Ni ddylech personadu rhywun arall, darparu gwybodaeth anwir neu gamarweiniol, neu ddefnyddio'r gwasanaeth hwn ar ran rhywun arall heb eu cydsyniad."
         },
         "restrictions": {
-          "title": "Restrictions on use",
-          "description": "If you have a court order in place that restricts your contact with the other parent or child, such as a no contact order, non-molestation order, or any other legal restriction, you must not use this service to contact them.",
-          "legalConsequences": "Doing so could be a breach of the order and may have legal consequences. If you are unsure whether a court order or other legal restriction affects your ability to use this service, seek legal advice before proceeding."
+          "title": "Cyfyngiadau ar ddefnydd",
+          "description": "Os oes gennych gorchymyn llys mewn lle sy'n cyfyngu ar eich cyswllt gyda'r rhiant arall neu'r plentyn, fel gorchymyn dim cyswllt, gorchymyn rhag molestu, neu unrhyw gyfyngiad cyfreithiol arall, ni ddylech ddefnyddio'r gwasanaeth hwn i gysylltu â nhw.",
+          "legalConsequences": "Gall wneud hynny torri amodau'r gorchymyn a gall fod goblygiadau cyfreithiol. Os ydych yn ansicr p'un a yw gorchymyn neu gyfyngiad cyfreithiol yn effeithio ar eich gallu i ddefnyddio'r gwasanaeth hwn, dylech geisio cyngor cyfreithiol cyn parhau."
         }
       }
     },
     "accessibilityStatement": {
-      "title": "Accessibility statement",
+      "title": "Datganiad hygyrchedd",
       "content": {
-        "appliesTo": "This accessibility statement applies to the 'Get help finding a child arrangement option' service.",
-        "runBy": "This website is run by the Ministry of Justice (MoJ). We want as many people as possible to be able to use this website. For example, that means you should be able to:",
+        "appliesTo": "Mae'r datganiad hygyrchedd hwn yn berthnasol i'r gwasanaeth 'Cael help i ddod o hyd i opsiwn trefniadau plant.'",
+        "runBy": "Y Weinyddiaeth Gyfiawnder (MoJ) sy’n gyfrifol am y wefan hon. Rydym eisiau i gymaint o bobl â phosibl allu defnyddio’r wefan hon. Er enghraifft, golyga hyn y dylech allu:",
         "abilities": {
-          "changeColours": "change colours, contrast levels and fonts using browser or device settings",
-          "zoomIn": "zoom in up to 400% without the text spilling off the screen",
-          "navigate": "navigate most of the website using a keyboard or speech recognition software",
-          "listen": "listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)"
+          "changeColours": "defnyddio gosodiadau eich porwr neu ategion i newid y lliwiau, y lefelau cyferbyniad a’r ffontiau",
+          "zoomIn": "chwyddo i mewn hyd at 400% heb i'r testun fynd oddi ar y sgrin",
+          "navigate": "llywio'r mwyafrif o'r wefan gan ddefnyddio bysellfwrdd neu feddalwedd adnabod llais",
+          "listen": "gwrando ar y mwyafrif o'r wefan trwy ddefnyddio darllenydd sgrin (gan gynnwys y fersiynau diweddaraf o JAWS, NVDA a VoiceOver)"
         },
-        "simpleText": "We've also made the website text as simple as possible to understand.",
-        "abilityNet": "<a href=\"https://mcmw.abilitynet.org.uk/\" class=\"govuk-link\">AbilityNet</a> has advice on making your device easier to use if you have a disability.",
+        "simpleText": "Rydym hefyd wedi sicrhau bod testun y wefan mor syml ag sy'n bosibl i'w ddeall.",
+        "abilityNet": "Mae gan <a href=\"https://mcmw.abilitynet.org.uk/\" class=\"govuk-link\">AbilityNet</a> gyngor ynghylch gwneud eich dyfais yn haws i’w defnyddio os oes gennych anabledd.",
         "howAccessible": {
-          "title": "How accessible this website is",
-          "tested": "We have tested this service with assistive technologies including screen readers and voice-to-text technology.",
-          "notFullyTested": "The service has had a full internal audit against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard."
+          "title": "Pa mor hygyrch yw'r wefan hon",
+          "tested": "Rydym wedi profi'r gwasanaeth hwn gyda technolegau cynorthwyol gan gynnwys darllenwyr sgrin a thechnoleg testun-i-llais.",
+          "notFullyTested": "Mae’r gwasanaeth digidol hwn yn hygyrch ac yn bodloni safon AA Canllawiau Hygyrchedd Cynnwys Gwe (WCAG) fersiwn 2.2."
         },
         "feedback": {
-          "title": "Feedback and contact information",
-          "contact": "If you find any problems not listed on this page or think we're not meeting accessibility requirements, email <a href=\"mailto:childarrangements@justice.gov.uk\" class=\"govuk-link\">childarrangements@justice.gov.uk</a>."
+          "title": "Adborth a gwybodaeth gyswllt",
+          "contact": "Os byddwch yn canfod unrhyw broblemau nad ydynt wedi’u cynnwys ar y dudalen hon, neu’n credu nad ydym yn bodloni’r gofynion o ran hygyrchedd, anfonwch e-bost i <a href=\"mailto:childarrangements@justice.gov.uk\" class=\"govuk-link\">childarrangements@justice.gov.uk</a>."
         },
         "enforcement": {
-          "title": "Enforcement procedure",
-          "responsible": "The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the 'accessibility regulations').",
-          "complaint": "If you're not happy with how we respond to your complaint, contact the <a href=\"https://www.equalityadvisoryservice.com/\" class=\"govuk-link\">Equality Advisory and Support Service (EASS)</a>."
+          "title": "Y Weithdrefn Orfodi",
+          "responsible": "Y Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) sy’n gyfrifol am orfodi Rheoliadau Hygyrchedd Cyrff y Sector Cyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018 (y ‘rheoliadau hygyrchedd’).",
+          "complaint": "Os nad ydych chi’n fodlon gyda’r ffordd rydym yn ymateb i’ch cwyn, cysylltwch â’r <a href=\"https://www.equalityadvisoryservice.com/\" class=\"govuk-link\">Gwasanaeth Cynghori a Chymorth Cydraddoldeb (EASS)</a>."
         },
         "technical": {
-          "title": "Technical information about this website's accessibility",
-          "commitment": "The Ministry of Justice (MoJ) is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018."
+          "title": "Gwybodaeth dechnegol am hygyrchedd y wefan hon",
+          "commitment": "Mae’r Weinyddiaeth Gyfiawnder (MoJ) wedi ymrwymo i sicrhau bod ei wefan yn hygyrch, a hynny yn unol â Rheoliadau Hygyrchedd Cyrff y Sector Gyhoeddus (Gwefannau a Rhaglenni Symudol) (Rhif 2) 2018."
         },
         "compliance": {
-          "title": "Compliance status",
-          "tested": "The service has been tested by the MOJ Accessibility Team (Summer 2025) and user research has been carried out internally with users with access needs. The issues identified in this testing were addressed. The service has had a full internal accessibility audit against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard. External testing is planned to take place in Summer 2026.",
-          "partiallyCompliant": "This website is fully compliant with the Web Content Accessibility Guidelines version 2.2 AA standard."
+          "title": "Statws cydymffurfiaeth",
+          "tested": "Mae'r wefan hon wedi'i phrofi gan Dîm Hygyrchedd MOJ (Haf 2025)  ac mae ymchwil defnyddwyr wedi'i gynnal yn fewnol gyda defnyddwyr gydag anghenion mynediad. Ymdrinniwyd â'r problemau a adnabuwyd yn ystod y profi hyn. Mae’r gwasanaeth digidol hwn yn hygyrch ac yn bodloni safon AA Canllawiau Hygyrchedd Cynnwys Gwe (WCAG) fersiwn 2.2. Mae profi allanol wedi'o gynllunio i'w gynnal yn yr Haf 2026.",
+          "partiallyCompliant": "Mae’r wefan hon yn cydymffurfio’n llwyr â’r Canllawiau Hygyrchedd Cynnwys Gwe fersiwn 2.2 safon AA."
         },
         "preparation": {
-          "title": "Preparation of this accessibility statement",
-          "preparedOn": "This statement was prepared on 9 February 2026. It was last reviewed on 23 March 2026.",
-          "lastTested": "This service was last tested in Summer 2025 against the WCAG 2.2 AA standard."
+          "title": "Paratoi’r datganiad hygyrchedd hwn",
+          "preparedOn": "Cafodd y datganiad hwn ei baratoi ar Ddydd Mercher 9 Chwefror 2026. Cafodd ei adolygu ddiwethaf ar 23 Mawrth 2026.",
+          "lastTested": "Bu inni gynnal profion mewnol yn Haf 2025 yn erbyn safon WCAG 2.2 AA."
         }
       }
     }
@@ -776,17 +776,17 @@
   },
   "errors": {
     "notFound": {
-      "title": "Page not found",
-      "check": "If you entered a web address, check it is correct.",
-      "homePage": "You can <a href=\"https://www.gov.uk/\" class=\"govuk-link--no-visited-state\">browse from the homepage</a> or use the search box above to find the information you need."
+      "title": "Ni ellir dod o hyd i’r dudalen",
+      "check": "Os bu ichi deipio cyfeiriad y wefan, gwiriwch ei fod yn gywir.",
+      "homePage": "Gallwch <a href=\"https://www.gov.uk/\" class=\"govuk-link--no-visited-state\">bori o'r dudalen hafan</a> neu ddefnyddio'r blwch chwilio i ddod o hyd i'r wybodaeth rydych ei hangen."
     },
     "generic": {
-      "title": "Sorry, there is a problem with the service",
-      "tryAgainLater": "Try again later.",
-      "youCan": "You can:",
+      "title": "Mae’n ddrwg gennym, ond mae problem gyda'r gwasanaeth",
+      "tryAgainLater": "Rhowch gynnig arall arni hwyrach ymlaen.",
+      "youCan": "YGallwch wneud y canlynol:",
       "descriptionList": {
-        "findInformation": "find information on child arrangements on <a href=\"https://www.gov.uk/looking-after-children-divorce\" class=\"govuk-link--no-visited-state\">Making child arrangements if you are divorcing or separating</a>",
-        "contactUs": "<a href=\"/contact-us\" class=\"govuk-link--no-visited-state\">contact us</a> to report a problem or suggest improvements to this service"
+        "findInformation": "dod o hyd i wybodaeth am drefniadau plant yn <a href=\"https://www.gov.uk/looking-after-children-divorce\" class=\"govuk-link--no-visited-state\">Gwneud trefniadau plant os ydych yn ysgaru neu'n gwahanu</a>",
+        "contactUs": "<a href=\"/contact-us\" class=\"govuk-link--no-visited-state\">cysylltwch â ni</a> i adrodd am broblem neu awgrymu gwelliannau i'r gwasanaeth hwn"
       } 
     },
     "rateLimit": {
