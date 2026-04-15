@@ -28,10 +28,12 @@ spec:
   tls:
     - hosts:
         - connecting-services.apps.live.cloud-platform.service.justice.gov.uk
+    - hosts:
+        - child-arrangements-plan.service.justice.gov.uk
       secretName: connecting-services-cert-secret
   rules:
-    - host: connecting-services.apps.live.cloud-platform.service.justice.gov.uk
-      http:
+    - host: find-child-arrangement-option.service.gov.uk
+      http: &paths
         paths:
           - path: /
             pathType: Prefix
@@ -40,3 +42,5 @@ spec:
                 name: ${KUBE_NAMESPACE}-node-service
                 port:
                   number: 8080
+    - host: connecting-services.apps.live.cloud-platform.service.justice.gov.uk
+      http: *paths
