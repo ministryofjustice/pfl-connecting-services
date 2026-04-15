@@ -1,7 +1,7 @@
 import config from '../config';
 import logger from '../logging/logger';
 
-const INDEX = 'cs-analytics';
+const INDEX = `cs-analytics-${new Date().toISOString().slice(0, 7)}`;
 
 /**
  * Sends an analytics event to OpenSearch via the Cloud Platform proxy.
