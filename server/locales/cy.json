@@ -8,11 +8,11 @@
   "next": "Nesaf",
   "nextPage": "Next<span class=\"govuk-visually-hidden\"> page</span>",
   "previousPage": "Previous<span class=\"govuk-visually-hidden\"> page</span>",
-  "printThisPage": "Print this page",
+  "printThisPage": "Argraffu’r dudalen hon",
   "printThisPageNoJs": "To print this page, press Ctrl+P on Windows or Cmd+P on Mac.",
   "printableVersion": "View a printable version of the whole guide",
   "exitThisPage": "<span class=\"govuk-visually-hidden\">To exit this service quickly, press escape.</span>",
-  "exitThisPageButtonText": "Exit this page",
+  "exitThisPageButtonText": "Gadael y dudalen hon",
   "phaseBannerText": "This is a new service. Help us improve it and <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">give your feedback (opens in new tab)</a>.",
   "footer": {
     "accessibility": "Accessibility statement",
@@ -160,74 +160,74 @@
       }
     },
     "contactChildArrangements": {
-      "title": "Are you comfortable contacting your ex-partner about child arrangements?",
+      "title": "A ydych yn gyfforddus i gysylltu â'r cyn-bartner am drefniadau plant?",
       "content": {
         "options": {
-          "first": "Yes",
-          "second": "No, I am not comfortable contacting them",
-          "third": "I do not have their contact details",
-          "fourth": "I can contact them but they do not respond"
+          "first": "Ydyn",
+          "second": "Nac ydw, nif wyf yn gyfforddus yn cysylltu â nhw",
+          "third": "Nid oes gennyf eu manylion cyswllt",
+          "fourth": "Rwy'n gallu cysylltu â nhw ond nid ydynt yn ymateb"
         }
       },
-      "error": "Select whether you are comfortable contacting your ex-partner"
+      "error": "Dewiswch a ydych yn gyfforddus yn cysylltu â'ch cyn-bartner neu beidio"
     },
     "agreement": {
-      "title": "Do you and your ex-partner agree on child arrangements?",
+      "title": "A ydych chi neu'ch cyn-bartner yn cytuno ar drefniadau plant?",
       "content": {
-        "description": "This includes things like:",
+        "description": "Mae’n cynnwys pethau fel:",
         "descriptionList": {
-          "first": "where your children will live",
-          "second": "when they spend time with each parent",
-          "third": "handovers, holidays and whatever else matters to your children"
+          "first": "lle bydd eich plant yn byw",
+          "second": "pryd fyddant yn treulio amser gyda phob rhiant",
+          "third": "trosglwyddiadau, gwyliau ac unrhyw beth arall sydd o bwys i'ch plant"
         },
         "options": {
-          "first": "Yes, we agree on some or most things",
-          "second": "No, we do not agree",
-          "third": "We have not discussed it yet"
+          "first": "Ydym, rydym yn cytuno ar rai bethau neu'r mwyafrif o bethau",
+          "second": "Nac ydym, nid ydym yn cytuno",
+          "third": "Nid ydym wedi'i drafod eto"
         }
       },
-      "error": "Select whether you and your ex-partner agree on child arrangements"
+      "error": "Dewiswch p'un a ydych chi neu'ch cyn-bartner yn cytuno ar drefniadau plant neu beidio"
     },
     "helpToAgree": {
-      "title": "What would help you both agree on child arrangements?",
+      "title": "Beth fyddai'n eich helpu i gytuno ar drefniadau plant?",
       "content": {
         "options": {
-          "first": "A plan we can follow ourselves",
-          "second": "Someone else to guide our conversations",
-          "third": "We cannot agree – someone else needs to make a decision for us"
+          "first": "Cynllun y gallwn ddilyn ein hunain",
+          "second": "Rhywun arall i lywio ein sgyrsiau",
+          "third": "Ni allwn gytuno - rhaid i rywyn arall wneud penderfyniad i ni"
         }
       },
-      "error": "Select what would help you and your ex-partner to agree on child arrangements"
+      "error": "Dewiswch beth fyddai'n eich helpu chi a'ch cyn-bartner i gytuno ar drefniadau plant"
     },
     "otherOptions": {
       "title": "Have you tried any other options?",
       "content": {
-        "description": "Have you tried any other ways of making child arrangements in the last 4 months?",
-        "mediation": "If you decide to go to court, you'll usually need to show you've tried mediation or another way of agreeing first.",
-        "court": "If you have already tried mediation, arbitration or negotiating using a solicitor, the court will consider this when you apply.",
+        "description": "A ydych wedi trio unrhyw ffyrdd eraill o wneud trefniadau plant yn y 4 mis diwethaf?",
+        "mediation": "Os ydych yn penderfynu mynd i'r llys, fel arfer bydd arnoch angen dangos eich bod wedi trio cyfryngu neu ddull arall o gytuno yn gyntaf.",
+        "court": "Os ydych eisoes wedi trio cyfryngu, cyflafareddu neu negodi trwy ddefnyddio cyfreithiwr, bydd y llys yn ystyried hyn pan fyddwch yn gwneud cais.",
         "options": {
-          "yes": "Yes, we have tried mediation or a similar method",
-          "no": "No, we have not tried yet"
+          "yes": "Do, rydym wedi trio cyfryngu neu ddull tebyg",
+          "no": "Naddo, nid ydym wedi trio eto"
         }
       },
-      "error": "Select whether you have tried any other ways of making child arrangements in the last 4 months"
+      "error": "Dewiswch p'un a ydych wedi trio unrhyw ffyrdd eraill o wneud trefniadau plant yn y 4 mis diwethaf neu beidio"
     },
     "courtOrder": {
-      "title": "Explore: Applying for a court order",
+      "title": "Archwilio: Gwneud cais am orchymyn llys",
       "content": {
         "whyRightForYou": {
-          "title": "Why this could be right for you",
-          "canApplyIf": "You might decide to apply for a court order if:",
+          "title": "Pam gall hyn fod yn iawn i chi",
+          "canApplyIf": "Efallai y byddwch yn penderfynu gwneud cais am orchymyn llys os:",
           "reasons": {
-            "cannotAgree": "you cannot agree, even after trying options such as <a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\">mediation</a> or <a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">getting help another way</a>",
-            "domesticAbuse": "there's been domestic abuse or you or the children are at risk",
-            "cannotContact": "you cannot contact your ex-partner",
-            "consentOrder": "you're applying for a consent order to consider making your <a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">parenting plan</a> legally binding"
+            "cannotAgree": "na allwch gytuno, hyd yn oed ar ôl trio opsiynau fel <a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\">cyfryngu</a> neu <a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">gael help mewn ffordd arall</a>",
+            "domesticAbuse": "mae cam-drin domestig wedi digwydd neu rydych chi neu'r plant mewn perygl",
+            "cannotContact": "ni allwch gysylltu â'ch cyn-bartner",
+            "consentOrder": "os ydych yn gwneud cais am orchymyn cydsynio i ystyried gwneud eich <a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">cynllun rhianta</a> yn rhwymol yn gyfreithiol"
           }
         },
         "thingsToConsider": {
-          "title": "Important things to consider",
-          "mediation": "<strong>Mediation Information and Assessment Meeting (MIAM):</strong> You will usually need to show you have attended this short meeting with a mediator or tried another way to agree outside of court in the 4 months before you apply for a court order. If you cannot contact your ex-partner, you still need to attend the initial MIAM alone before applying to go to court, unless you are exempt.",
+          "title": "Pethau pwysig i'w hystyried",
+          "mediation": "<strong>Cyfarfod Asesu a Gwybodaeth am Gyfryngu (MIAM):</strong> Fel arfer bydd arnoch angen dangos eich bod wedi mynychu'r cyfarfod byr hwn gyda chyfryngwr neu wedi trio ffordd arall i gytuno tu allan i'r llys yn y 4 mis cyn i chi wneud cais am orchymyn llys. Os na allwch gysylltu â'ch cyn-bartner, bydd arnoch angen mynychu'r MIAM cychwynnol ar eich pen eich hun cyn gwneud cais i'r llys, oni bai eich bod wedi'ch eithrio.",
           "miamExemption": {
             "warning": "You do not have to go to a MIAM if you can show there is a risk:",
             "reasons": {
@@ -235,77 +235,77 @@
               "harmToChild": "of harm to a child",
               "unlawfullyTaken": "that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held"
             },
-            "validReason": "You do not have to go to a MIAM before applying to court if you have a valid reason such as child protection concerns or evidence of domestic abuse.",
-            "validReasonLink": "<a href=\"https://apply-to-court-about-child-arrangements.service.justice.gov.uk/about/miam_exemptions\">Find out more about valid reasons not to attend a MIAM</a>",
+            "validReason": "Nid oes rhaid i chi fynd i MIAM cyn gwneud cais i'r llys os oes gennych reswm dilys fel pryderon diogelu plant neu dystiolaeth o gam-drin domestig.",
+            "validReasonLink": "<a href=\"https://apply-to-court-about-child-arrangements.service.justice.gov.uk/about/miam_exemptions\">Canfod mwy am resymau dilys i beidio â mynychu MIAM</a>",
             "moreInfo": "You may be able to <a href=\"https://www.gov.uk/government/publications/urgent-court-hearings-about-child-arrangements-cb2/urgent-hearings-about-child-arrangements-cb2\">apply for an urgent court hearing about child arrangements</a>."
           },
-          "cost": "<strong>Cost:</strong> It costs £263 to apply for a court order. You may be able to <a href=\"https://www.gov.uk/legal-aid/financial-eligibility\">get legal aid to help pay court fees</a> if you're on benefits or a low income.",
-          "time": "<strong>Time:</strong> It usually takes around 10 months to get a court order, depending on where you live and your situation."
+          "cost": "<strong>Cost:</strong> Mae’n costio £263 i wneud cais am orchymyn llys. Efallai y gallwch gael <a href=\"https://www.gov.uk/legal-aid/financial-eligibility\">help i dalu ffioedd llys</a> os ydych yn cael budd-daliadau neu os ydych ar incwm isel.",
+          "time": "<strong>Amser:</strong> Fel arfer mae'n cymryd tua 10 mis i gael gorchymyn llys, yn dibynnu ar ble rydych yn byw a'ch sefyllfa."
         },
         "courtOrder": {
-          "title": "Court orders you can apply for",
+          "title": "Gorchmynion llys y gallwch wneud cais amdanynt",
           "descriptionList": {
-            "first": "Child arrangements order: To decide where your child lives and the time they spend with each parent",
-            "second": "Specific issue order: To decide on a particular question relating to your child, like what school they should go to",
-            "third": "Prohibited steps order: To stop the other parent from making a particular decision about the child's upbringing without the agreement of the court"
+            "first": "Gorchymyn trefniadau plant: Penderfynu lle mae eich plentyn yn byw a'r amser maen nhw'n ei dreulio gyda phob rhiant",
+            "second": "Gorchymyn Mater Penodol: I benderfynu ar gwestiwn penodol ynghylch eich plentyn, fel pa ysgol dylen nhw fynd iddi",
+            "third": "Gorchymyn Camau Gwaharddedig: I atal y rhiant arall rhag gwneud penderfyniad penodol am fagwraeth y plentyn heb gytundeb y llys"
           }
         },
-        "nextStep": "<strong>Next step:</strong> <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">Apply for a court order</a>",
+        "nextStep": "<strong>Cam nesaf:</strong> <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">Gwneud cais am orchymyn llys</a>",
         "otherWays": {
-          "title": "Other ways to agree without going to court",
-          "description": "Court is the right option for some families. If you want to try another way to agree without going to court, you can look into:",
+          "title": "Ffyrdd eraill i gytuno heb fynd i'r llys",
+          "description": "Llys yw'r opsiwn cywir ar gyfer rhai teuluoedd. Os ydych eisiau trio ffordd arall i gytuno heb fynd i'r llys, gallwch archwilio i:",
           "mediation": {
-            "title": "Mediation",
-            "description": "This could suit you if: You'd like a professional to help you and your ex-partner agree on the details of a child arrangement. You do not have to be in the same room or video call as your ex-partner.",
-            "inset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
-            "alreadyTried": "Already tried mediation? You can always try again, for example if your situation or child's needs have changed.",
-            "link": "<a href=\"/mediation\">Explore: Mediation</a>"
+            "title": "Cyfryngu",
+            "description": "Gallai hyn fod yn addas i chi os: Yr hoffech i weithiwr proffesiynol eich helpu chi a'ch cyn-bartner i gytuno ar fanylion trefniant plant. Ni fydd rhaid i chi fod yn yr un ystafell neu alwad fideo â'ch cyn-bartner.",
+            "inset": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r Cynllun Talebau Cyfryngu Teuluol, ni waeth faint o arian rydych yn ei ennill.",
+            "alreadyTried": "Eisoes wedi trio cyfryngu? Gallwch wastad drio eto, er enghraifft, os yw eich sefyllfa neu anghenion eich plant wedi newid.",
+            "link": "<a href=\"/mediation\">Archwilio i: Gyfryngu</a>"
           },
           "otherOptions": {
-            "title": "Other options to explore",
-            "description": "There are other ways to help you agree on child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR) and are usually quicker than going to court. The type you choose will depend on your circumstances, for example your financial situation, where you live and whether you're in contact with your ex-partner.",
-            "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">Find out more about other ways to agree without going to court</a>"
+            "title": "Opsiynau eraill i'w harchwilio",
+            "description": "Mae ffyrdd eraill i'ch helpu i gytuno ar drefniadau plant y tu allan i'r llys. Weithiau gelwir y rhain yn 'datrys anghydfod y tu allan i'r llys' (NCDR) ac fel arfer mae'n gyflymach na mynd i'r llys. Bydd y math rydych yn ei ddewis yn dibynnu ar eich amgylchiadau, er enghraifft eich sefyllfa ariannol, ble rydych yn byw, a p'un a ydych mewn cyswllt â'ch cyn-bartner.",
+            "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">Canfod mwy am ffyrdd eraill i gytuno heb fynd i'r llys</a>"
           }
         },
         "helpAndSupport": {
-          "title": "Help and support",
-          "description": "These are some of the services you may find helpful for applying for a court order.",
+          "title": "Cymorth a chefnogaeth",
+          "description": "Dyma rai o'r gwasanaethau y gall fod yn ddefnyddiol i chi ar gyfer gwneud cais am orchymyn llys.",
           "services": {
             "adviceNow": {
               "name": "Advicenow",
               "url": "https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/what-do-you-apply-family-court-about-your-children",
-              "description": "Information on what to do before applying for a court order from a charity that provides easy-to-understand information for people facing everyday legal issues with limited access to a lawyer."
+              "description": "Gwybodaeth am yr hyn i wneud cyn gwneud cais am orchymyn llys gan elusen sy'n darparu gwybodaeth sy'n hawdd ei deall i bobl sy'n wynebu materion cyfreithiol cyffredin gyda mynediad cyfyngedig at gyfreithiwr."
             },
             "cafcass": {
-              "name": "Children and Family Court Advisory and Support Service (Cafcass)",
+              "name": "Gwasanaeth Cynghori a Chynorthwyo Llys i Blant a Theuluoedd (Cafcass)",
               "url": "https://www.cafcass.gov.uk/parent-carer-or-family-member/my-family-involved-private-law-proceedings/court-process-and-what-expect",
-              "description": "Advice on the court process from Cafcass, which looks after the interests of children in family court cases in England."
+              "description": "Cyngor ar y broses llys gan Cafcass, sy'n gofalu am fuddiannau plant mewn achosion llys teulu yn Lloegr."
             },
             "lawWorks": {
               "name": "LawWorks",
               "url": "https://www.lawworks.org.uk/legal-advice-individuals",
-              "description": "A charity which connects volunteer lawyers with people needing legal advice, who aren't eligible for legal aid and can't afford to pay a lawyer."
+              "description": "Elusen sy'n cysylltu cyfreithwyr gwirfoddol gyda phobl sydd angen cyngor cyfreithiol, nad ydynt yn gymwys i gael cymorth cyfreithiol ac nad ydynt yn gallu fforddio talu cyfreithiwr."
             },
             "naccc": {
-              "name": "National Association of Child Contact Centres (NACCC)",
+              "name": "Cymdeithas Genedlaethol Canolfannau Cyswllt Plant (NACCC)",
               "url": "https://naccc.org.uk/for-parents/types-of-contact/",
-              "description": "Information on services available for children to maintain or re-establish contact with a parent from a charity dedicated to providing safe spaces where children can meet the parents they don't live with."
+              "description": "Gwybodaeth am wasanaethau sydd ar gael i blant gynnal neu ailsefydlu cyswllt gyda rhiant gan elusen pwrpasol sy'n darparu mannau diogel lle gall plant gwrdd â'u rhieni nad ydynt yn byw gyda nhw."
             }
           }
         },
         "relatedContent": {
-          "title": "Related content",
+          "title": "Cynnwys cysylltiedig",
           "links": {
             "makingArrangements": {
-              "text": "Making child arrangements if you divorce or separate",
+              "text": "Gwneud trefniadau plant os ydych yn ysgaru neu’n gwahanu",
               "url": "https://www.gov.uk/looking-after-children-divorce"
             },
             "applyForOrder": {
-              "text": "Apply for a court order",
+              "text": "Gwneud cais am orchymyn llys",
               "url": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order"
             },
             "parentalRights": {
-              "text": "Parental rights and responsibilities",
+              "text": "Hawliau a chyfrifoldebau rhieni",
               "url": "https://www.gov.uk/parental-rights-responsibilities"
             }
           }
@@ -313,113 +313,113 @@
       }
     },
     "mediation": {
-      "title": "Explore: Mediation",
+      "title": "Archwilio: Cyfryngu",
       "content": {
         "rightForYou": {
-          "title": "Why this could be right for you",
+          "title": "Pam gall hyn fod yn iawn i chi",
           "content": {
-            "chooseAProfessional": "Mediation is when you and your ex-partner choose a professional to help you agree on the details of child arrangements.",
-            "sameRoom": "You do not have to be in the same room or call as your ex-partner."
+            "chooseAProfessional": "Cyfryngu yw pan fyddwch chi a'ch cyn-bartner yn dewis gweithiwr proffesiynol i'ch helpu i gytuno ar fanylion y trefniadau plant.",
+            "sameRoom": "Ni fydd rhaid i chi fod yn yr un ystafell neu alwad â'ch cyn-bartner."
           }
         },
         "thingsToConsider": {
-          "title": "Important things to consider",
+          "title": "Pethau pwysig i'w hystyried",
           "content": {
-            "info": "If you or your children have experienced abuse from your ex-partner, tell the mediator. They can advise on the safest way to continue, or whether you should apply for a court order.",
-            "initialMeeting": "<strong>Initial meeting:</strong> You may need to go to a short meeting with a mediator to assess if mediation is the right option for you. This is sometimes called a Mediation Information and Assessment Meeting (MIAM).",
-            "cost": "<strong>Cost:</strong> Mediation is usually cheaper and quicker than going to court. You may be able to get <a href=\"https://www.gov.uk/legal-aid\">legal aid</a> to cover the cost if you are on a low income. The usual cost of a MIAM is around £120.",
-            "costInset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
-            "stayInControl": "<strong>You stay in control:</strong> Unlike in court, where a judge makes the decisions about child arrangements, in mediation you and your ex-partner decide what you agree to and what you don't.",
-            "childInclusiveMediation": "<strong>Child-inclusive mediation:</strong> Children can have a voice in the process if it's suitable. A mediator can talk to your child about what they want to make sure their views are heard.",
-            "courtOption": "<strong>Court is still an option:</strong> If the mediator does not think mediation is right for you, you might decide to go to court instead.",
-            "mediationLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\"> Find out more about mediation</a>"
+            "info": "Os ydych chi neu'ch plant wedi profi camdriniaeth gan eich cyn-bartner, dywedwch wrth y cyfryngwr. Gallant roi cyngor ar y ffordd fwyaf diogel i barhau, neu p'un a ddylech wneud cais am orchymyn llys.",
+            "initialMeeting": "<strong>Cyfarfod cychwynnol:</strong> Efallai bydd arnoch angen mynd i gyfarfod byr gyda chyfryngwr i asesu ai cyfryngu yw'r opsiwn iawn i chi. Weithiau gelwir hyn yn gyfarfod asesu a gwybodaeth am gyfryngu (MIAM).",
+            "cost": "<strong>Cost:</strong> Mae cyfryngu fel arfer yn gyflymach ac yn rhatach na mynd i'r llys. Efallai y gallwch gael <a href=\"https://www.gov.uk/legal-aid\">cymorth cyfreithiol</a> i dalu am y gost os ydych ar incwm isel. Fel arfer y gost ar gyfer MIAM yw tua £120.",
+            "costInset": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r Cynllun Talebau Cyfryngu Teuluol, ni waeth faint o arian rydych yn ei ennill.",
+            "stayInControl": "<strong>Rydych chi'n rheoli'r broses:</strong> Yn wahanol i mewn llys, lle mae barnwr yn gwneud penderfyniadau am y trefniadau plant, gyda chyfryngu chi a'ch cyn-bartner sy'n penderfynu ar beth rydych yn cytuno arno neu ddim.",
+            "childInclusiveMediation": "<strong>Cyfryngu sy'n cynnwys y plant:</strong> Gall plant leisio eu barn yn y broses os yw'n briodol. Gall cyfryngwr siarad gyda'ch plentyn am yr hyn maen nhw eisiau i sicrhau bod eu safbwyntiau nhw yn cael eu clywed.",
+            "courtOption": "<strong>Mae'r llys dal yn opsiwn:</strong> Os nad yw'r cyfryngwr yn meddwl bod cyfryngu'n iawn i chi, efallai y byddwch yn penderfynu mynd i'r llys yn hytrach.",
+            "mediationLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\"> Rhagor o wybodaeth am gyfryngu</a>"
           }
         },
         "otherWaysToAgree": {
-          "title": "Other ways to agree without going to court",
-          "description": "If you want to try another way to agree without going to court, you can look into:",
+          "title": "Ffyrdd eraill i gytuno heb fynd i'r llys",
+          "description": "Os ydych eisiau trio ffordd arall i gytuno heb fynd i'r llys, gallwch archwilio i:",
           "content": {
             "makingAParentingPlan": {
-              "title": "Making a parenting plan",
-              "description": "If you and your ex-partner can agree on child arrangements, you can record it in a child arrangements plan, also called a 'parenting plan'.",
-              "link": "<a href=\"parenting-plan\"> Explore: Making a parenting plan</a>"
+              "title": "Gwneud cynllun rhianta",
+              "description": "Os ydych chi a'ch cyn-bartner yn gallu cytuno ar drefniadau plant, gallwch ei recordio mewn cynllun trefniadau plant, a elwir hefyd yn 'cynllun rhianta.'",
+              "link": "<a href=\"parenting-plan\"> Archwilio i: Wneud cynllun rhianta</a>"
             },
             "otherOptionsToExplore": {
-              "title": "Other options to explore",
-              "description": "There are other ways to help you agree on child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR) and are usually quicker than going to court. The type you choose will depend on your circumstances, for example your financial situation, where you live and whether you're in contact with your ex-partner.",
-              "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\"> Find out more about other ways to agree without going to court</a>"
+              "title": "Opsiynau eraill i'w harchwilio",
+              "description": "Mae ffyrdd eraill i'ch helpu i gytuno ar drefniadau plant y tu allan i'r llys. Weithiau gelwir y rhain yn 'datrys anghydfod y tu allan i'r llys' (NCDR) ac fel arfer mae'n gyflymach na mynd i'r llys. Bydd y math rydych yn ei ddewis yn dibynnu ar eich amgylchiadau, er enghraifft eich sefyllfa ariannol, ble rydych yn byw, a p'un a ydych mewn cyswllt â'ch cyn-bartner.",
+              "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\"> Canfod mwy am ffyrdd eraill i gytuno heb fynd i'r llys</a>"
             }
           }
         },
         "helpAndSupport": {
-          "title": "Help and support",
-          "description": "These are some of the services you may find helpful for making child arrangements by mediation.",
-          "mediationCouncilLink": "<a href=\"https://www.familymediationcouncil.org.uk/\">Family Mediation Council</a>",
-          "mediationCouncilText": "Find a trained mediator from a network of family mediation organisations in England and Wales.",
-          "legalAidAdviserLink": "<a href=\"https://find-legal-advice.justice.gov.uk/\">Find a legal aid adviser or family mediator</a>",
-          "legalAidAdviserText": "Use this service to find legal aid advisers in England and Wales.",
+          "title": "Cymorth a chefnogaeth",
+          "description": "Dyma rai o'r gwasanaethau y gall fod yn ddefnyddiol i chi ar gyfer gwneud trefniadau plant trwy gyfryngu.",
+          "mediationCouncilLink": "<a href=\"https://www.familymediationcouncil.org.uk/\">Y Cyngor Cyfryngu Teuluol</a>",
+          "mediationCouncilText": "Dod o hyd i gyfryngwr hyfforddedig o rwydwaith o sefydliadau cyfryngu teuluol yng Nghymru a Lloegr.",
+          "legalAidAdviserLink": "<a href=\"https://find-legal-advice.justice.gov.uk/\">Dod o hyd i gynghorydd cymorth cyfreithiol</a>",
+          "legalAidAdviserText": "Defnyddiwch y gwasanaeth hwn i ddod o hyd i gynghorwyr cymorth cyfreithiol yng Nghymru a Lloegr.",
           "adviceNowLink": "<a href=\"https://www.advicenow.org.uk/get-help/family-and-children/family-mediation/\">Advicenow</a>",
-          "adviceNowText": "Information on how family mediation can help you from a charity that provides easy-to-understand information for people facing everyday legal issues with limited access to a lawyer."
+          "adviceNowText": "Gwybodaeth am sut all cyfryngu teuluol eich helpu gan elusen sy'n darparu gwybodaeth sy'n hawdd ei deall"
         }
       },
       "relatedContent": {
-        "title": "Related content",
+        "title": "Cynnwys cysylltiedig",
         "content": {
-          "makingChildArrangements": "<a href=\"https://www.gov.uk/looking-after-children-divorce\">Making child arrangements if you divorce or separate</a>",
-          "familyMediation": "<a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Family Mediation Voucher Scheme</a>"
+          "makingChildArrangements": "<a href=\"https://www.gov.uk/looking-after-children-divorce\">Gwneud trefniadau plant os ydych yn ysgaru neu’n gwahanu</a>",
+          "familyMediation": "<a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Cynllun Talebau Cyfryngu Teuluol</a>"
         }
       }
     },
     "parentingPlan": {
-      "title": "Explore: Making a parenting plan",
+      "title": "Archwilio: Gwneud cynllun rhianta",
       "content": {
         "whyRightForYou": {
-          "title": "Why this could be right for you",
-          "noPaperwork": "You do not have to go to court or do any official paperwork if you and your ex-partner agree about child arrangements.",
-          "informalArrangements": "Informal arrangements where nothing is written down work for some people, but if you'd prefer, you can record what you have agreed in a child arrangements plan, also called a 'parenting plan'."
+          "title": "Pam gall hyn fod yn iawn i chi",
+          "noPaperwork": "Nid oes rhaid i chi fynd i'r llys neu wneud unrhyw waith papur swyddogol os ydych chi a'ch cyn-bartner yn cytuno ar drefniadau plant.",
+          "informalArrangements": "Trefniadau anffurfiol lle nad oes unrhyw beth wedi'i ysgrifennu yn gweithio i rai bobl, ond os yw'n well gennych, gallwch gofnodi'r hyn a gytunwyd gennych mewn cynllun trefniadau plant, a elwir hefyd yn 'gynllun rhianta'."
         },
-        "warningText": "It may not be appropriate for you to make child arrangements directly with your ex-partner if there is any risk of harm to you or the children. Find out <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help#get-help-and-support\">how to get help with domestic abuse</a>.",
+        "warningText": "Efallai na fydd yn briodol i chi wneud trefniadau plant yn uniongyrchol â'r cyn-bartner os oes unrhyw risg o niwed i chi neu'r plant. Dewch i ganfod <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help#get-help-and-support\">sut i gael help gyda cham-drin domestig</a>.",
         "thingsToConsider": {
-          "title": "Important things to consider",
-          "noCourt": "<strong>No court:</strong> You do not have to go to court to make informal arrangements or a parenting plan.",
-          "noCost": "<strong>No cost:</strong> You can make a parenting plan using free online tools and templates.",
-          "easyToChange": "<strong>Easy to review and change:</strong> As your children get older and their needs change, or if your situation changes.",
-          "legallyBinding": "<strong>Make it legally binding:</strong> You can get a legal adviser to prepare a draft 'consent order' based on your plan if you want to make an informal agreement legally binding. You will need to <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">apply for a court order</a> to get your consent order approved, but there's usually no court hearing. The court must be satisfied that the arrangements are in the child's best interests.",
+          "title": "Pethau pwysig i'w hystyried",
+          "noCourt": "<strong>Dim llys:</strong> Nid oes rhaid i chi fynd i'r llys i wneud trefniadau anffurfiol neu gynllun rhianta.",
+          "noCost": "<strong>Dim cost:</strong> Gallwch wneud cynllun rhianta trwy ddefnyddio adnoddau a thempledi ar-lein am ddim.",
+          "easyToChange": "<strong>Hawdd i'w hadolygu a newid:</strong> Wrth i'ch plant fynd yn hŷn ac mae eu hanghenion yn newid, neu os bydd eich sefyllfa'n newid.",
+          "legallyBinding": "<strong>Ei wneud yn rhwymol yn gyfreithiol:</strong> Gallwch gael cynghorydd cyfreithiol a gwneud cais i'r llys teulu am 'gorchymyn teulu drafft' yn seiliedig ar eich cynllun os ydych eisiau gwneud trefniant anffurfiol yn rhwymol yn gyfreithiol. Bydd arnoch angen <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">gwneud cais am orchymyn llys</a> i gael cymeradwyaeth i'ch gorchymyn cydsynio, ond fel arfer nid oes gwrandawiad llys. Rhaid i'r llys fod yn fodlon bod y trefniadau er budd pennaf y plentyn.",
           "findOutMore": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Find out more about what to do if you agree on child arrangements</a>"
         },
         "nextStep": {
-          "title": "Next step: Make a plan",
-          "description": "The 'Propose a child arrangements plan' tool will help you build a plan that you can send to your ex-partner, covering:",
+          "title": "Cam nesaf: Gwneud cynllun",
+          "description": "Bydd yr adnodd 'Cynnig cynllun trefniadau plant' yn eich helpu i greu cynllun y gallwch ei anfon at eich cyn-bartner, sy'n cwmpasu:",
           "items": {
-            "whereLive": "where your children will live",
-            "spendTime": "when they spend time with each parent",
-            "handovers": "handovers, holidays and whatever else matters to your children"
+            "whereLive": "lle bydd eich plant yn byw",
+            "spendTime": "pryd fyddant yn treulio amser gyda phob rhiant",
+            "handovers": "trosglwyddiadau, gwyliau ac unrhyw beth arall sydd o bwys i'ch plant"
           },
-          "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Propose a child arrangements plan</a>"
+          "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Cynnig cynllun trefniadau plant</a>"
         },
         "otherWays": {
-          "title": "Other ways to agree without going to court",
-          "description": "If you want to try another way to agree without going to court, you can look into:",
+          "title": "Ffyrdd eraill i gytuno heb fynd i'r llys",
+          "description": "Os ydych eisiau trio ffordd arall i gytuno heb fynd i'r llys, gallwch archwilio i:",
           "mediation": {
-            "title": "Mediation",
-            "description": "This could suit you if: You'd like a professional to help you and your ex-partner agree on the details of a child arrangement. You do not have to be in the same room or call as your ex-partner.",
-            "inset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
-            "link": "<a href=\"/mediation\">Explore: Mediation</a>"
+            "title": "Cyfryngu",
+            "description": "Gallai hyn fod yn addas i chi os: Yr hoffech i weithiwr proffesiynol eich helpu chi a'ch cyn-bartner i gytuno ar fanylion trefniant plant. Ni fydd rhaid i chi fod yn yr un ystafell neu alwad â'ch cyn-bartner.",
+            "inset": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r Cynllun Talebau Cyfryngu Teuluol, ni waeth faint o arian rydych yn ei ennill.",
+            "link": "<a href=\"/mediation\">Archwilio i: Gyfryngu</a>"
           }
         },
         "helpAndSupport": {
-          "title": "Help and support",
-          "description": "These are some of the services you may find helpful for making child arrangements with your ex-partner.",
+          "title": "Cymorth a chefnogaeth",
+          "description": "Dyma rai o'r gwasanaethau y gall fod yn ddefnyddiol i chi ar gyfer gwneud trefniadau plant gyda'ch cyn-bartner.",
           "services": {
             "adviceNow": {
               "name": "Advicenow",
               "url": "https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements",
-              "description": "Information on child arrangements from a charity that provides online legal information and support tools for people facing everyday legal issues with limited access to a lawyer."
+              "description": "Gwybodaeth am drefniadau plant gan elusen sy'n darparu gwybodaeth gyfreithiol ac adnoddau cymorth ar-lein i bobl sy'n wynebu materion ariannol cyffredin gyda mynediad cyfyngedig at gyfreithiwr."
             },
             "cafcass": {
-              "name": "Children and Family Court Advisory and Support Service (Cafcass)",
+              "name": "Gwasanaeth Cynghori a Chynorthwyo Llys i Blant a Theuluoedd (Cafcass)",
               "url": "https://www.cafcass.gov.uk/parent-carer-or-family-member/my-family-involved-private-law-proceedings/resources-help-you-make-arrangements-are-your-childs-best-interests/how-parenting-plan-can-help",
-              "description": "Use the 'Our Child's Plan' tool from Cafcass to make a parenting plan. Cafcass looks after the interests of children in family court cases in England."
+              "description": "Defnyddiwch yr Adnodd 'Cynllun Ein Plentyn' o Cafcass i wneud cynllun rhianta. Mae Cafcass yn gofalu am fudd plant mewn achosion llys teulu yn Lloegr."
             },
             "cafcassCymru": {
               "name": "Cafcass Cymru",
@@ -429,22 +429,22 @@
           }
         },
         "relatedContent": {
-          "title": "Related content",
+          "title": "Cynnwys cysylltiedig",
           "links": {
             "makingArrangements": {
-              "text": "Making child arrangements if you divorce or separate",
+              "text": "Gwneud trefniadau plant os ydych yn ysgaru neu’n gwahanu",
               "url": "https://www.gov.uk/looking-after-children-divorce"
             },
             "proposeAPlan": {
-              "text": "Propose a child arrangements plan",
+              "text": "Cynnig cynllun trefniadau plant",
               "url": "https://www.gov.uk/looking-after-children-divorce/if-you-agree"
             },
             "childMaintenance": {
-              "text": "Child maintenance",
+              "text": "Cynhaliaeth plant",
               "url": "https://www.gov.uk/child-maintenance-service"
             },
             "parentalRights": {
-              "text": "Parental rights and responsibilities",
+              "text": "Hawliau a chyfrifoldebau rhieni",
               "url": "https://www.gov.uk/parental-rights-responsibilities"
             }
           }
@@ -452,97 +452,97 @@
       }
     },
     "safeguarding": {
-      "title": "Getting help if you have experienced abuse",
+      "title": "Cael cymorth os ydych wedi profi camdriniaeth",
       "content": {
-        "description": "You may have been in an abusive relationship. Domestic abuse or violence is a crime. Domestic abuse does not only mean physical violence – it includes emotional, sexual, psychological and financial abuse, as well as harassment and stalking.",
-        "descriptionSupport": "It is important to remember that there is help and support available to you.",
-        "warningText": "If you are in immediate danger, call 999 and ask for the police.",
+        "description": "Efallai eich bod wedi bod mewn perthynas camdriniol Mae cam-drin neu drais domestig yn drosedd. Nid yw cam-drin domestig yn golygu trais corfforol yn unig - mae'n cynnwys cam-drin emosioynol, rhywiol, seicolegol ac ariannol, ynghyd ag aflonyddu a stelcio.",
+        "descriptionSupport": "Mae'n bwysig cofio bod cymorth a chefnogaeth ar gael i chi.",
+        "warningText": "Os ydych mewn perygl uniongyrchol, ffoniwch 999 a gofynnwch am yr heddlu.",
         "wantToContinue": {
-          "title": "If you want to continue using this service",
-          "description": "If you feel confident that you can carry on without any danger to yourself or the children, you can continue using the service."
+          "title": "Os ydych eisiau parhau i ddefnyddio'r gwasanaeth hwn",
+          "description": "Os ydych yn teimlo'n hyderus y gallwch barhau heb unrhyw berygl i chi na'r plant, gallwch barhau i ddefnyddio'r gwasanaeth hwn."
         },
         "getHelpProtecting": {
-          "title": "Get help protecting yourself and your children",
+          "title": "Cael cymorth i amddiffyn eich hun a'ch plant",
           "content": {
-            "domesticAbuse": "If you have experienced any kind of domestic abuse, you can <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help#get-a-court-order-to-protect-you-or-your-child\">apply for a court order to protect yourself and your child</a>.",
-            "citizensAdvice": "Citizens Advice has <a href=\"https://www.citizensadvice.org.uk/family/making-agreements-about-your-children/making-child-arrangements/\">advice on making child arrangements when there's been domestic abuse</a>.",
-            "findOut": "Find out <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help\">how to get help with domestic abuse</a>.",
-            "specificHelp": "If you want to access help specifically to cater to your background and needs or want support and help for specific types of abuse there are several organisations that can help - see <a href=\"https://www.gov.uk/government/publications/domestic-abuse-get-help-for-specific-needs-or-situations/domestic-abuse-specialist-sources-of-support\">Domestic abuse: specialist sources of support</a>."
+            "domesticAbuse": "Os ydych wedi profi unrhyw fath o gam-drin domestig, gallwch <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help#get-a-court-order-to-protect-you-or-your-child\">wneud cais am orchymyn llys i ddiogelu eich hun a'ch plentyn</a>.",
+            "citizensAdvice": "Mae gan Cyngor ar Bopeth <a href=\"https://www.citizensadvice.org.uk/family/making-agreements-about-your-children/making-child-arrangements/\">gyngor ar wneud trefniadau plant lle bo cam-drin domestig wedi digwydd</a>.",
+            "findOut": "Dewch i ganfod <a href=\"https://www.gov.uk/guidance/domestic-abuse-how-to-get-help\">sut i gael help gyda cham-drin domestig</a>.",
+            "specificHelp": "Os ydych eisiau cael cymorth yn benodol ar gyfer eich cefndir a'ch anghenion chi neu os oes arnoch angen cefnogaeth a chymorth ar gyfer mathau penodol o gam-drin, mae sawl sefydliad sy'n gallu helpu - gweler <a href=\"https://www.gov.uk/government/publications/domestic-abuse-get-help-for-specific-needs-or-situations/domestic-abuse-specialist-sources-of-support\">Cam-drin Domestig: ffynonellau cymorth arbenigol</a>."
           }
         },
         "helpAndSupport": {
-          "title": "Help and support",
-          "description": "<p class=\"govuk-body\">There is free, confidential support available to help you and your family.",
+          "title": "Cymorth a chefnogaeth",
+          "description": "<p class=\"govuk-body\">Mae cymorth rhad ac am ddim a chyfrinachol ar gael i helpu chi a'ch teulu.",
           "table": {
             "rowOne": {
-              "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge's National Domestic Abuse Helpline</a>",
-              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day.<p class=\"govuk-body\"><p class=\"govuk-body\">Telephone: 0808 2000 247</p>"
+              "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Llinell Gymorth Cam-drin Domestig Cenedlaethol Refuge</a>",
+              "data": "<p class=\"govuk-body\">Cyngor am ddim a chyfrinachol, 24 awr y dydd.<p class=\"govuk-body\"><p class=\"govuk-body\">Rhif ffôn: 0808 2000 247</p>"
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.gov.wales/live-fear-free\">Live Fear Free (Wales)</a>",
               "data": "<p class=\"govuk-body\">24 hour service with specialists who make referrals and link to other services and advice.</p><p class=\"govuk-body\">Telephone: 0808 80 10 100</p>"
             },
             "rowThree": {
-              "heading": "<a href=\"https://mensadviceline.org.uk/\">Men's Advice Line</a>",
-              "data": "<p class=\"govuk-body\">A supportive helpline for all male victims of domestic abuse and those supporting them.</p><p class=\"govuk-body\">Telephone: 0808 801 0327</p>"
+              "heading": "<a href=\"https://mensadviceline.org.uk/\">Llinell Gyngor i Ddynion - Men's Advice Line</a>",
+              "data": "<p class=\"govuk-body\">Llinell gymorth i holl ddioddefwyr gwrywaidd cam-drin domestig a'r sawl sy'n eu cefnogi.</p><p class=\"govuk-body\">Rhif ffôn: 0808 801 0327</p>"
             }
           }
         }
       }
     },
     "optionsNoContact": {
-      "title": "Options to explore if you are not comfortable contacting your ex-partner yourself",
+      "title": "Opsiynau i'w harchwilio os nad ydych yn gyfforddus yn cysylltu â'ch cyn-bartner eich hun",
       "content": {
-        "notComfortable": "If you are not comfortable contacting your ex-partner, there are still ways you can make child arrangements without going to court.",
-        "solicitorCanContact": "With these options, your mediator or solicitor can contact your ex-partner for you.",
+        "notComfortable": "Os nad ydych yn gyfforddus yn cysylltu â'ch cyn-bartner, mae yna dal ffyrdd y gallwch wneud trefniadau plant heb fynd i'r llys.",
+        "solicitorCanContact": "Gyda'r opsiynau hyn, gall eich cyfryngwr neu gyfreithiwr gysylltu â'ch cyn-bartner ar eich rhan.",
         "shuttleMediation": {
-          "title": "Shuttle mediation",
+          "title": "Cyfryngu gwennol",
           "content": {
-            "thisCouldSuitYou": "This could suit you if: You do not want to have direct contact with your ex-partner.",
-            "attendSession": "Shuttle mediation is where you and your ex-partner both attend a session with a mediator, but sit in different rooms or online meetings so you do not have to have any contact.",
-            "mediatorMoves": "The mediator moves between rooms, listening to you both and helping you come to an agreement about child arrangements.",
-            "getVoucher": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
-            "nextStep": "<strong>Next step:</strong><a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\"> Find out more about mediation</a>"
+            "thisCouldSuitYou": "Gallai hyn fod yn addas i chi os: Nad ydych eisiau cael cyswllt uniongyrchol â'ch cyn-bartner.",
+            "attendSession": "Cyfryngu gwennol yw pan fyddwch chi a'ch cyn-bartner yn mynychu sesiwn gyda chyfryngwr, ond byddwch yn eistedd mewn ystafelloedd gwahanol neu mewn cyfarfod ar-lein fel nad oes rhaid i chi gael unrhyw gyswllt.",
+            "mediatorMoves": "Mae'r cyfryngwr yn symud yn ôl ac ymlaen rhwng yr ystafelloedd ac yn eich helpu i ddod i gytundeb ynghylch trefniadau plant.",
+            "getVoucher": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r Cynllun Talebau Cyfryngu Teuluol, ni waeth faint o arian rydych yn ei ennill.",
+            "nextStep": "<strong>Cam nesaf:</strong><a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\"> Rhagor o wybodaeth am gyfryngu</a>"
           }
         },
         "solicitorNegotiation": {
-          "title": "Family solicitor negotiation",
+          "title": "Negodi gyda chyfreithiwr teulu",
           "content": {
-            "thisCouldSuitYou": "This could suit you if: You cannot contact your ex-partner or they do not reply to you.",
-            "legalAdviser": "A family solicitor can help you negotiate with your ex-partner without going to court. This is known as 'solicitor negotiation' or 'lawyer negotiation'.",
-            "speakToExPartner": "You do not have to speak to your ex-partner if you choose a solicitor to negotiate for you.",
-            "nextStep": "<strong>Next step:</strong><a href=\"https://solicitors.lawsociety.org.uk/\"> Find a legal adviser from the Law Society</a>"
+            "thisCouldSuitYou": "Gallai hyn fod yn addas i chi os: Ni allwch gysylltu â'ch cyn-bartner neu nid ydynt yn ymateb i chi.",
+            "legalAdviser": "Gall cyfreithiwr teulu eich helpu i negodi gyda'ch cyn-bartner heb fynd i'r llys. Gelwir hyn yn 'negodi trwy gyfreithiwr' neu 'negodi trwy dwrnai'.",
+            "speakToExPartner": "Nid oes rhaid i chi siarad â'ch cyn-bartner os ydych yn dewis cyfreithiwr i negodi ar eich rhan.",
+            "nextStep": "<strong>Cam nesaf:</strong><a href=\"https://solicitors.lawsociety.org.uk/\"> Dod o hyd i gynghorydd cyfreithiol o Gymdeithas y Gyfraith</a>"
           }
         },
         "collaborativeLaw": {
-          "title": "Collaborative law",
+          "title": "Cyfraith gydweithredol",
           "content": {
-            "thisCouldSuitYou": "This could suit you if: You want to focus on collaboration and practicality.",
-            "hireLegalAdviser": "You and your ex-partner can each hire your own legal advisers to help you negotiate. You then all meet to try and agree on child arrangements.",
-            "nextStep": "<strong>Next step:</strong><a href=\"https://resolution.org.uk/looking-for-help/splitting-up/your-process-options-for-divorce-and-dissolution/the-collaborative-process/\"> Find out more about collaborative law from Resolution</a>"
+            "thisCouldSuitYou": "Gallai hyn fod yn addas i chi os: Rydych eisiau canolbwyntio ar gydweithio ac ymarferoldeb.",
+            "hireLegalAdviser": "Byddwch chi a'ch cyn-bartner yn cyflogi cyngor cyfreithiol eich hunain i'ch helpu i negodi. Yna byddwch i gyd yn cyfarfod i geisio cytuno ar drefniadau plant.",
+            "nextStep": "<strong>Cam nesaf:</strong><a href=\"https://resolution.org.uk/looking-for-help/splitting-up/your-process-options-for-divorce-and-dissolution/the-collaborative-process/\"> Canfod mwy am gyfraith gydweithredol gan Resolution</a>"
           }
         },
         "otherWaysToAgree": {
-          "title": "Other ways to agree without going to court",
-          "description": "There are other ways to help you make child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR) and are usually quicker than going to court. The type you choose will depend on your circumstances, for example your financial situation, where you live and whether you're in contact with your ex-partner.",
-          "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution/\"> Find out more about other ways to agree without going to court</a>"
+          "title": "Ffyrdd eraill i gytuno heb fynd i'r llys",
+          "description": "Mae ffyrdd eraill i'ch helpu i wneud trefniadau plant y tu allan i'r llys. Weithiau gelwir y rhain yn 'datrys anghydfod y tu allan i'r llys' (NCDR) ac fel arfer mae'n gyflymach na mynd i'r llys. Bydd y math rydych yn ei ddewis yn dibynnu ar eich amgylchiadau, er enghraifft eich sefyllfa ariannol, ble rydych yn byw, a p'un a ydych mewn cyswllt â'ch cyn-bartner.",
+          "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution/\"> Canfod mwy am ffyrdd eraill i gytuno heb fynd i'r llys</a>"
         },
         "helpAndSupport": {
-          "title": "Help and support",
+          "title": "Cymorth a chefnogaeth",
           "content": {
-            "description": "These are some of the services you may find helpful for making child arrangements.",
+            "description": "Dyma rai o'r gwasanaethau y gall fod yn ddefnyddiol i chi ar gyfer gwneud trefniadau plant.",
             "resolutionLink": "<a id=\"resolution-link\" href=\"https://resolution.org.uk/find-a-law-professional/\" id=\"mediation-link\">Resolution</a>",
-            "resolutionText": "Find a law professional - including collaborative practitioners - committed to a non-confrontational approach to help you resolve your family issue.",
+            "resolutionText": "Dod o hyd i weithiwr proffesiynol ym maes y gyfraith - gan gynnwys ymarferwyr cydweithredol - sydd wedi ymrwymo i ddull nad yw'n gwrthdrawol",
             "adviceNowLink": "<a id=\"advice-now-link\" href=\"https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/\" id=\"citizens-advice-link\">Advicenow</a>",
-            "adviceNowText": "Information on child arrangements from a charity that provides online legal information and support tools for people facing everyday legal issues with limited access to a lawyer."
+            "adviceNowText": "Gwybodaeth am drefniadau plant gan elusen sy'n darparu gwybodaeth gyfreithiol ac adnoddau cymorth ar-lein i bobl sy'n wynebu materion ariannol cyffredin gyda mynediad cyfyngedig at gyfreithiwr."
           }
         }
       },
       "relatedContent": {
-        "title": "Related content",
+        "title": "Cynnwys cysylltiedig",
         "content": {
-          "makingChildArrangements": "Making child arrangements if you divorce or separate",
-          "familyMediation": "Family Mediation Voucher Scheme"
+          "makingChildArrangements": "Gwneud trefniadau plant os ydych yn ysgaru neu’n gwahanu",
+          "familyMediation": "Cynllun Talebau Cyfryngu Teuluol"
         }
       }
     },
