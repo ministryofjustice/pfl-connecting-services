@@ -37,17 +37,17 @@
       "error": "Dewiswch a ydych wedi profi unrhyw gamdriniaeth gan eich cyn-bartner neu beidio"
     },
     "childSafety": {
-      "title": "Are the children safe?",
-      "heading": "Are the children safe?",
-      "intro": "Children may be at risk if there has been:",
+      "title": "A yw'r plant yn ddiogel?",
+      "heading": "A yw'r plant yn ddiogel?",
+      "intro": "Gall plant fod mewn perygl os bu:",
       "bullets": {
-        "domesticAbuse": "any form of domestic abuse or violence, even if the abuse was not directed at the children",
-        "abduction": "actual or attempted child abduction",
-        "abuseNeglect": "child abuse or neglect",
-        "substances": "misuse of drugs, alcohol or other substances",
-        "otherConcerns": "any other safety or welfare concerns that place anyone at significant risk of harm"
+        "domesticAbuse": "unrhyw fath o gam-drin domestig neu drais, hyd yn oed os nad oedd y cam-drin wedi'i gyfeirio at y plant",
+        "abduction": "herwgipio plentyn neu ymgais i'w herwgipio",
+        "abuseNeglect": "cam-drin neu esgeuluso plentyn",
+        "substances": "camddefnyddio cyffuriau, alcohol neu sylweddau eraill",
+        "otherConcerns": "unrhyw bryderon diogelwch neu lles eraill sy'n rhoi unrhyw un mewn risg sylweddol o niwed"
       },
-      "error": "Select whether the children are safe"
+      "error": "Dewiswch pa un a yw'r plant yn ddiogel"
     },
     "childSafetyHelp": {
       "title": "Cael cymorth os nad yw eich plant yn ddiogel",
@@ -80,11 +80,11 @@
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.gov.wales/live-fear-free\">Live Fear Free (Wales)</a>",
-              "data": "<p class=\"govuk-body\">24 hour service with specialists who make referrals and link to other services and advice.</p><p class=\"govuk-body\">Telephone: 0808 80 10 100</p>"
+              "data": "<p class=\"govuk-body\">24 hour service with specialists who make referrals and link to other services and advice.</p><p class=\"govuk-body\">Rhif ffôn: 0808 80 10 100</p>"
             },
             "rowThree": {
               "heading": "<a href=\"https://www.reunite.org/\">Reunite - Canolfan Ryngwladol Herwgydio Plant</a>",
-              "data": "<p class=\"govuk-body\">Elusen annibynnol sy'n darparu cyngor ar y materion sy'n ymwneud â symud plant yn rhyngwladol.</p><p class=\"govuk-body\">Telephone: 0116 2556 234</p>"
+              "data": "<p class=\"govuk-body\">Elusen annibynnol sy'n darparu cyngor ar y materion sy'n ymwneud â symud plant yn rhyngwladol.</p><p class=\"govuk-body\">Rhif ffôn: 0116 2556 234</p>"
             }
           }
         }
@@ -130,32 +130,6 @@
           "makingChildArrangements": "https://www.gov.uk/looking-after-children-divorce",
           "childMaintenance": "https://www.gov.uk/child-maintenance-service",
           "parentalRights": "https://www.gov.uk/parental-rights-responsibilities"
-        }
-      }
-    },
-    "helpMakingChildArrangements": {
-      "title": "Get help making child arrangements",
-      "content": {
-        "howToStart": "<p class=\"govuk-body\">If you are unsure how you can start making child arrangements with your ex-partner, you can get help.</p>",
-        "ifYouNeedHelp": {
-          "title": "If you need help deciding how to make child arrangements",
-          "content": "<p class=\"govuk-body\">Use the 'Get help finding a child arrangement option' service to find out about your options for making child arrangements if you are a parent separating from your child's other parent.</p>"
-        },
-        "howItWorks": {
-          "title": "How it works",
-          "content": "<p class=\"govuk-body\">You will be asked questions about your circumstances, including your current relationship with your ex-partner. You will not be asked for any personal details.</p><p class=\"govuk-body\">It takes about 10 minutes to use this service.</p>"
-        },
-        "exitTheService": {
-          "title": "If you need to exit the service quickly",
-          "content": "<p class=\"govuk-body\">Each page of this service has an 'Exit this page' button to help keep you safe and protect your privacy if you need it.</p>"
-        },
-        "getHelpChildArrangementOption": {
-          "title": "Get help finding a child arrangement option",
-          "content": "<p class=\"govuk-body\">Your answers will not be saved or shared with anyone.</p>"
-        },
-        "supportWhenMakingChildArrangements": {
-          "title": "If you need support when making child arrangements",
-          "content": "<p class=\"govuk-body\">Search for services to help you make child arrangements, including legal aid and impartial advice services.</p><p class=\"govuk-body\"><a href=\"/beta-1/service-finder\">Find child arrangement support services</a></p>"
         }
       }
     },
@@ -385,7 +359,7 @@
           "noCost": "<strong>Dim cost:</strong> Gallwch wneud cynllun rhianta trwy ddefnyddio adnoddau a thempledi ar-lein am ddim.",
           "easyToChange": "<strong>Hawdd i'w hadolygu a newid:</strong> Wrth i'ch plant fynd yn hŷn ac mae eu hanghenion yn newid, neu os bydd eich sefyllfa'n newid.",
           "legallyBinding": "<strong>Ei wneud yn rhwymol yn gyfreithiol:</strong> Gallwch gael cynghorydd cyfreithiol a gwneud cais i'r llys teulu am 'gorchymyn teulu drafft' yn seiliedig ar eich cynllun os ydych eisiau gwneud trefniant anffurfiol yn rhwymol yn gyfreithiol. Bydd arnoch angen <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">gwneud cais am orchymyn llys</a> i gael cymeradwyaeth i'ch gorchymyn cydsynio, ond fel arfer nid oes gwrandawiad llys. Rhaid i'r llys fod yn fodlon bod y trefniadau er budd pennaf y plentyn.",
-          "findOutMore": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Find out more about what to do if you agree on child arrangements</a>"
+          "findOutMore": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Rhagor o wybodaeth am beth i'w wneud os ydych yn cytuno ar drefniadau plant</a>"
         },
         "nextStep": {
           "title": "Cam nesaf: Gwneud cynllun",
@@ -480,7 +454,7 @@
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.gov.wales/live-fear-free\">Live Fear Free (Wales)</a>",
-              "data": "<p class=\"govuk-body\">24 hour service with specialists who make referrals and link to other services and advice.</p><p class=\"govuk-body\">Telephone: 0808 80 10 100</p>"
+              "data": "<p class=\"govuk-body\">24 hour service with specialists who make referrals and link to other services and advice.</p><p class=\"govuk-body\">Rhif ffôn: 0808 80 10 100</p>"
             },
             "rowThree": {
               "heading": "<a href=\"https://mensadviceline.org.uk/\">Llinell Gyngor i Ddynion - Men's Advice Line</a>",
