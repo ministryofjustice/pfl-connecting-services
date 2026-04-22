@@ -1,0 +1,50 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: opensearch-ism-policy
+  namespace: ${KUBE_NAMESPACE}
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: apply-ism-policy
+          image: curlimages/curl:8.19.1
+          env: 
+            - name: PROXY_URL
+              valueFrom:
+                secretKeyRef:
+                  name: connecting-services-opensearch-proxy-url
+                  key: proxy_url
+          command: 
+            - sh
+            - -c
+            - |
+              curl -sf -X PUT "$PROXY_URL/_plugins/_ism/policies/retention-1d"  \
+                -H "Content-Type: application/json" \
+                -d '{
+                  "policy": {
+                    "description": "Policy to delete indices after 1 days",
+                    "default_state": "live",
+                    "ism_template": {
+                      "index_patterns": ["cs-analytics*"],
+                      "priority": 1
+                    }],
+                    "states": [{
+                      "name": "live",
+                      "transitions": [{
+                        "state_name": "delete",
+                        "conditions": {
+                          "min_index_age": "1d"
+                        }
+                      }]
+                    }, {
+                      "name": "delete",
+                      "actions": [{
+                        "delete": {}
+                      }],
+                      "transitions": []
+                    }]
+                  }
+                }'
+                
