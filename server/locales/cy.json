@@ -53,8 +53,8 @@
     "childSafetyHelp": {
       "title": "Getting help if your children are not safe",
       "content": {
-        "description": "It is important to remember that there is help and support available to you if your children are unsafe.",
-        "warningText": "Contact the police if a child you're responsible for is in immediate danger or at risk of being taken out of the UK without your consent.",
+        "description": "It is important to remember that there is help and support available to you if you or your children are unsafe.",
+        "warningText": "Contact the police if a child is in immediate danger",
         "wantToContinue": {
           "title": "If you want to continue using this service",
           "description": "If you feel confident that you can carry on without any danger to yourself or the children, you can continue using the service."
@@ -62,9 +62,8 @@
         "getHelpProtecting": {
           "title": "Get help protecting your children",
           "immediateRisk": {
-            "title": "If there is an immediate risk to your children",
-            "content": "If there is a risk of harm to a child, a risk that they may be unlawfully taken from the UK, or that a child that is currently outside of England and Wales may be unlawfully held, you can <a href=\"https://www.gov.uk/government/publications/urgent-court-hearings-about-child-arrangements-cb2/urgent-hearings-about-child-arrangements-cb2\">apply for an urgent court hearing about child arrangements</a>.",
-            "alsoFind": "You can also <a href=\"https://www.gov.uk/return-or-contact-abducted-child\">find out how to get your child back from abroad or arrange contact</a>."
+            "title": "If you believe your child could be taken out of the UK without your permission",
+            "findOut": "Find out <a href=\"https://www.gov.uk/guidance/international-parental-child-abduction\">what to do if you believe a child could be taken or has been taken abroad without your permission</a>"
           },
           "domesticAbuse": {
             "title": "If you or your children have experienced domestic abuse",
@@ -76,12 +75,12 @@
           "description": "There is free, confidential support available to help you and your family.",
           "table": {
             "rowOne": {
-              "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge's National Domestic Abuse Helpline</a>",
-              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day.</p><p class=\"govuk-body\">Telephone: 0808 2000 247</p>"
+              "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge National Domestic Abuse Helpline</a>",
+              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.</p><p class=\"govuk-body\">Telephone: 0808 2000 247</p>"
             },
             "rowTwo": {
-              "heading": "<a href=\"https://www.gov.wales/live-fear-free\">Live Fear Free (Wales)</a>",
-              "data": "<p class=\"govuk-body\">24 hour service with specialists who make referrals and link to other services and advice.</p><p class=\"govuk-body\">Telephone: 0808 80 10 100</p>"
+              "heading": "<a href=\"https://www.rightsofwomen.org.uk/get-advice/family-law/\">Rights of Women</a>",
+              "data": "<p class=\"govuk-body\">Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.</p><p class=\"govuk-body\">Telephone: 020 7251 6577</p>"
             },
             "rowThree": {
               "heading": "<a href=\"https://www.reunite.org/\">Reunite International Child Abduction Centre</a>",
