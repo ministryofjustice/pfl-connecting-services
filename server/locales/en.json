@@ -47,6 +47,7 @@
         "substances": "misuse of drugs, alcohol or other substances",
         "otherConcerns": "any other safety or welfare concerns that place anyone at significant risk of harm"
       },
+      "rightInformation": "We ask this so we can give you the right information and resources for your situation.",
       "error": "Select whether the children are safe"
     },
     "childSafetyHelp": {
