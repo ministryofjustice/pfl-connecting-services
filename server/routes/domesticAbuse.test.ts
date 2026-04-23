@@ -37,6 +37,14 @@ describe('Domestic Abuse Question', () => {
       expect(response.text).toContain('Harassment and stalking');
     });
 
+    it('should display right information text', async () => {
+      const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
+
+      expect(response.text).toContain(
+        'We ask this so we can give you the right information and resources for your situation.',
+      );
+    });
+
     it('should display Answer Yes guidance text', async () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
 
