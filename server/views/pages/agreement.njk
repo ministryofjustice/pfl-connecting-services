@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% set legendText %}
-  {{ __("pages.agreement.title") }}
+  {{ __("pages.agreement.title") | safe }}
 {% endset %}
 
 {% set additionalText %}
@@ -60,7 +60,7 @@
         }) }}
         
         {{ govukButton({
-          text: "Continue"
+          text: __("continue")
         }) }}
 
       </form>
