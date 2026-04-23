@@ -22,14 +22,36 @@ test.describe('Options no contact Page', () => {
     );
   });
 
-  test('should also navigate to options no contact when "I can contact them but they do not respond" is selected on Contact Child Arrangements page', async ({
+  test('should navigate to agree order when "Yes" is selected on Contact Child Arrangements page', async ({
+    page,
+  }) => {
+    await page.locator('a.govuk-back-link').click();
+    await selectContactChildArrangementsOption(page, 'Yes');
+    await expect(page).toHaveURL(/agree/);
+    await expect(page.locator('h1')).toContainText(
+      'Do you and your ex-partner agree on child arrangements?',
+    );
+  });
+
+  test('should navigate to court order when "I do not have their contact details" is selected on Contact Child Arrangements page', async ({
+    page,
+  }) => {
+    await page.locator('a.govuk-back-link').click();
+    await selectContactChildArrangementsOption(page, 'I do not have their contact details');
+    await expect(page).toHaveURL(/court-order/);
+    await expect(page.locator('h1')).toContainText(
+      'Explore: Applying for a court order',
+    );
+  });
+
+  test('should navigate to court order when "I can contact them but they do not respond" is selected on Contact Child Arrangements page', async ({
     page,
   }) => {
     await page.locator('a.govuk-back-link').click();
     await selectContactChildArrangementsOption(page, 'I can contact them but they do not respond');
-    await expect(page).toHaveURL(/options-no-contact/);
+    await expect(page).toHaveURL(/court-order/);
     await expect(page.locator('h1')).toContainText(
-      'Options to explore if you are not comfortable contacting your ex-partner',
+      'Explore: Applying for a court order',
     );
   });
 

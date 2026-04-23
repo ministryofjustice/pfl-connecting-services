@@ -76,10 +76,10 @@ test.describe('Exit the page from the options no contact page', () => {
     await selectChildSafetyOption(page, 'Yes')
     await selectDomesticAbuseOption(page, 'No')
     await selectContactChildArrangementsOption(page, 'I can contact them but they do not respond')
-    await expect(page).toHaveURL(/options-no-contact/i);
+    await expect(page).toHaveURL(/court-order/i);
 
     await clickExitButton(page);
-    await assertNavigationToBBCWeather(page, /options-no-contact/)
+    await assertNavigationToBBCWeather(page, /court-order/)
   });
 });
 
