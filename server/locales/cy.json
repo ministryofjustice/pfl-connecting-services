@@ -476,12 +476,12 @@
           "description": "<p class=\"govuk-body\">There is free, confidential support available to help you and your family.",
           "table": {
             "rowOne": {
-              "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge's National Domestic Abuse Helpline</a>",
-              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day.<p class=\"govuk-body\"><p class=\"govuk-body\">Telephone: 0808 2000 247</p>"
+              "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge National Domestic Abuse Helpline</a>",
+              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.<p class=\"govuk-body\"><p class=\"govuk-body\">Telephone: 0808 2000 247</p>"
             },
             "rowTwo": {
-              "heading": "<a href=\"https://www.gov.wales/live-fear-free\">Live Fear Free (Wales)</a>",
-              "data": "<p class=\"govuk-body\">24 hour service with specialists who make referrals and link to other services and advice.</p><p class=\"govuk-body\">Telephone: 0808 80 10 100</p>"
+              "heading": "<a href=\"https://www.rightsofwomen.org.uk/get-advice/family-law/\">Rights of Women</a>",
+              "data": "<p class=\"govuk-body\">Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.</p><p class=\"govuk-body\">Telephone: 020 7251 6577</p>"
             },
             "rowThree": {
               "heading": "<a href=\"https://mensadviceline.org.uk/\">Men's Advice Line</a>",
