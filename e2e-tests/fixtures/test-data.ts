@@ -11,7 +11,7 @@ export const contactChildArrangementOption = [
   },
   {
     label: 'I can contact them but they do not respond',
-    nextUrl: /options-no-contact/,
+    nextUrl: /court-order/,
   },
   {
     label: 'Yes',

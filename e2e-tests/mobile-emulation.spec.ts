@@ -53,8 +53,8 @@ for (const device of mobileDevices) {
       await page.getByRole('button', { name: /continue/i }).tap();
 
       // options-no-contact
-      await assertNoHorizontalScroll(page, /options-no-contact/);
-      await expect(page.locator('h1')).toContainText('Options to explore if you are not comfortable contacting your ex-partner');
+      await assertNoHorizontalScroll(page, /court-order/);
+      await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
       await page.locator('.govuk-back-link').click();
 
       // contact-child-arrangements

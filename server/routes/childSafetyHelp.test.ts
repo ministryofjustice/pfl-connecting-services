@@ -41,6 +41,15 @@ describe('Child Safety Help Page', () => {
       expect(response.text).toContain('help and support available to you');
     });
 
+    it('should display section about continue using this service', async () => {
+      const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
+
+      expect(response.text).toContain('If you want to continue using this service');
+      expect(response.text).toContain(
+        'If you feel confident that you can carry on without any danger to yourself or the children, you can continue using the service.'
+      );
+    });
+
     it('should display Continue button linking to domestic abuse page', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
@@ -55,8 +64,7 @@ describe('Child Safety Help Page', () => {
     it('should display section about immediate risk to children', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      expect(response.text).toContain('If there is an immediate risk to your children');
-      expect(response.text).toContain('apply for an urgent court hearing about child arrangements');
+      expect(response.text).toContain('If you believe your child could be taken out of the UK without your permission');
     });
 
     it('should display section about domestic abuse', async () => {
@@ -69,15 +77,15 @@ describe('Child Safety Help Page', () => {
     it('should display National Domestic Abuse Helpline in table', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      expect(response.text).toContain("Refuge's National Domestic Abuse Helpline");
+      expect(response.text).toContain("Refuge National Domestic Abuse Helpline");
       expect(response.text).toContain('0808 2000 247');
     });
 
-    it('should display Live Fear Free Wales helpline in table', async () => {
+    it('should display Rights of Women helpline in table', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      expect(response.text).toContain('Live Fear Free (Wales)');
-      expect(response.text).toContain('0808 80 10 100');
+      expect(response.text).toContain('Rights of Women');
+      expect(response.text).toContain('020 7251 6577');
     });
 
     it('should display Reunite International Child Abduction Centre in table', async () => {
