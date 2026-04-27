@@ -45,6 +45,7 @@ describe('Court Order', () => {
 
       expect(response.text).toContain('Important things to consider');
       expect(response.text).toContain('Mediation Information and Assessment Meeting (MIAM):');
+      expect(response.text).toContain('Find a mediator who can provide a MIAM on the Family Mediation Council website');
       expect(response.text).toContain('Cost:');
       expect(response.text).toContain('Time:');
     });

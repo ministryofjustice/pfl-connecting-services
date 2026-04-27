@@ -202,7 +202,7 @@
         },
         "thingsToConsider": {
           "title": "Important things to consider",
-          "mediation": "<strong>Mediation Information and Assessment Meeting (MIAM):</strong> You will usually need to show you have attended this short meeting with a mediator or tried another way to agree outside of court in the 4 months before you apply for a court order. If you cannot contact your ex-partner, you still need to attend the initial MIAM alone before applying to go to court, unless you are exempt.",
+          "mediation": "<strong>Mediation Information and Assessment Meeting (MIAM):</strong> You will usually need to show you have attended this short meeting with a mediator or tried another way to agree outside of court in the 4 months before you apply for a court order. If you cannot contact your ex-partner, you still need to attend the initial MIAM alone before applying to go to court, unless you are exempt. <a href=\"https://www.familymediationcouncil.org.uk/find-local-mediator/\">Find a mediator who can provide a MIAM on the Family Mediation Council website</a>",
           "miamExemption": {
             "warning": "You do not have to go to a MIAM if you can show there is a risk:",
             "reasons": {
