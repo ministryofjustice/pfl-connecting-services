@@ -30,6 +30,9 @@ describe('Child Safety Question', () => {
       expect(response.text).toContain(
         'any other safety or welfare concerns that place anyone at significant risk of harm',
       );
+      expect(response.text).toContain(
+        'We ask this so we can give you the right information and resources for your situation.'
+      );
     });
 
     it('should display two radio options: Yes and No', async () => {

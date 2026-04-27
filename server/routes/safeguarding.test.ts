@@ -83,7 +83,7 @@ describe('Safeguarding Page', () => {
     it('should display National Domestic Abuse Helpline in table', async () => {
       const response = await request(app).get(paths.SAFEGUARDING).expect(200);
 
-      expect(response.text).toContain("Refuge's National Domestic Abuse Helpline");
+      expect(response.text).toContain("Refuge National Domestic Abuse Helpline");
       expect(response.text).toContain('0808 2000 247');
       expect(response.text).toContain('Free, confidential advice, 24 hours a day');
     });
@@ -91,8 +91,8 @@ describe('Safeguarding Page', () => {
     it('should display Live Fear Free Wales helpline in table', async () => {
       const response = await request(app).get(paths.SAFEGUARDING).expect(200);
 
-      expect(response.text).toContain('Live Fear Free (Wales)');
-      expect(response.text).toContain('0808 80 10 100');
+      expect(response.text).toContain('Rights of Women');
+      expect(response.text).toContain('020 7251 6577');
     });
 
     it("should display Men's Advice Line in table", async () => {

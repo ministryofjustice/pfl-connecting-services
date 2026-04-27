@@ -35,9 +35,9 @@ test.describe('Child Safety Help Page', () => {
     await expect(page.getByRole('heading', { name: 'Get help protecting your children' })).toBeVisible();
   });
 
-  test('should display "If there is an immediate risk to your children" subsection', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'If there is an immediate risk to your children' })).toBeVisible();
-    await expect(page.locator('body')).toContainText('apply for an urgent court hearing');
+  test('should display "If you believe your child could be taken out of the UK without your permission" subsection', async ({ page }) => {
+    await expect(page.getByRole('heading', { name: 'If you believe your child could be taken out of the UK without your permission' })).toBeVisible();
+    await expect(page.locator('body')).toContainText('what to do if you believe a child could be taken or has been taken abroad without your permission');
   });
 
   test('should display "If you or your children have experienced domestic abuse" subsection', async ({ page }) => {
@@ -50,8 +50,8 @@ test.describe('Child Safety Help Page', () => {
   });
 
   test('should display help and support table with services', async ({ page }) => {
-    await expect(page.locator('.govuk-summary-list')).toContainText("Refuge's National Domestic Abuse Helpline");
-    await expect(page.locator('.govuk-summary-list')).toContainText('Live Fear Free (Wales)');
+    await expect(page.locator('.govuk-summary-list')).toContainText("Refuge National Domestic Abuse Helpline");
+    await expect(page.locator('.govuk-summary-list')).toContainText('Rights of Women');
     await expect(page.locator('.govuk-summary-list')).toContainText('Reunite International Child Abduction Centre');
   });
 
@@ -67,7 +67,7 @@ test.describe('Child Safety Help Page', () => {
 
   test('should have correct phone numbers for helplines', async ({ page }) => {
     await expect(page.locator('.govuk-summary-list')).toContainText('0808 2000 247');
-    await expect(page.locator('.govuk-summary-list')).toContainText('0808 80 10 100');
+    await expect(page.locator('.govuk-summary-list')).toContainText('020 7251 6577');
     await expect(page.locator('.govuk-summary-list')).toContainText('0116 2556 234');
   });
 });

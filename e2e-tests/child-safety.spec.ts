@@ -22,6 +22,9 @@ test.describe('Child Safety Page', () => {
     await expect(page.locator('body')).toContainText(
       'any other safety or welfare concerns that place anyone at significant risk of harm',
     );
+    await expect(page.locator('body')).toContainText(
+      'We ask this so we can give you the right information and resources for your situation.'
+    );
   });
 
   test('should display Exit This Page button', async ({ page }) => {

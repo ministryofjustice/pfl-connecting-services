@@ -41,11 +41,11 @@ router.post(
       return res.redirect(paths.AGREEMENT);
     }
 
-    if (req.body.contact === 'no-details') {
-      return res.redirect(paths.COURT_ORDER);
+    if (req.body.contact === 'no') {
+      return res.redirect(paths.OPTIONS_NO_CONTACT);
     }
 
-    return res.redirect(paths.OPTIONS_NO_CONTACT);
+    return res.redirect(paths.COURT_ORDER);
   }
 );
 
