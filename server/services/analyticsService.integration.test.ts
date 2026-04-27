@@ -28,7 +28,7 @@ describe('analyticsService - Integration', () => {
   it('generates consistent hashed_user_id for same IP + User-Agent', () => {
     const mockReq = {
       method: 'GET',
-      path: '/task-list',
+      path: '/child-safety',
       ip: '192.168.1.1', // Dummy IP from RFC 1918 private address range
       get: jest.fn().mockReturnValue('Mozilla/5.0 (Test Browser)'),
     } as unknown as Request;
@@ -65,14 +65,14 @@ describe('analyticsService - Integration', () => {
 
     const mockReq1 = {
       method: 'GET',
-      path: '/task-list',
+      path: '/child-safety',
       ip: '192.168.1.1', // Dummy IP from RFC 1918 private address range
       get: jest.fn().mockReturnValue(userAgent),
     } as unknown as Request;
 
     const mockReq2 = {
       method: 'GET',
-      path: '/task-list',
+      path: '/child-safety',
       ip: '192.168.1.2', // Dummy IP from RFC 1918 private address range
       get: jest.fn().mockReturnValue(userAgent),
     } as unknown as Request;
@@ -96,7 +96,7 @@ describe('analyticsService - Integration', () => {
   it('logs complete event structure with real hashed identifiers', () => {
     const mockReq = {
       method: 'POST',
-      path: '/about-the-children',
+      path: '/child-safety',
       ip: '10.0.0.5', // Dummy IP from RFC 1918 private address range
       get: jest.fn().mockReturnValue('Mozilla/5.0 (iPhone; CPU iPhone OS 17_0)'),
     } as unknown as Request;
@@ -110,7 +110,7 @@ describe('analyticsService - Integration', () => {
         timestamp: expect.any(String),
         event_type: 'page_visit',
         hashed_user_id: expect.stringMatching(/^[0-9a-f]{16}$/),
-        path: '/about-the-children',
+        path: '/child-safety',
         method: 'POST',
         status_code: 200,
       }),
@@ -129,7 +129,7 @@ describe('analyticsService - Integration', () => {
 
     const mockReq = {
       method: 'GET',
-      path: '/task-list',
+      path: '/child-safety',
       ip: secretIP,
       get: jest.fn().mockReturnValue(userAgent),
     } as unknown as Request;
