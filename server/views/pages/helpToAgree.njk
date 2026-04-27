@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% set legendText %}
-  {{ __("pages.helpToAgree.title") }}
+  {{ __("pages.helpToAgree.title") | safe }}
 {% endset %}
 
 {% set radioItems = [
@@ -42,7 +42,7 @@
         }) }}
 
         {{ govukButton({
-          text: "Continue"
+          text: __("continue")
         }) }}
 
       </form>

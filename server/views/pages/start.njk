@@ -1,4 +1,5 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% set title = __("pages.start.title") %}
@@ -43,6 +44,18 @@
       <p class="govuk-body">{{ __("pages.start.howItWorks.content.personalDetails") }}</p>
 
       <p class="govuk-body">{{ __("pages.start.howItWorks.content.tenMinutes") }}</p>
+
+      {% if includeWelshLanguage %}
+        {% if getLocale() == 'cy' %}
+          {{ govukInsetText({
+            html: 'Mae\'r gwasanaeth hwn hefyd ar gael yn <a href="?lang=en" class="govuk-link govuk-link--no-underline">Saesneg (English)</a>'
+          }) }}
+        {% else %}
+          {{ govukInsetText({
+            html: 'This service is also available in <a href="?lang=cy" class="govuk-link govuk-link--no-underline">Welsh (Cymraeg)</a>'
+          }) }}
+        {% endif %}
+      {% endif %}
 
       <h2 class="govuk-heading-m">{{ __("pages.start.exitTheService.title") }}</h2>
 
