@@ -202,7 +202,7 @@
         },
         "thingsToConsider": {
           "title": "Pethau pwysig i'w hystyried",
-          "mediation": "<strong>Cyfarfod Asesu a Gwybodaeth am Gyfryngu (MIAM):</strong> Fel arfer bydd arnoch angen dangos eich bod wedi mynychu'r cyfarfod byr hwn gyda chyfryngwr neu wedi trio ffordd arall i gytuno tu allan i'r llys yn y 4 mis cyn i chi wneud cais am orchymyn llys. Os na allwch gysylltu â'ch cyn-bartner, bydd arnoch angen mynychu'r MIAM cychwynnol ar eich pen eich hun cyn gwneud cais i'r llys, oni bai eich bod wedi'ch eithrio.",
+          "mediation": "<strong>Cyfarfod Asesu a Gwybodaeth am Gyfryngu (MIAM):</strong> Fel arfer bydd arnoch angen dangos eich bod wedi mynychu'r cyfarfod byr hwn gyda chyfryngwr neu wedi trio ffordd arall i gytuno tu allan i'r llys yn y 4 mis cyn i chi wneud cais am orchymyn llys. Os na allwch gysylltu â'ch cyn-bartner, bydd arnoch angen mynychu'r MIAM cychwynnol ar eich pen eich hun cyn gwneud cais i'r llys, oni bai eich bod wedi'ch eithrio. <a href=\"https://www.familymediationcouncil.org.uk/find-local-mediator/\">Find a mediator who can provide a MIAM on the Family Mediation Council website</a>",
           "miamExemption": {
             "warning": "You do not have to go to a MIAM if you can show there is a risk:",
             "reasons": {

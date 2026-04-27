@@ -34,6 +34,7 @@ test.describe('Court Order Page', () => {
   test('should display "Important things to consider" section', async ({ page }) => {
     await expect(page.locator('text=Important things to consider')).toBeVisible();
     await expect(page.locator('text=Mediation Information and Assessment Meeting (MIAM):')).toBeVisible();
+    await expect(page.locator('text=Find a mediator who can provide a MIAM on the Family Mediation Council website')).toBeVisible();
     await expect(page.locator('text=Cost:')).toBeVisible();
     await expect(page.locator('text=Time:')).toBeVisible();
   });
