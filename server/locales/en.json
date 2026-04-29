@@ -64,7 +64,7 @@
           "title": "Get help protecting your children",
           "immediateRisk": {
             "title": "If you believe your child could be taken out of the UK without your permission",
-            "findOut": "Find out <a href=\"https://www.gov.uk/guidance/international-parental-child-abduction\">what to do if you believe a child could be taken or has been taken abroad without your permission</a>"
+            "findOut": "Find out <a href=\"https://www.gov.uk/guidance/international-parental-child-abduction\">what to do if you believe a child could be taken or has been taken abroad without your permission.</a>"
           },
           "domesticAbuse": {
             "title": "If you or your children have experienced domestic abuse",
@@ -132,7 +132,8 @@
           "childMaintenance": "https://www.gov.uk/child-maintenance-service",
           "parentalRights": "https://www.gov.uk/parental-rights-responsibilities"
         }
-      }
+      },
+      "startButtonText": "Start now"
     },
     "contactChildArrangements": {
       "title": "Are you comfortable contacting your ex-partner about child arrangements?",

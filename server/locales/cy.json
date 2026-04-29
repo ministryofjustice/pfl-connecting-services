@@ -6,21 +6,21 @@
   "back": "Yn ol",
   "continue": "Parhau",
   "next": "Nesaf",
-  "nextPage": "Next<span class=\"govuk-visually-hidden\"> page</span>",
-  "previousPage": "Previous<span class=\"govuk-visually-hidden\"> page</span>",
+  "nextPage": "<span class=\"govuk-visually-hidden\">Tudalen</span> nesaf",
+  "previousPage": "<span class=\"govuk-visually-hidden\">Tudalen</span> flaenorol",
   "printThisPage": "Argraffu’r dudalen hon",
-  "printThisPageNoJs": "To print this page, press Ctrl+P on Windows or Cmd+P on Mac.",
-  "printableVersion": "View a printable version of the whole guide",
-  "exitThisPage": "<span class=\"govuk-visually-hidden\">To exit this service quickly, press escape.</span>",
+  "printThisPageNoJs": "I argraffu'r dudalen hon, pwyswch Ctrl+P ar Windows neu Cmd+P ar Mac.",
+  "printableVersion": "Gweld fersiwn y gellir ei argraffu o'r canllaw cyfan",
+  "exitThisPage": "<span class=\"govuk-visually-hidden\">I adael y gwasanaeth hwn yn gyflym, pwyswch Esc.</span>",
   "exitThisPageButtonText": "Gadael y dudalen hon",
-  "phaseBannerText": "This is a new service. Help us improve it and <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">give your feedback (opens in new tab)</a>.",
+  "phaseBannerText": "Mae hwn yn wasanaeth newydd. Helpwch ni i'w wella a <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">rhowch eich adborth (yn agor mewn tab newydd)</a>.",
   "footer": {
-    "accessibility": "Accessibility statement",
-    "contact": "Contact us",
-    "cookies": "Cookies",
-    "feedback": "Feedback",
-    "privacy": "Privacy notice",
-    "termsAndConditions": "Terms and conditions"
+    "accessibility": "Datganiad hygyrchedd",
+    "contact": "Cysylltu â ni",
+    "cookies": "Cwcis",
+    "feedback": "Adborth",
+    "privacy": "Hysbysiad Preifatrwydd",
+    "termsAndConditions": "Telerau ac amodau"
   },
   "pages": {
     "domesticAbuse": {
@@ -55,7 +55,7 @@
       "title": "Cael cymorth os nad yw eich plant yn ddiogel",
       "content": {
         "description": "Mae'n bwysig cofio bod cymorth a chefnogaeth ar gael i chi os nad ydych chi neu'ch plant yn ddiogel.",
-        "warningText": "Cysylltwch â'r heddlu neu'r gwasanaethau cymdeithasol os yw plentyn yr ydych yn gyfrifol amdano/amdani mewn perygl o gael ei dynnu/thynnu allan o'r DU heb eich caniatâd.",
+        "warningText": "Cysylltwch â'r heddlu os yw plentyn mewn perygl uniongyrchol.",
         "wantToContinue": {
           "title": "Os ydych am barhau i ddefnyddio'r gwasanaeth hwn",
           "description": "Os ydych yn teimlo'n hyderus y gallwch barhau heb unrhyw berygl i chi na'r plant, gallwch barhau i ddefnyddio'r gwasanaeth hwn."
@@ -63,8 +63,8 @@
         "getHelpProtecting": {
           "title": "Cael cymorth i amddiffyn eich plant",
           "immediateRisk": {
-            "title": "If you believe your child could be taken out of the UK without your permission",
-            "findOut": "Find out <a href=\"https://www.gov.uk/guidance/international-parental-child-abduction\">what to do if you believe a child could be taken or has been taken abroad without your permission</a>"
+            "title": "Os ydych chi'n credu y gallai eich plentyn gael ei gymryd allan o'r DU heb eich caniatâd",
+            "findOut": "Darganfyddwch <a href=\"https://www.gov.uk/guidance/international-parental-child-abduction\">beth i'w wneud os ydych chi'n credu y gallai plentyn gael ei gymryd neu ei fod wedi cael ei gymryd dramor heb eich caniatâd.</a>"
           },
           "domesticAbuse": {
             "title": "Os ydych chi neu eich plant wedi profi cam-drin domestig",
@@ -92,33 +92,33 @@
       }
     },
     "start": {
-      "title": "Get help finding a child arrangement option",
+      "title": "Cael help i ddod o hyd i opsiwn trefniadau plant",
       "whoShouldUse": {
-        "title": "Who should use this service",
-        "description": "Use this service to find out about your options for making child arrangements in England and Wales if you are separating from your child's other parent.",
-        "avoidCourt": "You may be able to avoid going to court if you can agree on things like:",
+        "title": "Pwy ddylai ddefnyddio’r gwasanaeth hwn",
+        "description": "Defnyddiwch y gwasanaeth hwn i gael gwybod am eich opsiynau ar gyfer gwneud trefniadau plant yng Nghymru a Lloegr os ydych yn gwahanu oddi wrth riant arall eich plentyn.",
+        "avoidCourt": "Efallai y byddwch yn gallu osgoi mynd i'r llys os gallwch gytuno ar bethau fel:",
         "bullets": {
-          "whereLive": "where the children will live",
-          "timeSpent": "how much time they'll spend with each person"
+          "whereLive": "ble bydd y plant yn byw",
+          "timeSpent": "faint o amser y byddant yn ei dreulio gyda phob person"
         },
-        "childArrangements": "This is called making child arrangements (sometimes known as 'child custody' or 'child contact')."
+        "childArrangements": "Gelwir hyn yn gwneud trefniadau plant (a elwir weithiau'n 'gwarchodaeth plant' neu 'gyswllt plant')."
       },
       "whoShouldNotUse": {
-        "title": "Who should not use this service",
-        "parentalResponsibility": "You should not use this service if the court has removed or restricted parental responsibility for anyone in relation to a child.",
-        "financialArrangements": "This service is not for making financial arrangements. <a href=\"https://www.gov.uk/child-maintenance-service\">Find out more about child maintenance</a> for information on how a child's living costs can be paid when their parents separate."
+        "title": "Pwy na ddylai ddefnyddio'r gwasanaeth hwn",
+        "parentalResponsibility": "Ni ddylech ddefnyddio'r gwasanaeth hwn os yw'r llys wedi dileu neu gyfyngu cyfrifoldeb rhiant ar gyfer unrhyw un mewn perthynas â phlentyn.",
+        "financialArrangements": "Nid yw'r gwasanaeth hwn ar gyfer gwneud trefniadau ariannol. <a href=\"https://www.gov.uk/child-maintenance-service\">Rhagor o wybodaeth am gynhaliaeth plant</a> am wybodaeth ar sut y gellir talu costau byw plentyn pan fydd ei rieni'n gwahanu."
       },
       "howItWorks": {
-        "title": "How it works",
+        "title": "Sut mae’n gweithio",
         "content": {
-          "circumstances": "You will be asked questions about your circumstances, including your current relationship with your ex-partner.",
-          "personalDetails": "You will not be asked for any personal details and your answers will not be saved or shared with anyone.",
-          "tenMinutes": "It takes about 10 minutes to use this service."
+          "circumstances": "Gofynnir cwestiynau i chi am eich amgylchiadau, gan gynnwys eich perthynas bresennol â'ch cyn-bartner os ydych yn riant.",
+          "personalDetails": "Ni ofynnir i chi am unrhyw fanylion personol ac ni fydd eich atebion yn cael eu cadw na'u rhannu ag unrhyw un.",
+          "tenMinutes": "Mae'n cymryd tua 10 munud i ddefnyddio'r gwasanaeth hwn."
         }
       },
       "exitTheService": {
-        "title": "If you need to exit the service quickly",
-        "description": "Each page of this service has an 'Exit this page' button to help keep you safe and protect your privacy if you need it."
+        "title": "Os oes angen i chi adael y gwasanaeth yn gyflym",
+        "description": "Mae gan bob tudalen o'r gwasanaeth hwn fotwm 'Gadael y dudalen hon' i'ch helpu i gadw'n ddiogel a diogelu eich preifatrwydd os oes ei angen arnoch."
       },
       "relatedContent": {
         "title": "Related content",
@@ -132,7 +132,8 @@
           "childMaintenance": "https://www.gov.uk/child-maintenance-service",
           "parentalRights": "https://www.gov.uk/parental-rights-responsibilities"
         }
-      }
+      },
+      "startButtonText": "Dechrau nawr"
     },
     "contactChildArrangements": {
       "title": "A ydych yn gyfforddus i gysylltu â'r cyn-bartner am drefniadau plant?",
@@ -202,13 +203,13 @@
         },
         "thingsToConsider": {
           "title": "Pethau pwysig i'w hystyried",
-          "mediation": "<strong>Cyfarfod Asesu a Gwybodaeth am Gyfryngu (MIAM):</strong> Fel arfer bydd arnoch angen dangos eich bod wedi mynychu'r cyfarfod byr hwn gyda chyfryngwr neu wedi trio ffordd arall i gytuno tu allan i'r llys yn y 4 mis cyn i chi wneud cais am orchymyn llys. Os na allwch gysylltu â'ch cyn-bartner, bydd arnoch angen mynychu'r MIAM cychwynnol ar eich pen eich hun cyn gwneud cais i'r llys, oni bai eich bod wedi'ch eithrio. <a href=\"https://www.familymediationcouncil.org.uk/find-local-mediator/\">Find a mediator who can provide a MIAM on the Family Mediation Council website</a>",
+          "mediation": "<strong>Cyfarfod Asesu a Gwybodaeth am Gyfryngu (MIAM):</strong> Fel arfer bydd arnoch angen dangos eich bod wedi mynychu'r cyfarfod byr hwn gyda chyfryngwr neu wedi trio ffordd arall i gytuno tu allan i'r llys yn y 4 mis cyn i chi wneud cais am orchymyn llys. Os na allwch gysylltu â'ch cyn-bartner, bydd arnoch angen mynychu'r MIAM cychwynnol ar eich pen eich hun cyn gwneud cais i'r llys, oni bai eich bod wedi'ch eithrio. <a href=\"https://www.familymediationcouncil.org.uk/find-local-mediator/\">Dod o hyd i gyfryngwr ar wefan y Cyngor Cyfryngu Teuluol</a>",
           "miamExemption": {
-            "warning": "You do not have to go to a MIAM if you can show there is a risk:",
+            "warning": "Nid oes rhaid i chi fynd i MIAM os gallwch ddangos bod risg:",
             "reasons": {
-              "life": "to your life, freedom, physical safety or home",
-              "harmToChild": "of harm to a child",
-              "unlawfullyTaken": "that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held"
+              "life": "i'ch bywyd, rhyddid, diogelwch corfforol neu gartref",
+              "harmToChild": "o niwed i blentyn",
+              "unlawfullyTaken": "y byddai plentyn yn cael ei gymryd yn anghyfreithlon o'r DU, neu risg y bydd plentyn sydd ar hyn o bryd y tu allan i Gymru a Lloegr yn cael ei ddal yn anghyfreithlon"
             },
             "validReason": "Nid oes rhaid i chi fynd i MIAM cyn gwneud cais i'r llys os oes gennych reswm dilys fel pryderon diogelu plant neu dystiolaeth o gam-drin domestig.",
             "validReasonLink": "<a href=\"https://apply-to-court-about-child-arrangements.service.justice.gov.uk/about/miam_exemptions\">Canfod mwy am resymau dilys i beidio â mynychu MIAM</a>",
@@ -399,7 +400,7 @@
             "cafcassCymru": {
               "name": "Cafcass Cymru",
               "url": "https://www.gov.wales/parenting-plan-cafcass-cymru",
-              "description": "A guide to making a parenting plan from the organisation that provides expert child-focused advice and support in family courts across Wales."
+              "description": "Canllaw ar gyfer llunio cynllun rhianta gan y sefydliad sy'n darparu cyngor a chymorth arbenigol sy'n canolbwyntio ar y plentyn mewn llysoedd teulu ledled Cymru."
             }
           }
         },
@@ -588,11 +589,11 @@
               "whatYouClick": "Yr hyn rydych yn clicio arno wrth ddefnyddio'r gwasanaeth",
               "weDoNotCollect": "Nid ydym yn casglu neu storio eich gwybodaeth bersonol (er enghraifft eich enw neu gyfeiriad) fel na ellir defnyddio’r wybodaeth hon i’ch adnabod.",
               "setsTheCookies": "Mae Google Analytics yn gosod y cwcis canlynol:",
-              "universalAnalytics": "Universal analytics"
+              "universalAnalytics": "Universal Analytics"
             }
           },
           "universalAnalytics": {
-            "title": "Universal analytics",
+            "title": "Universal Analytics",
             "table": {
               "headerRow": {
                 "name": "Enw",
@@ -771,14 +772,14 @@
     }
   },
   "cookieBanner": {
-    "title": "Cookies on Get help finding a child arrangement option",
-    "acceptCookies": "Accept analytics cookies",
-    "rejectCookies": "Reject analytics cookies",
-    "viewCookies": "View cookies",
-    "hideCookieMessage": "Hide cookie message",
-    "useEssentialCookies": "We use some essential cookies to make this service work.",
-    "useAnalyticsCookies": "We’d also like to use analytics cookies so we can understand how you use the service and make improvements.",
-    "acceptedAnalyticsCookies": "You have accepted analytics cookies. You can <a href={{ cookiesUrl }} >change your cookie settings</a> at any time.",
-    "rejectedAnalyticsCookies": "You have rejected analytics cookies. You can <a href={{ cookiesUrl }} >change your cookie settings</a> at any time."
+    "title": "Cwcis ar gyfer Cael help i ddod o hyd i opsiwn trefniadau plant",
+    "acceptCookies": "Derbyn cwcis dadansoddol",
+    "rejectCookies": "Gwrthod cwcis dadansoddol",
+    "viewCookies": "Gweld cwcis",
+    "hideCookieMessage": "Cuddio neges cwci",
+    "useEssentialCookies": "Rydym yn defnyddio rhai cwcis hanfodol i wneud i’r gwasanaeth hwn weithio.",
+    "useAnalyticsCookies": "Hoffwn hefyd ddefnyddio cwcis dadansoddol fel y gallwn ddeall sut rydych chi’n defnyddio’r gwasanaeth ac i wneud gwelliannau.",
+    "acceptedAnalyticsCookies": "Rydych wedi derbyn cwcis dadansoddol. Gallwch <a href={{ cookiesUrl }} >newid eich gosodiadau cwcis</a> ar unrhyw adeg.",
+    "rejectedAnalyticsCookies": "Rydych wedi gwrthod cwcis dadansoddol. Gallwch <a href={{ cookiesUrl }} >newid eich gosodiadau cwcis</a> ar unrhyw adeg."
   }
 }
