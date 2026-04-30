@@ -1,5 +1,5 @@
 # Stage: base image
-FROM node:25.9.0-trixie-slim AS base
+FROM node:25.9.0-trixie-slim@sha256:74ab724acf22ae7b0af5cf8a0e762f6c981ba882a459e2abc80a97a7237a92f1 AS base
 
 ENV TZ=Europe/London
 RUN ln -snf "/usr/share/zoneinfo/$TZ" /etc/localtime && echo "$TZ" > /etc/timezone
