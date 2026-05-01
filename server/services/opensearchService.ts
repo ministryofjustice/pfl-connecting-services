@@ -1,8 +1,6 @@
 import config from '../config';
 import logger from '../logging/logger';
 
-const INDEX = 'cs-analytics';
-
 /**
  * Sends an analytics event to OpenSearch via the Cloud Platform proxy.
  * Fire-and-forget — failures are logged but never thrown to callers.
@@ -14,7 +12,9 @@ const sendToOpenSearch = (event: Record<string, string | number>): void => {
     return;
   }
 
-  fetch(`${proxyUrl}/${INDEX}/_doc`, {
+  const index = `cs-analytics-${new Date().toISOString().slice(0, 7)}`;
+
+  fetch(`${proxyUrl}/${index}/_doc`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(event),
