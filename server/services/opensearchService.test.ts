@@ -1,5 +1,6 @@
 import config from '../config';
 import logger from '../logging/logger';
+import { mockNow } from '../test-utils/testMocks';
 
 import sendToOpenSearch from './opensearchService';
 
@@ -41,7 +42,9 @@ describe('opensearchService', () => {
       const event = { event_type: 'page_visit', status_code: 200 };
       sendToOpenSearch(event);
 
-      expect(mockFetch).toHaveBeenCalledWith('https://proxy.example.com/cs-analytics/_doc', {
+      // The service uses the mocked time for the index name
+      const currentMonth = mockNow.toISOString().slice(0, 7);
+      expect(mockFetch).toHaveBeenCalledWith(`https://proxy.example.com/cs-analytics-${currentMonth}/_doc`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(event),
