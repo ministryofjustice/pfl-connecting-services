@@ -79,29 +79,37 @@ const setupAccessibleExitThisPage = () => {
         return;
       }
 
-      const exitUrl = button.getAttribute('href');
+      // Don't trigger if the user did not press the Escape key within the last 500ms to prevent accidental triggers
+      const currentTime = new Date().getTime();
 
-      event.preventDefault();
+      if (currentTime - lastEscapeTime < 500) {
+        const exitUrl = button.getAttribute('href');
 
-      // Announce to screen readers
-      updateSpan.textContent = 'Loading.';
+        event.preventDefault();
 
-      // Hide content immediately
-      document.body.classList.add('govuk-exit-this-page-hide-content');
+        // Announce to screen readers
+        updateSpan.textContent = 'Loading.';
 
-      // Create overlay
-      const overlay = document.createElement('div');
-      overlay.className = 'govuk-exit-this-page-overlay';
-      overlay.setAttribute('role', 'alert');
-      overlay.textContent = 'Loading.';
-      document.body.appendChild(overlay);
+        // Hide content immediately
+        document.body.classList.add('govuk-exit-this-page-hide-content');
 
-      // Redirect to exit URL
-      window.location.href = exitUrl;
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'govuk-exit-this-page-overlay';
+        overlay.setAttribute('role', 'alert');
+        overlay.textContent = 'Loading.';
+        document.body.appendChild(overlay);
+
+        // Redirect to exit URL
+        window.location.href = exitUrl;
+      }
+
+      lastEscapeTime = currentTime;
     }
   };
 
   // Use keydown event (same as GOV.UK uses keyup for Shift)
+  let lastEscapeTime = 0;
   document.addEventListener('keydown', handleEscapeKey, true);
   document.body.dataset.accessibleExitThisPageKeypress = 'true';
 };
