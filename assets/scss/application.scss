@@ -116,3 +116,10 @@
 .js-enabled .js-visible {
     display: inline-flex;
 }
+
+@media print {
+  .govuk-back-link::after {
+    content: "(" attr(href) ")";
+    color: transparent;
+  }
+}
