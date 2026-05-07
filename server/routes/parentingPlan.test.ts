@@ -9,7 +9,7 @@ const app = testAppSetup();
 
 describe('Parenting Plan', () => {
   beforeEach(() => {
-    sessionMock.abuse = undefined;
+    sessionMock.domesticAbuse = undefined;
   });
 
   describe(`GET ${paths.PARENTING_PLAN}`, () => {
@@ -121,7 +121,7 @@ describe('Parenting Plan', () => {
     });
 
     it('should display warning text when abuse is "yes"', async () => {
-      sessionMock.abuse = 'yes';
+      sessionMock.domesticAbuse = 'yes';
 
       const response = await request(app).get(paths.PARENTING_PLAN).expect(200);
       const dom = new JSDOM(response.text);
@@ -132,7 +132,7 @@ describe('Parenting Plan', () => {
     });
 
     it('should not display warning text when abuse is "no"', async () => {
-      sessionMock.abuse = 'no';
+      sessionMock.domesticAbuse = 'no';
 
       const response = await request(app).get(paths.PARENTING_PLAN).expect(200);
       const dom = new JSDOM(response.text);

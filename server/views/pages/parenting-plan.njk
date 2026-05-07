@@ -30,7 +30,7 @@
         {{ __("pages.parentingPlan.content.whyRightForYou.informalArrangements") }}
       </p>
 
-      {% if abuse == "yes" or childSafety == "no" %}
+      {% if domesticAbuse == "yes" or childSafety == "no" %}
         {{ govukWarningText({
           html: __("pages.parentingPlan.content.warningText"),
           iconFallbackText: "Warning"

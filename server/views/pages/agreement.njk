@@ -1,10 +1,10 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "macros/title.njk" import getTitle %}
 
-{% set title = __("pages.agreement.title") %}
 {% block pageTitle %}
-  {{ __("pages.agreement.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ getTitle(formFields.AGREEMENT, errors) }}
 {% endblock %}
 
 {% set legendText %}

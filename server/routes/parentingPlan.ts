@@ -9,7 +9,7 @@ router.get(paths.PARENTING_PLAN, (req: Request, res: Response) => {
   res.render('pages/parenting-plan', {
     title: res.__('pages.parentingPlan.title'),
     backLinkHref: getBackUrl(req.session, paths.START),
-    abuse: req.session.abuse,
+    domesticAbuse: req.session.domesticAbuse,
     childSafety: req.session.childSafety,
   });
 });

@@ -13,6 +13,7 @@
   "printableVersion": "Gweld fersiwn y gellir ei argraffu o'r canllaw cyfan",
   "exitThisPage": "<span class=\"govuk-visually-hidden\">I adael y gwasanaeth hwn yn gyflym, pwyswch Esc.</span>",
   "exitThisPageButtonText": "Gadael y dudalen hon",
+  "error": "Error",
   "phaseBannerText": "Mae hwn yn wasanaeth newydd. Helpwch ni i'w wella a <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">rhowch eich adborth (yn agor mewn tab newydd)</a>.",
   "footer": {
     "accessibility": "Datganiad hygyrchedd",

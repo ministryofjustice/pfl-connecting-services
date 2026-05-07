@@ -1,10 +1,10 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "macros/title.njk" import getTitle %}
 
-{% set title = __("pages.contactChildArrangements.title") %}
 {% block pageTitle %}
-  {{ __("pages.contactChildArrangements.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ getTitle(formFields.CONTACT_CHILD_ARRANGEMENTS, errors) }}
 {% endblock %}
 
 {% set legendText %}
@@ -36,7 +36,7 @@
         ] %}
 
         {{ govukRadios({
-          name: formFields.CONTACT,
+          name: formFields.CONTACT_CHILD_ARRANGEMENTS,
           fieldset: {
             legend: {
               text: legendText,
@@ -45,7 +45,7 @@
             }
           },
           items: radioItems,
-          errorMessage: errors | findError(formFields.CONTACT)
+          errorMessage: errors | findError(formFields.CONTACT_CHILD_ARRANGEMENTS)
         }) }}
 
         {{ govukButton({

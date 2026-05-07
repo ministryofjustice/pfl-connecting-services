@@ -58,7 +58,7 @@ describe('Domestic Abuse Question', () => {
 
       const dom = new JSDOM(response.text);
 
-      const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="abuse"]');
+      const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="domesticAbuse"]');
       expect(radioButtons).toHaveLength(2);
 
       const radioValues = Array.from(radioButtons).map((radio) => (radio as HTMLInputElement).value);
@@ -81,7 +81,7 @@ describe('Domestic Abuse Question', () => {
         {
           location: 'body',
           msg: 'Select whether you or your children have experienced abuse from your ex-partner',
-          path: 'abuse',
+          path: 'domesticAbuse',
           type: 'field',
         },
       ]);
@@ -90,7 +90,7 @@ describe('Domestic Abuse Question', () => {
     it('should redirect to safeguarding page when answer is yes', () => {
       return request(app)
         .post(paths.DOMESTIC_ABUSE)
-        .send({ abuse: 'yes' })
+        .send({ domesticAbuse: 'yes' })
         .expect(302)
         .expect('location', paths.SAFEGUARDING);
     });
@@ -98,7 +98,7 @@ describe('Domestic Abuse Question', () => {
     it('should redirect to question 2 when answer is no', () => {
       return request(app)
         .post(paths.DOMESTIC_ABUSE)
-        .send({ abuse: 'no' })
+        .send({ domesticAbuse: 'no' })
         .expect(302)
         .expect('location', paths.CONTACT_CHILD_ARRANGEMENTS);
     });
@@ -106,7 +106,7 @@ describe('Domestic Abuse Question', () => {
     it('should store answer in session', async () => {
       const agent = request.agent(app);
 
-      await agent.post(paths.DOMESTIC_ABUSE).send({ abuse: 'yes' }).expect(302);
+      await agent.post(paths.DOMESTIC_ABUSE).send({ domesticAbuse: 'yes' }).expect(302);
 
       const response = await agent.get(paths.DOMESTIC_ABUSE);
       // The session should persist the answer (this would require checking session state)
