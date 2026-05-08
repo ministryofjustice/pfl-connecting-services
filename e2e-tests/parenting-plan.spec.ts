@@ -102,7 +102,7 @@ test.describe('Parenting Plan', () => {
     await expect(makingArrangementsLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce');
 
     const proposeAPlanLink = page.locator('.govuk-grid-column-one-third a:has-text("Propose a child arrangements plan")');
-    await expect(proposeAPlanLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce/if-you-agree');
+    await expect(proposeAPlanLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan');
 
     const childMaintenanceLink = page.locator('a:has-text("Child maintenance")');
     await expect(childMaintenanceLink).toHaveAttribute('href', 'https://www.gov.uk/child-maintenance-service');
@@ -115,12 +115,6 @@ test.describe('Parenting Plan', () => {
 
     const mediationLink = page.locator('a:has-text("Explore: Mediation")');
     await expect(mediationLink).toHaveAttribute('href', '/mediation');
-  });
-
-  test('should have find out more link pointing to correct URL', async ({ page }) => {
-
-    const findOutMoreLink = page.locator('a:has-text("Find out more about what to do if you agree on child arrangements")');
-    await expect(findOutMoreLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce/if-you-agree');
   });
 });
 

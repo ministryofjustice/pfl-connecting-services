@@ -360,8 +360,7 @@
           "noCourt": "<strong>No court:</strong> You do not have to go to court to make informal arrangements or a parenting plan.",
           "noCost": "<strong>No cost:</strong> You can make a parenting plan using free online tools and templates.",
           "easyToChange": "<strong>Easy to review and change:</strong> As your children get older and their needs change, or if your situation changes.",
-          "legallyBinding": "<strong>Make it legally binding:</strong> You can get a legal adviser to prepare a draft 'consent order' based on your plan if you want to make an informal agreement legally binding. You will need to <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">apply for a court order</a> to get your consent order approved, but there's usually no court hearing. The court must be satisfied that the arrangements are in the child's best interests.",
-          "findOutMore": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Find out more about what to do if you agree on child arrangements</a>"
+          "legallyBinding": "<strong>Make it legally binding:</strong> You can get a legal adviser to prepare a draft 'consent order' based on your plan if you want to make an informal agreement legally binding. You will need to <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">apply for a court order</a> to get your consent order approved, but there's usually no court hearing."
         },
         "nextStep": {
           "title": "Next step: Make a plan",
@@ -371,7 +370,7 @@
             "spendTime": "when they spend time with each parent",
             "handovers": "handovers, holidays and whatever else matters to your children"
           },
-          "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Propose a child arrangements plan</a>"
+          "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan\">Propose a child arrangements plan</a>"
         },
         "otherWays": {
           "title": "Other ways to agree without going to court",
@@ -413,7 +412,7 @@
             },
             "proposeAPlan": {
               "text": "Propose a child arrangements plan",
-              "url": "https://www.gov.uk/looking-after-children-divorce/if-you-agree"
+              "url": "https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan"
             },
             "childMaintenance": {
               "text": "Child maintenance",
