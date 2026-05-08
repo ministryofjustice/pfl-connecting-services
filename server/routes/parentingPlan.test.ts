@@ -139,7 +139,7 @@ describe('Parenting Plan', () => {
   });
 
   describe('Related content section hyperlinks', () => {
-    let dom: any;
+    let dom: JSDOM;
 
     beforeEach(async () => {
       const response = await request(app).get(paths.PARENTING_PLAN).expect(200);
@@ -186,21 +186,21 @@ describe('Parenting Plan', () => {
       const sidebar = dom.window.document.querySelector('.govuk-grid-column-one-third');
       const links = sidebar.querySelectorAll('a');
       const relatedLinks = Array.from(links).filter(
-        (link: any) => 
+        (link: HTMLAnchorElement) => 
           link.href === 'https://www.gov.uk/looking-after-children-divorce' ||
           link.href === 'https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan' ||
           link.href === 'https://www.gov.uk/child-maintenance-service' ||
           link.href === 'https://www.gov.uk/parental-rights-responsibilities'
       );
 
-      expect(relatedLinks.length).toBe(4);
+      expect(relatedLinks.length).toEqual(4);
     });
 
     it('should verify all related content links in correct order', async () => {
       const sidebar = dom.window.document.querySelector('.govuk-grid-column-one-third');
       const nav = sidebar.querySelector('nav');
       const listItems = nav.querySelectorAll('ul > li');
-      const links = Array.from(listItems).map((li: any) => ({
+      const links = Array.from(listItems).map((li: HTMLLIElement) => ({
         href: li.querySelector('a').href,
         text: li.querySelector('a').textContent.trim(),
       }));
