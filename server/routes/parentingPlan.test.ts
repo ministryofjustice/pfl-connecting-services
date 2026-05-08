@@ -186,41 +186,41 @@ describe('Parenting Plan', () => {
       const sidebar = dom.window.document.querySelector('.govuk-grid-column-one-third');
       const links = sidebar.querySelectorAll('a');
       const relatedLinks = Array.from(links).filter(
-        (link: HTMLAnchorElement) => 
+        (link: HTMLAnchorElement) =>
           link.href === 'https://www.gov.uk/looking-after-children-divorce' ||
           link.href === 'https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan' ||
           link.href === 'https://www.gov.uk/child-maintenance-service' ||
           link.href === 'https://www.gov.uk/parental-rights-responsibilities'
       );
 
-      expect(relatedLinks.length).toEqual(4);
+      expect(relatedLinks).toHaveLength(4);
     });
 
     it('should verify all related content links in correct order', async () => {
       const sidebar = dom.window.document.querySelector('.govuk-grid-column-one-third');
       const nav = sidebar.querySelector('nav');
       const listItems = nav.querySelectorAll('ul > li');
-      const links = Array.from(listItems).map((li: HTMLLIElement) => ({
+      const linkData = Array.from(listItems).map((li: HTMLLIElement) => ({
         href: li.querySelector('a').href,
         text: li.querySelector('a').textContent.trim(),
       }));
 
-      expect(links[0]).toEqual({
+      expect(linkData[0]).toEqual({
         href: 'https://www.gov.uk/looking-after-children-divorce',
         text: 'Making child arrangements if you divorce or separate',
       });
 
-      expect(links[1]).toEqual({
+      expect(linkData[1]).toEqual({
         href: 'https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan',
         text: 'Propose a child arrangements plan',
       });
 
-      expect(links[2]).toEqual({
+      expect(linkData[2]).toEqual({
         href: 'https://www.gov.uk/child-maintenance-service',
         text: 'Child maintenance',
       });
 
-      expect(links[3]).toEqual({
+      expect(linkData[3]).toEqual({
         href: 'https://www.gov.uk/parental-rights-responsibilities',
         text: 'Parental rights and responsibilities',
       });
