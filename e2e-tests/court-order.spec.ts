@@ -60,7 +60,7 @@ test.describe('Court Order Page', () => {
   test('should display related content section', async ({ page }) => {
     const relatedContent = page.locator('.govuk-grid-column-one-third');
     await expect(relatedContent).toContainText('Related content');
-    await expect(relatedContent).toContainText('Making child arrangements if you divorce or separate');
+    await expect(relatedContent).toContainText('Propose a child arrangements plan');
     await expect(relatedContent).toContainText('Apply for a court order');
     await expect(relatedContent).toContainText('Parental rights and responsibilities');
   });
@@ -102,10 +102,10 @@ test.describe('Court Order Page', () => {
   test('should have related content links pointing to correct URLs', async ({ page }) => {
     const relatedContent = page.locator('.govuk-grid-column-one-third');
 
-    const makingArrangementsLink = relatedContent.locator(
-      'a:has-text("Making child arrangements if you divorce or separate")',
+    const proposeChildArrangementsPlanLink = relatedContent.locator(
+      'a:has-text("Propose a child arrangements plan")',
     );
-    await expect(makingArrangementsLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce');
+    await expect(proposeChildArrangementsPlanLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan');
 
     const applyForOrderLink = relatedContent.locator('a:has-text("Apply for a court order")');
     await expect(applyForOrderLink).toHaveAttribute(
