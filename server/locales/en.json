@@ -198,7 +198,7 @@
             "cannotAgree": "you cannot agree, even after trying options such as <a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\">mediation</a> or <a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">getting help another way</a>",
             "domesticAbuse": "there's been domestic abuse or you or the children are at risk",
             "cannotContact": "you cannot contact your ex-partner",
-            "consentOrder": "you're applying for a consent order to consider making your <a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">parenting plan</a> legally binding"
+            "consentOrder": "you're applying for a consent order to consider making your <a href=\"https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan\">parenting plan</a> legally binding"
           }
         },
         "thingsToConsider": {
@@ -273,8 +273,8 @@
           "title": "Related content",
           "links": {
             "makingArrangements": {
-              "text": "Making child arrangements if you divorce or separate",
-              "url": "https://www.gov.uk/looking-after-children-divorce"
+              "text": "Propose a child arrangements plan",
+              "url": "https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan"
             },
             "applyForOrder": {
               "text": "Apply for a court order",
