@@ -9,7 +9,7 @@ router.get(paths.COURT_ORDER, (req: Request, res: Response) => {
   res.render('pages/courtOrder', {
     title: res.__('pages.courtOrder.title'),
     backLinkHref: getBackUrl(req.session, paths.START),
-    abuse: req.session.abuse,
+    domesticAbuse: req.session.domesticAbuse,
     childSafety: req.session.childSafety,
   });
 });

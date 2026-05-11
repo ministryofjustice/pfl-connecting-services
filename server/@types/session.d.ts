@@ -3,10 +3,10 @@ import 'express-session';
 export interface CSSession {
   // Question answers
   childSafety?: 'yes' | 'no';
-  abuse?: 'yes' | 'no';
-  contact?: 'yes' | 'no' | 'no-details' | 'no-response';
+  domesticAbuse?: 'yes' | 'no';
+  contactChildArrangements?: 'yes' | 'no' | 'no-details' | 'no-response';
   agreement?: 'yes' | 'not-discussed' | 'no';
-  help?: 'plan' | 'external' | 'cannot';
+  helpToAgree?: 'plan' | 'external' | 'cannot';
   mediation?: 'yes' | 'no';
   otherOptions?: 'yes' | 'no';
   // Flow tracking

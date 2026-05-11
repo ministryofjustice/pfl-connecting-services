@@ -1,7 +1,6 @@
 import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
-import { HELP } from '../constants/formFields';
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
 import { flashMock, flashMockErrors } from '../test-utils/testMocks';
@@ -25,7 +24,7 @@ describe('Question 4: Help to Agree', () => {
       flashMockErrors.push({
         type: 'field',
         location: 'body',
-        path: HELP,
+        path: 'helpToAgree',
         value: '',
         msg: 'Select what would help you and your ex-partner to agree on child arrangements',
       });
@@ -47,7 +46,7 @@ describe('Question 4: Help to Agree', () => {
       flashMockErrors.push({
         type: 'field',
         location: 'body',
-        path: HELP,
+        path: 'helpToAgree',
         value: '',
         msg: 'Select what would help you and your ex-partner to agree on child arrangements',
       });
@@ -57,7 +56,7 @@ describe('Question 4: Help to Agree', () => {
 
       const errorLink = dom.window.document.querySelector('.govuk-error-summary__list a') as HTMLAnchorElement;
       // Per GOV.UK Design System, error link should jump to the form field (the first radio input)
-      expect(errorLink?.getAttribute('href')).toBe('#help');
+      expect(errorLink?.getAttribute('href')).toBe('#helpToAgree');
     });
 
     it('should display three radio options', async () => {
@@ -65,7 +64,7 @@ describe('Question 4: Help to Agree', () => {
 
       const dom = new JSDOM(response.text);
 
-      const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="help"]');
+      const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="helpToAgree"]');
       expect(radioButtons).toHaveLength(3);
 
       const radioValues = Array.from(radioButtons).map((radio) => (radio as HTMLInputElement).value);
@@ -97,7 +96,7 @@ describe('Question 4: Help to Agree', () => {
         {
           location: 'body',
           msg: 'Select what would help you and your ex-partner to agree on child arrangements',
-          path: 'help',
+          path: 'helpToAgree',
           type: 'field',
         },
       ]);
@@ -106,7 +105,7 @@ describe('Question 4: Help to Agree', () => {
     it('should redirect to parenting plan page when answer is plan', () => {
       return request(app)
         .post(paths.HELP_TO_AGREE)
-        .send({ help: 'plan' })
+        .send({ helpToAgree: 'plan' })
         .expect(302)
         .expect('location', paths.PARENTING_PLAN);
     });
@@ -114,7 +113,7 @@ describe('Question 4: Help to Agree', () => {
     it('should redirect to court page when answer is cannot', () => {
       return request(app)
         .post(paths.HELP_TO_AGREE)
-        .send({ help: 'cannot' })
+        .send({ helpToAgree: 'cannot' })
         .expect(302)
         .expect('location', paths.COURT_ORDER);
     });
@@ -122,7 +121,7 @@ describe('Question 4: Help to Agree', () => {
     it('should redirect to other options page when answer is external', () => {
       return request(app)
         .post(paths.HELP_TO_AGREE)
-        .send({ help: 'external' })
+        .send({ helpToAgree: 'external' })
         .expect(302)
         .expect('location', paths.OTHER_OPTIONS);
     });

@@ -1,10 +1,10 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "macros/title.njk" import getTitle %}
 
-{% set title = __("pages.domesticAbuse.title") %}
 {% block pageTitle %}
-  {{ title }} – {{ __("serviceName") }} – GOV.UK
+  {{ getTitle(formFields.DOMESTIC_ABUSE, errors) }}
 {% endblock %}
 
 {% set legendText %}
@@ -51,7 +51,7 @@
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
         {{ govukRadios({
-          name: formFields.ABUSE,
+          name: formFields.DOMESTIC_ABUSE,
           describedBy: 'domestic-abuse-additional-text',
           fieldset: {
             legend: {
@@ -64,7 +64,7 @@
             html: additionalText
           },
           items: radioItems,
-          errorMessage: errors | findError(formFields.ABUSE)
+          errorMessage: errors | findError(formFields.DOMESTIC_ABUSE)
         }) }}
 
         {{ govukButton({

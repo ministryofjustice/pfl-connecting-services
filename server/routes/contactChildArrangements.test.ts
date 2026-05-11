@@ -23,7 +23,7 @@ describe('Question 2: Contact', () => {
         {
           location: 'body',
           msg: 'Select whether you are comfortable contacting your ex-partner',
-          path: 'contact',
+          path: 'contactChildArrangements',
           type: 'field',
         },
       ]);
@@ -32,7 +32,7 @@ describe('Question 2: Contact', () => {
     it('should redirect to question 3 when answer is yes', () => {
       return request(app)
         .post(paths.CONTACT_CHILD_ARRANGEMENTS)
-        .send({ contact: 'yes' })
+        .send({ contactChildArrangements: 'yes' })
         .expect(302)
         .expect('location', paths.AGREEMENT);
     });
@@ -40,7 +40,7 @@ describe('Question 2: Contact', () => {
     it('should redirect to court page when answer is no-details', () => {
       return request(app)
         .post(paths.CONTACT_CHILD_ARRANGEMENTS)
-        .send({ contact: 'no-details' })
+        .send({ contactChildArrangements: 'no-details' })
         .expect(302)
         .expect('location', paths.COURT_ORDER);
     });
@@ -48,7 +48,7 @@ describe('Question 2: Contact', () => {
     it('should redirect to options-no-contact page when answer is no or no-response', () => {
       return request(app)
         .post(paths.CONTACT_CHILD_ARRANGEMENTS)
-        .send({ contact: 'no' })
+        .send({ contactChildArrangements: 'no' })
         .expect(302)
         .expect('location', paths.OPTIONS_NO_CONTACT);
     });

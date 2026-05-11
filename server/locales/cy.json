@@ -13,6 +13,7 @@
   "printableVersion": "Gweld fersiwn y gellir ei argraffu o'r canllaw cyfan",
   "exitThisPage": "<span class=\"govuk-visually-hidden\">I adael y gwasanaeth hwn yn gyflym, pwyswch Esc.</span>",
   "exitThisPageButtonText": "Gadael y dudalen hon",
+  "error": "Error",
   "phaseBannerText": "Mae hwn yn wasanaeth newydd. Helpwch ni i'w wella a <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">rhowch eich adborth (yn agor mewn tab newydd)</a>.",
   "footer": {
     "accessibility": "Datganiad hygyrchedd",
@@ -77,15 +78,15 @@
           "table": {
             "rowOne": {
               "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge National Domestic Abuse Helpline</a>",
-              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.</p><p class=\"govuk-body\">Telephone: 0808 2000 247</p>"
+              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:\">0808 2000 247</a></p>"
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.rightsofwomen.org.uk/get-advice/family-law/\">Rights of Women</a>",
-              "data": "<p class=\"govuk-body\">Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.</p><p class=\"govuk-body\">Telephone: 020 7251 6577</p>"
+              "data": "<p class=\"govuk-body\">Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:\">020 7251 6577</a></p>"
             },
             "rowThree": {
               "heading": "<a href=\"https://www.reunite.org/\">Reunite - Canolfan Ryngwladol Herwgydio Plant</a>",
-              "data": "<p class=\"govuk-body\">Elusen annibynnol sy'n darparu cyngor ar y materion sy'n ymwneud â symud plant yn rhyngwladol.</p><p class=\"govuk-body\">Rhif ffôn: 0116 2556 234</p>"
+              "data": "<p class=\"govuk-body\">Elusen annibynnol sy'n darparu cyngor ar y materion sy'n ymwneud â symud plant yn rhyngwladol.</p><p class=\"govuk-body\">Rhif ffôn: <a href=\"tel:\">0116 2556 234</a></p>"
             }
           }
         }
@@ -451,15 +452,15 @@
           "table": {
             "rowOne": {
               "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Llinell Gymorth Cam-drin Domestig Cenedlaethol Refuge</a>",
-              "data": "<p class=\"govuk-body\">Cyngor am ddim a chyfrinachol, 24 awr y dydd.<p class=\"govuk-body\"><p class=\"govuk-body\">Rhif ffôn: 0808 2000 247</p>"
+              "data": "<p class=\"govuk-body\">Cyngor am ddim a chyfrinachol, 24 awr y dydd.<p class=\"govuk-body\"><p class=\"govuk-body\">Rhif ffôn: <a href=\"tel:0808 2000 247\">0808 2000 247</a></p>"
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.gov.wales/live-fear-free\">Live Fear Free (Wales)</a>",
-              "data": "<p class=\"govuk-body\">24 hour service with specialists who make referrals and link to other services and advice.</p><p class=\"govuk-body\">Rhif ffôn: 0808 80 10 100</p>"
+              "data": "<p class=\"govuk-body\">24 hour service with specialists who make referrals and link to other services and advice.</p><p class=\"govuk-body\">Rhif ffôn: <a href=\"tel:0808 80 10 100\">0808 80 10 100</a></p>"
             },
             "rowThree": {
               "heading": "<a href=\"https://mensadviceline.org.uk/\">Llinell Gyngor i Ddynion - Men's Advice Line</a>",
-              "data": "<p class=\"govuk-body\">Llinell gymorth i holl ddioddefwyr gwrywaidd cam-drin domestig a'r sawl sy'n eu cefnogi.</p><p class=\"govuk-body\">Rhif ffôn: 0808 801 0327</p>"
+              "data": "<p class=\"govuk-body\">Llinell gymorth i holl ddioddefwyr gwrywaidd cam-drin domestig a'r sawl sy'n eu cefnogi.</p><p class=\"govuk-body\">Rhif ffôn: <a href=\"tel:0808 801 0327\">0808 801 0327</a></p>"
             }
           }
         }

@@ -116,3 +116,16 @@
 .js-enabled .js-visible {
     display: inline-flex;
 }
+
+@media print {
+  .govuk-back-link::after {
+    content: "(" attr(href) ")";
+    color: transparent;
+  }
+}
+
+@media (max-width: 768px) {
+  .govuk-exit-this-page {
+    margin-top: 20px;
+  }
+}

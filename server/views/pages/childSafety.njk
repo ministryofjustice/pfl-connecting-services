@@ -1,18 +1,15 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "macros/title.njk" import getTitle %}
 
-{% set title = __("pages.childSafety.title") %}
 {% block pageTitle %}
-  {{ title }}
-  – {{ __("serviceName") }} – GOV.UK
+  {{ getTitle(formFields.CHILD_SAFETY, errors) }}
 {% endblock %}
-
 
 {% set legendText %}
   {{ __("pages.childSafety.heading") | safe }}
 {% endset %}
-
 
 {% set additionalText %}
   <div id="child-safety-additional-text">

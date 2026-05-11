@@ -1,6 +1,7 @@
 import { Request, Response, Router } from 'express';
 import { body, validationResult } from 'express-validator';
 
+import { HELP_TO_AGREE } from '../constants/formFields';
 import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
 import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
@@ -16,14 +17,14 @@ router.get(paths.HELP_TO_AGREE, checkFormProgressFromConfig(FormSteps.HELP_TO_AG
     backLinkHref: paths.AGREEMENT,
     errors,
     formValues: {
-      help: req.session.help,
+      helpToAgree: req.session.helpToAgree,
     },
   });
 });
 
 router.post(
   paths.HELP_TO_AGREE,
-  body('help')
+  body(HELP_TO_AGREE)
     .notEmpty()
     .withMessage((_value, { req }) => req.__('pages.helpToAgree.error')),
   (req: Request, res: Response) => {
@@ -33,12 +34,12 @@ router.post(
       return res.redirect(paths.HELP_TO_AGREE);
     }
 
-    req.session.help = req.body.help;
+    req.session.helpToAgree = req.body.helpToAgree;
     addCompletedStep(req, FormSteps.HELP_TO_AGREE);
 
-    if (req.body.help === 'plan') {
+    if (req.body.helpToAgree === 'plan') {
       return res.redirect(paths.PARENTING_PLAN);
-    } else if (req.body.help === 'cannot') {
+    } else if (req.body.helpToAgree === 'cannot') {
       return res.redirect(paths.COURT_ORDER);
     }
     return res.redirect(paths.OTHER_OPTIONS);

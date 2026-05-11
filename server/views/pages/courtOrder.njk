@@ -42,7 +42,7 @@
         <li>{{ __("pages.courtOrder.content.thingsToConsider.mediation") | safe }}</li>
       </ul>
 
-      {% if abuse == "yes" or childSafety == "no" %}
+      {% if domesticAbuse == "yes" or childSafety == "no" %}
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">

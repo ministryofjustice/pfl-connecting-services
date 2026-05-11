@@ -1,6 +1,7 @@
 import { Request, Response, Router } from 'express';
 import { body, validationResult } from 'express-validator';
 
+import { AGREEMENT } from '../constants/formFields';
 import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
 import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
@@ -30,7 +31,7 @@ router.get(paths.AGREEMENT, checkFormProgressFromConfig(FormSteps.AGREEMENT), (r
 
 router.post(
   paths.AGREEMENT,
-  body('agreement')
+  body(AGREEMENT)
     .notEmpty()
     .withMessage((_value, { req }) => req.__('pages.agreement.error')),
   (req: Request, res: Response) => {

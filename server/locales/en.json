@@ -13,6 +13,7 @@
   "printableVersion": "View a printable version of the whole guide",
   "exitThisPage": "<span class=\"govuk-visually-hidden\">To exit this service quickly, press escape.</span>",
   "exitThisPageButtonText": "Exit this page",
+  "error": "Error",
   "phaseBannerText": "This is a new service. Help us improve it and <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">give your feedback (opens in new tab)</a>.",
   "footer": {
     "accessibility": "Accessibility statement",
@@ -77,15 +78,15 @@
           "table": {
             "rowOne": {
               "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge National Domestic Abuse Helpline</a>",
-              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.</p><p class=\"govuk-body\">Telephone: 0808 2000 247</p>"
+              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:0808 2000 247\">0808 2000 247</a></p>"
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.rightsofwomen.org.uk/get-advice/family-law/\">Rights of Women</a>",
-              "data": "<p class=\"govuk-body\">Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.</p><p class=\"govuk-body\">Telephone: 020 7251 6577</p>"
+              "data": "<p class=\"govuk-body\">Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:020 7251 6577\">020 7251 6577</a></p>"
             },
             "rowThree": {
               "heading": "<a href=\"https://www.reunite.org/\">Reunite International Child Abduction Centre</a>",
-              "data": "<p class=\"govuk-body\">An independent charity that provides advice and support on the issues surrounding the international movement of children.</p><p class=\"govuk-body\">Telephone: 0116 2556 234</p>"
+              "data": "<p class=\"govuk-body\">An independent charity that provides advice and support on the issues surrounding the international movement of children.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:0116 2556 234\">0116 2556 234</a></p>"
             }
           }
         }
@@ -451,15 +452,15 @@
           "table": {
             "rowOne": {
               "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge National Domestic Abuse Helpline</a>",
-              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.<p class=\"govuk-body\"><p class=\"govuk-body\">Telephone: 0808 2000 247</p>"
+              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.<p class=\"govuk-body\"><p class=\"govuk-body\">Telephone: <a href=\"tel:0808 2000 247\">0808 2000 247</a></p>"
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.rightsofwomen.org.uk/get-advice/family-law/\">Rights of Women</a>",
-              "data": "<p class=\"govuk-body\">Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.</p><p class=\"govuk-body\">Telephone: 020 7251 6577</p>"
+              "data": "<p class=\"govuk-body\">Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:020 7251 6577\">020 7251 6577</a></p>"
             },
             "rowThree": {
               "heading": "<a href=\"https://mensadviceline.org.uk/\">Men's Advice Line</a>",
-              "data": "<p class=\"govuk-body\">A supportive helpline for all male victims of domestic abuse and those supporting them.</p><p class=\"govuk-body\">Telephone: 0808 801 0327</p>"
+              "data": "<p class=\"govuk-body\">A supportive helpline for all male victims of domestic abuse and those supporting them.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:0808 801 0327\">0808 801 0327</a></p>"
             }
           }
         }

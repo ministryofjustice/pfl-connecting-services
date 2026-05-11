@@ -1,10 +1,10 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "macros/title.njk" import getTitle %}
 
-{% set title = __("pages.helpToAgree.title") %}
 {% block pageTitle %}
-  {{ __("pages.helpToAgree.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ getTitle(formFields.HELP_TO_AGREE, errors) }}
 {% endblock %}
 
 {% set legendText %}
@@ -29,7 +29,7 @@
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
         {{ govukRadios({
-          name: formFields.HELP,
+          name: formFields.HELP_TO_AGREE,
           fieldset: {
             legend: {
               text: legendText,
@@ -38,7 +38,7 @@
             }
           },
           items: radioItems,
-          errorMessage: errors | findError(formFields.HELP)
+          errorMessage: errors | findError(formFields.HELP_TO_AGREE)
         }) }}
 
         {{ govukButton({
