@@ -82,10 +82,6 @@ describe('Parenting Plan', () => {
       const relatedContent = dom.window.document.querySelector('.govuk-grid-column-one-third');
 
       expect(relatedContent).toHaveTextContent('Related content');
-      expect(relatedContent).toHaveTextContent('Making child arrangements if you divorce or separate');
-      expect(relatedContent).toHaveTextContent('Propose a child arrangements plan');
-      expect(relatedContent).toHaveTextContent('Child maintenance');
-      expect(relatedContent).toHaveTextContent('Parental rights and responsibilities');
     });
 
     it('should display Exit this page button', async () => {
@@ -139,6 +135,95 @@ describe('Parenting Plan', () => {
       const warningText = dom.window.document.querySelector('.govuk-warning-text');
 
       expect(warningText).toBeNull();
+    });
+  });
+
+  describe('Related content section hyperlinks', () => {
+    let dom: JSDOM;
+
+    beforeEach(async () => {
+      const response = await request(app).get(paths.PARENTING_PLAN).expect(200);
+      dom = new JSDOM(response.text);
+    });
+
+    it('should display making arrangements link with correct URL', async () => {
+      const link = dom.window.document.querySelector(
+        'a[href="https://www.gov.uk/looking-after-children-divorce"]',
+      );
+
+      expect(link).not.toBeNull();
+      expect(link).toHaveTextContent('Making child arrangements if you divorce or separate');
+    });
+
+    it('should display propose a plan link with correct URL', async () => {
+      const link = dom.window.document.querySelector(
+        'a[href="https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan"]',
+      );
+
+      expect(link).not.toBeNull();
+      expect(link).toHaveTextContent('Propose a child arrangements plan');
+    });
+
+    it('should display child maintenance link with correct URL', async () => {
+      const link = dom.window.document.querySelector(
+        'a[href="https://www.gov.uk/child-maintenance-service"]',
+      );
+
+      expect(link).not.toBeNull();
+      expect(link).toHaveTextContent('Child maintenance');
+    });
+
+    it('should display parental rights link with correct URL', async () => {
+      const link = dom.window.document.querySelector(
+        'a[href="https://www.gov.uk/parental-rights-responsibilities"]',
+      );
+
+      expect(link).not.toBeNull();
+      expect(link).toHaveTextContent('Parental rights and responsibilities');
+    });
+
+    it('should have all related content links in the correct sidebar', async () => {
+      const sidebar = dom.window.document.querySelector('.govuk-grid-column-one-third');
+      const links = sidebar.querySelectorAll('a');
+      const relatedLinks = Array.from(links).filter(
+        (link: HTMLAnchorElement) =>
+          link.href === 'https://www.gov.uk/looking-after-children-divorce' ||
+          link.href === 'https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan' ||
+          link.href === 'https://www.gov.uk/child-maintenance-service' ||
+          link.href === 'https://www.gov.uk/parental-rights-responsibilities'
+      );
+
+      expect(relatedLinks).toHaveLength(4);
+    });
+
+    it('should verify all related content links in correct order', async () => {
+      const sidebar = dom.window.document.querySelector('.govuk-grid-column-one-third');
+      const nav = sidebar.querySelector('nav');
+      const listItems = nav.querySelectorAll('ul > li');
+      const linkData = Array.from(listItems).map((li: HTMLLIElement) => ({
+        href: li.querySelector('a').href,
+        text: li.querySelector('a').textContent.trim(),
+      }));
+
+      expect(linkData[0]).toEqual({
+        href: 'https://www.gov.uk/looking-after-children-divorce',
+        text: 'Making child arrangements if you divorce or separate',
+      });
+
+      expect(linkData[1]).toEqual({
+        href: 'https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan',
+        text: 'Propose a child arrangements plan',
+      });
+
+      expect(linkData[2]).toEqual({
+        href: 'https://www.gov.uk/child-maintenance-service',
+        text: 'Child maintenance',
+      });
+
+      expect(linkData[3]).toEqual({
+        href: 'https://www.gov.uk/parental-rights-responsibilities',
+        text: 'Parental rights and responsibilities',
+      });
     });
   });
 });

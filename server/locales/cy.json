@@ -360,8 +360,7 @@
           "noCourt": "<strong>Dim llys:</strong> Nid oes rhaid i chi fynd i'r llys i wneud trefniadau anffurfiol neu gynllun rhianta.",
           "noCost": "<strong>Dim cost:</strong> Gallwch wneud cynllun rhianta trwy ddefnyddio adnoddau a thempledi ar-lein am ddim.",
           "easyToChange": "<strong>Hawdd i'w hadolygu a newid:</strong> Wrth i'ch plant fynd yn hŷn ac mae eu hanghenion yn newid, neu os bydd eich sefyllfa'n newid.",
-          "legallyBinding": "<strong>Ei wneud yn rhwymol yn gyfreithiol:</strong> Gallwch gael cynghorydd cyfreithiol a gwneud cais i'r llys teulu am 'gorchymyn teulu drafft' yn seiliedig ar eich cynllun os ydych eisiau gwneud trefniant anffurfiol yn rhwymol yn gyfreithiol. Bydd arnoch angen <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">gwneud cais am orchymyn llys</a> i gael cymeradwyaeth i'ch gorchymyn cydsynio, ond fel arfer nid oes gwrandawiad llys. Rhaid i'r llys fod yn fodlon bod y trefniadau er budd pennaf y plentyn.",
-          "findOutMore": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Rhagor o wybodaeth am beth i'w wneud os ydych yn cytuno ar drefniadau plant</a>"
+          "legallyBinding": "<strong>Ei wneud yn rhwymol yn gyfreithiol:</strong> Gallwch gael cynghorydd cyfreithiol a gwneud cais i'r llys teulu am 'gorchymyn teulu drafft' yn seiliedig ar eich cynllun os ydych eisiau gwneud trefniant anffurfiol yn rhwymol yn gyfreithiol. Bydd arnoch angen <a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">gwneud cais am orchymyn llys</a> i gael cymeradwyaeth i'ch gorchymyn cydsynio, ond fel arfer nid oes gwrandawiad llys."
         },
         "nextStep": {
           "title": "Cam nesaf: Gwneud cynllun",
@@ -371,7 +370,7 @@
             "spendTime": "pryd fyddant yn treulio amser gyda phob rhiant",
             "handovers": "trosglwyddiadau, gwyliau ac unrhyw beth arall sydd o bwys i'ch plant"
           },
-          "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/if-you-agree\">Cynnig cynllun trefniadau plant</a>"
+          "link": "<a href=\"https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan\">Cynnig cynllun trefniadau plant</a>"
         },
         "otherWays": {
           "title": "Ffyrdd eraill i gytuno heb fynd i'r llys",
@@ -413,7 +412,7 @@
             },
             "proposeAPlan": {
               "text": "Cynnig cynllun trefniadau plant",
-              "url": "https://www.gov.uk/looking-after-children-divorce/if-you-agree"
+              "url": "https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan"
             },
             "childMaintenance": {
               "text": "Cynhaliaeth plant",
