@@ -83,7 +83,7 @@ describe('Court Order', () => {
       const relatedContent = dom.window.document.querySelector('.govuk-grid-column-one-third');
 
       expect(relatedContent).toHaveTextContent('Related content');
-      expect(relatedContent).toHaveTextContent('Making child arrangements if you divorce or separate');
+      expect(relatedContent).toHaveTextContent('Propose a child arrangements plan');
       expect(relatedContent).toHaveTextContent('Apply for a court order');
       expect(relatedContent).toHaveTextContent('Parental rights and responsibilities');
     });
