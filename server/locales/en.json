@@ -1,6 +1,6 @@
 {
   "serviceName": "Get help finding a child arrangement option",
-  "tag": "Private Beta",
+  "tag": "Beta",
   "yes": "Yes",
   "no": "No",
   "back": "Back",
@@ -14,7 +14,7 @@
   "exitThisPage": "<span class=\"govuk-visually-hidden\">To exit this service quickly, press escape.</span>",
   "exitThisPageButtonText": "Exit this page",
   "error": "Error",
-  "phaseBannerText": "This is a new service. Help us improve it and <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">give your feedback (opens in new tab)</a>.",
+  "phaseBannerText": "This is a new service - your <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">feedback</a> will help us to improve it.",
   "footer": {
     "accessibility": "Accessibility statement",
     "contact": "Contact us",
