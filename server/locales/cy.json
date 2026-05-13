@@ -754,7 +754,8 @@
         "howAccessible": {
           "title": "Pa mor hygyrch yw'r wefan hon",
           "tested": "Rydym wedi profi'r gwasanaeth hwn gyda technolegau cynorthwyol gan gynnwys darllenwyr sgrin a thechnoleg testun-i-llais.",
-          "notFullyTested": "Mae’r gwasanaeth digidol hwn yn hygyrch ac yn bodloni safon AA Canllawiau Hygyrchedd Cynnwys Gwe (WCAG) fersiwn 2.2."
+          "wcag": "The service has had an external WCAG accessibility audit by User Vision on 30th April.",
+          "partiallyCompliant": "The service is partially compliant and meets most of the requirements of the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard."
         },
         "feedback": {
           "title": "Adborth a gwybodaeth gyswllt",
@@ -773,6 +774,17 @@
           "title": "Statws cydymffurfiaeth",
           "tested": "Mae'r wefan hon wedi'i phrofi gan Dîm Hygyrchedd MOJ (Haf 2025)  ac mae ymchwil defnyddwyr wedi'i gynnal yn fewnol gyda defnyddwyr gydag anghenion mynediad. Ymdrinniwyd â'r problemau a adnabuwyd yn ystod y profi hyn. Mae’r gwasanaeth digidol hwn yn hygyrch ac yn bodloni safon AA Canllawiau Hygyrchedd Cynnwys Gwe (WCAG) fersiwn 2.2. Mae profi allanol wedi'o gynllunio i'w gynnal yn yr Haf 2026.",
           "partiallyCompliant": "Mae’r wefan hon yn cydymffurfio’n llwyr â’r Canllawiau Hygyrchedd Cynnwys Gwe fersiwn 2.2 safon AA."
+        },
+        "nonAccessibleContent": {
+          "title": "Non-accessible content",
+          "subtitle": "Non-compliance with current GDS implementation",
+          "content": {
+            "screenReader": "Screen reader users may experience the following issues with the ‘Exit this page’ button, which allows you to leave the service quickly.",
+            "list": {
+              "itemOne": "The button can be activated by clicking the Escape key twice. As the Escape key is a common shortcut for exiting modals, the button may accidentally be activated."
+            },
+            "deviatesFromGDS": "This deviates from by GDS approach to use the Shift key. In user testing the ‘Exit this page’ button was accidentally activated, as it’s a common navigation shortcut. We are working with GDS to improve this experience with user feedback."
+          }
         },
         "preparation": {
           "title": "Paratoi’r datganiad hygyrchedd hwn",
