@@ -7,9 +7,12 @@
 {% set govukRebrand = true %}
 
 {% block header %}
-  {{ govukHeader() }}
+  {{ govukHeader({
+    homepageUrl: 'https://www.gov.uk/'
+  }) }}
   {{ govukServiceNavigation({
-    serviceName: __('serviceName')
+    serviceName: __('serviceName'),
+    serviceUrl: paths.START
   }) }}
 {% endblock %}
 

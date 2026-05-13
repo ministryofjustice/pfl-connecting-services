@@ -78,7 +78,7 @@
           "table": {
             "rowOne": {
               "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge National Domestic Abuse Helpline</a>",
-              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:0808 2000 247\">0808 2000 247</a></p>"
+              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day, if you need help understanding your options, finding a refuge space or other specialist services.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:0808 2000 247\">0808 2000 247</a></p>"
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.rightsofwomen.org.uk/get-advice/family-law/\">Rights of Women</a>",
@@ -581,7 +581,7 @@
           "measuringServiceUsage": {
             "title": "Measuring service usage (Google Analytics)",
             "content": {
-              "googleAnalyticsSoftware": "We use Google Analytics software to collect information about how you use Get help finding a child arrangement option. We do this to help make sure the service is meeting the needs of its users and to help us make improvements.",
+              "googleAnalyticsSoftware": "We use Google Analytics software to collect information about how you use Get help finding a child arrangement option. We do this to help make sure the service meets the needs of its users and to help us make improvements.",
               "googleAnalyticsStores": "Google Analytics stores information about:",
               "pagesYouVisit": "the pages you visit",
               "howLongYouSpend": "how long you spend on each page",
@@ -593,7 +593,6 @@
             }
           },
           "universalAnalytics": {
-            "title": "Universal analytics",
             "table": {
               "headerRow": {
                 "name": "Name",
@@ -603,11 +602,47 @@
               "valueRowOne": {
                 "name": "_ga",
                 "purpose": "This helps us count how many people visit Get help finding a child arrangement option by tracking if you've visited before",
-                "expires": "2 years"
+                "expires": "3 years"
               },
               "valueRowTwo": {
                 "name": "_ga_",
                 "purpose": "Used by Google Analytics to find and track an individual session with your device",
+                "expires": "3 years"
+              }
+            }
+          },
+          "opensearchAnalytics": {
+            "title": "OpenSearch analytics",
+            "content": {
+              "collectData": "We also use OpenSearch to collect data about how the service is used, such as:",
+              "eventList": {
+                "pageViews": "page views",
+                "linkInteractions": "link interactions",
+                "pageCompletions": "page completion",
+                "pageAndQuickExits": "page and quick exits",
+                "fileDownloads": "file downloads"
+              },
+              "storeInformation": "OpenSearch analytics does not use cookies or store information on your device.",
+              "monitor": "This data is used only by the Ministry of Justice to monitor and improve this service."
+            }
+          },
+          "surveys": {
+            "title": "Surveys (optional)",
+            "content": "We will sometimes ask users to take part in a survey, for example our performance survey. If you take part, or dismiss the survey, we’ll save a cookie that lets us know you’ve seen the message so that we do not show it to you again.",
+            "table": {
+              "headerRow": {
+                "name": "Name",
+                "purpose": "Purpose",
+                "expires": "Expires"
+              },
+              "valueRowOne": {
+                "name": "govuk_taken[NameOfSurvey]",
+                "purpose": "Remembers whether you have taken the survey or dismissed it",
+                "expires": "4 months"
+              },
+              "valueRowTwo": {
+                "name": "govuk_surveySeen[NameOfSurvey]",
+                "purpose": "Remembers how many times you have seen the survey message",
                 "expires": "2 years"
               }
             }
