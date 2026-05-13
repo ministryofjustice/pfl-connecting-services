@@ -78,7 +78,7 @@
           "table": {
             "rowOne": {
               "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge National Domestic Abuse Helpline</a>",
-              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:\">0808 2000 247</a></p>"
+              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day, if you need help understanding your options, finding a refuge space or other specialist services.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:\">0808 2000 247</a></p>"
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.rightsofwomen.org.uk/get-advice/family-law/\">Rights of Women</a>",
