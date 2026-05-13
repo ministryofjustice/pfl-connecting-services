@@ -99,7 +99,6 @@
 
         {{
           govukTable({
-            caption: __('pages.cookies.content.analyticsCookies.measuringServiceUsage.content.universalAnalytics'),
             captionClasses: "govuk-table__caption--s",
             head: [
               { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.headerRow.name') },
@@ -116,6 +115,46 @@
                 { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.valueRowTwo.name') + (ga4Id | replace("G-", "")) },
                 { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.valueRowTwo.purpose')},
                 { text: __('pages.cookies.content.analyticsCookies.universalAnalytics.table.valueRowTwo.expires') }
+              ]
+            ]
+          })
+        }}
+
+        <h3 class="govuk-heading-s">{{ __('pages.cookies.content.analyticsCookies.opensearchAnalytics.title') }}</h3>
+        <p class="govuk-body">{{ __('pages.cookies.content.analyticsCookies.opensearchAnalytics.content.collectData') }}</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>{{ __('pages.cookies.content.analyticsCookies.opensearchAnalytics.content.eventList.pageViews') }}</li>
+          <li>{{ __('pages.cookies.content.analyticsCookies.opensearchAnalytics.content.eventList.linkInteractions') }}</li>
+          <li>{{ __('pages.cookies.content.analyticsCookies.opensearchAnalytics.content.eventList.pageCompletions') }}</li>
+          <li>{{ __('pages.cookies.content.analyticsCookies.opensearchAnalytics.content.eventList.pageAndQuickExits') }}</li>
+          <li>{{ __('pages.cookies.content.analyticsCookies.opensearchAnalytics.content.eventList.fileDownloads') }}</li>
+        </ul>
+
+        <p class="govuk-body">{{ __('pages.cookies.content.analyticsCookies.opensearchAnalytics.content.storeInformation') }}</p>
+        <p class="govuk-body">{{ __('pages.cookies.content.analyticsCookies.opensearchAnalytics.content.monitor') }}</p>
+
+        <h3 class="govuk-heading-s">{{ __('pages.cookies.content.analyticsCookies.surveys.title') }}</h3>
+        <p class="govuk-body">{{ __('pages.cookies.content.analyticsCookies.surveys.content') }}</p>
+
+        {{
+          govukTable({
+            captionClasses: "govuk-table__caption--s",
+            head: [
+              { text: __('pages.cookies.content.analyticsCookies.surveys.table.headerRow.name') },
+              { text: __('pages.cookies.content.analyticsCookies.surveys.table.headerRow.purpose') },
+              { text: __('pages.cookies.content.analyticsCookies.surveys.table.headerRow.expires') }
+            ],
+            rows: [
+              [
+                { text: __('pages.cookies.content.analyticsCookies.surveys.table.valueRowOne.name') },
+                { text: __('pages.cookies.content.analyticsCookies.surveys.table.valueRowOne.purpose') },
+                { text: __('pages.cookies.content.analyticsCookies.surveys.table.valueRowOne.expires') }
+              ],
+              [
+                { text: __('pages.cookies.content.analyticsCookies.surveys.table.valueRowTwo.name') },
+                { text: __('pages.cookies.content.analyticsCookies.surveys.table.valueRowTwo.purpose') },
+                { text: __('pages.cookies.content.analyticsCookies.surveys.table.valueRowTwo.expires') }
               ]
             ]
           })
