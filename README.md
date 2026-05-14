@@ -187,6 +187,7 @@ The application uses the following environment variables ([example file](https:/
 - `INCLUDE_WELSH_LANGUAGE`: Enable Welsh language support (default: true)
 - `FEEDBACK_URL`: URL for user feedback form
 - `CONTACT_EMAIL`: Support/admin email address
+- `SERVICE_URL`: URL of the service
 - `PREVIEW_END`: ISO timestamp for preview period end
 
 ### Logging & Security

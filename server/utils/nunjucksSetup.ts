@@ -38,6 +38,7 @@ const nunjucksSetup = (app: express.Express): void => {
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url);
   njkEnv.addGlobal('feedbackUrl', config.feedbackUrl);
   njkEnv.addGlobal('contactEmail', config.contactEmail);
+  njkEnv.addGlobal('serviceUrl', config.serviceUrl);
   njkEnv.addGlobal(
     'previewEnd',
     config.previewEnd.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' }),
