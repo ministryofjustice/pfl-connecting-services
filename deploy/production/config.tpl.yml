@@ -16,3 +16,4 @@ data:
   FEEDBACK_URL: 'https://www.gov.uk/done/find-ways-to-make-child-arrangements'
   PREVIEW_END: '2026-03-31T23:59:59'
   GA4_ID: 'G-XJLJ9P9PD7'
+  SERVICE_URL: 'https://www.gov.uk/find-ways-to-make-child-arrangements'
