@@ -78,11 +78,27 @@ test.describe('Accessibility Statement', () => {
     await expect(page.locator('text=fully compliant')).toBeVisible();
   });
 
+  test('should display "Non-accessible content" section', async ({ page }) => {
+    await page.goto('/accessibility');
+
+    await expect(page.locator('h2:has-text("Non-accessible content")')).toBeVisible();
+    await expect(page.locator('h3:has-text("Non-compliance with current GDS implementation")')).toBeVisible();
+    await expect(page.locator('text=Screen reader users')).toBeVisible();
+    await expect(page.locator('text=This deviates from by GDS approach')).toBeVisible();
+  });
+
+  test('should display non-accessible content list items', async ({ page }) => {
+    await page.goto('/accessibility');
+
+    await expect(page.locator('.govuk-list--number').first()).toContainText('The button can be activated by clicking the Escape key twice. As the Escape key is a common shortcut for exiting modals, the button may accidentally be activated.');
+  });
+
   test('should display "Preparation of this accessibility statement" section', async ({ page }) => {
     await page.goto('/accessibility');
 
     await expect(page.locator('h2:has-text("Preparation of this accessibility statement")')).toBeVisible();
-    await expect(page.locator('text=9 February 2026')).toBeVisible();
+    await expect(page.locator('text=11 May 2026')).toBeVisible();
+    await expect(page.locator('text=23 March 2026')).toBeVisible();
   });
 
   test('should display Exit this page button in right column', async ({ page }) => {
