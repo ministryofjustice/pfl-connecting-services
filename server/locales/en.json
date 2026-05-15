@@ -11,7 +11,7 @@
   "printThisPage": "Print this page",
   "printThisPageNoJs": "To print this page, press Ctrl+P on Windows or Cmd+P on Mac.",
   "printableVersion": "View a printable version of the whole guide",
-  "exitThisPage": "<span class=\"govuk-visually-hidden\">To exit this service quickly, press escape.</span>",
+  "exitThisPage": "<span class=\"govuk-visually-hidden\">To exit this service quickly, press escape three times.</span>",
   "exitThisPageButtonText": "Exit this page",
   "error": "Error",
   "phaseBannerText": "This is a new service - your <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">feedback</a> will help us to improve it.",
