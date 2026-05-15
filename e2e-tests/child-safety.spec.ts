@@ -34,7 +34,7 @@ test.describe('Child Safety Page', () => {
   test('should display back link', async ({ page }) => {
     const backLink = page.locator('.govuk-back-link');
     await expect(backLink).toBeVisible();
-    await expect(backLink).toHaveAttribute('href', '/');
+    await expect(backLink).toHaveAttribute('href', new URL('/', page.url()).origin);
   });
 
   test('should navigate to domestic abuse page when Yes option selected (children are safe)', async ({ page }) => {

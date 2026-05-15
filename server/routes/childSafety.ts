@@ -1,6 +1,7 @@
 import { Request, Response, Router } from 'express';
 import { body, validationResult } from 'express-validator';
 
+import config from '../config';
 import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
 import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
@@ -19,7 +20,7 @@ router.get(paths.CHILD_SAFETY, checkFormProgressFromConfig(FormSteps.CHILD_SAFET
   const errors = req.flash('errors');
   res.render('pages/childSafety', {
     title: res.__('pages.childSafety.title'),
-    backLinkHref: paths.START,
+    backLinkHref: config.serviceUrl,
     errors,
     formValues: {
       childSafety: req.session.childSafety,

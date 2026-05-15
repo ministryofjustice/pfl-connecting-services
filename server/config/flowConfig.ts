@@ -12,7 +12,6 @@ export const flowConfig: Record<FormSteps, FlowStep> = {
   },
   [FormSteps.CHILD_SAFETY]: {
     path: paths.CHILD_SAFETY,
-    dependsOn: [FormSteps.START],
   },
   [FormSteps.DOMESTIC_ABUSE]: {
     path: paths.DOMESTIC_ABUSE,
