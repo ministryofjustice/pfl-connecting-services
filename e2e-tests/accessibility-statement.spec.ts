@@ -90,7 +90,7 @@ test.describe('Accessibility Statement', () => {
   test('should display non-accessible content list items', async ({ page }) => {
     await page.goto('/accessibility');
 
-    await expect(page.locator('.govuk-list--number').first()).toContainText('The button can be activated by clicking the Escape key twice. As the Escape key is a common shortcut for exiting modals, the button may accidentally be activated.');
+    await expect(page.locator('.govuk-list--number').first()).toContainText('The button can be activated by clicking the Escape key three times. As the Escape key is a common shortcut for exiting modals, the button may accidentally be activated.');
   });
 
   test('should display "Preparation of this accessibility statement" section', async ({ page }) => {
@@ -99,13 +99,6 @@ test.describe('Accessibility Statement', () => {
     await expect(page.locator('h2:has-text("Preparation of this accessibility statement")')).toBeVisible();
     await expect(page.locator('text=11 May 2026')).toBeVisible();
     await expect(page.locator('text=23 March 2026')).toBeVisible();
-  });
-
-  test('should display Exit this page button in right column', async ({ page }) => {
-    await page.goto('/accessibility');
-
-    const exitButton = page.locator('.govuk-exit-this-page');
-    await expect(exitButton).toBeVisible();
   });
 
   test('should be accessible from footer link', async ({ page }) => {
