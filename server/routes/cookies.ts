@@ -12,7 +12,7 @@ const cookiesRoutes = (router: Router) => {
   router.get(paths.COOKIES, (request, response) => {
     response.render('pages/cookies', {
       title: request.__('pages.cookies.title'),
-      backLinkHref: getBackUrl(request.session, paths.START),
+      backLinkHref: getBackUrl(request.session, config.serviceUrl),
     });
   });
 

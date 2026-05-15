@@ -1,5 +1,6 @@
 import type { Router } from 'express-serve-static-core';
 
+import config from '../config';
 import paths from '../constants/paths';
 import { getBackUrl } from '../utils/sessionHelpers';
 
@@ -7,7 +8,7 @@ const termsAndConditionsRoutes = (router: Router) => {
   router.get(paths.TERMS_AND_CONDITIONS, (request, response) => {
     response.render('pages/termsAndConditions', {
       title: request.__('pages.termsAndConditions.title'),
-      backLinkHref: getBackUrl(request.session, paths.START),
+      backLinkHref: getBackUrl(request.session, config.serviceUrl),
     });
   });
 };

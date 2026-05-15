@@ -1,6 +1,7 @@
 import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
+import config from '../config';
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
 import { flashMock } from '../test-utils/testMocks';
@@ -61,7 +62,7 @@ describe('Child Safety Question', () => {
       const backLink = dom.window.document.querySelector('.govuk-back-link');
 
       expect(backLink).not.toBeNull();
-      expect(backLink?.getAttribute('href')).toBe(paths.START);
+      expect(backLink?.getAttribute('href')).toBe(config.serviceUrl);
     });
   });
 
