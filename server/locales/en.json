@@ -11,7 +11,7 @@
   "printThisPage": "Print this page",
   "printThisPageNoJs": "To print this page, press Ctrl+P on Windows or Cmd+P on Mac.",
   "printableVersion": "View a printable version of the whole guide",
-  "exitThisPage": "<span class=\"govuk-visually-hidden\">To exit this service quickly, press escape.</span>",
+  "exitThisPage": "<span class=\"govuk-visually-hidden\">To exit this service quickly, press escape three times.</span>",
   "exitThisPageButtonText": "Exit this page",
   "error": "Error",
   "phaseBannerText": "This is a new service - your <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">feedback</a> will help us to improve it.",
@@ -781,7 +781,7 @@
           "content": {
             "screenReader": "Screen reader users may experience the following issues with the ‘Exit this page’ button, which allows you to leave the service quickly.",
             "list": {
-              "itemOne": "The button can be activated by clicking the Escape key twice. As the Escape key is a common shortcut for exiting modals, the button may accidentally be activated."
+              "itemOne": "The button can be activated by clicking the Escape key three times. As the Escape key is a common shortcut for exiting modals, the button may accidentally be activated."
             },
             "deviatesFromGDS": "This deviates from by GDS approach to use the Shift key. In user testing the ‘Exit this page’ button was accidentally activated, as it’s a common navigation shortcut. We are working with GDS to improve this experience with user feedback."
           }
