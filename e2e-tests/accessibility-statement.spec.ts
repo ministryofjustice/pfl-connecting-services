@@ -90,7 +90,7 @@ test.describe('Accessibility Statement', () => {
   test('should display non-accessible content list items', async ({ page }) => {
     await page.goto('/accessibility');
 
-    await expect(page.locator('.govuk-list--number').first()).toContainText('The button can be activated by clicking the Escape key twice. As the Escape key is a common shortcut for exiting modals, the button may accidentally be activated.');
+    await expect(page.locator('.govuk-list--number').first()).toContainText('The button can be activated by clicking the Escape key three times. As the Escape key is a common shortcut for exiting modals, the button may accidentally be activated.');
   });
 
   test('should display "Preparation of this accessibility statement" section', async ({ page }) => {
