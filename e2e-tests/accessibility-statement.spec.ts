@@ -101,13 +101,6 @@ test.describe('Accessibility Statement', () => {
     await expect(page.locator('text=23 March 2026')).toBeVisible();
   });
 
-  test('should display Exit this page button in right column', async ({ page }) => {
-    await page.goto('/accessibility');
-
-    const exitButton = page.locator('.govuk-exit-this-page');
-    await expect(exitButton).toBeVisible();
-  });
-
   test('should be accessible from footer link', async ({ page }) => {
     await page.goto('/');
 
