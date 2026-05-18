@@ -645,7 +645,8 @@
                 "purpose": "Remembers how many times you have seen the survey message",
                 "expires": "2 years"
               }
-            }
+            },
+            "smartSurvey": "We use SmartSurvey to collect responses to the survey. If you take part, SmartSurvey <a href=\"https://www.smartsurvey.co.uk/company/how-we-use-cookies\">will save extra cookies</a> to track your progress on their website."
           }
         },
         "acceptAnalyticsCookies": {

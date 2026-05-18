@@ -158,6 +158,8 @@
           })
         }}
 
+        <p class="govuk-body">{{ __('pages.cookies.content.analyticsCookies.surveys.smartSurvey') | safe }}</p>
+
         <form class="form" action="{{ paths.COOKIES }}" method="post" novalidate>
           <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
