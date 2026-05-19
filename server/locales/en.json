@@ -773,8 +773,8 @@
         },
         "compliance": {
           "title": "Compliance status",
-          "tested": "The service has been tested by the MOJ Accessibility Team (Summer 2025) and user research has been carried out internally with users with access needs. The issues identified in this testing were addressed. The service has had a full internal accessibility audit against the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard. External testing is planned to take place in Summer 2026.",
-          "partiallyCompliant": "This website is fully compliant with the Web Content Accessibility Guidelines version 2.2 AA standard."
+          "tested": "The service had an external accessibility audit (Spring 2026) and user research has been carried out internally with users with access needs. The issues identified in audit have been addressed, except for one non-compliance listed below.",
+          "partiallyCompliant": "This website is partially compliant with the Web Content Accessibility Guidelines version 2.2 AA standard."
         },
         "nonAccessibleContent": {
           "title": "Non-accessible content",

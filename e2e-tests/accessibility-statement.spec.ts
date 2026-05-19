@@ -74,8 +74,8 @@ test.describe('Accessibility Statement', () => {
     await page.goto('/accessibility');
 
     await expect(page.locator('h2:has-text("Compliance status")')).toBeVisible();
-    await expect(page.locator('text=MOJ Accessibility Team')).toBeVisible();
-    await expect(page.locator('text=fully compliant')).toBeVisible();
+    await expect(page.locator('text=(Spring 2026)')).toBeVisible();
+    await expect(page.locator('text=This website is partially compliant with the Web Content Accessibility Guidelines version 2.2 AA standard.')).toBeVisible();
   });
 
   test('should display "Non-accessible content" section', async ({ page }) => {
