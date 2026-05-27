@@ -34,7 +34,7 @@
         "coercive": "Rheolaeth drwy orfodaeth a cham-drin seicolegol (bygythiadau, codi cywilydd ar rywun, brawychu, diraddio, ynysu a rheoli)",
         "harassment": "Aflonyddu a stelcio"
       },
-      "rightInformation": "We ask this so we can give you the right information and resources for your situation.",
+      "rightInformation": "Rydym yn gofyn hyn fel y gallwn rhoi'r wybodaeth a'r adnoddau iawn i chi ar gyer eich sefyllfa.",
       "answerYes": "Atebwch ‘Do’ os ydych wedi profi unrhyw un o'r uchod, p'un a ydych wedi riportio eich profiad i'r heddlu neu beidio.",
       "error": "Dewiswch a ydych wedi profi unrhyw gamdriniaeth gan eich cyn-bartner neu beidio"
     },
@@ -49,7 +49,7 @@
         "substances": "camddefnyddio cyffuriau, alcohol neu sylweddau eraill",
         "otherConcerns": "unrhyw bryderon diogelwch neu lles eraill sy'n rhoi unrhyw un mewn risg sylweddol o niwed"
       },
-      "rightInformation": "We ask this so we can give you the right information and resources for your situation.",
+      "rightInformation": "Rydym yn gofyn hyn fel y gallwn roi'r wybodaeth a'r adnoddau iawn ar gyfer eich sefyllfa.",
       "error": "Dewiswch pa un a yw'r plant yn ddiogel"
     },
     "childSafetyHelp": {
@@ -77,12 +77,12 @@
           "description": "Mae cymorth rhad ac am ddim a chyfrinachol ar gael i helpu chi a'ch teulu.",
           "table": {
             "rowOne": {
-              "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Refuge National Domestic Abuse Helpline</a>",
-              "data": "<p class=\"govuk-body\">Free, confidential advice, 24 hours a day, if you need help understanding your options, finding a refuge space or other specialist services.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:\">0808 2000 247</a></p>"
+              "heading": "<a href=\"https://www.nationaldahelpline.org.uk/\">Llinell Gymorth Cam-drin Domestig Cenedlaethol Refuge</a>",
+              "data": "<p class=\"govuk-body\">Cyngor am ddim a chyfrinachol, 24 awr y dydd. os oes arnoch angen cymorth i ddeall eich opsiynau, dod i hyd i loches neu wasanaethau arbenigol.</p><p class=\"govuk-body\">Rhif ffôn: <a href=\"tel:\">0808 2000 247</a></p>"
             },
             "rowTwo": {
               "heading": "<a href=\"https://www.rightsofwomen.org.uk/get-advice/family-law/\">Rights of Women</a>",
-              "data": "<p class=\"govuk-body\">Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.</p><p class=\"govuk-body\">Telephone: <a href=\"tel:\">020 7251 6577</a></p>"
+              "data": "<p class=\"govuk-body\">Cyngor cyfraith deulu gan elusen sydd wedi ymrwymo i ddarparu cyngor cyfreithiol cyfrinachol yn rhad ac am ddim i fenywod sy'n profi pob math o drais yng Nghymru a Lloegr.</p><p class=\"govuk-body\">Rhif ffôn: <a href=\"tel:\">020 7251 6577</a></p>"
             },
             "rowThree": {
               "heading": "<a href=\"https://www.reunite.org/\">Reunite - Canolfan Ryngwladol Herwgydio Plant</a>",
@@ -607,37 +607,37 @@
             }
           },
           "opensearchAnalytics": {
-            "title": "OpenSearch analytics",
+            "title": "OpenSearch dadansoddol",
             "content": {
-              "collectData": "We also use OpenSearch to collect data about how the service is used, such as:",
+              "collectData": "Rydym hefyd yn defnyddio OpenSearch i gasglu data am sut y defnyddir y gwasanaeth, fel:",
               "eventList": {
-                "pageViews": "page views",
-                "linkInteractions": "link interactions",
-                "pageCompletions": "page completion",
-                "pageAndQuickExits": "page and quick exits",
-                "fileDownloads": "file downloads"
+                "pageViews": "gweld tudalen",
+                "linkInteractions": "rhyngweithio â'r dolenni",
+                "pageCompletions": "cwblhau tudalen",
+                "pageAndQuickExits": "tudalen a gadael yn sydyn",
+                "fileDownloads": "lawrlwytho ffeil"
               },
-              "storeInformation": "OpenSearch analytics does not use cookies or store information on your device.",
-              "monitor": "This data is used only by the Ministry of Justice to monitor and improve this service."
+              "storeInformation": "Nid yw OpenSearch analytics yn defnyddio cwcis nac yn storio gwybodaeth ar eich dyfais.",
+              "monitor": "Defnyddir y data hwn gan y Weinyddiaeth Gyfiawnder yn unig i fonitro a gwella'r gwasanaeth hwn."
             }
           },
           "surveys": {
-            "title": "Surveys (optional)",
-            "content": "We will sometimes ask users to take part in a survey, for example our performance survey. If you take part, or dismiss the survey, we’ll save a cookie that lets us know you’ve seen the message so that we do not show it to you again.",
+            "title": "Arolygon (dewisol)",
+            "content": "Weithiau byddwn yn gofyn i ddefnyddwyr gymryd rhan mewn arolwg, er enghraifft ein harolwg perfformiad.  Os ydych yn cymryd rhan, neu'n diystyru'r arolwg, byddwn yn arbed cwci sy'n gadael i ni wybod eich bod wedi gweld y neges fel nad ydym yn ei ddangos ichi eto.",
             "table": {
               "headerRow": {
-                "name": "Name",
-                "purpose": "Purpose",
-                "expires": "Expires"
+                "name": "Enw",
+                "purpose": "Pwrpas",
+                "expires": "Yn dod i ben"
               },
               "valueRowOne": {
                 "name": "govuk_taken[NameOfSurvey]",
-                "purpose": "Remembers whether you have taken the survey or dismissed it",
+                "purpose": "Yn cofio os ydych wedi llenwi'r arolwg neu ei ddiystyru",
                 "expires": "4 months"
               },
               "valueRowTwo": {
                 "name": "govuk_surveySeen[NameOfSurvey]",
-                "purpose": "Remembers how many times you have seen the survey message",
+                "purpose": "Yn cofio sawl gwaith yr ydych wedi gweld neges yr arolwg",
                 "expires": "2 years"
               }
             },
@@ -772,20 +772,20 @@
           "partiallyCompliant": "Mae’r wefan hon yn cydymffurfio’n llwyr â’r Canllawiau Hygyrchedd Cynnwys Gwe fersiwn 2.2 safon AA."
         },
         "nonAccessibleContent": {
-          "title": "Non-accessible content",
-          "subtitle": "Non-compliance with current GDS implementation",
+          "title": "Cynnwys anhygyrch",
+          "subtitle": "Diffyg cydymffurfiaeth gyda gweithredu GDS presennol",
           "content": {
-            "screenReader": "Screen reader users may experience the following issues with the ‘Exit this page’ button, which allows you to leave the service quickly.",
+            "screenReader": "Gall defnyddwyr darllenydd sgrin brofi'r materion canlynol gyda'r botwm ‘Exit this page’, sy'n gadael i chi adael y gwasanaeth yn gyflym.",
             "list": {
-              "itemOne": "The button can be activated by clicking the Escape key twice. As the Escape key is a common shortcut for exiting modals, the button may accidentally be activated."
+              "itemOne": "Gellir actifadu'r botwm drwy glicio ar yr allwedd 'Escape' dair gwaith. Gan fod yr allwedd 'Escape' yn lwybr byr cyffredin ar gyfer gadael, gellir actifadu'r botwm yn ddamweiniol."
             },
-            "deviatesFromGDS": "This deviates from by GDS approach to use the Shift key. In user testing the ‘Exit this page’ button was accidentally activated, as it’s a common navigation shortcut. We are working with GDS to improve this experience with user feedback."
+            "deviatesFromGDS": "Mae hyn yn gwyro oddi wrth ddull GDS i ddefnyddio'r allwedd 'Shift'. Wrth brofi gan ddefnyddwyr, cafodd y botwm 'Exit this page' ei actifadu'n ddamweiniol, gan ei fod yn lwybr byr llywio cyffredin. Rydym yn gweithio gyda GDS i wella'r profiad hwn gydag adborth gan ddefnyddwyr."
           }
         },
         "preparation": {
           "title": "Paratoi’r datganiad hygyrchedd hwn",
-          "preparedOn": "Cafodd y datganiad hwn ei baratoi ar Ddydd Mercher 9 Chwefror 2026. Cafodd ei adolygu ddiwethaf ar 23 Mawrth 2026.",
-          "lastTested": "Bu inni gynnal profion mewnol yn Haf 2025 yn erbyn safon WCAG 2.2 AA."
+          "preparedOn": "Paratowyd y datganiad hwn ar 11 Mai 2026. Adolygwyd ddiwethaf ar 23 Mawrth 2026.",
+          "lastTested": "Profwyd y gwasanaeth hwn ddiwethaf yn y Gwanwyn 2026 yn erbyn safon WCAG 2.2 AA."
         }
       }
     }
