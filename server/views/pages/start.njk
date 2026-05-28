@@ -1,6 +1,38 @@
-{% extends "partials/layout.njk" %}
+{% extends "govuk/template.njk" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% set mainClasses = "app-container govuk-body" %}
+{% set govukRebrand = true %}
+
+{% block header %}
+  {{
+    govukHeader({
+      homepageUrl: 'https://www.gov.uk/'
+    })
+  }}
+  <div class="govuk-width-container">
+    {{
+      govukBreadcrumbs({
+        items: [
+          {
+            text: "Home",
+            href: "https://www.gov.uk/"
+          },
+          {
+            text: "Births, deaths, marriages and care",
+            href: "https://www.gov.uk/browse/births-deaths-marriages"
+          },
+          {
+            text: "Marriage, civil partnership and divorce",
+            href: "https://www.gov.uk/browse/births-deaths-marriages/marriage-divorce"
+          }
+        ]
+      })
+    }}
+  </div>
+{% endblock %}
 
 {% set title = __("pages.start.title") %}
 {% block pageTitle %}
@@ -8,37 +40,46 @@
   – GOV.UK
 {% endblock %}
 
+{% block head %}
+  <link href="{{ '/assets/css/app.css' | assetMap }}" rel="stylesheet" />
+{% endblock %}
+
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">{{ __("pages.start.title") }}</h1>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">{{ __("pages.start.content.useThisService") }}</p>
+      <p class="govuk-body">{{ __("pages.start.content.childArrangements") }}</p>
+      <p class="govuk-body">{{ __("pages.start.content.askedQuestions") }}</p>
+      <p class="govuk-body">{{ __("pages.start.content.cannotUseThisService") | safe }}</p>
 
-      <h2 class="govuk-heading-m">{{ __("pages.start.whoShouldUse.title") }}</h2>
+      {{
+        govukInsetText({
+          html: __("pages.start.content.otherCountriesInfo") | safe
+        })
+      }}
 
-      <p class="govuk-body">{{ __("pages.start.whoShouldUse.description") }}</p>
+      <h2 class="govuk-heading-m">{{ __("pages.start.content.getHelpChildArrangements.title") }}</h2>
+      <p class="govuk-body">{{ __("pages.start.content.getHelpChildArrangements.content.tenMinutes") }}</p>
+      <p class="govuk-body">{{ __("pages.start.content.getHelpChildArrangements.content.yourAnswers") }}</p>
 
-      <p class="govuk-body">{{ __("pages.start.whoShouldUse.avoidCourt") }}</p>
+      {{
+        govukButton({
+          text: __("pages.start.startButtonText"),
+          isStartButton: true,
+          href: paths.CHILD_SAFETY
+        })
+      }}
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>{{ __("pages.start.whoShouldUse.bullets.whereLive") }}</li>
-        <li>{{ __("pages.start.whoShouldUse.bullets.timeSpent") }}</li>
-      </ul>
+      <h3 class="govuk-heading-s govuk-!-margin-top-6">{{ __("pages.start.content.exitTheService.title") }}</h3>
+      <p class="govuk-body">{{ __("pages.start.content.exitTheService.description") }}</p>
 
-      <p class="govuk-body">{{ __("pages.start.whoShouldUse.childArrangements") }}</p>
-
-      <h2 class="govuk-heading-m">{{ __("pages.start.whoShouldNotUse.title") }}</h2>
-
-      <p class="govuk-body">{{ __("pages.start.whoShouldNotUse.parentalResponsibility") }}</p>
-
-      <p class="govuk-body">{{ __("pages.start.whoShouldNotUse.financialArrangements") | safe }}</p>
-
-      <h2 class="govuk-heading-m">{{ __("pages.start.howItWorks.title") }}</h2>
-
-      <p class="govuk-body">{{ __("pages.start.howItWorks.content.circumstances") }}</p>
-
-      <p class="govuk-body">{{ __("pages.start.howItWorks.content.personalDetails") }}</p>
-
-      <p class="govuk-body">{{ __("pages.start.howItWorks.content.tenMinutes") }}</p>
+      <h2 class="govuk-heading-m">{{ __("pages.start.content.exploreTheTopic.title") }}</h2>
+      <p class="govuk-body govuk-!-font-weight-bold">{{ __("pages.start.content.exploreTheTopic.description") | safe }}</p>
 
       {% if includeWelshLanguage %}
         {% if getLocale() == 'cy' %}
@@ -52,34 +93,24 @@
         {% endif %}
       {% endif %}
 
-      <h2 class="govuk-heading-m">{{ __("pages.start.exitTheService.title") }}</h2>
-
-      <p class="govuk-body">{{ __("pages.start.exitTheService.description") }}</p>
-
-      {{
-        govukButton({
-          text: __("pages.start.startButtonText"),
-          isStartButton: true,
-          href: paths.CHILD_SAFETY
-        })
-      }}
     </div>
-
     <div class="govuk-grid-column-one-third">
-      <h2 class="govuk-heading-m subsection-title">{{ __("pages.start.relatedContent.title") }}</h2>
-      <nav role="navigation">
+      <h2 class="govuk-heading-m subsection-title" id="sub-section">
+        {{ __("pages.start.relatedContent.title") }}
+      </h2>
+      <nav role="navigation" aria-labelledby="sub-section">
         <ul class="govuk-list govuk-!-font-size-16">
-          <li class="govuk-!-margin-bottom-2">
+          <li class="govuk-!-margin-bottom-3">
             <a href="{{ __('pages.start.relatedContent.links.makingChildArrangements') }}">
               {{ __("pages.start.relatedContent.content.makingChildArrangements") }}
             </a>
           </li>
-          <li class="govuk-!-margin-bottom-2">
+          <li class="govuk-!-margin-bottom-3">
             <a href="{{ __('pages.start.relatedContent.links.childMaintenance') }}">
               {{ __("pages.start.relatedContent.content.childMaintenance") }}
             </a>
           </li>
-          <li class="govuk-!-margin-bottom-2">
+          <li class="govuk-!-margin-bottom-3">
             <a href="{{ __('pages.start.relatedContent.links.parentalRights') }}">
               {{ __("pages.start.relatedContent.content.parentalRights") }}
             </a>
@@ -88,4 +119,38 @@
       </nav>
     </div>
   </div>
+{% endblock %}
+{% block footer %}
+  {{
+    govukFooter({
+      meta: {
+        items: [
+          {
+            href: paths.ACCESSIBILITY_STATEMENT,
+            text: __('footer.accessibility')
+          },
+          {
+            href: paths.CONTACT_US,
+            text: __('footer.contact')
+          },
+          {
+            href: paths.COOKIES,
+            text: __('footer.cookies')
+          },
+          {
+            href: feedbackUrl,
+            text: __('footer.feedback')
+          },
+          {
+            href: paths.PRIVACY_NOTICE,
+            text: __('footer.privacy')
+          },
+          {
+            href: paths.TERMS_AND_CONDITIONS,
+            text: __('footer.termsAndConditions')
+          }
+        ]
+      }
+    })
+  }}
 {% endblock %}
