@@ -4,7 +4,6 @@ import { body, validationResult } from 'express-validator';
 import config from '../config';
 import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
-import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
 import addCompletedStep from '../utils/addCompletedStep';
 
 const router = Router();
@@ -16,7 +15,16 @@ const router = Router();
  *   - YES (children are safe) → Domestic abuse page (/domestic-abuse)
  *   - NO (children are not safe) → Child safety help page (/child-safety-help)
  */
-router.get(paths.CHILD_SAFETY, checkFormProgressFromConfig(FormSteps.CHILD_SAFETY), (req: Request, res: Response) => {
+router.get(paths.CHILD_SAFETY, (req: Request, res: Response) => {
+  // Child Safety is the first page, so we can reset the session to clear any previous progress
+  req.session.domesticAbuse = undefined;
+  req.session.contactChildArrangements = undefined;
+  req.session.agreement = undefined;
+  req.session.helpToAgree = undefined;
+  req.session.mediation = undefined;
+  req.session.otherOptions = undefined;
+  req.session.completedSteps = [];
+
   const errors = req.flash('errors');
   res.render('pages/childSafety', {
     title: res.__('pages.childSafety.title'),

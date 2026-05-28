@@ -179,7 +179,7 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
 });
 
 test.describe('Browser Navigation - Multiple Forward and Backward Navigation', () => {
-  test(`should navigate back form the furthest page: mediation, to the child safety page and then forward, with data persisting`, async ({
+  test(`should navigate back from the furthest page: mediation, to the domestic abuse page and then forward, with data persisting`, async ({
     page,
   }) => {
     await startJourney(page);
@@ -210,14 +210,8 @@ test.describe('Browser Navigation - Multiple Forward and Backward Navigation', (
     await verifyBackNavigation(page, /domestic-abuse/, async () => {
       await expect(page.getByLabel('Yes')).toBeChecked();
     });
-    await verifyBackNavigation(page, /child-safety/, async () => {
-      await expect(page.getByLabel('Yes')).toBeChecked();
-    });
 
     // Go Forward
-    await verifyForwardNavigation(page, /domestic-abuse/, async () => {
-      await expect(page.getByLabel('Yes')).toBeChecked();
-    });
     await verifyForwardNavigation(page, /getting-help/, async () => {
       await expect(page.getByRole('button', { name: /continue/i })).toBeVisible();
     });
