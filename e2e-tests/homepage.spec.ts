@@ -20,18 +20,6 @@ test.describe('Homepage', () => {
     await expect(accessibilityLink).toBeVisible();
   });
 
-  test('should display the beta phase banner with feedback link', async ({ page }) => {
-    await page.goto('/');
-
-    const phaseBanner = page.locator('.govuk-phase-banner');
-    await expect(phaseBanner).toBeVisible();
-    await expect(phaseBanner).toContainText('Beta');
-    await expect(phaseBanner).toContainText('This is a new service - your feedback will help us to improve it.');
-
-    const feedbackLink = phaseBanner.getByRole('link', { name: /feedback/i });
-    await expect(feedbackLink).toHaveAttribute('href', 'https://feedback.example.com');
-  });
-
   test('should navigate to cookies page', async ({ page }) => {
     await page.goto('/');
 

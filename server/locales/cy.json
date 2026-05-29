@@ -93,39 +93,34 @@
       }
     },
     "start": {
-      "title": "Cael help i ddod o hyd i opsiwn trefniadau plant",
-      "whoShouldUse": {
-        "title": "Pwy ddylai ddefnyddio’r gwasanaeth hwn",
-        "description": "Defnyddiwch y gwasanaeth hwn i gael gwybod am eich opsiynau ar gyfer gwneud trefniadau plant yng Nghymru a Lloegr os ydych yn gwahanu oddi wrth riant arall eich plentyn.",
-        "avoidCourt": "Efallai y byddwch yn gallu osgoi mynd i'r llys os gallwch gytuno ar bethau fel:",
-        "bullets": {
-          "whereLive": "ble bydd y plant yn byw",
-          "timeSpent": "faint o amser y byddant yn ei dreulio gyda phob person"
+      "title": "Find ways to make your child arrangements",
+      "content": {
+        "useThisService": "Use this service to find options for making child arrangements if you’re separating or have separated from your child’s other parent. This includes ways to agree without going to court.",
+        "childArrangements": "Child arrangements are sometimes known as ‘child custody’ or ‘child contact’.",
+        "askedQuestions": "You’ll be asked questions about your circumstances, including your current relationship with your ex-partner. You will not be asked for any personal details.",
+        "cannotUseThisService": "You cannot use this service to make financial arrangements. <a href=\"https://www.gov.uk/child-maintenance-service\">Find out about the Child Maintenance Service</a>.",
+        "otherCountriesInfo": "What you can do is different <a href=\"https://www.mygov.scot/support-after-separation/\">in Scotland</a> and <a href=\"https://www.nidirect.gov.uk/information-and-services/parents/divorce-relationship-breakdown-and-family-courts\">in Northern Ireland</a>.",
+        "getHelpChildArrangements": {
+          "title": "Get help making child arrangements",
+          "content": {
+            "tenMinutes": "It takes about 10 minutes to use this service.",
+            "yourAnswers": "Your answers will not be saved or shared with anyone."
+          }
         },
-        "childArrangements": "Gelwir hyn yn gwneud trefniadau plant (a elwir weithiau'n 'gwarchodaeth plant' neu 'gyswllt plant')."
-      },
-      "whoShouldNotUse": {
-        "title": "Pwy na ddylai ddefnyddio'r gwasanaeth hwn",
-        "parentalResponsibility": "Ni ddylech ddefnyddio'r gwasanaeth hwn os yw'r llys wedi dileu neu gyfyngu cyfrifoldeb rhiant ar gyfer unrhyw un mewn perthynas â phlentyn.",
-        "financialArrangements": "Nid yw'r gwasanaeth hwn ar gyfer gwneud trefniadau ariannol. <a href=\"https://www.gov.uk/child-maintenance-service\">Rhagor o wybodaeth am gynhaliaeth plant</a> am wybodaeth ar sut y gellir talu costau byw plentyn pan fydd ei rieni'n gwahanu."
-      },
-      "howItWorks": {
-        "title": "Sut mae’n gweithio",
-        "content": {
-          "circumstances": "Gofynnir cwestiynau i chi am eich amgylchiadau, gan gynnwys eich perthynas bresennol â'ch cyn-bartner os ydych yn riant.",
-          "personalDetails": "Ni ofynnir i chi am unrhyw fanylion personol ac ni fydd eich atebion yn cael eu cadw na'u rhannu ag unrhyw un.",
-          "tenMinutes": "Mae'n cymryd tua 10 munud i ddefnyddio'r gwasanaeth hwn."
+        "exitTheService": {
+          "title": "If you need to exit the service quickly",
+          "description": "Each page of this service has an ‘Exit this page’ button which takes you to BBC Weather."
+        },
+        "exploreTheTopic": {
+          "title": "Explore the topic",
+          "description": "<a href=\"https://www.gov.uk/browse/births-deaths-marriages/marriage-divorce\">Marriage, civil partnership and divorce</a>"
         }
-      },
-      "exitTheService": {
-        "title": "Os oes angen i chi adael y gwasanaeth yn gyflym",
-        "description": "Mae gan bob tudalen o'r gwasanaeth hwn fotwm 'Gadael y dudalen hon' i'ch helpu i gadw'n ddiogel a diogelu eich preifatrwydd os oes ei angen arnoch."
       },
       "relatedContent": {
         "title": "Related content",
         "content": {
           "makingChildArrangements": "Making child arrangements if you divorce or separate",
-          "childMaintenance": "Child maintenance",
+          "childMaintenance": "Child Maintenance Service",
           "parentalRights": "Parental rights and responsibilities"
         },
         "links": {
@@ -134,7 +129,7 @@
           "parentalRights": "https://www.gov.uk/parental-rights-responsibilities"
         }
       },
-      "startButtonText": "Dechrau nawr"
+      "startButtonText": "Start now"
     },
     "contactChildArrangements": {
       "title": "A ydych yn gyfforddus i gysylltu â'r cyn-bartner am drefniadau plant?",

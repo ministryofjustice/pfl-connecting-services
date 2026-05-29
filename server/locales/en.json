@@ -93,39 +93,34 @@
       }
     },
     "start": {
-      "title": "Get help finding a child arrangement option",
-      "whoShouldUse": {
-        "title": "Who should use this service",
-        "description": "Use this service to find out about your options for making child arrangements in England and Wales if you are separating from your child's other parent.",
-        "avoidCourt": "You may be able to avoid going to court if you can agree on things like:",
-        "bullets": {
-          "whereLive": "where the children will live",
-          "timeSpent": "how much time they'll spend with each person"
+      "title": "Find ways to make your child arrangements",
+      "content": {
+        "useThisService": "Use this service to find options for making child arrangements if you’re separating or have separated from your child’s other parent. This includes ways to agree without going to court.",
+        "childArrangements": "Child arrangements are sometimes known as ‘child custody’ or ‘child contact’.",
+        "askedQuestions": "You’ll be asked questions about your circumstances, including your current relationship with your ex-partner. You will not be asked for any personal details.",
+        "cannotUseThisService": "You cannot use this service to make financial arrangements. <a href=\"https://www.gov.uk/child-maintenance-service\">Find out about the Child Maintenance Service</a>.",
+        "otherCountriesInfo": "What you can do is different <a href=\"https://www.mygov.scot/support-after-separation/\">in Scotland</a> and <a href=\"https://www.nidirect.gov.uk/information-and-services/parents/divorce-relationship-breakdown-and-family-courts\">in Northern Ireland</a>.",
+        "getHelpChildArrangements": {
+          "title": "Get help making child arrangements",
+          "content": {
+            "tenMinutes": "It takes about 10 minutes to use this service.",
+            "yourAnswers": "Your answers will not be saved or shared with anyone."
+          }
         },
-        "childArrangements": "This is called making child arrangements (sometimes known as 'child custody' or 'child contact')."
-      },
-      "whoShouldNotUse": {
-        "title": "Who should not use this service",
-        "parentalResponsibility": "You should not use this service if the court has removed or restricted parental responsibility for anyone in relation to a child.",
-        "financialArrangements": "This service is not for making financial arrangements. <a href=\"https://www.gov.uk/child-maintenance-service\">Find out more about child maintenance</a> for information on how a child's living costs can be paid when their parents separate."
-      },
-      "howItWorks": {
-        "title": "How it works",
-        "content": {
-          "circumstances": "You will be asked questions about your circumstances, including your current relationship with your ex-partner.",
-          "personalDetails": "You will not be asked for any personal details and your answers will not be saved or shared with anyone.",
-          "tenMinutes": "It takes about 10 minutes to use this service."
+        "exitTheService": {
+          "title": "If you need to exit the service quickly",
+          "description": "Each page of this service has an ‘Exit this page’ button which takes you to BBC Weather."
+        },
+        "exploreTheTopic": {
+          "title": "Explore the topic",
+          "description": "<a href=\"https://www.gov.uk/browse/births-deaths-marriages/marriage-divorce\">Marriage, civil partnership and divorce</a>"
         }
-      },
-      "exitTheService": {
-        "title": "If you need to exit the service quickly",
-        "description": "Each page of this service has an 'Exit this page' button to help keep you safe and protect your privacy if you need it."
       },
       "relatedContent": {
         "title": "Related content",
         "content": {
           "makingChildArrangements": "Making child arrangements if you divorce or separate",
-          "childMaintenance": "Child maintenance",
+          "childMaintenance": "Child Maintenance Service",
           "parentalRights": "Parental rights and responsibilities"
         },
         "links": {

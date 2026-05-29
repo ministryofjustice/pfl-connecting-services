@@ -26,7 +26,7 @@ describe('App', () => {
 
       it.each(['en', 'cy'])('should return %s when the Accept-Language header is %s', (language: languages) => {
         return request(testAppSetup())
-          .get(paths.START)
+          .get(paths.CHILD_SAFETY)
           .set('Accept-Language', language)
           .expect((response) => {
             expect(response.text).toContain(`lang="${language}"`);
@@ -36,7 +36,7 @@ describe('App', () => {
 
       it.each(['en', 'cy'])('should return %s when the lang query parameter is %s', (language: languages) => {
         return request(testAppSetup())
-          .get(`${paths.START}?lang=${language}`)
+          .get(`${paths.CHILD_SAFETY}?lang=${language}`)
           .expect((response) => {
             expect(response.text).toContain(`lang="${language}"`);
             expect(response.text).toContain(homepageLanguageStrings[language]);
@@ -101,7 +101,7 @@ describe('App', () => {
       });
 
       it('should show the banner and not load ga4 if the consent cookie does not exist', async () => {
-        const response = await request(app).get(paths.START).expect('Content-Type', /html/);
+        const response = await request(app).get(paths.CHILD_SAFETY).expect('Content-Type', /html/);
 
         expect(response.text).not.toContain('www.googletagmanager.com');
         expect(response.text).toContain('Cookies on Get help finding a child arrangement option');
@@ -113,7 +113,7 @@ describe('App', () => {
 
       it('should not show the banner and not load ga4 if the consent cookie is no', async () => {
         const response = await request(app)
-          .get(paths.START)
+          .get(paths.CHILD_SAFETY)
           .set('Cookie', `${cookieNames.ANALYTICS_CONSENT}=${JSON.stringify({ acceptAnalytics: 'No' })}`)
           .expect('Content-Type', /html/);
 
@@ -127,7 +127,7 @@ describe('App', () => {
 
       it('should not show the banner and load ga4 if the consent cookie is yes', async () => {
         const response = await request(app)
-          .get(paths.START)
+          .get(paths.CHILD_SAFETY)
           .set('Cookie', `${cookieNames.ANALYTICS_CONSENT}=${JSON.stringify({ acceptAnalytics: 'Yes' })}`)
           .expect('Content-Type', /html/);
 
