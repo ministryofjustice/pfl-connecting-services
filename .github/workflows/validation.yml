@@ -22,6 +22,11 @@ jobs:
       - name: 'Install Dependencies'
         run: npm ci --no-audit
 
+      - name: Debug govuk-frontend
+        run: |
+          npm ls govuk-frontend
+          node -p "require('govuk-frontend/package.json').version"
+
       - name: 'Run Linter'
         run: npm run lint
 
