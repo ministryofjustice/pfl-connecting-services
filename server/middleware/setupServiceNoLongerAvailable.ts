@@ -5,7 +5,7 @@ import config from '../config';
 const setupServiceNoLongerAvailable = (): Router => {
   const router = Router();
 
-  router.use('*', (request, response, next) => {
+  router.use((request, response, next) => {
     if (new Date() < config.previewEnd) {
       return next();
     }

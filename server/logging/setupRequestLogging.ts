@@ -5,7 +5,7 @@ import logger from './logger';
 const setupRequestLogging = (): Router => {
   const router = Router();
 
-  router.use('*', (request, response, next) => {
+  router.use((request, response, next) => {
     const start = performance.now();
     logger.debug(`Received ${request.method} ${request.originalUrl}`);
 
