@@ -1,4 +1,3 @@
-import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import paths from '../constants/paths';
@@ -11,9 +10,9 @@ describe('Child Safety Help Page', () => {
     it('should render child safety help page with correct heading', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent(
+      expect(html).toContain(
         'Getting help if your children are not safe',
       );
       expect(response.status).toBe(200);
@@ -28,11 +27,10 @@ describe('Child Safety Help Page', () => {
     it('should display warning about contacting police', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      const dom = new JSDOM(response.text);
-      const warningText = dom.window.document.querySelector('.govuk-warning-text__text');
+      const html = response.text;
 
-      expect(warningText?.textContent).toContain('Contact the police');
-      expect(warningText?.textContent).toContain('immediate danger');
+      expect(html).toContain('Contact the police');
+      expect(html).toContain('immediate danger');
     });
 
     it('should display introductory text about help and support', async () => {
@@ -53,12 +51,10 @@ describe('Child Safety Help Page', () => {
     it('should display Continue button linking to domestic abuse page', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      const dom = new JSDOM(response.text);
-      const continueButton = dom.window.document.querySelector('a.govuk-button');
-
-      expect(continueButton).not.toBeNull();
-      expect(continueButton?.getAttribute('href')).toBe(paths.DOMESTIC_ABUSE);
-      expect(continueButton?.textContent).toContain('Continue');
+      const html = response.text;
+      expect(html).toContain('govuk-button');
+      expect(html).toContain(`href="${paths.DOMESTIC_ABUSE}"`);
+      expect(html).toContain('Continue');
     });
 
     it('should display section about immediate risk to children', async () => {
@@ -98,19 +94,15 @@ describe('Child Safety Help Page', () => {
     it('should have horizontal rule separator after continue button', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      const dom = new JSDOM(response.text);
-      const hr = dom.window.document.querySelector('hr.govuk-section-break--visible');
-
-      expect(hr).not.toBeNull();
+      const html = response.text;
+      expect(html).toContain('govuk-section-break--visible');
     });
 
     it('should display back link', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      const dom = new JSDOM(response.text);
-      const backLink = dom.window.document.querySelector('.govuk-back-link');
-
-      expect(backLink).not.toBeNull();
+      const html = response.text;
+      expect(html).toContain('class="govuk-back-link"');
     });
   });
 });

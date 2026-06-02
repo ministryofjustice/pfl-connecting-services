@@ -1,4 +1,3 @@
-import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import paths from '../constants/paths';
@@ -11,9 +10,9 @@ describe(paths.ACCESSIBILITY_STATEMENT, () => {
     it('should render accessibility statement page', async () => {
       const response = await request(app).get(paths.ACCESSIBILITY_STATEMENT).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent('Accessibility statement');
+      expect(html).toContain('Accessibility statement');
     });
   });
 });

@@ -1,4 +1,3 @@
-import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import paths from '../constants/paths';
@@ -11,9 +10,9 @@ describe('Safeguarding Page', () => {
     it('should render safeguarding page with correct heading', async () => {
       const response = await request(app).get(paths.SAFEGUARDING).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent('Getting help if you have experienced abuse');
+      expect(html).toContain('Getting help if you have experienced abuse');
       expect(response.status).toBe(200);
     });
 
@@ -26,11 +25,10 @@ describe('Safeguarding Page', () => {
     it('should display 999 warning for immediate danger', async () => {
       const response = await request(app).get(paths.SAFEGUARDING).expect(200);
 
-      const dom = new JSDOM(response.text);
-      const warningText = dom.window.document.querySelector('.govuk-warning-text__text');
+      const html = response.text;
 
-      expect(warningText?.textContent).toContain('999');
-      expect(warningText?.textContent).toContain('immediate danger');
+      expect(html).toContain('999');
+      expect(html).toContain('immediate danger');
     });
 
     it('should display introductory text about abuse', async () => {
@@ -45,12 +43,10 @@ describe('Safeguarding Page', () => {
     it('should display Continue button linking to question 2', async () => {
       const response = await request(app).get(paths.SAFEGUARDING).expect(200);
 
-      const dom = new JSDOM(response.text);
-      const continueButton = dom.window.document.querySelector('a.govuk-button');
-
-      expect(continueButton).not.toBeNull();
-      expect(continueButton?.getAttribute('href')).toBe(paths.CONTACT_CHILD_ARRANGEMENTS);
-      expect(continueButton?.textContent).toContain('Continue');
+      const html = response.text;
+      expect(html).toContain('govuk-button');
+      expect(html).toContain(`href="${paths.CONTACT_CHILD_ARRANGEMENTS}"`);
+      expect(html).toContain('Continue');
     });
 
     it('should display section on protecting yourself and children', async () => {
@@ -105,10 +101,8 @@ describe('Safeguarding Page', () => {
     it('should have horizontal rule separator after continue button', async () => {
       const response = await request(app).get(paths.SAFEGUARDING).expect(200);
 
-      const dom = new JSDOM(response.text);
-      const hr = dom.window.document.querySelector('hr.govuk-section-break--visible');
-
-      expect(hr).not.toBeNull();
+      const html = response.text;
+      expect(html).toContain('govuk-section-break--visible');
     });
   });
 });

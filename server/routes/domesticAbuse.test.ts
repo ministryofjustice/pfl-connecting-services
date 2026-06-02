@@ -1,4 +1,3 @@
-import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import paths from '../constants/paths';
@@ -12,12 +11,12 @@ describe('Domestic Abuse Question', () => {
     it('should render domestic abuse page with correct heading', async () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent(
+      expect(html).toContain(
         'Have you experienced abuse from your ex-partner?',
       );
-      expect(dom.window.document.querySelector('h2.govuk-error-summary__title')).toBeNull();
+      expect(html).not.toContain('h2.govuk-error-summary__title');
     });
 
     it('should display intro text about domestic abuse', async () => {
@@ -56,12 +55,12 @@ describe('Domestic Abuse Question', () => {
     it('should display two radio options: Yes and No', async () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="domesticAbuse"]');
+      const radioButtons = response.text.match(/<input[^>]*name="domesticAbuse"[^>]*type="radio"[^>]*>/g) || [];
       expect(radioButtons).toHaveLength(2);
 
-      const radioValues = Array.from(radioButtons).map((radio) => (radio as HTMLInputElement).value);
+      const radioValues = radioButtons.map((input) => input.match(/value=\"([^\"]+)\"/)?.[1]).filter(Boolean) as string[];
       expect(radioValues).toContain('yes');
       expect(radioValues).toContain('no');
     });

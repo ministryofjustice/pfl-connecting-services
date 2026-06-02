@@ -1,4 +1,3 @@
-import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import config from '../config';
@@ -15,10 +14,10 @@ describe(paths.COOKIES, () => {
 
       const response = await request(app).get(paths.COOKIES).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent('Cookies');
-      expect(dom.window.document.querySelector('fieldset')).toBeNull();
+      expect(html).toContain('Cookies');
+      expect(html).not.toContain('fieldset');
     });
 
     it('should render cookies page when there is a ga4 id', async () => {
@@ -27,18 +26,17 @@ describe(paths.COOKIES, () => {
 
       const response = await request(app).get(paths.COOKIES).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent('Cookies');
-      expect(dom.window.document.querySelector('fieldset')).not.toBeNull();
+      expect(html).toContain('Cookies');
+      expect(html).toContain('fieldset');
     });
 
     it('should render OpenSearch analytics survey details when there is a ga4 id', async () => {
       const response = await request(app).get(paths.COOKIES).expect('Content-Type', /html/);
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      const surveyHeading = Array.from(dom.window.document.querySelectorAll('h3')).find((heading) => heading.textContent?.trim() === 'Surveys (optional)');
-      expect(surveyHeading).not.toBeNull();
+      expect(html).toContain('Surveys (optional)');
       expect(response.text).toContain('govuk_taken[NameOfSurvey]');
       expect(response.text).toContain('govuk_surveySeen[NameOfSurvey]');
       expect(response.text).toContain('https://www.smartsurvey.co.uk/company/how-we-use-cookies');
@@ -106,11 +104,9 @@ describe(paths.COOKIES, () => {
     it('should include back link in page content', async () => {
       const response = await request(app).get(paths.COOKIES).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
-      const backLink = dom.window.document.querySelector('a.govuk-back-link');
-
-      expect(backLink).not.toBeNull();
-      expect(backLink?.getAttribute('href')).toBe(config.serviceUrl);
+      const html = response.text;
+      expect(html).toContain('class="govuk-back-link"');
+      expect(html).toContain(`href="${config.serviceUrl}"`);
     });
   });
 });

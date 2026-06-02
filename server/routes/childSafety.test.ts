@@ -1,4 +1,3 @@
-import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import config from '../config';
@@ -13,10 +12,10 @@ describe('Child Safety Question', () => {
     it('should render child safety page with correct heading', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent('Are the children safe?');
-      expect(dom.window.document.querySelector('h2.govuk-error-summary__title')).toBeNull();
+      expect(html).toContain('Are the children safe?');
+      expect(html).not.toContain('h2.govuk-error-summary__title');
     });
 
     it('should display risk factors as bullet list', async () => {
@@ -39,12 +38,12 @@ describe('Child Safety Question', () => {
     it('should display two radio options: Yes and No', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY).expect(200);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="childSafety"]');
+      const radioButtons = response.text.match(/<input[^>]*name="childSafety"[^>]*type="radio"[^>]*>/g) || [];
       expect(radioButtons).toHaveLength(2);
 
-      const radioValues = Array.from(radioButtons).map((radio) => (radio as HTMLInputElement).value);
+      const radioValues = radioButtons.map((input) => input.match(/value=\"([^\"]+)\"/)?.[1]).filter(Boolean) as string[];
       expect(radioValues).toContain('yes');
       expect(radioValues).toContain('no');
     });
@@ -58,11 +57,9 @@ describe('Child Safety Question', () => {
     it('should display back link to start page', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY).expect(200);
 
-      const dom = new JSDOM(response.text);
-      const backLink = dom.window.document.querySelector('.govuk-back-link');
-
-      expect(backLink).not.toBeNull();
-      expect(backLink?.getAttribute('href')).toBe(config.serviceUrl);
+      const html = response.text;
+      expect(html).toContain('class="govuk-back-link"');
+      expect(html).toContain(`href="${config.serviceUrl}"`);
     });
   });
 

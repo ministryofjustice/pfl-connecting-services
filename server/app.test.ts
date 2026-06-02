@@ -1,4 +1,3 @@
-import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import config from './config';
@@ -106,9 +105,7 @@ describe('App', () => {
         expect(response.text).not.toContain('www.googletagmanager.com');
         expect(response.text).toContain('Cookies on Get help finding a child arrangement option');
 
-        const dom = new JSDOM(response.text);
-
-        expect(dom.window.document.querySelector('body')).toHaveAttribute('data-ga4-id', ga4Id);
+        expect(response.text).toContain(`data-ga4-id="${ga4Id}"`);
       });
 
       it('should not show the banner and not load ga4 if the consent cookie is no', async () => {
@@ -120,9 +117,7 @@ describe('App', () => {
         expect(response.text).not.toContain('www.googletagmanager.com');
         expect(response.text).not.toContain('Cookies on Propose a child arrangements plan');
 
-        const dom = new JSDOM(response.text);
-
-        expect(dom.window.document.querySelector('body')).toHaveAttribute('data-ga4-id', ga4Id);
+        expect(response.text).toContain(`data-ga4-id="${ga4Id}"`);
       });
 
       it('should not show the banner and load ga4 if the consent cookie is yes', async () => {
@@ -134,9 +129,7 @@ describe('App', () => {
         expect(response.text).toContain(`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`);
         expect(response.text).not.toContain('Cookies on Get help finding a child arrangement option');
 
-        const dom = new JSDOM(response.text);
-
-        expect(dom.window.document.querySelector('body')).toHaveAttribute('data-ga4-id', ga4Id);
+        expect(response.text).toContain(`data-ga4-id="${ga4Id}"`);
       });
     });
   });

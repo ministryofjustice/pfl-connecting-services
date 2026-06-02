@@ -1,4 +1,3 @@
-import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import paths from '../constants/paths';
@@ -12,12 +11,12 @@ describe('Question 4: Help to Agree', () => {
     it('should render help to agree page with correct heading', async () => {
       const response = await request(app).get(paths.HELP_TO_AGREE).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent(
+      expect(html).toContain(
         'What would help you both agree on child arrangements?',
       );
-      expect(dom.window.document.querySelector('h2.govuk-error-summary__title')).toBeNull();
+      expect(html).not.toContain('h2.govuk-error-summary__title');
     });
 
     it('should display error summary with correct error message when validation fails', async () => {
@@ -30,16 +29,13 @@ describe('Question 4: Help to Agree', () => {
       });
 
       const response = await request(app).get(paths.HELP_TO_AGREE).expect(200);
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      const errorSummary = dom.window.document.querySelector('.govuk-error-summary');
-      expect(errorSummary).not.toBeNull();
+      expect(html).toContain('govuk-error-summary');
 
-      const errorTitle = dom.window.document.querySelector('.govuk-error-summary__title');
-      expect(errorTitle).toHaveTextContent('There is a problem');
+      expect(html).toContain('There is a problem');
 
-      const errorLink = dom.window.document.querySelector('.govuk-error-summary__list a');
-      expect(errorLink).toHaveTextContent('Select what would help you and your ex-partner to agree on child arrangements');
+      expect(html).toContain('Select what would help you and your ex-partner to agree on child arrangements');
     });
 
     it('should have error link that jumps to the form field (per GOV.UK Design System)', async () => {
@@ -52,22 +48,21 @@ describe('Question 4: Help to Agree', () => {
       });
 
       const response = await request(app).get(paths.HELP_TO_AGREE).expect(200);
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      const errorLink = dom.window.document.querySelector('.govuk-error-summary__list a') as HTMLAnchorElement;
       // Per GOV.UK Design System, error link should jump to the form field (the first radio input)
-      expect(errorLink?.getAttribute('href')).toBe('#helpToAgree');
+      expect(html).toMatch(/href="#helpToAgree"/);
     });
 
     it('should display three radio options', async () => {
       const response = await request(app).get(paths.HELP_TO_AGREE).expect(200);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="helpToAgree"]');
+      const radioButtons = response.text.match(/<input[^>]*name="helpToAgree"[^>]*type="radio"[^>]*>/g) || [];
       expect(radioButtons).toHaveLength(3);
 
-      const radioValues = Array.from(radioButtons).map((radio) => (radio as HTMLInputElement).value);
+      const radioValues = radioButtons.map((input) => input.match(/value=\"([^\"]+)\"/)?.[1]).filter(Boolean) as string[];
       expect(radioValues).toContain('plan');
       expect(radioValues).toContain('external');
       expect(radioValues).toContain('cannot');

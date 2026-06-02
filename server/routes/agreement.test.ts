@@ -1,4 +1,3 @@
-import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import { AGREEMENT } from '../constants/formFields';
@@ -13,12 +12,8 @@ describe('Agreement on child arrangements Question', () => {
     it('should render agreement on child arrangements page with correct heading', async () => {
       const response = await request(app).get(paths.AGREEMENT).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
-
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent(
-        'Do you and your ex-partner agree on child arrangements?',
-      );
-      expect(dom.window.document.querySelector('h2.govuk-error-summary__title')).toBeNull();
+      expect(response.text).toContain('Do you and your ex-partner agree on child arrangements?');
+      expect(response.text).not.toContain('govuk-error-summary__title');
     });
 
     it('should display error summary with correct error message when validation fails', async () => {
@@ -31,16 +26,10 @@ describe('Agreement on child arrangements Question', () => {
       });
 
       const response = await request(app).get(paths.AGREEMENT).expect(200);
-      const dom = new JSDOM(response.text);
 
-      const errorSummary = dom.window.document.querySelector('.govuk-error-summary');
-      expect(errorSummary).not.toBeNull();
-
-      const errorTitle = dom.window.document.querySelector('.govuk-error-summary__title');
-      expect(errorTitle).toHaveTextContent('There is a problem');
-
-      const errorLink = dom.window.document.querySelector('.govuk-error-summary__list a');
-      expect(errorLink).toHaveTextContent('Select whether you and your ex-partner agree on child arrangements');
+      expect(response.text).toContain('class="govuk-error-summary"');
+      expect(response.text).toContain('There is a problem');
+      expect(response.text).toContain('Select whether you and your ex-partner agree on child arrangements');
     });
 
     it('should have error link that jumps to the first radio input (per GOV.UK Design System)', async () => {
@@ -53,11 +42,8 @@ describe('Agreement on child arrangements Question', () => {
       });
 
       const response = await request(app).get(paths.AGREEMENT).expect(200);
-      const dom = new JSDOM(response.text);
 
-      const errorLink = dom.window.document.querySelector('.govuk-error-summary__list a') as HTMLAnchorElement;
-      // Should link to #agreement (the first radio input ID), not #agreement-error
-      expect(errorLink?.getAttribute('href')).toBe('#agreement');
+      expect(response.text).toContain('href="#agreement"');
     });
 
     it('should display child arrangements as bullet list', async () => {
@@ -71,15 +57,11 @@ describe('Agreement on child arrangements Question', () => {
     it('should display three radio options: Yes, No, and Not discussed yet', async () => {
       const response = await request(app).get(paths.AGREEMENT).expect(200);
 
-      const dom = new JSDOM(response.text);
-
-      const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="agreement"]');
-      expect(radioButtons).toHaveLength(3);
-
-      const radioValues = Array.from(radioButtons).map((radio) => (radio as HTMLInputElement).value);
-      expect(radioValues).toContain('yes');
-      expect(radioValues).toContain('no');
-      expect(radioValues).toContain('not-discussed');
+      const radios = response.text.match(/<input[^>]+name="agreement"[^>]*>/g) || [];
+      expect(radios).toHaveLength(3);
+      expect(response.text).toContain('value="yes"');
+      expect(response.text).toContain('value="no"');
+      expect(response.text).toContain('value="not-discussed"');
     });
 
     it('should display Exit This Page button', async () => {

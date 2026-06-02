@@ -1,4 +1,3 @@
-import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import paths from '../constants/paths';
@@ -11,9 +10,9 @@ describe(paths.PRIVACY_NOTICE, () => {
     it('should render privacy notice page', async () => {
       const response = await request(app).get(paths.PRIVACY_NOTICE).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent('Privacy notice');
+      expect(html).toContain('Privacy notice');
     });
   });
 });

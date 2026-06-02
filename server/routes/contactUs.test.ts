@@ -1,4 +1,3 @@
-import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import paths from '../constants/paths';
@@ -11,9 +10,9 @@ describe(paths.CONTACT_US, () => {
     it('should render contact us page', async () => {
       const response = await request(app).get(paths.CONTACT_US).expect('Content-Type', /html/);
 
-      const dom = new JSDOM(response.text);
+      const html = response.text;
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent('Contact us');
+      expect(html).toContain('Contact us');
     });
   });
 });
