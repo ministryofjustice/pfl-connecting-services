@@ -810,7 +810,7 @@
     "rateLimit": {
       "title": "Too many requests have been made",
       "info": "The page has been reloaded too many times in a short period.",
-      "tryReloading": "Please wait a period of 15 minutes, then try reloading the page or <a href=\"/\" class=\"govuk-link--no-visited-state\">start again</a>."
+      "tryReloading": "Please wait a period of 15 minutes, then try reloading the page or <a href=\"/?lang=en\" class=\"govuk-link--no-visited-state\">start again</a>."
     }
   },
   "cookieBanner": {

@@ -2,7 +2,6 @@ import { Router } from 'express';
 import rateLimit from 'express-rate-limit';
 import type { Request, Response } from 'express-serve-static-core';
 
-import config from '../config';
 import createRedisStore from '../utils/redisStoreFactory';
 
 const setupRateLimit = () => {
@@ -11,10 +10,8 @@ const setupRateLimit = () => {
   const isTestEnvironment = process.env.NODE_ENV === 'test';
 
   const rateLimitHandler = (request: Request, response: Response) => {
-    const { production } = config;
     response.status(429).render('pages/errors/rateLimit', {
-      production: config.production,
-      title: production ? request.__('errors.rateLimit.title') : 'Too many requests',
+      title: request.__('errors.rateLimit.title'),
     });
   };
 

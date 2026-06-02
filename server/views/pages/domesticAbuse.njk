@@ -47,7 +47,7 @@
 
       {% include "partials/errorSummary.njk" %}
 
-      <form class="form" action="{{ paths.DOMESTIC_ABUSE }}" method="post">
+      <form class="form" action="{{ paths.DOMESTIC_ABUSE }}?lang={{ getLocale() }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
         {{ govukRadios({

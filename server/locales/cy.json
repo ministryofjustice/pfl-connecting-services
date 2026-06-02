@@ -536,7 +536,7 @@
             },
             "rememberingProgress": {
               "title": "Cofio sut yr ydych chi’n symud ymlaen drwy’r gwasanaeth",
-              "description": "Byddwn yn storio cwcis i gofio sut yr ydych chi’n symud ymlaen drwy’r gwasanaeth gan ddefnyddio’r cyfrifiadur hwn ac i ddod â'ch sesiwn i ben pan fyddwch heb wneud dim am 120 munud neu pan fyddwch yn cau eich porwr.",
+              "description": "Byddwn yn storio cwcis i gofio sut yr ydych chi’n symud ymlaen drwy’r gwasanaeth gan ddefnyddio’r cyfrifiadur hwn ac i ddod â'ch sesiwn i ben pan fyddwch heb wneud dim am 30 munud neu pan fyddwch yn cau eich porwr.",
               "table": {
                 "headerRow": {
                   "name": "Enw",
@@ -810,7 +810,7 @@
     "rateLimit": {
       "title": "Mae gormod o geisiadau wedi'u gwneud",
       "info": "Mae'r dudalen wedi cael ei hail-lwytho gormod o weithiau mewn cyfnod byr.",
-      "tryReloading": "Arhoswch am gyfnod o 15 munud, yna ceisiwch ail-lwytho'r dudalen neu <a href=\"/\" class=\"govuk-link--no-visited-state\">dechreuwch eto</a>."
+      "tryReloading": "Arhoswch am gyfnod o 15 munud, yna ceisiwch ail-lwytho'r dudalen neu <a href=\"/?lang=cy\" class=\"govuk-link--no-visited-state\">dechreuwch eto</a>."
     }
   },
   "cookieBanner": {

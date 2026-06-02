@@ -25,7 +25,7 @@
       {{ __("exitThisPage")  | safe }}
 
       {% include "partials/errorSummary.njk" %}
-      <form class="form" action="{{ paths.CONTACT_CHILD_ARRANGEMENTS }}" method="post">
+      <form class="form" action="{{ paths.CONTACT_CHILD_ARRANGEMENTS }}?lang={{ getLocale() }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
         {% set radioItems = [

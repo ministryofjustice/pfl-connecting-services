@@ -17,7 +17,7 @@ const setupHistory = (): Router => {
   const router = Router();
 
   router.get('*', (request, _response, next) => {
-    const requestUrl = request.originalUrl;
+    const requestUrl = request.path;
 
     // @ts-expect-error this is not necessarily of type paths
     if (pathsForHistory.includes(requestUrl)) {
