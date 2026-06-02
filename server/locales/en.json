@@ -583,8 +583,7 @@
               "howYouGotToService": "how you got to the service",
               "whatYouClick": "what you click on while you're visiting the service",
               "weDoNotCollect": "We don't collect or store your personal information (for example your name or address) so this information can't be used to identify who you are.",
-              "setsTheCookies": "Google Analytics sets the following cookies:",
-              "universalAnalytics": "Universal analytics"
+              "setsTheCookies": "Google Analytics sets the following cookies:"
             }
           },
           "universalAnalytics": {
