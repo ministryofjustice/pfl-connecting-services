@@ -2,10 +2,11 @@
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 {% from "../macros/print-link.njk" import govukPrintLink %}
+{% from "macros/title.njk" import getTitle with context %}
 
 {% set title = __("pages.parentingPlan.title") %}
 {% block pageTitle %}
-  {{ __("pages.parentingPlan.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ getTitle('parentingPlan', errors) }}
 {% endblock %}
 
 {% block content %}

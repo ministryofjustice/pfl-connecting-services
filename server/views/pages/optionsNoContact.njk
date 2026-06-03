@@ -1,9 +1,10 @@
 {% extends "partials/layout.njk" %}
 {% from "../macros/print-link.njk" import govukPrintLink %}
+{% from "macros/title.njk" import getTitle with context %}
 
 {% set title = __("pages.optionsNoContact.title") %}
 {% block pageTitle %}
-  {{ __("pages.optionsNoContact.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ getTitle('optionsNoContact', errors) }}
 {% endblock %}
 
 

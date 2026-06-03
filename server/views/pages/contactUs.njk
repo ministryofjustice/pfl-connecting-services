@@ -1,7 +1,8 @@
 {% extends "partials/layout.njk" %}
+{% from "macros/title.njk" import getTitle with context %}
 
 {% block pageTitle %}
-  {{ __("pages.contactUs.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ getTitle('contactUs', errors) }}
 {% endblock %}
 
 {% block content %}

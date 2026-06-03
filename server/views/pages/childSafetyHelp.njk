@@ -1,9 +1,10 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+{% from "macros/title.njk" import getTitle with context %}
 
 {% block pageTitle %}
-  {{ __("pages.childSafetyHelp.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ getTitle('childSafetyHelp', errors) }}
 {% endblock %}
 
 {% block content %}

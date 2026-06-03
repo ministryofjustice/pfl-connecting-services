@@ -1,9 +1,10 @@
 {% extends "partials/layout.njk" %}
 {% from "../macros/print-link.njk" import govukPrintLink %}
+{% from "macros/title.njk" import getTitle with context %}
 
 {% set title = __("pages.mediation.title") %}
 {% block pageTitle %}
-  {{ __("pages.mediation.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ getTitle('mediation', errors) }}
 {% endblock %}
 
 {% block content %}

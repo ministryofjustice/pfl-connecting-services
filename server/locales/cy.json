@@ -11,10 +11,10 @@
   "printThisPage": "Argraffu’r dudalen hon",
   "printThisPageNoJs": "I argraffu'r dudalen hon, pwyswch Ctrl+P ar Windows neu Cmd+P ar Mac.",
   "printableVersion": "Gweld fersiwn y gellir ei argraffu o'r canllaw cyfan",
-  "exitThisPage": "<span class=\"govuk-visually-hidden\">I adael y gwasanaeth hwn yn gyflym, pwyswch Esc.</span>",
+  "exitThisPage": "<span class=\"govuk-visually-hidden\">I adael y gwasanaeth hwn yn gyflym, pwyswch escape dair gwaith.</span>",
   "exitThisPageButtonText": "Gadael y dudalen hon",
   "error": "Gwall",
-  "phaseBannerText": "Mae hwn yn wasanaeth newydd. Helpwch ni i'w wella a <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">rhowch eich adborth (yn agor mewn tab newydd)</a>.",
+  "phaseBannerText": "Mae hwn yn wasanaeth newydd - bydd eich <a class=\"govuk-link\" target=\"_blank\" href=\"{{feedbackUrl}}\">adborth</a> yn ein helpu i'w wella.",
   "footer": {
     "accessibility": "Datganiad hygyrchedd",
     "contact": "Cysylltu â ni",
@@ -207,9 +207,7 @@
               "harmToChild": "o niwed i blentyn",
               "unlawfullyTaken": "y byddai plentyn yn cael ei gymryd yn anghyfreithlon o'r DU, neu risg y bydd plentyn sydd ar hyn o bryd y tu allan i Gymru a Lloegr yn cael ei ddal yn anghyfreithlon"
             },
-            "validReason": "Nid oes rhaid i chi fynd i MIAM cyn gwneud cais i'r llys os oes gennych reswm dilys fel pryderon diogelu plant neu dystiolaeth o gam-drin domestig.",
-            "validReasonLink": "<a href=\"https://apply-to-court-about-child-arrangements.service.justice.gov.uk/about/miam_exemptions\">Canfod mwy am resymau dilys i beidio â mynychu MIAM</a>",
-            "moreInfo": "Efallai y byddwch yn gallu <a href=\"https://www.gov.uk/government/publications/urgent-court-hearings-about-child-arrangements-cb2/urgent-hearings-about-child-arrangements-cb2\">gwneud cais am wrandawiad llys brys am drefniadau plant</a>."
+            "moreInfo": "Os yw unrhyw un o'r rhain yn berthnasol, efallai gallwch <a href=\"https://www.gov.uk/government/publications/urgent-court-hearings-about-child-arrangements-cb2/urgent-hearings-about-child-arrangements-cb2\">wneud cais am wrandawiad llys brys ynghylch trefniadau plant</a>."
           },
           "cost": "<strong>Cost:</strong> Mae’n costio £263 i wneud cais am orchymyn llys. Efallai y gallwch gael <a href=\"https://www.gov.uk/legal-aid/financial-eligibility\">help i dalu ffioedd llys</a> os ydych yn cael budd-daliadau neu os ydych ar incwm isel.",
           "time": "<strong>Amser:</strong> Fel arfer mae'n cymryd tua 10 mis i gael gorchymyn llys, yn dibynnu ar ble rydych yn byw a'ch sefyllfa."
