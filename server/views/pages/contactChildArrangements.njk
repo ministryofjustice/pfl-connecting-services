@@ -1,7 +1,7 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "macros/title.njk" import getTitle %}
+{% from "macros/title.njk" import getTitle with context %}
 
 {% block pageTitle %}
   {{ getTitle(formFields.CONTACT_CHILD_ARRANGEMENTS, errors) }}
@@ -25,7 +25,7 @@
       {{ __("exitThisPage")  | safe }}
 
       {% include "partials/errorSummary.njk" %}
-      <form class="form" action="{{ paths.CONTACT_CHILD_ARRANGEMENTS }}" method="post">
+      <form class="form" action="{{ paths.CONTACT_CHILD_ARRANGEMENTS }}?lang={{ getLocale() }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
         {% set radioItems = [

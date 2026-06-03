@@ -1,7 +1,7 @@
 {% extends "partials/layout.njk" %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "macros/title.njk" import getTitle %}
+{% from "macros/title.njk" import getTitle with context %}
 
 {% block pageTitle %}
   {{ getTitle(formFields.OTHER_OPTIONS, errors) }}
@@ -31,7 +31,7 @@
 
       {% include "partials/errorSummary.njk" %}
 
-      <form class="form" action="{{ paths.OTHER_OPTIONS }}" method="post">
+      <form class="form" action="{{ paths.OTHER_OPTIONS }}?lang={{ getLocale() }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
         {{ govukRadios({

@@ -3,10 +3,11 @@
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 {% from "../macros/print-link.njk" import govukPrintLink %}
+{% from "macros/title.njk" import getTitle with context %}
 
 {% set title = __("pages.courtOrder.title") %}
 {% block pageTitle %}
-  {{ __("pages.courtOrder.title") }} – {{ __("serviceName") }} – GOV.UK
+  {{ getTitle('courtOrder', errors) }}
 {% endblock %}
 
 {% block content %}
@@ -47,8 +48,12 @@
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-visually-hidden">Warning</span>
-            {{ __("pages.courtOrder.content.thingsToConsider.miamExemption.validReason") }}
-            {{ __("pages.courtOrder.content.thingsToConsider.miamExemption.validReasonLink") | safe }}
+            {{ __("pages.courtOrder.content.thingsToConsider.miamExemption.warning") }}
+            <ul>
+              <li>{{ __("pages.courtOrder.content.thingsToConsider.miamExemption.reasons.life") }}</li>
+              <li>{{ __("pages.courtOrder.content.thingsToConsider.miamExemption.reasons.harmToChild") }}</li>
+              <li>{{ __("pages.courtOrder.content.thingsToConsider.miamExemption.reasons.unlawfullyTaken") }}</li>
+            </ul>
             {{ __("pages.courtOrder.content.thingsToConsider.miamExemption.moreInfo") | safe }}
           </strong>
         </div>
