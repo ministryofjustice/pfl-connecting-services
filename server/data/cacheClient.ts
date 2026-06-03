@@ -1,9 +1,9 @@
-import { createClient } from 'redis';
+import { createClient, type RedisClientType, type RedisDefaultModules } from 'redis';
 
 import config from '../config';
 import logger from '../logging/logger';
 
-type CacheClient = ReturnType<typeof createClient>;
+type CacheClient = RedisClientType<RedisDefaultModules>;
 
 const url = `${config.cache.tls_enabled ? 'rediss' : 'redis'}://${config.cache.host}`;
 
@@ -19,7 +19,7 @@ const createCacheClient = (): CacheClient => {
         return nextDelay;
       },
     },
-  });
+  }) as CacheClient;
 
   client.on('error', (e: Error) => logger.error('Cache client error', e));
 

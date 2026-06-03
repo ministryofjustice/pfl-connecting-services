@@ -16,8 +16,8 @@ const pathsForHistory = Object.values(paths).filter((path) => !pathsNotForHistor
 const setupHistory = (): Router => {
   const router = Router();
 
-  router.get('*', (request, _response, next) => {
-    const requestUrl = request.path;
+  router.use((request, _response, next) => {
+    const requestUrl = request.originalUrl;
 
     // @ts-expect-error this is not necessarily of type paths
     if (pathsForHistory.includes(requestUrl)) {

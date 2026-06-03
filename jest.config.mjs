@@ -1,11 +1,6 @@
 const config = {
   transform: {
-    '^.+\\.tsx?$': [
-      'ts-jest',
-      {
-        isolatedModules: true,
-      },
-    ],
+    '^.+\\.tsx?$': 'ts-jest',
   },
   collectCoverageFrom: ['server/**/*.{ts,js,jsx,mjs}'],
   coverageReporters: ['cobertura', 'text'],

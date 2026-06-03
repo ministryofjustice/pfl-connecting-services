@@ -2,6 +2,7 @@
   "extends": "@tsconfig/node22/tsconfig.json",
   "compileOnSave": true,
   "compilerOptions": {
+    "rootDir": ".",
     "outDir": "./dist",
     "sourceMap": true,
     "skipLibCheck": true,
@@ -13,6 +14,7 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "experimentalDecorators": true,
+    "isolatedModules": true,
     "typeRoots": ["./server/@types", "./node_modules/@types"]
   },
   "exclude": ["node_modules", "assets/**/*.js", "integration-tests", "dist", "cypress.config.ts", "esbuild"],
