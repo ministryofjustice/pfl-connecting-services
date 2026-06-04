@@ -3,9 +3,6 @@ import { SessionData } from 'express-session';
 import { validateRedirectUrl } from './redirectValidator';
 
 export const getBackUrl = (session: Partial<SessionData>, defaultUrl: string) => {
-  console.log('SESSION DATA:', session);
-  console.log('Previous page in session:', session.previousPage);
-  console.log('Default URL:', defaultUrl);
   if (!session.previousPage) {
     return defaultUrl;
   }
