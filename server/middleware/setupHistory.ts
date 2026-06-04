@@ -19,6 +19,10 @@ const setupHistory = (): Router => {
   router.use((request, _response, next) => {
     const requestUrl = request.originalUrl;
 
+    console.log(`Incoming request URL: ${requestUrl}`);
+    console.log('Current session page history:', request.session.pageHistory);
+    console.log('Current session previous page:', request.session.previousPage);
+
     // @ts-expect-error this is not necessarily of type paths
     if (pathsForHistory.includes(requestUrl)) {
       request.session.pageHistory = request.session.pageHistory || [];

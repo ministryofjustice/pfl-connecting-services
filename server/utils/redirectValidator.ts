@@ -12,6 +12,7 @@ const ALLOWED_REDIRECT_PATHS = new Set<string>(Object.values(paths));
  * @returns The validated URL if it's safe, or a fallback safe URL
  */
 export const validateRedirectUrl = (url: string | undefined, fallbackUrl: string = paths.START): string => {
+  console.log(`Validating redirect URL: ${url} with fallback: ${fallbackUrl}`);
   if (!url) {
     return fallbackUrl;
   }

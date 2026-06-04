@@ -37,7 +37,7 @@ test.describe('Accessibility', () => {
     const main = page.locator('main');
     await expect(main).toBeVisible();
 
-    const footer = page.locator('footer');
+    const footer = page.locator('.govuk-footer');
     await expect(footer).toBeVisible();
   });
 

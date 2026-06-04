@@ -276,7 +276,7 @@ test.describe('Browser Navigation - Flash Message Redirects', () => {
 
     // Should be redirected with flash message
     const flashMessage = page.locator('.govuk-notification-banner__heading');
-    await expect(flashMessage).toContainText('Your progress was not saved. Please submit this page to continue.');
+    await expect(flashMessage).toContainText('You need to complete this page before continuing.');
 
     // Verify we were redirected (not on other-options)
     await expect(page).not.toHaveURL(/other-options/);

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import rateLimit from 'express-rate-limit';
+import rateLimit, { ipKeyGenerator } from 'express-rate-limit';
 import type { Request, Response } from 'express-serve-static-core';
 
 import createRedisStore from '../utils/redisStoreFactory';
@@ -22,7 +22,7 @@ const setupRateLimit = () => {
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
     validate: { trustProxy: true },
     keyGenerator: (req: Request) => {
-      return req.ip || 'unknown';
+      return ipKeyGenerator(req.ip ?? 'unknown');
     },
     store: createRedisStore('general:'),
     skip: (req: Request) => {
@@ -38,7 +38,7 @@ const setupRateLimit = () => {
     legacyHeaders: false,
     validate: { trustProxy: true},
     keyGenerator: (req: Request) => {
-      return req.ip || 'unknown';
+      return ipKeyGenerator(req.ip ?? 'unknown');
     },
     store: createRedisStore('auth:'),
     handler: rateLimitHandler,

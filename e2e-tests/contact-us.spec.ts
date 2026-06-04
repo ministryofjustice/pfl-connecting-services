@@ -31,7 +31,7 @@ test.describe('Contact Us Page', () => {
   test('should be accessible from footer link', async ({ page }) => {
     await page.goto('/');
 
-    const footerLink = page.locator('footer a:has-text("Contact us")');
+    const footerLink = page.locator('.govuk-footer a:has-text("Contact us")');
     await expect(footerLink).toBeVisible();
     await expect(footerLink).toHaveAttribute('href', '/contact-us');
 

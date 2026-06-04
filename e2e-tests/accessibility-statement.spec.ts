@@ -104,7 +104,7 @@ test.describe('Accessibility Statement', () => {
   test('should be accessible from footer link', async ({ page }) => {
     await page.goto('/');
 
-    const footerLink = page.locator('footer a:has-text("Accessibility statement")');
+    const footerLink = page.locator('.govuk-footer a:has-text("Accessibility statement")');
     await expect(footerLink).toBeVisible();
     await expect(footerLink).toHaveAttribute('href', '/accessibility');
   });

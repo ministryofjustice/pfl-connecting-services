@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 import { startJourney, selectChildSafetyOption } from './fixtures/test-helpers';
 
-test.describe('Domestic Abuse Page', () => {
+test.describe.only('Domestic Abuse Page', () => {
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
     await selectChildSafetyOption(page, 'Yes');
