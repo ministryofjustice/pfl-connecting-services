@@ -11,10 +11,9 @@
       {% endif %}
       <p>{{ __('errors.timeOut.yourSession') }}</p>
       <p>{{ __('errors.timeOut.personalInformation') }}</p>
-      <p>{{ __('errors.timeOut.startAgain') }}</p>
       {{
         govukButton({
-          text: __('errors.timeOut.startAgainButton'),
+          text: __('errors.timeOut.startAgain'),
           href: paths.CHILD_SAFETY
         })
       }}
