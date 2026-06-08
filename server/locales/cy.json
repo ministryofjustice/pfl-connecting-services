@@ -809,6 +809,13 @@
       "title": "Mae gormod o geisiadau wedi'u gwneud",
       "info": "Mae'r dudalen wedi cael ei hail-lwytho gormod o weithiau mewn cyfnod byr.",
       "tryReloading": "Arhoswch am gyfnod o 15 munud, yna ceisiwch ail-lwytho'r dudalen neu <a href=\"/?lang=cy\" class=\"govuk-link--no-visited-state\">dechreuwch eto</a>."
+    },
+    "timeOut": {
+      "title": "Sorry, you'll have to start again",
+      "yourSession": "Your session automatically ends if you don’t use the service for 120 minutes.",
+      "personalInformation": "We haven’t saved any personal information.",
+      "startAgain": "You need to start your child arrangement plan again.",
+      "startAgainButton": "Start again"
     }
   },
   "cookieBanner": {
