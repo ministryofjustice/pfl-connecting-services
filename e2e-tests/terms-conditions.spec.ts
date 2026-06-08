@@ -79,7 +79,7 @@ test.describe('Terms and Conditions', () => {
   test('should be accessible from footer link', async ({ page }) => {
     await page.goto('/');
 
-    const footerLink = page.locator('footer a:has-text("Terms and conditions")');
+    const footerLink = page.locator('.govuk-footer a:has-text("Terms and conditions")');
     await expect(footerLink).toBeVisible();
     await expect(footerLink).toHaveAttribute('href', '/terms-conditions');
   });

@@ -23,7 +23,7 @@ router.get(paths.CHILD_SAFETY, (req: Request, res: Response) => {
   req.session.helpToAgree = undefined;
   req.session.mediation = undefined;
   req.session.otherOptions = undefined;
-  req.session.completedSteps = [];
+  req.session.completedSteps = ['/'];
 
   const errors = req.flash('errors');
   res.render('pages/childSafety', {

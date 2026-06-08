@@ -1,10 +1,11 @@
 import { Store } from 'express-rate-limit';
 import { RedisStore } from 'rate-limit-redis';
+import type { RedisClientType, RedisDefaultModules } from 'redis';
 
 import config from '../config';
 import createCacheClient from '../data/cacheClient';
 
-type CacheClient = ReturnType<typeof createCacheClient>;
+type CacheClient = RedisClientType<RedisDefaultModules>;
 let redisClient: CacheClient | undefined;
 
 if (config.cache.enabled) {

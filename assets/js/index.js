@@ -5,7 +5,6 @@ import {
   createAll,
   ErrorSummary,
   ExitThisPage,
-  Header,
   PasswordInput,
   Radios,
   SkipLink,
@@ -21,7 +20,7 @@ import setupPrintThisPage from './printThisPage';
 // This prevents the Shift key shortcut from being set up
 document.body.dataset.govukFrontendExitThisPageKeypress = 'true';
 
-const components = [Accordion, Button, Checkboxes, ErrorSummary, ExitThisPage, Header, Radios, SkipLink, PasswordInput];
+const components = [Accordion, Button, Checkboxes, ErrorSummary, ExitThisPage, Radios, SkipLink, PasswordInput];
 components.forEach((Component) => {
   createAll(Component);
 });

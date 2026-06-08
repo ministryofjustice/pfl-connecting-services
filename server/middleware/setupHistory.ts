@@ -4,6 +4,7 @@ import paths from '../constants/paths';
 
 const pathsNotForHistory = [
   // These pages should be skipped in the back button
+  paths.START,
   paths.PASSWORD,
   paths.ACCESSIBILITY_STATEMENT,
   paths.CONTACT_US,
@@ -16,8 +17,8 @@ const pathsForHistory = Object.values(paths).filter((path) => !pathsNotForHistor
 const setupHistory = (): Router => {
   const router = Router();
 
-  router.get('*', (request, _response, next) => {
-    const requestUrl = request.path;
+  router.use((request, _response, next) => {
+    const requestUrl = request.originalUrl;
 
     // @ts-expect-error this is not necessarily of type paths
     if (pathsForHistory.includes(requestUrl)) {
