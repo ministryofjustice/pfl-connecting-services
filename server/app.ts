@@ -15,11 +15,11 @@ import setUpi18n, { setUpLocaleFromSession } from './middleware/setUpi18n';
 import setupRateLimit from './middleware/setupRateLimit';
 import setUpWebRequestParsing from './middleware/setupRequestParsing';
 import setupRobotsTxt from './middleware/setupRobotsTxt';
-// import setupServiceNoLongerAvailable from './middleware/setupServiceNoLongerAvailable';
 import setUpStaticResources from './middleware/setUpStaticResources';
 import setUpWebSecurity from './middleware/setUpWebSecurity';
 import setUpWebSession from './middleware/setUpWebSession';
 import routes from './routes';
+import testRoutes from './routes/testRoutes';
 import unauthenticatedRoutes from './routes/unauthenticatedRoutes';
 import nunjucksSetup from './utils/nunjucksSetup';
 
@@ -52,6 +52,10 @@ const createApp = (): express.Application => {
   app.use(unauthenticatedRoutes());
   app.use(setupAuthentication());
   app.use(routes());
+
+  if (process.env.NODE_ENV === 'test') {
+    app.use(testRoutes());
+  }
 
   app.use((_request, _response, next) => next(createError(404)));
   app.use(errorHandler());
