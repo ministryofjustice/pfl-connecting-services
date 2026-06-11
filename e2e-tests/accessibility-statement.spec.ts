@@ -74,8 +74,8 @@ test.describe('Accessibility Statement', () => {
     await page.goto('/accessibility');
 
     await expect(page.locator('h2:has-text("Compliance status")')).toBeVisible();
-    await expect(page.locator('text=(Spring 2026)')).toBeVisible();
-    await expect(page.locator('text=This website is partially compliant with the Web Content Accessibility Guidelines version 2.2 AA standard.')).toBeVisible();
+    await expect(page.locator('text=(Summer 2026)')).toBeVisible();
+    await expect(page.locator('text=This website is fully compliant with the Web Content Accessibility Guidelines version 2.2 AA standard.')).toBeVisible();
   });
 
   test('should display "Non-accessible content" section', async ({ page }) => {
@@ -97,8 +97,8 @@ test.describe('Accessibility Statement', () => {
     await page.goto('/accessibility');
 
     await expect(page.locator('h2:has-text("Preparation of this accessibility statement")')).toBeVisible();
-    await expect(page.locator('text=11 May 2026')).toBeVisible();
-    await expect(page.locator('text=23 March 2026')).toBeVisible();
+    await expect(page.locator('text=5th June 2026')).toBeVisible();
+    await expect(page.locator('text=8th June 2026')).toBeVisible();
   });
 
   test('should be accessible from footer link', async ({ page }) => {

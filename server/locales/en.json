@@ -747,8 +747,8 @@
         "howAccessible": {
           "title": "How accessible this website is",
           "tested": "We have tested this service with assistive technologies including screen readers and voice-to-text technology.",
-          "wcag": "The service has had an external WCAG accessibility audit by User Vision on 30th April.",
-          "partiallyCompliant": "The service is partially compliant and meets most of the requirements of the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard."
+          "wcag": "The service has had an external WCAG accessibility audit by User Vision on 5th June.",
+          "partiallyCompliant": "The service is fully compliant and meets most of the requirements of the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard."
         },
         "feedback": {
           "title": "Feedback and contact information",
@@ -765,8 +765,8 @@
         },
         "compliance": {
           "title": "Compliance status",
-          "tested": "The service had an external accessibility audit (Spring 2026) and user research has been carried out internally with users with access needs. The issues identified in audit have been addressed, except for one non-compliance listed below.",
-          "partiallyCompliant": "This website is partially compliant with the Web Content Accessibility Guidelines version 2.2 AA standard."
+          "tested": "The service had an external accessibility audit (Summer 2026) and user research has been carried out internally with users with access needs. The issues identified in audit have been addressed, except for one non-compliance listed below.",
+          "partiallyCompliant": "This website is fully compliant with the Web Content Accessibility Guidelines version 2.2 AA standard."
         },
         "nonAccessibleContent": {
           "title": "Non-accessible content",
@@ -781,8 +781,8 @@
         },
         "preparation": {
           "title": "Preparation of this accessibility statement",
-          "preparedOn": "This statement was prepared on 11 May 2026. It was last reviewed on 23 March 2026.",
-          "lastTested": "This service was last tested in Spring 2026 against the WCAG 2.2 AA standard."
+          "preparedOn": "This statement was prepared on 5th June 2026. It was last reviewed on 8th June 2026.",
+          "lastTested": "This service was last tested in Summer 2026 against the WCAG 2.2 AA standard."
         }
       }
     }
