@@ -812,7 +812,7 @@
     },
     "timeOut": {
       "title": "Sorry, you'll have to start again",
-      "yourSession": "Your session automatically ends if you don’t use the service for 120 minutes.",
+      "yourSession": "Your session automatically ends if you don’t use the service for 30 minutes.",
       "personalInformation": "We haven’t saved any personal information.",
       "startAgain": "Start again"
     }

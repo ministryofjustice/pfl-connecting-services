@@ -16,7 +16,7 @@ test.describe('errorHandler – 403 session timeout', () => {
   test('should render the timeOut error page instead of generic or not-found pages', async ({ request }) => {
     const body = await (await request.get(TIMEOUT_PATH)).text();
 
-    expect(body).toContain('Your session automatically ends if you don’t use the service for 120 minutes.');
+    expect(body).toContain('Your session automatically ends if you don’t use the service for 30 minutes.');
     expect(body).not.toContain('Page not found');
     expect(body).not.toContain('Sorry, there is a problem with the service');
   });
@@ -34,7 +34,7 @@ test.describe('errorHandler – 403 session timeout', () => {
 
     await expect(page.locator('h1')).toHaveText(TIMEOUT_TITLE);
     await expect(
-      page.getByText('Your session automatically ends if you don’t use the service for 120 minutes.'),
+      page.getByText('Your session automatically ends if you don’t use the service for 30 minutes.'),
     ).toBeVisible();
     await expect(page.getByText('We haven’t saved any personal information.')).toBeVisible();
   });
