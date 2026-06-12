@@ -46,7 +46,11 @@ test.describe('Court Order Page', () => {
   });
 
   test('should display mediation voucher inset text', async ({ page }) => {
-    await expect(page.locator('.govuk-inset-text')).toContainText('voucher worth up to £500');
+    const insetText = page.locator('.govuk-inset-text');
+    await expect(insetText).toBeVisible();
+    await expect(insetText).toContainText('voucher worth up to £500');
+    const voucherLink = page.locator('#cost-inset-court-order a');
+    await expect(voucherLink).toHaveAttribute('href', 'https://www.gov.uk/guidance/family-mediation-voucher-scheme');
   });
 
   test('should display help and support table with services', async ({ page }) => {

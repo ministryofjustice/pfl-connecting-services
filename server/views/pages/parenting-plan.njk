@@ -86,7 +86,8 @@
       </p>
 
       {{ govukInsetText({
-        text: __("pages.parentingPlan.content.otherWays.mediation.inset")
+        id: "cost-inset-parenting-plan",
+        text: __("pages.parentingPlan.content.otherWays.mediation.inset") | safe
       }) }}
 
       <p class="govuk-body">

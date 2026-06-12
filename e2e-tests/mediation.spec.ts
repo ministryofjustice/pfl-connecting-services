@@ -1,6 +1,14 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
-import { startJourney, selectChildSafetyOption, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectOtherOptions} from './fixtures/test-helpers';
+import {
+  selectAgreeOnChildArrangementsOption,
+  selectChildSafetyOption,
+  selectContactChildArrangementsOption,
+  selectDomesticAbuseOption,
+  selectHelpToAgreeOnChildArrangementsOption,
+  selectOtherOptions,
+  startJourney
+} from './fixtures/test-helpers';
 
 test.describe('Mediation Page', () => {
 
@@ -31,6 +39,14 @@ test.describe('Mediation Page', () => {
     await expect(page.locator('text=You stay in control:')).toBeVisible();
     await expect(page.locator('text=Child-inclusive mediation:')).toBeVisible();
     await expect(page.locator('text=Court is still an option:')).toBeVisible();
+  });
+
+  test('should contain inset text about cost with correct content', async ({ page }) => {
+    const insetText = page.locator('.govuk-inset-text');
+    await expect(insetText).toBeVisible();
+    await expect(insetText).toContainText('voucher worth up to £500');
+    const voucherLink = page.locator('#cost-inset-mediation a');
+    await expect(voucherLink).toHaveAttribute('href', 'https://www.gov.uk/guidance/family-mediation-voucher-scheme');
   });
 
   test('should display "Other ways to agree" section', async ({ page }) => {

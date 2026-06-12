@@ -1,4 +1,5 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "../macros/print-link.njk" import govukPrintLink %}
 {% from "macros/title.njk" import getTitle with context %}
 
@@ -37,9 +38,12 @@
     <p class="govuk-body">
       {{ __("pages.optionsNoContact.content.shuttleMediation.content.mediatorMoves") }}
     </p>
-    <div class="govuk-inset-text">
-      {{ __("pages.optionsNoContact.content.shuttleMediation.content.getVoucher") }}
-    </div>
+
+    {{ govukInsetText({
+      id: "cost-inset-options-no-contact",
+      text: __("pages.optionsNoContact.content.shuttleMediation.content.getVoucher") | safe
+    }) }}
+
     <p class="govuk-body">
       {{ __("pages.optionsNoContact.content.shuttleMediation.content.nextStep") | safe }}
     </p>

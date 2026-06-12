@@ -200,6 +200,7 @@
         "thingsToConsider": {
           "title": "Pethau pwysig i'w hystyried",
           "mediation": "<strong>Cyfarfod Asesu a Gwybodaeth am Gyfryngu (MIAM):</strong> Fel arfer bydd arnoch angen dangos eich bod wedi mynychu'r cyfarfod byr hwn gyda chyfryngwr neu wedi trio ffordd arall i gytuno tu allan i'r llys yn y 4 mis cyn i chi wneud cais am orchymyn llys. Os na allwch gysylltu â'ch cyn-bartner, bydd arnoch angen mynychu'r MIAM cychwynnol ar eich pen eich hun cyn gwneud cais i'r llys, oni bai eich bod wedi'ch eithrio. <a href=\"https://www.familymediationcouncil.org.uk/find-local-mediator/\">Dod o hyd i gyfryngwr ar wefan y Cyngor Cyfryngu Teuluol</a>",
+          "costInset": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r <a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Cynllun Talebau Cyfryngu Teuluol</a>, ni waeth faint o arian rydych yn ei ennill.",
           "miamExemption": {
             "warning": "Nid oes rhaid i chi fynd i MIAM os gallwch ddangos bod risg:",
             "reasons": {
@@ -227,7 +228,6 @@
           "mediation": {
             "title": "Cyfryngu",
             "description": "Gallai hyn fod yn addas i chi os: Yr hoffech i weithiwr proffesiynol eich helpu chi a'ch cyn-bartner i gytuno ar fanylion trefniant plant. Ni fydd rhaid i chi fod yn yr un ystafell neu alwad fideo â'ch cyn-bartner.",
-            "inset": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r Cynllun Talebau Cyfryngu Teuluol, ni waeth faint o arian rydych yn ei ennill.",
             "alreadyTried": "Eisoes wedi trio cyfryngu? Gallwch wastad drio eto, er enghraifft, os yw eich sefyllfa neu anghenion eich plant wedi newid.",
             "link": "<a href=\"/mediation\">Archwilio i: Gyfryngu</a>"
           },
@@ -298,7 +298,7 @@
             "info": "Os ydych chi neu'ch plant wedi profi camdriniaeth gan eich cyn-bartner, dywedwch wrth y cyfryngwr. Gallant roi cyngor ar y ffordd fwyaf diogel i barhau, neu p'un a ddylech wneud cais am orchymyn llys.",
             "initialMeeting": "<strong>Cyfarfod cychwynnol:</strong> Efallai bydd arnoch angen mynd i gyfarfod byr gyda chyfryngwr i asesu ai cyfryngu yw'r opsiwn iawn i chi. Weithiau gelwir hyn yn gyfarfod asesu a gwybodaeth am gyfryngu (MIAM).",
             "cost": "<strong>Cost:</strong> Mae cyfryngu fel arfer yn gyflymach ac yn rhatach na mynd i'r llys. Efallai y gallwch gael <a href=\"https://www.gov.uk/legal-aid\">cymorth cyfreithiol</a> i dalu am y gost os ydych ar incwm isel. Fel arfer y gost ar gyfer MIAM yw tua £120.",
-            "costInset": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r Cynllun Talebau Cyfryngu Teuluol, ni waeth faint o arian rydych yn ei ennill.",
+            "costInset": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r <a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Cynllun Talebau Cyfryngu Teuluol</a>, ni waeth faint o arian rydych yn ei ennill.",
             "stayInControl": "<strong>Rydych chi'n rheoli'r broses:</strong> Yn wahanol i mewn llys, lle mae barnwr yn gwneud penderfyniadau am y trefniadau plant, gyda chyfryngu chi a'ch cyn-bartner sy'n penderfynu ar beth rydych yn cytuno arno neu ddim.",
             "childInclusiveMediation": "<strong>Cyfryngu sy'n cynnwys y plant:</strong> Gall plant leisio eu barn yn y broses os yw'n briodol. Gall cyfryngwr siarad gyda'ch plentyn am yr hyn maen nhw eisiau i sicrhau bod eu safbwyntiau nhw yn cael eu clywed.",
             "courtOption": "<strong>Mae'r llys dal yn opsiwn:</strong> Os nad yw'r cyfryngwr yn meddwl bod cyfryngu'n iawn i chi, efallai y byddwch yn penderfynu mynd i'r llys yn hytrach.",
@@ -372,7 +372,7 @@
           "mediation": {
             "title": "Cyfryngu",
             "description": "Gallai hyn fod yn addas i chi os: Yr hoffech i weithiwr proffesiynol eich helpu chi a'ch cyn-bartner i gytuno ar fanylion trefniant plant. Ni fydd rhaid i chi fod yn yr un ystafell neu alwad â'ch cyn-bartner.",
-            "inset": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r Cynllun Talebau Cyfryngu Teuluol, ni waeth faint o arian rydych yn ei ennill.",
+            "inset": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r <a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Cynllun Talebau Cyfryngu Teuluol</a>, ni waeth faint o arian rydych yn ei ennill.",
             "link": "<a href=\"/mediation\">Archwilio i: Gyfryngu</a>"
           }
         },
@@ -470,7 +470,7 @@
             "thisCouldSuitYou": "Gallai hyn fod yn addas i chi os: Nad ydych eisiau cael cyswllt uniongyrchol â'ch cyn-bartner.",
             "attendSession": "Cyfryngu gwennol yw pan fyddwch chi a'ch cyn-bartner yn mynychu sesiwn gyda chyfryngwr, ond byddwch yn eistedd mewn ystafelloedd gwahanol neu mewn cyfarfod ar-lein fel nad oes rhaid i chi gael unrhyw gyswllt.",
             "mediatorMoves": "Mae'r cyfryngwr yn symud yn ôl ac ymlaen rhwng yr ystafelloedd ac yn eich helpu i ddod i gytundeb ynghylch trefniadau plant.",
-            "getVoucher": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r Cynllun Talebau Cyfryngu Teuluol, ni waeth faint o arian rydych yn ei ennill.",
+            "getVoucher": "Fel arfer gallwch gael taleb gwerth hyd at £500 i dalu am gyfryngu teuluol trwy'r <a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Cynllun Talebau Cyfryngu Teuluol</a>, ni waeth faint o arian rydych yn ei ennill.",
             "nextStep": "<strong>Cam nesaf:</strong><a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\"> Rhagor o wybodaeth am gyfryngu</a>"
           }
         },
