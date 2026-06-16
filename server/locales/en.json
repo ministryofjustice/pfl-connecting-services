@@ -200,6 +200,7 @@
         "thingsToConsider": {
           "title": "Important things to consider",
           "mediation": "<strong>Mediation Information and Assessment Meeting (MIAM):</strong> You will usually need to show you have attended this short meeting with a mediator or tried another way to agree outside of court in the 4 months before you apply for a court order. If you cannot contact your ex-partner, you still need to attend the initial MIAM alone before applying to go to court, unless you are exempt. <a href=\"https://www.familymediationcouncil.org.uk/find-local-mediator/\">Find a mediator who can provide a MIAM on the Family Mediation Council website</a>",
+          "costInset": "You can usually get a voucher worth up to £500 to pay for family mediation through the <a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Family Mediation Voucher Scheme</a>, regardless of what you earn.",
           "miamExemption": {
             "warning": "You do not have to go to a MIAM if you can show there is a risk:",
             "reasons": {
@@ -227,7 +228,6 @@
           "mediation": {
             "title": "Mediation",
             "description": "This could suit you if: You'd like a professional to help you and your ex-partner agree on the details of a child arrangement. You do not have to be in the same room or video call as your ex-partner.",
-            "inset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
             "alreadyTried": "Already tried mediation? You can always try again, for example if your situation or child's needs have changed.",
             "link": "<a href=\"/mediation\">Explore: Mediation</a>"
           },
@@ -298,7 +298,7 @@
             "info": "If you or your children have experienced abuse from your ex-partner, tell the mediator. They can advise on the safest way to continue, or whether you should apply for a court order.",
             "initialMeeting": "<strong>Initial meeting:</strong> You may need to go to a short meeting with a mediator to assess if mediation is the right option for you. This is sometimes called a Mediation Information and Assessment Meeting (MIAM).",
             "cost": "<strong>Cost:</strong> Mediation is usually cheaper and quicker than going to court. You may be able to get <a href=\"https://www.gov.uk/legal-aid\">legal aid</a> to cover the cost if you are on a low income. The usual cost of a MIAM is around £120.",
-            "costInset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
+            "costInset": "You can usually get a voucher worth up to £500 to pay for family mediation through the <a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Family Mediation Voucher Scheme</a>, regardless of what you earn.",
             "stayInControl": "<strong>You stay in control:</strong> Unlike in court, where a judge makes the decisions about child arrangements, in mediation you and your ex-partner decide what you agree to and what you don't.",
             "childInclusiveMediation": "<strong>Child-inclusive mediation:</strong> Children can have a voice in the process if it's suitable. A mediator can talk to your child about what they want to make sure their views are heard.",
             "courtOption": "<strong>Court is still an option:</strong> If the mediator does not think mediation is right for you, you might decide to go to court instead.",
@@ -372,7 +372,7 @@
           "mediation": {
             "title": "Mediation",
             "description": "This could suit you if: You'd like a professional to help you and your ex-partner agree on the details of a child arrangement. You do not have to be in the same room or call as your ex-partner.",
-            "inset": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
+            "inset": "You can usually get a voucher worth up to £500 to pay for family mediation through the <a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Family Mediation Voucher Scheme</a>, regardless of what you earn.",
             "link": "<a href=\"/mediation\">Explore: Mediation</a>"
           }
         },
@@ -470,7 +470,7 @@
             "thisCouldSuitYou": "This could suit you if: You do not want to have direct contact with your ex-partner.",
             "attendSession": "Shuttle mediation is where you and your ex-partner both attend a session with a mediator, but sit in different rooms or online meetings so you do not have to have any contact.",
             "mediatorMoves": "The mediator moves between rooms, listening to you both and helping you come to an agreement about child arrangements.",
-            "getVoucher": "You can usually get a voucher worth up to £500 to pay for family mediation through the Family Mediation Voucher Scheme, regardless of what you earn.",
+            "getVoucher": "You can usually get a voucher worth up to £500 to pay for family mediation through the <a href=\"https://www.gov.uk/guidance/family-mediation-voucher-scheme\">Family Mediation Voucher Scheme</a>, regardless of what you earn.",
             "nextStep": "<strong>Next step:</strong><a href=\"https://www.gov.uk/looking-after-children-divorce/mediation\"> Find out more about mediation</a>"
           }
         },

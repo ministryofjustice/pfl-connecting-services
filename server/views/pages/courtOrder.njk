@@ -43,6 +43,11 @@
         <li>{{ __("pages.courtOrder.content.thingsToConsider.mediation") | safe }}</li>
       </ul>
 
+      {{ govukInsetText({
+        id: "cost-inset-court-order",
+        text: __("pages.courtOrder.content.thingsToConsider.costInset") | safe
+      }) }}
+
       {% if domesticAbuse == "yes" or childSafety == "no" %}
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -95,10 +100,6 @@
       <p class="govuk-body">
         {{ __("pages.courtOrder.content.otherWays.mediation.description") }}
       </p>
-
-      {{ govukInsetText({
-        text: __("pages.courtOrder.content.otherWays.mediation.inset")
-      }) }}
 
       <p class="govuk-body">
         {{ __("pages.courtOrder.content.otherWays.mediation.alreadyTried") }}

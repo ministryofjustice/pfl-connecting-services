@@ -1,4 +1,5 @@
 {% extends "partials/layout.njk" %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "../macros/print-link.njk" import govukPrintLink %}
 {% from "macros/title.njk" import getTitle with context %}
 
@@ -31,6 +32,11 @@
         {{ __("pages.mediation.content.thingsToConsider.title") }}
       </h2>
 
+      {{ govukInsetText({
+        id: "cost-inset-mediation",
+        text: __("pages.mediation.content.thingsToConsider.content.costInset") | safe
+      }) }}
+
       {% if domesticAbuse == "yes" or childSafety == "no" %}
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -45,10 +51,6 @@
         <li>{{ __("pages.mediation.content.thingsToConsider.content.initialMeeting") | safe }}</li>
         <li>{{ __("pages.mediation.content.thingsToConsider.content.cost") | safe }}</li>
       </ul>
-
-      <div class="govuk-inset-text">
-        {{ __("pages.mediation.content.thingsToConsider.content.costInset") }}
-      </div>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>{{ __("pages.mediation.content.thingsToConsider.content.stayInControl") | safe }}</li>

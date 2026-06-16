@@ -55,6 +55,14 @@ test.describe('Options no contact Page', () => {
     );
   });
 
+  test('should contain inset text about cost with correct content', async ({ page }) => {
+    const insetText = page.locator('.govuk-inset-text');
+    await expect(insetText).toBeVisible();
+    await expect(insetText).toContainText('voucher worth up to £500');
+    const voucherLink = page.locator('#cost-inset-options-no-contact a');
+    await expect(voucherLink).toHaveAttribute('href', 'https://www.gov.uk/guidance/family-mediation-voucher-scheme');
+  });
+
   test('should navigate to contact child arrangements page when back link is clicked', async ({ page }) => {
     await page.locator('a.govuk-back-link').click();
     await expect(page).toHaveURL(/contact-child-arrangements/);
