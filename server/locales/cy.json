@@ -744,12 +744,6 @@
         },
         "simpleText": "Rydym hefyd wedi sicrhau bod testun y wefan mor syml ag sy'n bosibl i'w ddeall.",
         "abilityNet": "Mae gan <a href=\"https://mcmw.abilitynet.org.uk/\" class=\"govuk-link\">AbilityNet</a> gyngor ynghylch gwneud eich dyfais yn haws i’w defnyddio os oes gennych anabledd.",
-        "howAccessible": {
-          "title": "Pa mor hygyrch yw'r wefan hon",
-          "tested": "Rydym wedi profi'r gwasanaeth hwn gyda technolegau cynorthwyol gan gynnwys darllenwyr sgrin a thechnoleg testun-i-llais.",
-          "wcag": "Mae'r gwasanaeth wedi cael archwiliad hygyrchedd WCAG gan User Vision ar 30 Ebrill.",
-          "partiallyCompliant": "Mae'r gwasanaeth yn cydymffurfio'n rhannol ac yn bodloni'r rhan fwyaf o ofynion safon AA Canllawiau Hygyrchedd Cynnwys Gwe (WCAG) 2.2."
-        },
         "feedback": {
           "title": "Adborth a gwybodaeth gyswllt",
           "contact": "Os byddwch yn canfod unrhyw broblemau nad ydynt wedi’u cynnwys ar y dudalen hon, neu’n credu nad ydym yn bodloni’r gofynion o ran hygyrchedd, anfonwch e-bost i <a href=\"mailto:childarrangements@justice.gov.uk\" class=\"govuk-link\">childarrangements@justice.gov.uk</a>."
@@ -766,7 +760,8 @@
         "compliance": {
           "title": "Statws cydymffurfiaeth",
           "tested": "Mae'r wefan hon wedi'i phrofi gan Dîm Hygyrchedd MOJ (Haf 2025)  ac mae ymchwil defnyddwyr wedi'i gynnal yn fewnol gyda defnyddwyr gydag anghenion mynediad. Ymdrinniwyd â'r problemau a adnabuwyd yn ystod y profi hyn. Mae’r gwasanaeth digidol hwn yn hygyrch ac yn bodloni safon AA Canllawiau Hygyrchedd Cynnwys Gwe (WCAG) fersiwn 2.2. Mae profi allanol wedi'o gynllunio i'w gynnal yn yr Haf 2026.",
-          "partiallyCompliant": "Mae’r wefan hon yn cydymffurfio’n llwyr â’r Canllawiau Hygyrchedd Cynnwys Gwe fersiwn 2.2 safon AA."
+          "wcag": "",
+          "compliant": "Mae’r wefan hon yn cydymffurfio’n llwyr â’r Canllawiau Hygyrchedd Cynnwys Gwe fersiwn 2.2 safon AA."
         },
         "nonAccessibleContent": {
           "title": "Cynnwys anhygyrch",
