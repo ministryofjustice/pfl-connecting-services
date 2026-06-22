@@ -36,13 +36,6 @@ test.describe('Accessibility Statement', () => {
     await expect(abilityNetLink).toHaveAttribute('href', 'https://mcmw.abilitynet.org.uk/');
   });
 
-  test('should display "How accessible this website is" section', async ({ page }) => {
-    await page.goto('/accessibility');
-
-    await expect(page.locator('h2:has-text("How accessible this website is")')).toBeVisible();
-    await expect(page.locator('text=assistive technologies')).toBeVisible();
-  });
-
   test('should display "Feedback and contact information" section', async ({ page }) => {
     await page.goto('/accessibility');
 
@@ -74,8 +67,9 @@ test.describe('Accessibility Statement', () => {
     await page.goto('/accessibility');
 
     await expect(page.locator('h2:has-text("Compliance status")')).toBeVisible();
-    await expect(page.locator('text=(Summer 2026)')).toBeVisible();
-    await expect(page.locator('text=This website is fully compliant with the Web Content Accessibility Guidelines version 2.2 AA standard.')).toBeVisible();
+    await expect(page.locator('text=We have tested this service with assistive technologies including screen readers and voice-to-text technology.')).toBeVisible();
+    await expect(page.locator('text=The service has had an external WCAG accessibility audit by User Vision on 5th June.')).toBeVisible();
+    await expect(page.locator('text=The service is fully compliant and meets most of the requirements of the Web Content Accessibility Guidelines (WCAG) 2.2 AA standard.')).toBeVisible();
   });
 
   test('should display "Non-accessible content" section', async ({ page }) => {
@@ -97,8 +91,8 @@ test.describe('Accessibility Statement', () => {
     await page.goto('/accessibility');
 
     await expect(page.locator('h2:has-text("Preparation of this accessibility statement")')).toBeVisible();
-    await expect(page.locator('text=5th June 2026')).toBeVisible();
-    await expect(page.locator('text=8th June 2026')).toBeVisible();
+    await expect(page.locator('text=This statement was prepared on 5 June 2026. It was last reviewed on 17 June 2026.')).toBeVisible();
+    await expect(page.locator('text=This service was last tested in Summer 2026 against the WCAG 2.2 AA standard, by User Vision on 5 June 2026.')).toBeVisible();
   });
 
   test('should be accessible from footer link', async ({ page }) => {
