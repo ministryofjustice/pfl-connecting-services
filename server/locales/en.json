@@ -34,6 +34,8 @@
         "coercive": "Coercive control and psychological abuse (threats, humiliation, intimidation, degradation, isolation and control)",
         "harassment": "Harassment and stalking"
       },
+      "yes": "Yes",
+      "no": "No",
       "rightInformation": "We ask this so we can give you the right information and resources for your situation.",
       "answerYes": "Answer 'Yes' if you have experienced any of the above, whether or not you have reported your experience to the police.",
       "error": "Select whether you or your children have experienced abuse from your ex-partner"
@@ -809,6 +811,7 @@
       "title": "Sorry, you'll have to start again",
       "yourSession": "Your session automatically ends if you don’t use the service for 30 minutes.",
       "personalInformation": "We haven’t saved any personal information.",
+      "startAgainText": "You need to start again.",
       "startAgain": "Start again"
     }
   },

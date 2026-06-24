@@ -14,7 +14,7 @@ const app = testAppSetup();
 type languages = 'en' | 'cy';
 const homepageLanguageStrings = {
   en: 'Get help finding a child arrangement option',
-  cy: 'Cael help i ddod o hyd i opsiwn trefniant plant',
+  cy: 'Cael help i ddod o hyd i opsiwn trefniadau plant',
 };
 
 describe('App', () => {

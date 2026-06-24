@@ -1,5 +1,5 @@
 {
-  "serviceName": "Cael help i ddod o hyd i opsiwn trefniant plant",
+  "serviceName": "Cael help i ddod o hyd i opsiwn trefniadau plant",
   "tag": "Beta",
   "yes": "Ydyn",
   "no": "Nac ydyn",
@@ -34,6 +34,8 @@
         "coercive": "Rheolaeth drwy orfodaeth a cham-drin seicolegol (bygythiadau, codi cywilydd ar rywun, brawychu, diraddio, ynysu a rheoli)",
         "harassment": "Aflonyddu a stelcio"
       },
+      "yes": "Ydw",
+      "no": "Nac ydw",
       "rightInformation": "Rydym yn gofyn hyn fel y gallwn rhoi'r wybodaeth a'r adnoddau iawn i chi ar gyer eich sefyllfa.",
       "answerYes": "Atebwch ‘Do’ os ydych wedi profi unrhyw un o'r uchod, p'un a ydych wedi riportio eich profiad i'r heddlu neu beidio.",
       "error": "Dewiswch a ydych wedi profi unrhyw gamdriniaeth gan eich cyn-bartner neu beidio"
@@ -93,23 +95,23 @@
       }
     },
     "start": {
-      "title": "Find ways to make your child arrangements",
+      "title": "Dod o hyd i ffyrdd o wneud trefniadau plant",
       "content": {
-        "useThisService": "Use this service to find options for making child arrangements if you’re separating or have separated from your child’s other parent. This includes ways to agree without going to court.",
-        "childArrangements": "Child arrangements are sometimes known as ‘child custody’ or ‘child contact’.",
-        "askedQuestions": "You’ll be asked questions about your circumstances, including your current relationship with your ex-partner. You will not be asked for any personal details.",
-        "cannotUseThisService": "You cannot use this service to make financial arrangements. <a href=\"https://www.gov.uk/child-maintenance-service\">Find out about the Child Maintenance Service</a>.",
-        "otherCountriesInfo": "What you can do is different <a href=\"https://www.mygov.scot/support-after-separation/\">in Scotland</a> and <a href=\"https://www.nidirect.gov.uk/information-and-services/parents/divorce-relationship-breakdown-and-family-courts\">in Northern Ireland</a>.",
+        "useThisService": "Defnyddiwch y gwasanaeth hwn i ddod o hyd i opsiynau ar gyfer gwneud trefniadau plant os ydych chi'n gwahanu neu wedi gwahanu oddi wrth riant arall eich plentyn. Mae hyn yn cynnwys ffyrdd o gytuno heb fynd i'r llys.",
+        "childArrangements": "Gelwir trefniadau plant weithiau yn 'gwarchodaeth plant' neu 'gyswllt plant'.",
+        "askedQuestions": "Gofynnir cwestiynau i chi am eich amgylchiadau, gan gynnwys eich perthynas bresennol â'ch cyn-bartner. Ni ofynnir i chi am unrhyw fanylion personol.",
+        "cannotUseThisService": "Ni allwch ddefnyddio'r gwasanaeth hwn i wneud trefniadau ariannol. <a href=\"https://www.gov.uk/child-maintenance-service\">Rhagor o wybodaeth am y Gwasanaeth Cynhaliaeth Plant</a>.",
+        "otherCountriesInfo": "Mae'r hyn y gallwch ei wneud yn wahanol <a href=\"https://www.mygov.scot/support-after-separation/\">yn yr Alban</a> ac <a href=\"https://www.nidirect.gov.uk/information-and-services/parents/divorce-relationship-breakdown-and-family-courts\">yng Ngogledd Iwerddon</a>.",
         "getHelpChildArrangements": {
-          "title": "Get help making child arrangements",
+          "title": "Cael cymorth i wneud trefniadau plant",
           "content": {
-            "tenMinutes": "It takes about 10 minutes to use this service.",
-            "yourAnswers": "Your answers will not be saved or shared with anyone."
+            "tenMinutes": "Mae'n cymryd tua 10 munud i ddefnyddio'r gwasanaeth hwn.",
+            "yourAnswers": "Ni fydd eich atebion yn cael eu cadw na'u rhannu ag unrhyw un."
           }
         },
         "exitTheService": {
-          "title": "If you need to exit the service quickly",
-          "description": "Each page of this service has an ‘Exit this page’ button which takes you to BBC Weather."
+          "title": "Os oes angen i chi adael y gwasanaeth yn gyflym",
+          "description": "Mae gan bob tudalen o'r gwasanaeth hwn fotwm 'Gadael y dudalen hon' sy'n mynd â chi i BBC Weather."
         },
         "exploreTheTopic": {
           "title": "Explore the topic",
@@ -129,14 +131,14 @@
           "parentalRights": "https://www.gov.uk/parental-rights-responsibilities"
         }
       },
-      "startButtonText": "Start now"
+      "startButtonText": "Dechrau nawr"
     },
     "contactChildArrangements": {
       "title": "A ydych yn gyfforddus i gysylltu â'r cyn-bartner am drefniadau plant?",
       "content": {
         "options": {
-          "first": "Ydyn",
-          "second": "Nac ydw, nif wyf yn gyfforddus yn cysylltu â nhw",
+          "first": "Ydw",
+          "second": "Nac ydw, nid wyf yn gyfforddus yn cysylltu â nhw",
           "third": "Nid oes gennyf eu manylion cyswllt",
           "fourth": "Rwy'n gallu cysylltu â nhw ond nid ydynt yn ymateb"
         }
@@ -806,10 +808,11 @@
       "tryReloading": "Arhoswch am gyfnod o 15 munud, yna ceisiwch ail-lwytho'r dudalen neu <a href=\"/?lang=cy\" class=\"govuk-link--no-visited-state\">dechreuwch eto</a>."
     },
     "timeOut": {
-      "title": "Sorry, you'll have to start again",
-      "yourSession": "Your session automatically ends if you don’t use the service for 30 minutes.",
-      "personalInformation": "We haven’t saved any personal information.",
-      "startAgain": "Start again"
+      "title": "Mae'n ddrwg gennym, mae'n rhaid i chi ddechrau eto",
+      "yourSession": "Mae eich sesiwn yn dod i ben yn awtomatig os nad ydych chi'n defnyddio'r gwasanaeth am 30 munud.",
+      "personalInformation": "Nid ydym wedi cadw unrhyw wybodaeth bersonol.",
+      "startAgainText": "Mae angen i chi ddechrau eto.",
+      "startAgain": "Dechrau eto"
     }
   },
   "cookieBanner": {
