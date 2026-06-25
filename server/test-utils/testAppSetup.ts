@@ -25,6 +25,15 @@ const testAppSetup = (): Express => {
   nunjucksSetup(app);
   app.use((request, _response, next) => {
     request.session = sessionMock;
+    request.session.destroy = (callback) => {
+      Object.keys(sessionMock).forEach((key) => {
+        delete sessionMock[key as keyof typeof sessionMock];
+      });
+      if (callback) {
+        callback(undefined as never);
+      }
+      return sessionMock as unknown as ReturnType<NonNullable<typeof request.session.destroy>>;
+    };
     request.flash = flashMock;
     next();
   });

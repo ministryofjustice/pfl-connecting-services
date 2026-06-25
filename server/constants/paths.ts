@@ -23,6 +23,8 @@ enum paths {
   COURT_ORDER = '/court-order',
   MEDIATION = '/mediation',
   PARENTING_PLAN = '/parenting-plan',
+
+  SESSION_TIMED_OUT = '/session-timed-out',
 }
 
 export default paths;
