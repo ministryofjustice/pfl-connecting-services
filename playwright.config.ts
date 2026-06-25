@@ -3,6 +3,9 @@ import { config as loadEnv } from 'dotenv';
 
 loadEnv({ path: '.env.test' });
 
+const port = process.env.PORT || '8001';
+const baseURL = `http://localhost:${port}`;
+
 export default defineConfig({
   testDir: './e2e-tests',
   fullyParallel: true,
@@ -15,7 +18,7 @@ export default defineConfig({
     ['list'],
   ],
   use: {
-    baseURL: 'http://localhost:8001',
+    baseURL,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -26,8 +29,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run build && ENV_FILE_OPTION="--env-file=.env.test" npm start',
-    url: 'http://localhost:8001/health',
+    command: `npm run build && ENV_FILE_OPTION="--env-file=.env.test" SERVICE_URL=${baseURL} PORT=${port} npm start`,
+    url: `${baseURL}/health`,
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
   },

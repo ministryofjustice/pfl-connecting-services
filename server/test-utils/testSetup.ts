@@ -24,6 +24,8 @@ beforeEach(() => {
   flashMockErrors.length = 0;
   flashFormValues.length = 0;
   Object.keys(sessionMock).forEach((key) => delete (sessionMock as unknown as Record<string, unknown>)[key]);
+  sessionMock.completedSteps = ['/'];
+  sessionMock.pageHistory = ['/'];
   jest.useFakeTimers({ advanceTimers: true }).setSystemTime(mockNow);
   // Disable authentication by default for tests (can be overridden in individual tests)
   config.useAuth = false;

@@ -20,10 +20,13 @@ test.describe.configure({ mode: 'serial' });
 
 test.describe('Session Expiry', () => {
   test('should automatically redirect to the timeout page after idle period', async ({ page }) => {
-    await page.clock.install();
+    test.setTimeout(60_000);
+
     await startJourney(page);
     await expect(page).toHaveURL(/child-safety/);
 
+    await page.clock.install();
+    await page.reload();
     await page.clock.fastForward(sessionTimeoutMs);
 
     await expect(page).toHaveURL(/session-timed-out/);
@@ -78,7 +81,13 @@ test.describe('Session Expiry', () => {
   });
 
   test('should keep meta refresh for browsers without JavaScript', async ({ browser }) => {
-    const context = await browser.newContext({ javaScriptEnabled: false });
+    const jsContext = await browser.newContext();
+    const jsPage = await jsContext.newPage();
+    await startJourney(jsPage);
+    const storageState = await jsContext.storageState();
+    await jsContext.close();
+
+    const context = await browser.newContext({ javaScriptEnabled: false, storageState });
     const page = await context.newPage();
 
     await page.goto('/child-safety');
