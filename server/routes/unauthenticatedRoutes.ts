@@ -6,6 +6,7 @@ import contactUsRoutes from './contactUs';
 import cookiesRoutes from './cookies';
 import passwordRoutes from './password';
 import privacyNoticeRoutes from './privacyNotice';
+import sessionTimedOutRoutes from './sessionTimedOut';
 import termsAndConditionsRoutes from './termsAndConditions';
 
 const routes = (): Router => {
@@ -16,6 +17,7 @@ const routes = (): Router => {
   contactUsRoutes(router);
   privacyNoticeRoutes(router);
   termsAndConditionsRoutes(router);
+  sessionTimedOutRoutes(router);
   analyticsRoutes(router);
 
   return router;
