@@ -11,6 +11,7 @@ import setupHistory from '../middleware/setupHistory';
 import setUpi18n, { setUpLocaleFromSession } from '../middleware/setUpi18n';
 import setUpWebRequestParsing from '../middleware/setupRequestParsing';
 import setupServiceNoLongerAvailable from '../middleware/setupServiceNoLongerAvailable';
+import setupSessionTimeout from '../middleware/setupSessionTimeout';
 import routes from '../routes';
 import unauthenticatedRoutes from '../routes/unauthenticatedRoutes';
 import nunjucksSetup from '../utils/nunjucksSetup';
@@ -37,6 +38,7 @@ const testAppSetup = (): Express => {
     request.flash = flashMock;
     next();
   });
+  app.use(setupSessionTimeout());
   app.use(setUpLocaleFromSession());
   app.use(setUpHealthCheck());
   app.use(setUpWebRequestParsing());
