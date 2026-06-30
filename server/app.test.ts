@@ -149,6 +149,7 @@ describe('App', () => {
       paths.ACCESSIBILITY_STATEMENT,
       paths.PRIVACY_NOTICE,
       paths.TERMS_AND_CONDITIONS,
+      paths.SESSION_TIMED_OUT,
     ];
 
     beforeEach(() => {
@@ -165,8 +166,15 @@ describe('App', () => {
       },
     );
 
-    it.each(pathsWithNoAuthentication)('should not redirect to password page for %s when not authenticated', (path) => {
-      return request(app).get(path).expect(200);
+    it.each(pathsWithNoAuthentication.filter((path) => path !== paths.SESSION_TIMED_OUT))(
+      'should not redirect to password page for %s when not authenticated',
+      (path) => {
+        return request(app).get(path).expect(200);
+      },
+    );
+
+    it('should not redirect to password page for the session timeout route when not authenticated', () => {
+      return request(app).get(paths.SESSION_TIMED_OUT).expect(403);
     });
   });
 

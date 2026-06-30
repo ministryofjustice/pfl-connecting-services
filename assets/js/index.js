@@ -15,6 +15,7 @@ import setupCookieBanner from './cookieBanner';
 import setupExitTracking from './exitTracker';
 import setupLinkTracking from './linkTracker';
 import setupPrintThisPage from './printThisPage';
+import setupSessionTimeout from './sessionTimeout';
 
 // Disable GOV.UK's default Shift key listener before components initialise
 // This prevents the Shift key shortcut from being set up
@@ -37,3 +38,4 @@ if (window.analyticsEnvironmentEnabled !== false) {
 }
 
 setupPrintThisPage();
+setupSessionTimeout();

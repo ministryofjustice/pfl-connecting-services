@@ -5,6 +5,7 @@ import config from '../config';
 import { ACCEPT_OPTIONAL_COOKIES } from '../constants/formFields';
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
+import { sessionMock } from '../test-utils/testMocks';
 
 const app = testAppSetup();
 
@@ -104,6 +105,9 @@ describe(paths.COOKIES, () => {
     });
 
     it('should include back link in page content', async () => {
+      delete sessionMock.pageHistory;
+      delete sessionMock.previousPage;
+
       const response = await request(app).get(paths.COOKIES).expect('Content-Type', /html/);
 
       const dom = new JSDOM(response.text);
