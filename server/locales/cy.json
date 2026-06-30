@@ -759,9 +759,9 @@
         },
         "compliance": {
           "title": "Statws cydymffurfiaeth",
-          "tested": "Mae'r wefan hon wedi'i phrofi gan Dîm Hygyrchedd MOJ (Haf 2025)  ac mae ymchwil defnyddwyr wedi'i gynnal yn fewnol gyda defnyddwyr gydag anghenion mynediad. Ymdrinniwyd â'r problemau a adnabuwyd yn ystod y profi hyn. Mae’r gwasanaeth digidol hwn yn hygyrch ac yn bodloni safon AA Canllawiau Hygyrchedd Cynnwys Gwe (WCAG) fersiwn 2.2. Mae profi allanol wedi'o gynllunio i'w gynnal yn yr Haf 2026.",
-          "wcag": "",
-          "compliant": "Mae’r wefan hon yn cydymffurfio’n llwyr â’r Canllawiau Hygyrchedd Cynnwys Gwe fersiwn 2.2 safon AA."
+          "tested": "Rydym wedi profi'r gwasanaeth hwn gyda thechnolegau cynorthwyol gan gynnwys darllenwyr sgrin a thechnoleg testun-i-llais.",
+          "wcag": "Cafodd y gwasanaeth archwiliad hygyrchedd WCAG allanol gan User Vision ar 5 Mehefin.",
+          "compliant": "Mae’r gwasanaeth yn cydymffurfio'n llwyr ac yn bodloni'r mwyafrif o ofynion safon AA Canllawiau Hygyrchedd Cynnwys Gwe (WCAG) fersiwn 2.2."
         },
         "nonAccessibleContent": {
           "title": "Cynnwys anhygyrch",
@@ -776,8 +776,8 @@
         },
         "preparation": {
           "title": "Paratoi’r datganiad hygyrchedd hwn",
-          "preparedOn": "Paratowyd y datganiad hwn ar 11 Mai 2026. Adolygwyd ddiwethaf ar 23 Mawrth 2026.",
-          "lastTested": "Profwyd y gwasanaeth hwn ddiwethaf yn y Gwanwyn 2026 yn erbyn safon WCAG 2.2 AA."
+          "preparedOn": "Paratowyd y datganiad hwn ar 5 Mehefin 2026. Fe'i adolygwyd ddiwethaf ar 17 Mehefin 2026.",
+          "lastTested": "Profwyd y gwasanaeth hwn ddiwethaf yn ystod Haf 2026 yn erbyn safon AA WCAG fersiwn 2.2, gan User Vision ar 5 Mehefin 2026."
         }
       }
     }
