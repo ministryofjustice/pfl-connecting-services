@@ -31,8 +31,7 @@ describe('Child Safety Help Page', () => {
       const dom = new JSDOM(response.text);
       const warningText = dom.window.document.querySelector('.govuk-warning-text__text');
 
-      expect(warningText?.textContent).toContain('Contact the police');
-      expect(warningText?.textContent).toContain('immediate danger');
+      expect(warningText?.textContent).toContain('If a child is in immediate danger, call 999 and ask for the police.');
     });
 
     it('should display introductory text about help and support', async () => {
@@ -44,7 +43,6 @@ describe('Child Safety Help Page', () => {
     it('should display section about continue using this service', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      expect(response.text).toContain('If you want to continue using this service');
       expect(response.text).toContain(
         'If you feel confident that you can carry on without any danger to yourself or the children, you can continue using the service.'
       );
@@ -61,17 +59,12 @@ describe('Child Safety Help Page', () => {
       expect(continueButton?.textContent).toContain('Continue');
     });
 
-    it('should display section about immediate risk to children', async () => {
+    it('should display section about get help protecting your children', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      expect(response.text).toContain('If you believe your child could be taken out of the UK without your permission');
-    });
-
-    it('should display section about domestic abuse', async () => {
-      const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
-
-      expect(response.text).toContain('If you or your children have experienced domestic abuse');
-      expect(response.text).toContain('apply for a court order to protect yourself and your child');
+      expect(response.text).toContain('It is important to remember that there is help and support available to you if your children are unsafe.');
+      expect(response.text).toContain('If you have experienced any kind of domestic abuse');
+      expect(response.text).toContain('You can find out');
     });
 
     it('should display National Domestic Abuse Helpline in table', async () => {
@@ -93,15 +86,6 @@ describe('Child Safety Help Page', () => {
 
       expect(response.text).toContain('Reunite International Child Abduction Centre');
       expect(response.text).toContain('0116 2556 234');
-    });
-
-    it('should have horizontal rule separator after continue button', async () => {
-      const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
-
-      const dom = new JSDOM(response.text);
-      const hr = dom.window.document.querySelector('hr.govuk-section-break--visible');
-
-      expect(hr).not.toBeNull();
     });
 
     it('should display back link', async () => {

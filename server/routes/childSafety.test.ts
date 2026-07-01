@@ -15,7 +15,7 @@ describe('Child Safety Question', () => {
 
       const dom = new JSDOM(response.text);
 
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent('Are the children safe?');
+      expect(dom.window.document.querySelector('h1')).toHaveTextContent('Have the children ever been at risk?');
       expect(dom.window.document.querySelector('h2.govuk-error-summary__title')).toBeNull();
     });
 
@@ -42,11 +42,12 @@ describe('Child Safety Question', () => {
       const dom = new JSDOM(response.text);
 
       const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="childSafety"]');
-      expect(radioButtons).toHaveLength(2);
+      expect(radioButtons).toHaveLength(3);
 
       const radioValues = Array.from(radioButtons).map((radio) => (radio as HTMLInputElement).value);
       expect(radioValues).toContain('yes');
       expect(radioValues).toContain('no');
+      expect(radioValues).toContain('notSure');
     });
 
     it('should display Exit This Page button', async () => {
@@ -73,25 +74,33 @@ describe('Child Safety Question', () => {
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
           location: 'body',
-          msg: 'Select whether the children are safe',
+          msg: 'Select whether the children have ever been at risk',
           path: 'childSafety',
           type: 'field',
         },
       ]);
     });
 
-    it('should redirect to domestic abuse page when answer is yes (children are safe)', () => {
+    it('should redirect to domestic abuse page when answer is yes (children not safe)', () => {
       return request(app)
         .post(paths.CHILD_SAFETY)
         .send({ childSafety: 'yes' })
         .expect(302)
-        .expect('location', paths.DOMESTIC_ABUSE);
+        .expect('location', paths.CHILD_SAFETY_HELP);
     });
 
-    it('should redirect to child safety help page when answer is no (children not safe)', () => {
+    it('should redirect to child safety help page when answer is no (children are safe)', () => {
       return request(app)
         .post(paths.CHILD_SAFETY)
         .send({ childSafety: 'no' })
+        .expect(302)
+        .expect('location', paths.DOMESTIC_ABUSE);
+    });
+
+    it('should redirect to child safety help page when answer is I\'m not sure (unsure of children\'s safety)', () => {
+      return request(app)
+        .post(paths.CHILD_SAFETY)
+        .send({ childSafety: 'notSure' })
         .expect(302)
         .expect('location', paths.CHILD_SAFETY_HELP);
     });
