@@ -8,10 +8,13 @@
 {% endblock %}
 
 {% set legendText %}
-  {{ __("pages.domesticAbuse.heading") }}
+  {{ __("pages.domesticAbuse.title") }}
 {% endset %}
 
 {% set additionalText %}
+  <div class="govuk-hint">
+    {{ __("pages.domesticAbuse.rightInformation") }}
+  </div>
   <div id="domestic-abuse-additional-text">
     <p class="govuk-body">
       {{ __("pages.domesticAbuse.intro") }}
@@ -23,21 +26,17 @@
       <li>{{ __("pages.domesticAbuse.bullets.coercive") }}</li>
       <li>{{ __("pages.domesticAbuse.bullets.harassment") }}</li>
     </ul>
-
-    <p class="govuk-body">
-      {{ __("pages.domesticAbuse.answerYes") }}
-    </p>
-
-    <p class="govuk-body">
-      {{ __("pages.domesticAbuse.rightInformation") }}
-    </p>
+    <h2 class="govuk-heading-m">{{ __("pages.domesticAbuse.formHeading") }}</h2>
   </div>
 {% endset %}
 
-{% set radioItems = [
-  { value: "yes", text: __("yes") },
-  { value: "no", text: __("no") }
-] %}
+{%
+  set radioItems = [
+    { value: "yes", text: __("yes"), checked: formValues.domesticAbuse === "yes" },
+    { value: "no", text: __("no"), checked: formValues.domesticAbuse === "no" },
+    { value: "notSure", text: __("notSure"), checked: formValues.domesticAbuse === "notSure" }
+  ]
+%}
 
 {% block content %}
   <div class="govuk-grid-row">

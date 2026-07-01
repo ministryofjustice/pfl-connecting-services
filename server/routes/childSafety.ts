@@ -17,6 +17,7 @@ const router = Router();
  */
 router.get(paths.CHILD_SAFETY, (req: Request, res: Response) => {
   // Child Safety is the first page, so we can reset the session to clear any previous progress
+  req.session.childSafety = undefined;
   req.session.domesticAbuse = undefined;
   req.session.contactChildArrangements = undefined;
   req.session.agreement = undefined;
@@ -51,7 +52,7 @@ router.post(
     req.session.childSafety = req.body.childSafety;
     addCompletedStep(req, FormSteps.CHILD_SAFETY);
 
-    if (req.body.childSafety === 'yes') {
+    if (req.body.childSafety === 'no') {
       return res.redirect(paths.DOMESTIC_ABUSE);
     }
     return res.redirect(paths.CHILD_SAFETY_HELP);
