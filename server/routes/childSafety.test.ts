@@ -4,7 +4,7 @@ import request from 'supertest';
 import config from '../config';
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
-import { flashMock } from '../test-utils/testMocks';
+import { flashMock, flashMockErrors } from '../test-utils/testMocks';
 
 const app = testAppSetup();
 
@@ -36,7 +36,7 @@ describe('Child Safety Question', () => {
       );
     });
 
-    it('should display two radio options: Yes and No', async () => {
+    it('should display three radio options: Yes, No and I\'m not sure', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY).expect(200);
 
       const dom = new JSDOM(response.text);
@@ -48,6 +48,30 @@ describe('Child Safety Question', () => {
       expect(radioValues).toContain('yes');
       expect(radioValues).toContain('no');
       expect(radioValues).toContain('notSure');
+    });
+
+    it('should display form heading and additional explanation', async () => {
+      const response = await request(app).get(paths.CHILD_SAFETY).expect(200);
+
+      expect(response.text).toContain('Have the children ever been at risk?');
+      expect(response.text).toContain('We ask this so we can give you the right information and resources for your situation.');
+      expect(response.text).toContain('actual or attempted child abduction');
+    });
+
+    it('should display error summary with correct anchor when validation fails', async () => {
+      flashMockErrors.push({
+        location: 'body',
+        msg: 'Select whether the children have ever been at risk',
+        path: 'childSafety',
+        type: 'field',
+      });
+
+      const response = await request(app).get(paths.CHILD_SAFETY).expect(200);
+      const dom = new JSDOM(response.text);
+
+      const errorLink = dom.window.document.querySelector('.govuk-error-summary__list a') as HTMLAnchorElement;
+      expect(errorLink).not.toBeNull();
+      expect(errorLink?.getAttribute('href')).toBe('#childSafety');
     });
 
     it('should display Exit This Page button', async () => {

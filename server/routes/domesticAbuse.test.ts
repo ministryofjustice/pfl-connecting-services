@@ -3,7 +3,7 @@ import request from 'supertest';
 
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
-import { flashMock } from '../test-utils/testMocks';
+import { flashMock, flashMockErrors } from '../test-utils/testMocks';
 
 const app = testAppSetup();
 
@@ -62,10 +62,44 @@ describe('Domestic Abuse Question', () => {
       expect(radioValues).toContain('notSure');
     });
 
+    it('should display Continue button', async () => {
+      const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
+      const dom = new JSDOM(response.text);
+
+      const continueButton = dom.window.document.querySelector('button.govuk-button, input.govuk-button, a.govuk-button');
+      expect(continueButton).not.toBeNull();
+      expect(continueButton?.textContent).toContain('Continue');
+    });
+
+    it('should display back link to child safety page', async () => {
+      const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
+      const dom = new JSDOM(response.text);
+
+      const backLink = dom.window.document.querySelector('.govuk-back-link');
+      expect(backLink).not.toBeNull();
+      expect(backLink?.getAttribute('href')).toBe(paths.CHILD_SAFETY);
+    });
+
     it('should display Exit This Page button', async () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
 
       expect(response.text).toContain('Exit this page');
+    });
+
+    it('should display error summary with correct anchor when validation fails', async () => {
+      flashMockErrors.push({
+        location: 'body',
+        msg: 'Select whether you have experienced abuse from your ex-partner',
+        path: 'domesticAbuse',
+        type: 'field',
+      });
+
+      const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
+      const dom = new JSDOM(response.text);
+
+      const errorLink = dom.window.document.querySelector('.govuk-error-summary__list a') as HTMLAnchorElement;
+      expect(errorLink).not.toBeNull();
+      expect(errorLink?.getAttribute('href')).toBe('#domesticAbuse');
     });
   });
 
