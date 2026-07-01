@@ -12,6 +12,23 @@ export async function selectChildSafetyOption(page: Page, choiceLabel: 'Yes' | '
   await page.getByRole('button', { name: /continue/i }).click();
 }
 
+export async function continueFromChildSafetyHelp(page: Page) {
+  await page.locator('a.govuk-button', { hasText: 'Continue' }).click();
+}
+
+export async function reachDomesticAbusePage(
+  page: Page,
+  childSafetyChoice: 'Yes' | 'No' | 'I\'m not sure' = 'No',
+) {
+  if (childSafetyChoice === 'No') {
+    await selectChildSafetyOption(page, 'No');
+    return;
+  }
+
+  await selectChildSafetyOption(page, childSafetyChoice);
+  await continueFromChildSafetyHelp(page);
+}
+
 export async function selectDomesticAbuseOption(page: Page, choiceLabel: 'Yes' | 'No' | 'I\'m not sure') {
   await page.getByRole('radio', { name: choiceLabel, exact: true }).check();
   await page.getByRole('button', { name: /continue/i }).click();

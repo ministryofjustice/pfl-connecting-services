@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 import {
   startJourney,
   selectChildSafetyOption,
+  continueFromChildSafetyHelp,
   selectDomesticAbuseOption,
   selectContactChildArrangementsOption,
   selectAgreeOnChildArrangementsOption,
@@ -13,7 +14,7 @@ import {
 test.describe('Court Order Page', () => {
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'I do not have their contact details');
   });
@@ -130,7 +131,7 @@ test.describe('Court Order Page', () => {
 test.describe('should display explore court order through different journey flows.', () => {
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'Yes');
   });
@@ -193,7 +194,7 @@ test.describe('Court Order, Conditional Warning messages', () => {
 
   test('should display warning text on explore a court order, when user selected "Yes" for domestic abuse', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No');
 
     // Domestic abuse question - select Yes
     await selectDomesticAbuseOption(page, 'Yes')
@@ -214,6 +215,7 @@ test.describe('Court Order, Conditional Warning messages', () => {
   test('should not display warning text on explore a court order, when user selected "No" for domestic abuse', async ({ page }) => {
     await startJourney(page)
     await selectChildSafetyOption(page, 'Yes')
+    await continueFromChildSafetyHelp(page);
 
     // Domestic abuse question - select No
     await selectDomesticAbuseOption(page, 'No')
@@ -231,7 +233,6 @@ test.describe('Court Order, Conditional Warning messages', () => {
 
     // Child safety question - select No
     await selectChildSafetyOption(page, 'No')
-    await page.getByRole('button', { name: 'Continue' }).click();
 
     await selectDomesticAbuseOption(page, 'No')
 
@@ -252,6 +253,7 @@ test.describe('Court Order, Conditional Warning messages', () => {
 
     // Child safety question - select Yes
     await selectChildSafetyOption(page, 'Yes')
+    await continueFromChildSafetyHelp(page);
 
     await selectDomesticAbuseOption(page, 'No')
 

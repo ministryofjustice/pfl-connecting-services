@@ -3,6 +3,7 @@ import { expect, test } from '@playwright/test';
 import {
   selectAgreeOnChildArrangementsOption,
   selectChildSafetyOption,
+  continueFromChildSafetyHelp,
   selectContactChildArrangementsOption,
   selectDomesticAbuseOption,
   selectHelpToAgreeOnChildArrangementsOption,
@@ -14,7 +15,7 @@ test.describe('Mediation Page', () => {
 
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, "No");
     await selectContactChildArrangementsOption(page, 'Yes');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
@@ -105,7 +106,7 @@ test.describe('Mediation, Conditional Warning messages', () => {
 
   test('should display warning text on explore mediation, when user selected "Yes" for domestic abuse', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
 
     // Domestic abuse question - select Yes
     await selectDomesticAbuseOption(page, 'Yes')
@@ -125,6 +126,7 @@ test.describe('Mediation, Conditional Warning messages', () => {
    test('should not display warning text on explore mediation, when user selected "No" for domestic abuse', async ({ page }) => {
     await startJourney(page)
     await selectChildSafetyOption(page, 'Yes')
+    await continueFromChildSafetyHelp(page);
 
     // Domestic abuse question - select No
     await selectDomesticAbuseOption(page, 'No')
@@ -145,6 +147,7 @@ test.describe('Mediation, Conditional Warning messages', () => {
     
     // Child safety question - select Yes
     await selectChildSafetyOption(page, 'Yes')
+    await continueFromChildSafetyHelp(page);
 
     await selectDomesticAbuseOption(page, 'No')
 
@@ -163,7 +166,6 @@ test.describe('Mediation, Conditional Warning messages', () => {
     
     // Child safety question - select No
     await selectChildSafetyOption(page, 'No')
-    await page.getByRole('button', { name: 'Continue' }).click();
 
     await selectDomesticAbuseOption(page, 'No')
 

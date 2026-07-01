@@ -1,12 +1,20 @@
 import { test, expect } from '@playwright/test';
 
-import { startJourney, selectDomesticAbuseOption, selectContactChildArrangementsOption, selectAgreeOnChildArrangementsOption, selectHelpToAgreeOnChildArrangementsOption, selectChildSafetyOption} from './fixtures/test-helpers';
+import {
+  startJourney,
+  selectDomesticAbuseOption,
+  selectContactChildArrangementsOption,
+  selectAgreeOnChildArrangementsOption,
+  selectHelpToAgreeOnChildArrangementsOption,
+  selectChildSafetyOption,
+  continueFromChildSafetyHelp
+} from './fixtures/test-helpers';
 
 test.describe('Parenting Plan', () => {
 
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'Yes')
     await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
@@ -130,7 +138,7 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
 
   test('should display warning text on parenting plan, when user selected "Yes" for domestic abuse', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
 
     // Domestic abuse question - select Yes
     await selectDomesticAbuseOption(page, 'Yes')
@@ -148,6 +156,7 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
   test('should not display warning text on parenting plan, when user selected "No" for domestic abuse', async ({ page }) => {
     await startJourney(page)
     await selectChildSafetyOption(page, 'Yes')
+    await continueFromChildSafetyHelp(page);
 
     // Domestic abuse question - select No
     await selectDomesticAbuseOption(page, 'No')
@@ -166,7 +175,6 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
 
     // Child safety question - select No
     await selectChildSafetyOption(page, 'No')
-    await page.getByRole('button', { name: 'Continue' }).click();
 
     await selectDomesticAbuseOption(page, 'No')
 
@@ -184,6 +192,7 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
 
     // Child safety question - select Yes
     await selectChildSafetyOption(page, 'Yes')
+    await continueFromChildSafetyHelp(page);
 
     await selectDomesticAbuseOption(page, 'No')
 
@@ -199,7 +208,7 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
 test.describe('should display explore making a parenting plan through different journey flows.', () => {
   test('should display explore making a parenting plan when parent and ex-partner want a plan they can follow themselves for child arrangements', async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'Yes')
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
