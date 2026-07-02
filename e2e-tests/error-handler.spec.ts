@@ -59,7 +59,7 @@ test.describe('errorHandler – 403 session timeout', () => {
     await page.getByRole('button', { name: /start again/i }).click();
     await expect(page).toHaveURL(/child-safety/);
 
-    await page.getByLabel('Yes').check();
+    await page.getByRole('radio', { name: 'No', exact: true }).check();
     await page.getByRole('button', { name: /continue/i }).click();
     await expect(page).toHaveURL(/domestic-abuse/);
   });

@@ -33,15 +33,6 @@ describe('Safeguarding Page', () => {
       expect(warningText?.textContent).toContain('immediate danger');
     });
 
-    it('should display introductory text about abuse', async () => {
-      const response = await request(app).get(paths.SAFEGUARDING).expect(200);
-
-      expect(response.text).toContain('You may have been in an abusive relationship');
-      expect(response.text).toContain('Domestic abuse or violence is a crime');
-      expect(response.text).toContain('Domestic abuse does not only mean physical violence');
-      expect(response.text).toContain('emotional, sexual, psychological and financial abuse');
-    });
-
     it('should display Continue button linking to question 2', async () => {
       const response = await request(app).get(paths.SAFEGUARDING).expect(200);
 
@@ -57,27 +48,8 @@ describe('Safeguarding Page', () => {
       const response = await request(app).get(paths.SAFEGUARDING).expect(200);
 
       expect(response.text).toContain('Get help protecting yourself and your children');
-      expect(response.text).toContain('apply for a court order to protect yourself and your child');
-    });
-
-    it('should display Citizens Advice link', async () => {
-      const response = await request(app).get(paths.SAFEGUARDING).expect(200);
-
-      expect(response.text).toContain('Citizens Advice');
-      expect(response.text).toContain('advice on making child arrangements');
-    });
-
-    it('should display link to domestic abuse help', async () => {
-      const response = await request(app).get(paths.SAFEGUARDING).expect(200);
-
-      expect(response.text).toContain('how to get help with domestic abuse');
-      expect(response.text).toContain('domestic-abuse-how-to-get-help');
-    });
-
-    it('should display specialist support link', async () => {
-      const response = await request(app).get(paths.SAFEGUARDING).expect(200);
-
-      expect(response.text).toContain('Domestic abuse: specialist sources of support');
+      expect(response.text).toContain('You may have been in an abusive relationship');
+      expect(response.text).toContain('If you have experienced any kind of domestic abuse');
     });
 
     it('should display National Domestic Abuse Helpline in table', async () => {
@@ -95,20 +67,39 @@ describe('Safeguarding Page', () => {
       expect(response.text).toContain('020 7251 6577');
     });
 
+    it('should display help and support section title and description', async () => {
+      const response = await request(app).get(paths.SAFEGUARDING).expect(200);
+
+      expect(response.text).toContain('Help and support');
+      expect(response.text).toContain('There is free, confidential support available to help you and your family.');
+    });
+
+    it('should display back link to domestic abuse page', async () => {
+      const response = await request(app).get(paths.SAFEGUARDING).expect(200);
+
+      const dom = new JSDOM(response.text);
+      const backLink = dom.window.document.querySelector('.govuk-back-link');
+
+      expect(backLink).not.toBeNull();
+      expect(backLink?.getAttribute('href')).toBe(paths.DOMESTIC_ABUSE);
+    });
+
+    it('should display Continue button with primary styling', async () => {
+      const response = await request(app).get(paths.SAFEGUARDING).expect(200);
+      const dom = new JSDOM(response.text);
+      const continueButton = dom.window.document.querySelector('a.govuk-button');
+
+      expect(continueButton).not.toBeNull();
+      expect(continueButton?.getAttribute('class')).toContain('govuk-button--primary');
+      expect(continueButton?.getAttribute('class')).toContain('govuk-!-margin-bottom-4');
+      expect(continueButton?.getAttribute('href')).toBe(paths.CONTACT_CHILD_ARRANGEMENTS);
+    });
+
     it("should display Men's Advice Line in table", async () => {
       const response = await request(app).get(paths.SAFEGUARDING).expect(200);
 
       expect(response.text).toContain("Men's Advice Line");
       expect(response.text).toContain('0808 801 0327');
-    });
-
-    it('should have horizontal rule separator after continue button', async () => {
-      const response = await request(app).get(paths.SAFEGUARDING).expect(200);
-
-      const dom = new JSDOM(response.text);
-      const hr = dom.window.document.querySelector('hr.govuk-section-break--visible');
-
-      expect(hr).not.toBeNull();
     });
   });
 });

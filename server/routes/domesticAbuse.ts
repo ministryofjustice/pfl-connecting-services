@@ -48,10 +48,10 @@ router.post(
     req.session.domesticAbuse = req.body.domesticAbuse;
     addCompletedStep(req, FormSteps.DOMESTIC_ABUSE);
 
-    if (req.body.domesticAbuse === 'yes') {
-      return res.redirect(paths.SAFEGUARDING);
+    if (req.body.domesticAbuse === 'no') {
+      return res.redirect(paths.CONTACT_CHILD_ARRANGEMENTS);
     }
-    return res.redirect(paths.CONTACT_CHILD_ARRANGEMENTS);
+    return res.redirect(paths.SAFEGUARDING);
   },
 );
 

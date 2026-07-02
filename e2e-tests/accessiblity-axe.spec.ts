@@ -1,7 +1,12 @@
 import { AxeBuilder } from '@axe-core/playwright';
 import { test, expect, Page} from '@playwright/test';
 
-import { startJourney, selectChildSafetyOption, selectDomesticAbuseOption} from './fixtures/test-helpers';
+import {
+  startJourney,
+  selectChildSafetyOption,
+  selectDomesticAbuseOption,
+  continueFromChildSafetyHelp
+} from './fixtures/test-helpers';
 
 export default async function runAxeScan(page: Page) {
   return await new AxeBuilder({ page })
@@ -20,11 +25,11 @@ test.describe('Accessibility - Axe Core Scanning', () => {
 
     //child-safety
     expect(results.violations).toEqual([]);
-    await selectChildSafetyOption(page, 'No')
+    await selectChildSafetyOption(page, 'Yes')
 
     //child-safety-help
     expect(results.violations).toEqual([]);
-    await page.getByRole('button', { name: /continue/i }).click();
+    await continueFromChildSafetyHelp(page);
 
     //domestic-abuse
     expect(results.violations).toEqual([]);
@@ -194,7 +199,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
     expect(errorId).toBeTruthy();
 
     const errorMessage = page.locator(`#${errorId}`);
-    await expect(errorMessage).toContainText(/select whether the children are safe/i);
+    await expect(errorMessage).toContainText(/select whether the children have ever been at risk/i);
 });
 
 

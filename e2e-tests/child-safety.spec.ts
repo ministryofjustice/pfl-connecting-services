@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 test.describe('Child Safety Page', () => {
   test('should display the page with correct url and title', async ({ page }) => {
     await expect(page).toHaveURL(/child-safety/);
-    await expect(page.locator('h1')).toContainText('Are the children safe?');
+    await expect(page.locator('h1')).toContainText('Have the children ever been at risk?');
   });
 
   test('should display risk factors as bullet list', async ({ page }) => {
@@ -37,13 +37,18 @@ test.describe('Child Safety Page', () => {
     await expect(backLink).toHaveAttribute('href', new URL('/', page.url()).origin);
   });
 
-  test('should navigate to domestic abuse page when Yes option selected (children are safe)', async ({ page }) => {
+  test('should navigate to child safety help page when Yes option selected (children not safe)', async ({ page }) => {
     await selectChildSafetyOption(page, 'Yes');
+    await expect(page).toHaveURL(/child-safety-help/);
+  });
+
+  test('should navigate to domestic abuse page when No option selected (children are safe)', async ({ page }) => {
+    await selectChildSafetyOption(page, 'No');
     await expect(page).toHaveURL(/domestic-abuse/);
   });
 
-  test('should navigate to child safety help page when No option selected (children not safe)', async ({ page }) => {
-    await selectChildSafetyOption(page, 'No');
+  test('should navigate to child safety help page when I\'m not sure option selected (children not safe)', async ({ page }) => {
+    await selectChildSafetyOption(page, 'I\'m not sure');
     await expect(page).toHaveURL(/child-safety-help/);
   });
 
@@ -56,7 +61,7 @@ test.describe('Child Safety Page', () => {
     await expect(page.locator('.govuk-error-summary__title')).toHaveText('There is a problem');
 
     const errorLink = page.locator('.govuk-error-summary__list a');
-    await expect(errorLink).toHaveText('Select whether the children are safe');
+    await expect(errorLink).toHaveText('Select whether the children have ever been at risk');
   });
 
   test('should have error link that focuses the first radio input when clicked', async ({ page }) => {
@@ -74,7 +79,7 @@ test.describe('Child Safety Page', () => {
     await page.getByRole('button', { name: /continue/i }).click();
 
     const inlineError = page.locator('.govuk-error-message');
-    await expect(inlineError).toContainText('Select whether the children are safe');
+    await expect(inlineError).toContainText('Error: Select whether the children have ever been at risk');
   });
 
   test('should navigate back to start page when back link clicked', async ({ page }) => {

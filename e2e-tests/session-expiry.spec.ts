@@ -7,7 +7,7 @@ test.describe.configure({ mode: 'serial' });
 test.describe('Session Expiry', () => {
   test('should redirect to start page when session expires mid-journey', async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await expect(page).toHaveURL(/domestic-abuse/);
     await page.context().clearCookies();
     await page.goto('/other-options');
@@ -16,7 +16,7 @@ test.describe('Session Expiry', () => {
 
    test('should allow user to start a new journey after session expires', async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No')
     await selectContactChildArrangementsOption(page, 'I can contact them but they do not respond')
     await page.context().clearCookies();
@@ -27,7 +27,7 @@ test.describe('Session Expiry', () => {
 
   test('should redirect deep-linked other options page to start after session expires', async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'Yes');
     await page.getByRole('button', { name: /continue/i }).click();
     await selectContactChildArrangementsOption(page, 'Yes')

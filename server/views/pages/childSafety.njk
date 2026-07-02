@@ -8,10 +8,13 @@
 {% endblock %}
 
 {% set legendText %}
-  {{ __("pages.childSafety.heading") | safe }}
+  {{ __("pages.childSafety.title") | safe }}
 {% endset %}
 
 {% set additionalText %}
+  <div class="govuk-hint">
+    {{ __("pages.childSafety.rightInformation") }}
+  </div>
   <div id="child-safety-additional-text">
     <p class="govuk-body">{{ __("pages.childSafety.intro") }}</p>
 
@@ -22,15 +25,15 @@
       <li>{{ __("pages.childSafety.bullets.substances") }}</li>
       <li>{{ __("pages.childSafety.bullets.otherConcerns") }}</li>
     </ul>
-
-    <p class="govuk-body">{{ __("pages.childSafety.rightInformation") }}</p>
   </div>
+  <h2 class="govuk-heading-m">{{ __("pages.childSafety.formHeading") }}</h2>
 {% endset %}
 
 {%
   set radioItems = [
     { value: "yes", text: __("yes"), checked: formValues.childSafety === "yes" },
-    { value: "no", text: __("no"), checked: formValues.childSafety === "no" }
+    { value: "no", text: __("no"), checked: formValues.childSafety === "no" },
+    { value: "notSure", text: __("notSure"), checked: formValues.childSafety === "notSure" }
   ]
 %}
 
