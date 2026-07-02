@@ -228,7 +228,28 @@ test.describe('Court Order, Conditional Warning messages', () => {
     await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
   });
 
-   test('should display warning text on explore a court order, when user selected "No" for child safety question', async ({ page }) => {
+  test('should display warning text on explore a court order, when user selected "I\'m not sure" for domestic abuse', async ({ page }) => {
+    await startJourney(page)
+    await selectChildSafetyOption(page, 'No');
+
+    // Domestic abuse question - select I'm not sure
+    await selectDomesticAbuseOption(page, 'I\'m not sure')
+
+    await page.getByRole('button', { name: 'Continue' }).click();
+    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+
+    // Should be on explore a court order page with warning text visible
+    await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
+    await expect(page.locator('.govuk-warning-text')).toBeVisible();
+    await expect(page.locator('.govuk-warning-text')).toContainText('You do not have to go to a MIAM if you can show there is a risk:');
+    await expect(page.locator('.govuk-warning-text')).toContainText('to your life, freedom, physical safety or home');
+    await expect(page.locator('.govuk-warning-text')).toContainText('of harm to a child');
+    await expect(page.locator('.govuk-warning-text')).toContainText('that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held');
+    await expect(page.locator('.govuk-warning-text')).toContainText('If any of these apply, you may be able to apply for an urgent court hearing about child arrangements');
+  });
+
+
+  test('should display warning text on explore a court order, when user selected "No" for child safety question', async ({ page }) => {
     await startJourney(page)
 
     // Child safety question - select No
@@ -253,6 +274,22 @@ test.describe('Court Order, Conditional Warning messages', () => {
 
     // Child safety question - select Yes
     await selectChildSafetyOption(page, 'Yes')
+    await continueFromChildSafetyHelp(page);
+
+    await selectDomesticAbuseOption(page, 'No')
+
+    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+
+    // Should be on explore a court order page without warning text
+    await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+  });
+
+  test('should not display warning text on explore a court order, when user selected "I\'m not sure" for child safety question', async ({ page }) => {
+    await startJourney(page)
+
+    // Child safety question - select I'm not sure
+    await selectChildSafetyOption(page, 'I\'m not sure')
     await continueFromChildSafetyHelp(page);
 
     await selectDomesticAbuseOption(page, 'No')

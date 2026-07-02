@@ -170,7 +170,24 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
     await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
   });
 
-   test('should display warning text on parenting plan, when user selected "No" for child safety question', async ({ page }) => {
+  test('should display warning text on parenting plan, when user selected "I\'m not sure" for domestic abuse', async ({ page }) => {
+    await startJourney(page)
+    await selectChildSafetyOption(page, 'No')
+
+    // Domestic abuse question - select I'm not sure
+    await selectDomesticAbuseOption(page, 'I\'m not sure')
+
+    await page.getByRole('button', { name: 'Continue' }).click();
+    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
+
+    // Should be on parenting plan page with warning text visible
+    await expect(page.locator('h1')).toHaveText('Explore: Making a parenting plan');
+    await expect(page.locator('.govuk-warning-text')).toBeVisible();
+    await expect(page.locator('.govuk-warning-text')).toContainText('It may not be appropriate for you to make child arrangements directly');
+  });
+
+  test('should display warning text on parenting plan, when user selected "No" for child safety question', async ({ page }) => {
     await startJourney(page)
 
     // Child safety question - select No
@@ -192,6 +209,23 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
 
     // Child safety question - select Yes
     await selectChildSafetyOption(page, 'Yes')
+    await continueFromChildSafetyHelp(page);
+
+    await selectDomesticAbuseOption(page, 'No')
+
+    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
+
+    // Should be on parenting plan page with warning text visible
+    await expect(page.locator('h1')).toHaveText('Explore: Making a parenting plan');
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+  });
+
+  test('should not display warning text on parenting plan, when user selected "I\'m not sure" for child safety question', async ({ page }) => {
+    await startJourney(page)
+
+    // Child safety question - select I'm not sure
+    await selectChildSafetyOption(page, 'I\'m not sure')
     await continueFromChildSafetyHelp(page);
 
     await selectDomesticAbuseOption(page, 'No')
