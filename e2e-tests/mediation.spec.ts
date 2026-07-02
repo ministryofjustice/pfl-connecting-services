@@ -125,8 +125,9 @@ test.describe('Mediation, Conditional Warning messages', () => {
 
    test('should not display warning text on explore mediation, when user selected "No" for domestic abuse', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
-    await continueFromChildSafetyHelp(page);
+
+    // Child safety question - select No
+    await selectChildSafetyOption(page, 'No')
 
     // Domestic abuse question - select No
     await selectDomesticAbuseOption(page, 'No')
@@ -144,6 +145,8 @@ test.describe('Mediation, Conditional Warning messages', () => {
 
   test('should display warning text on explore mediation, when user selected "I\'m not sure" for domestic abuse', async ({ page }) => {
     await startJourney(page)
+
+    // Child safety question - select No
     await selectChildSafetyOption(page, 'No')
 
     // Domestic abuse question - select I'm not sure
@@ -161,13 +164,14 @@ test.describe('Mediation, Conditional Warning messages', () => {
     await expect(page.locator('.govuk-warning-text')).toContainText('If you or your children have experienced abuse from your ex-partner, tell the mediator.');
   });
 
-  test('should not display warning text on explore mediation, when user selected "Yes" for child safety', async ({ page }) => {
+  test('should display warning text on explore mediation, when user selected "Yes" for child safety', async ({ page }) => {
     await startJourney(page)
     
     // Child safety question - select Yes
     await selectChildSafetyOption(page, 'Yes')
     await continueFromChildSafetyHelp(page);
 
+    // Domestic abuse question - select No
     await selectDomesticAbuseOption(page, 'No')
 
     await selectContactChildArrangementsOption(page, 'Yes');
@@ -177,7 +181,8 @@ test.describe('Mediation, Conditional Warning messages', () => {
 
     // Should be on explore mediation page without warning text 
     await expect(page.locator('h1')).toHaveText('Explore: Mediation');
-    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+    await expect(page.locator('.govuk-warning-text')).toBeVisible();
+    await expect(page.locator('.govuk-warning-text')).toContainText('If you or your children have experienced abuse from your ex-partner, tell the mediator.');
   });
 
   test('should display warning text on explore mediation, when user selected "No" for child safety', async ({ page }) => {
@@ -195,11 +200,10 @@ test.describe('Mediation, Conditional Warning messages', () => {
 
     // Should be on explore mediation page with warning text visible
     await expect(page.locator('h1')).toHaveText('Explore: Mediation');
-    await expect(page.locator('.govuk-warning-text')).toBeVisible();
-    await expect(page.locator('.govuk-warning-text')).toContainText('If you or your children have experienced abuse from your ex-partner, tell the mediator.');
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
   });
 
-  test('should not display warning text on explore mediation, when user selected "I\'m not sure" for child safety', async ({ page }) => {
+  test('should display warning text on explore mediation, when user selected "I\'m not sure" for child safety', async ({ page }) => {
     await startJourney(page)
     
     // Child safety question - select I'm not sure
@@ -215,6 +219,7 @@ test.describe('Mediation, Conditional Warning messages', () => {
 
     // Should be on explore mediation page without warning text 
     await expect(page.locator('h1')).toHaveText('Explore: Mediation');
-    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+    await expect(page.locator('.govuk-warning-text')).toBeVisible();
+    await expect(page.locator('.govuk-warning-text')).toContainText('If you or your children have experienced abuse from your ex-partner, tell the mediator.');
   });
 });

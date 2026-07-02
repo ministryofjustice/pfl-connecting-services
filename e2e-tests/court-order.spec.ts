@@ -214,8 +214,7 @@ test.describe('Court Order, Conditional Warning messages', () => {
 
   test('should not display warning text on explore a court order, when user selected "No" for domestic abuse', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
-    await continueFromChildSafetyHelp(page);
+    await selectChildSafetyOption(page, 'No')
 
     // Domestic abuse question - select No
     await selectDomesticAbuseOption(page, 'No')
@@ -255,6 +254,38 @@ test.describe('Court Order, Conditional Warning messages', () => {
     // Child safety question - select No
     await selectChildSafetyOption(page, 'No')
 
+    // Domestic abuse question - select No
+    await selectDomesticAbuseOption(page, 'No')
+
+    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+
+    // Should be on explore a court order page with warning text visible
+    await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+  });
+
+  test('should not display warning text on explore a court order, when user selected "No" for child safety question', async ({ page }) => {
+    await startJourney(page)
+
+    // Child safety question - select No
+    await selectChildSafetyOption(page, 'No')
+
+    await selectDomesticAbuseOption(page, 'No')
+
+    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+
+    // Should be on explore a court order page without warning text
+    await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
+    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
+  });
+
+  test('should display warning text on explore a court order, when user selected "I\'m not sure" for child safety question', async ({ page }) => {
+    await startJourney(page)
+
+    // Child safety question - select I'm not sure
+    await selectChildSafetyOption(page, 'I\'m not sure')
+    await continueFromChildSafetyHelp(page);
+
     await selectDomesticAbuseOption(page, 'No')
 
     await selectContactChildArrangementsOption(page, 'I do not have their contact details')
@@ -267,37 +298,5 @@ test.describe('Court Order, Conditional Warning messages', () => {
     await expect(page.locator('.govuk-warning-text')).toContainText('of harm to a child');
     await expect(page.locator('.govuk-warning-text')).toContainText('that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held');
     await expect(page.locator('.govuk-warning-text')).toContainText('If any of these apply, you may be able to apply for an urgent court hearing about child arrangements');
-  });
-
-  test('should not display warning text on explore a court order, when user selected "Yes" for child safety question', async ({ page }) => {
-    await startJourney(page)
-
-    // Child safety question - select Yes
-    await selectChildSafetyOption(page, 'Yes')
-    await continueFromChildSafetyHelp(page);
-
-    await selectDomesticAbuseOption(page, 'No')
-
-    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
-
-    // Should be on explore a court order page without warning text
-    await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
-    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
-  });
-
-  test('should not display warning text on explore a court order, when user selected "I\'m not sure" for child safety question', async ({ page }) => {
-    await startJourney(page)
-
-    // Child safety question - select I'm not sure
-    await selectChildSafetyOption(page, 'I\'m not sure')
-    await continueFromChildSafetyHelp(page);
-
-    await selectDomesticAbuseOption(page, 'No')
-
-    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
-
-    // Should be on explore a court order page without warning text
-    await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
-    await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
   });
 });
