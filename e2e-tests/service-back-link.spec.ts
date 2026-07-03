@@ -16,7 +16,7 @@ test.describe('Service Back Link', () => {
 
    test('should navigate back from getting help page to domestic abuse page', async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
 
     await selectDomesticAbuseOption(page, 'Yes')
     await expect(page).toHaveURL(/getting-help/);
@@ -30,7 +30,7 @@ test.describe('Service Back Link', () => {
 
   test('should navigate back from contact child arrangements to domestic abuse page ', async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
 
     await selectDomesticAbuseOption(page, 'No')
     await expect(page).toHaveURL(/contact-child-arrangements/);
@@ -43,7 +43,7 @@ test.describe('Service Back Link', () => {
 
    test('should navigate back from contact child arrangements to getting help', async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
 
     await selectDomesticAbuseOption(page, 'Yes')
     await page.getByRole('button', { name: /continue/i }).click();
@@ -58,7 +58,7 @@ test.describe('Service Back Link', () => {
   for (const { label, nextUrl } of contactChildArrangementOption) {
   test(`should navigate back from varying pages to contact child arrangements, based on "${label}" used`, async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
 
     await page.getByLabel(label).check();
@@ -76,7 +76,7 @@ test.describe('Service Back Link', () => {
   for (const { label, nextUrl } of agreeOnChildArrangementOption) {
   test(`should navigate back from varying pages to agree om child arrangements, based on "${label}" used`, async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'Yes')
 
@@ -95,7 +95,7 @@ test.describe('Service Back Link', () => {
   for (const { label, nextUrl } of helpToAgreeOnChildArrangementOption) {
   test(`should navigate back from varying pages to help to agree on child arrangements, based on "${label}" used`, async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'Yes')
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
@@ -115,7 +115,7 @@ test.describe('Service Back Link', () => {
   for (const { label, nextUrl } of otherOptions) {
   test(`should navigate back from varying pages to help to other options, based on "${label}" used`, async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'Yes')
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
@@ -137,7 +137,7 @@ test.describe('Service Back Link', () => {
 test.describe('Browser Navigation - Multiple Forward and Backward Navigation', () => {
   test(`should navigate back form the furthest page: mediation, to the domestic abuse page and then forward, with data persisting`, async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'Yes');
     await page.getByRole('button', { name: /continue/i }).click();
     await selectContactChildArrangementsOption(page, 'Yes')
@@ -158,7 +158,7 @@ test.describe('Browser Navigation - Multiple Forward and Backward Navigation', (
 test.describe('Browser Navigation - Error Messages', () => {
   test('should handle validation error page navigation using browser back button', async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
 
     // Submit without filling to trigger error

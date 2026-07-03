@@ -48,7 +48,7 @@
         text: __("pages.courtOrder.content.thingsToConsider.costInset") | safe
       }) }}
 
-      {% if domesticAbuse == "yes" or childSafety == "no" %}
+      {% if domesticAbuse == "yes" or domesticAbuse == "notSure" or childSafety == "yes" or childSafety == "notSure" %}
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">

@@ -31,8 +31,7 @@ describe('Child Safety Help Page', () => {
       const dom = new JSDOM(response.text);
       const warningText = dom.window.document.querySelector('.govuk-warning-text__text');
 
-      expect(warningText?.textContent).toContain('Contact the police');
-      expect(warningText?.textContent).toContain('immediate danger');
+      expect(warningText?.textContent).toContain('If a child is in immediate danger, call 999 and ask for the police.');
     });
 
     it('should display introductory text about help and support', async () => {
@@ -44,7 +43,6 @@ describe('Child Safety Help Page', () => {
     it('should display section about continue using this service', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      expect(response.text).toContain('If you want to continue using this service');
       expect(response.text).toContain(
         'If you feel confident that you can carry on without any danger to yourself or the children, you can continue using the service.'
       );
@@ -61,56 +59,50 @@ describe('Child Safety Help Page', () => {
       expect(continueButton?.textContent).toContain('Continue');
     });
 
-    it('should display section about immediate risk to children', async () => {
+    it('should display section about get help protecting your children', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      expect(response.text).toContain('If you believe your child could be taken out of the UK without your permission');
+      expect(response.text).toContain('It is important to remember that there is help and support available to you if your children are unsafe.');
+      expect(response.text).toContain('If you have experienced any kind of domestic abuse');
+      expect(response.text).toContain('You can find out');
     });
 
-    it('should display section about domestic abuse', async () => {
+    it('should display help and support section title and description', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      expect(response.text).toContain('If you or your children have experienced domestic abuse');
-      expect(response.text).toContain('apply for a court order to protect yourself and your child');
+      expect(response.text).toContain('Help and support');
+      expect(response.text).toContain('There is free, confidential support available to help you and your family.');
     });
 
-    it('should display National Domestic Abuse Helpline in table', async () => {
+    it('should display support table headings and data entries', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
-      expect(response.text).toContain("Refuge National Domestic Abuse Helpline");
+      expect(response.text).toContain('Refuge National Domestic Abuse Helpline');
       expect(response.text).toContain('0808 2000 247');
-    });
-
-    it('should display Rights of Women helpline in table', async () => {
-      const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
-
       expect(response.text).toContain('Rights of Women');
       expect(response.text).toContain('020 7251 6577');
-    });
-
-    it('should display Reunite International Child Abduction Centre in table', async () => {
-      const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
-
       expect(response.text).toContain('Reunite International Child Abduction Centre');
       expect(response.text).toContain('0116 2556 234');
     });
 
-    it('should have horizontal rule separator after continue button', async () => {
+    it('should display continue button with primary style', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
-
       const dom = new JSDOM(response.text);
-      const hr = dom.window.document.querySelector('hr.govuk-section-break--visible');
+      const continueButton = dom.window.document.querySelector('a.govuk-button');
 
-      expect(hr).not.toBeNull();
+      expect(continueButton).not.toBeNull();
+      expect(continueButton?.classList.contains('govuk-button--primary')).toBe(true);
+      expect(continueButton?.getAttribute('href')).toBe(paths.DOMESTIC_ABUSE);
     });
 
-    it('should display back link', async () => {
+    it('should display back link to child safety page', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
       const dom = new JSDOM(response.text);
       const backLink = dom.window.document.querySelector('.govuk-back-link');
 
       expect(backLink).not.toBeNull();
+      expect(backLink?.getAttribute('href')).toBe(paths.CHILD_SAFETY);
     });
   });
 });

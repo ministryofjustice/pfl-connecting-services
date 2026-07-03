@@ -9,7 +9,7 @@ import {
 
 test.beforeEach(async ({ page }) => {
   await startJourney(page);
-  await selectChildSafetyOption(page, 'Yes');
+  await selectChildSafetyOption(page, 'No');
   await selectDomesticAbuseOption(page, 'No');
   await selectContactChildArrangementsOption(page, 'No, I am not comfortable contacting them');
 });

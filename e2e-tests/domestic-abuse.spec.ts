@@ -5,7 +5,7 @@ import { startJourney, selectChildSafetyOption } from './fixtures/test-helpers';
 test.describe('Domestic Abuse Page', () => {
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
   });
 
   test('should display the page with correct url and title', async ({ page }) => {
@@ -31,21 +31,27 @@ test.describe('Domestic Abuse Page', () => {
   });
 
   test('should continue to getting help when yes is selected', async ({ page }) => {
-    await page.getByLabel('Yes').check();
+    await page.getByRole('radio', { name: 'Yes', exact: true }).check();
     await page.getByRole('button', { name: /continue/i }).click();
     await expect(page).toHaveURL(/getting-help/);
   });
 
   test('should continue to contact child arrangements when no is selected', async ({ page }) => {
-    await page.getByLabel('No').check();
+    await page.getByRole('radio', { name: 'No', exact: true }).check();
     await page.getByRole('button', { name: /continue/i }).click();
     await expect(page).toHaveURL(/contact-child-arrangements/);
+  });
+
+  test('should continue to getting help when I\'m not sure is selected', async ({ page }) => {
+    await page.getByRole('radio', { name: 'I\'m not sure', exact: true }).check();
+    await page.getByRole('button', { name: /continue/i }).click();
+    await expect(page).toHaveURL(/getting-help/);
   });
 
   test('should show a validation error when no option is selected', async ({ page }) => {
     await page.getByRole('button', { name: /continue/i }).click();
     await expect(page.locator('.govuk-error-summary')).toContainText(
-      'Select whether you or your children have experienced abuse from your ex-partner',
+      'Select whether you have experienced abuse from your ex-partner',
     );
   });
 });

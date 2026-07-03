@@ -3,7 +3,7 @@ import request from 'supertest';
 
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
-import { flashMock } from '../test-utils/testMocks';
+import { flashMock, flashMockErrors } from '../test-utils/testMocks';
 
 const app = testAppSetup();
 
@@ -24,7 +24,10 @@ describe('Domestic Abuse Question', () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
 
       expect(response.text).toContain(
-        'There may have been domestic abuse in the relationship if you have experienced any of the following:',
+        'We ask this so we can give you the right information and resources for your situation. Your answer will not be saved or shared with anyone'
+      );
+      expect(response.text).toContain(
+        'There may have been domestic abuse in the relationship if you have experienced any of the following:'
       );
     });
 
@@ -37,39 +40,66 @@ describe('Domestic Abuse Question', () => {
       expect(response.text).toContain('Harassment and stalking');
     });
 
-    it('should display right information text', async () => {
+    it('should display title for radio options', async () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
 
       expect(response.text).toContain(
-        'We ask this so we can give you the right information and resources for your situation.',
+        'Select whether you have experienced abuse from your ex-partner',
       );
     });
 
-    it('should display Answer Yes guidance text', async () => {
-      const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
-
-      expect(response.text).toContain(
-        'Answer &#39;Yes&#39; if you have experienced any of the above, whether or not you have reported your experience to the police.',
-      );
-    });
-
-    it('should display two radio options: Yes and No', async () => {
+    it('should display three radio options: Yes, No and I\'m not sure', async () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
 
       const dom = new JSDOM(response.text);
 
       const radioButtons = dom.window.document.querySelectorAll('input[type="radio"][name="domesticAbuse"]');
-      expect(radioButtons).toHaveLength(2);
+      expect(radioButtons).toHaveLength(3);
 
       const radioValues = Array.from(radioButtons).map((radio) => (radio as HTMLInputElement).value);
       expect(radioValues).toContain('yes');
       expect(radioValues).toContain('no');
+      expect(radioValues).toContain('notSure');
+    });
+
+    it('should display Continue button', async () => {
+      const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
+      const dom = new JSDOM(response.text);
+
+      const continueButton = dom.window.document.querySelector('button.govuk-button, input.govuk-button, a.govuk-button');
+      expect(continueButton).not.toBeNull();
+      expect(continueButton?.textContent).toContain('Continue');
+    });
+
+    it('should display back link to child safety page', async () => {
+      const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
+      const dom = new JSDOM(response.text);
+
+      const backLink = dom.window.document.querySelector('.govuk-back-link');
+      expect(backLink).not.toBeNull();
+      expect(backLink?.getAttribute('href')).toBe(paths.CHILD_SAFETY);
     });
 
     it('should display Exit This Page button', async () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
 
       expect(response.text).toContain('Exit this page');
+    });
+
+    it('should display error summary with correct anchor when validation fails', async () => {
+      flashMockErrors.push({
+        location: 'body',
+        msg: 'Select whether you have experienced abuse from your ex-partner',
+        path: 'domesticAbuse',
+        type: 'field',
+      });
+
+      const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
+      const dom = new JSDOM(response.text);
+
+      const errorLink = dom.window.document.querySelector('.govuk-error-summary__list a') as HTMLAnchorElement;
+      expect(errorLink).not.toBeNull();
+      expect(errorLink?.getAttribute('href')).toBe('#domesticAbuse');
     });
   });
 
@@ -80,7 +110,7 @@ describe('Domestic Abuse Question', () => {
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
           location: 'body',
-          msg: 'Select whether you or your children have experienced abuse from your ex-partner',
+          msg: 'Select whether you have experienced abuse from your ex-partner',
           path: 'domesticAbuse',
           type: 'field',
         },
@@ -101,6 +131,14 @@ describe('Domestic Abuse Question', () => {
         .send({ domesticAbuse: 'no' })
         .expect(302)
         .expect('location', paths.CONTACT_CHILD_ARRANGEMENTS);
+    });
+
+    it('should redirect to safeguarding page when answer is I\'m not sure', () => {
+      return request(app)
+        .post(paths.DOMESTIC_ABUSE)
+        .send({ domesticAbuse: 'not_sure' })
+        .expect(302)
+        .expect('location', paths.SAFEGUARDING);
     });
 
     it('should store answer in session', async () => {

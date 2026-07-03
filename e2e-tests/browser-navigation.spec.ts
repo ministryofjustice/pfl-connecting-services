@@ -29,10 +29,10 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
 
   test('should navigate back from domestic abuse page to child safety page, with data persisting', async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
 
     await verifyBackNavigation(page, /child-safety/, async () => {
-      await expect(page.getByLabel(/yes/i)).toBeChecked();
+      await expect(page.getByRole('radio', { name: 'No', exact: true })).toBeChecked();
     });
 
     await page.getByRole('button', { name: /continue/i }).click();
@@ -41,7 +41,7 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
 
   test('should navigate back from getting help page to domestic abuse page, with data persisting', async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'Yes');
     await expect(page).toHaveURL(/getting-help/);
 
@@ -58,12 +58,12 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
     page,
   }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
     await expect(page).toHaveURL(/contact-child-arrangements/);
 
     await verifyBackNavigation(page, /domestic-abuse/, async () => {
-      await expect(page.getByLabel(/no/i)).toBeChecked();
+      await expect(page.getByRole('radio', { name: 'No', exact: true })).toBeChecked();
     });
 
     await page.getByRole('button', { name: /continue/i }).click();
@@ -74,7 +74,7 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
     page,
   }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'Yes');
     await page.getByRole('button', { name: /continue/i }).click();
     await expect(page).toHaveURL(/contact-child-arrangements/);
@@ -92,7 +92,7 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
       page,
     }) => {
       await startJourney(page);
-      await selectChildSafetyOption(page, 'Yes');
+      await selectChildSafetyOption(page, 'No');
       await selectDomesticAbuseOption(page, 'No');
 
       await page.getByLabel(label).check();
@@ -113,7 +113,7 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
       page,
     }) => {
       await startJourney(page);
-      await selectChildSafetyOption(page, 'Yes');
+      await selectChildSafetyOption(page, 'No');
       await selectDomesticAbuseOption(page, 'No');
       await selectContactChildArrangementsOption(page, 'Yes');
 
@@ -135,7 +135,7 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
       page,
     }) => {
       await startJourney(page);
-      await selectChildSafetyOption(page, 'Yes');
+      await selectChildSafetyOption(page, 'No');
       await selectDomesticAbuseOption(page, 'No');
       await selectContactChildArrangementsOption(page, 'Yes');
       await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
@@ -158,7 +158,7 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
       page,
     }) => {
       await startJourney(page);
-      await selectChildSafetyOption(page, 'Yes');
+      await selectChildSafetyOption(page, 'No');
       await selectDomesticAbuseOption(page, 'No');
       await selectContactChildArrangementsOption(page, 'Yes');
       await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
@@ -183,7 +183,7 @@ test.describe('Browser Navigation - Multiple Forward and Backward Navigation', (
     page,
   }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'Yes');
     await page.getByRole('button', { name: /continue/i }).click();
     await selectContactChildArrangementsOption(page, 'Yes');
@@ -234,7 +234,7 @@ test.describe('Browser Navigation - Multiple Forward and Backward Navigation', (
 test.describe('Browser Navigation - Error Messages', () => {
   test('should handle validation error page navigation using browser back button', async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'Yes');
+    await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
 
     // Submit without filling to trigger error

@@ -32,15 +32,16 @@ for (const device of mobileDevices) {
 
       // child-safety
       await assertNoHorizontalScroll(page, /child-safety/);
-      await page.getByLabel(/no/i).check();
+      await page.getByRole('radio', { name: 'Yes', exact: true }).check();
       await page.getByRole('button', { name: /continue/i }).tap();
 
       // child-safety-help
       await assertNoHorizontalScroll(page, /child-safety-help/);
-      await page.getByRole('button', { name: /continue/i }).tap();
-      
-      // domestic abuse
-      await page.getByLabel(/yes/i).check();
+      await page.locator('a.govuk-button', { hasText: 'Continue' }).tap();
+
+      // domestic-abuse
+      await assertNoHorizontalScroll(page, /domestic-abuse/);
+      await page.getByRole('radio', { name: 'Yes', exact: true }).check();
       await page.getByRole('button', { name: /continue/i }).tap();
 
       // getting-help

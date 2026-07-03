@@ -7,13 +7,30 @@ export async function startJourney(page: Page) {
   await page.waitForURL(/child-safety/);
 }
 
-export async function selectChildSafetyOption(page: Page, choiceLabel: 'Yes' | 'No') {
-  await page.getByLabel(choiceLabel).check();
+export async function selectChildSafetyOption(page: Page, choiceLabel: 'Yes' | 'No' | 'I\'m not sure') {
+  await page.getByRole('radio', { name: choiceLabel, exact: true }).check();
   await page.getByRole('button', { name: /continue/i }).click();
 }
 
-export async function selectDomesticAbuseOption(page: Page, choiceLabel: 'Yes' | 'No') {
-  await page.getByLabel(choiceLabel).check();
+export async function continueFromChildSafetyHelp(page: Page) {
+  await page.locator('a.govuk-button', { hasText: 'Continue' }).click();
+}
+
+export async function reachDomesticAbusePage(
+  page: Page,
+  childSafetyChoice: 'Yes' | 'No' | 'I\'m not sure' = 'No',
+) {
+  if (childSafetyChoice === 'No') {
+    await selectChildSafetyOption(page, 'No');
+    return;
+  }
+
+  await selectChildSafetyOption(page, childSafetyChoice);
+  await continueFromChildSafetyHelp(page);
+}
+
+export async function selectDomesticAbuseOption(page: Page, choiceLabel: 'Yes' | 'No' | 'I\'m not sure') {
+  await page.getByRole('radio', { name: choiceLabel, exact: true }).check();
   await page.getByRole('button', { name: /continue/i }).click();
 }
 
@@ -25,7 +42,7 @@ export async function selectContactChildArrangementsOption(
     | 'I do not have their contact details'
     | 'I can contact them but they do not respond',
 ) {
-  await page.getByLabel(choiceLabel).check();
+  await page.getByRole('radio', { name: choiceLabel, exact: true }).check();
   await page.getByRole('button', { name: /continue/i }).click();
 }
 
@@ -33,7 +50,7 @@ export async function selectAgreeOnChildArrangementsOption(
   page: Page,
   choiceLabel: 'Yes, we agree on some or most things' | 'No, we do not agree' | 'We have not discussed it yet',
 ) {
-  await page.getByLabel(choiceLabel).check();
+  await page.getByRole('radio', { name: choiceLabel, exact: true }).check();
   await page.getByRole('button', { name: /continue/i }).click();
 }
 
@@ -44,7 +61,7 @@ export async function selectHelpToAgreeOnChildArrangementsOption(
     | 'Someone else to guide our conversations'
     | 'We cannot agree – someone else needs to make a decision for us',
 ) {
-  await page.getByLabel(choiceLabel).check();
+  await page.getByRole('radio', { name: choiceLabel, exact: true }).check();
   await page.getByRole('button', { name: /continue/i }).click();
 }
 
@@ -52,6 +69,6 @@ export async function selectOtherOptions(
   page: Page,
   choiceLabel: 'Yes, we have tried mediation or a similar method' | 'No, we have not tried yet',
 ) {
-  await page.getByLabel(choiceLabel).check();
+  await page.getByRole('radio', { name: choiceLabel, exact: true }).check();
   await page.getByRole('button', { name: /continue/i }).click();
 }

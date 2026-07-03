@@ -13,8 +13,7 @@ test.describe('Child Safety Help Page', () => {
   test('should display warning about contacting police', async ({ page }) => {
     const warningText = page.locator('.govuk-warning-text');
     await expect(warningText).toBeVisible();
-    await expect(warningText).toContainText('Contact the police');
-    await expect(warningText).toContainText('immediate danger');
+    await expect(warningText).toContainText('If a child is in immediate danger, call 999 and ask for the police.');
   });
 
   test('should display introductory text', async ({ page }) => {
@@ -27,22 +26,8 @@ test.describe('Child Safety Help Page', () => {
     await expect(continueButton).toHaveAttribute('href', '/domestic-abuse');
   });
 
-  test('should display "If you want to continue using this service" section', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'If you want to continue using this service' })).toBeVisible();
-  });
-
   test('should display "Get help protecting your children" section', async ({ page }) => {
     await expect(page.getByRole('heading', { name: 'Get help protecting your children' })).toBeVisible();
-  });
-
-  test('should display "If you believe your child could be taken out of the UK without your permission" subsection', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'If you believe your child could be taken out of the UK without your permission' })).toBeVisible();
-    await expect(page.locator('body')).toContainText('what to do if you believe a child could be taken or has been taken abroad without your permission');
-  });
-
-  test('should display "If you or your children have experienced domestic abuse" subsection', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'If you or your children have experienced domestic abuse' })).toBeVisible();
-    await expect(page.locator('body')).toContainText('apply for a court order to protect yourself');
   });
 
   test('should display "Help and support" section', async ({ page }) => {

@@ -12,11 +12,13 @@ const router = Router();
  * Child Safety Question
  *
  * Routing logic:
- *   - YES (children are safe) → Domestic abuse page (/domestic-abuse)
- *   - NO (children are not safe) → Child safety help page (/child-safety-help)
+ *   - YES (children have been at risk) → Child safety help page (/child-safety-help)
+ *   - NO (children have not been at risk) → Domestic abuse page (/domestic-abuse)
+ *   - NOT SURE (children's safety status is unclear) → Child safety help page (/child-safety-help)
  */
 router.get(paths.CHILD_SAFETY, (req: Request, res: Response) => {
   // Child Safety is the first page, so we can reset the session to clear any previous progress
+  req.session.childSafety = undefined;
   req.session.domesticAbuse = undefined;
   req.session.contactChildArrangements = undefined;
   req.session.agreement = undefined;
@@ -51,7 +53,7 @@ router.post(
     req.session.childSafety = req.body.childSafety;
     addCompletedStep(req, FormSteps.CHILD_SAFETY);
 
-    if (req.body.childSafety === 'yes') {
+    if (req.body.childSafety === 'no') {
       return res.redirect(paths.DOMESTIC_ABUSE);
     }
     return res.redirect(paths.CHILD_SAFETY_HELP);

@@ -27,7 +27,7 @@ test.describe('Exit the page from child safety page', () => {
 test.describe('Exit the page from children not safe page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from.', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'No')
+    await selectChildSafetyOption(page, 'Yes')
     await expect(page).toHaveURL(/child-safety-help/i);
 
     await clickExitButton(page);
@@ -38,7 +38,7 @@ test.describe('Exit the page from children not safe page', () => {
 test.describe('Exit the page from the domestic abuse page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from.', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await expect(page).toHaveURL(/domestic-abuse/i);
 
     await clickExitButton(page);
@@ -49,7 +49,7 @@ test.describe('Exit the page from the domestic abuse page', () => {
 test.describe('Exit the page from getting help page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from..', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'Yes')
     await expect(page).toHaveURL(/getting-help/i);
 
@@ -61,7 +61,7 @@ test.describe('Exit the page from getting help page', () => {
 test.describe('Exit the page from contact child arrangements page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from..', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No')
     await expect(page).toHaveURL(/contact-child-arrangements/i);
 
@@ -73,7 +73,7 @@ test.describe('Exit the page from contact child arrangements page', () => {
 test.describe('Exit the page from the options no contact page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from..', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No')
     await selectContactChildArrangementsOption(page, 'I can contact them but they do not respond')
     await expect(page).toHaveURL(/court-order/i);
@@ -86,7 +86,7 @@ test.describe('Exit the page from the options no contact page', () => {
 test.describe('Exit the page from explore a court order page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from..', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No')
     await selectContactChildArrangementsOption(page, 'I do not have their contact details')
     await expect(page).toHaveURL(/court-order/i);
@@ -99,7 +99,7 @@ test.describe('Exit the page from explore a court order page', () => {
 test.describe('Exit the page from the agree on child arrangements page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from..', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No')
     await selectContactChildArrangementsOption(page, 'Yes')
     await expect(page).toHaveURL(/agree/i);
@@ -112,7 +112,7 @@ test.describe('Exit the page from the agree on child arrangements page', () => {
 test.describe('Exit the page from explore making a parenting plan page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from..', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No')
     await selectContactChildArrangementsOption(page, 'Yes')
     await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
@@ -126,7 +126,7 @@ test.describe('Exit the page from explore making a parenting plan page', () => {
 test.describe('Exit the page from the help to agree on child arrangements page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from..', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No')
     await selectContactChildArrangementsOption(page, 'Yes')
     await selectAgreeOnChildArrangementsOption(page, 'We have not discussed it yet')
@@ -140,7 +140,7 @@ test.describe('Exit the page from the help to agree on child arrangements page',
 test.describe('Exit the page from the other options page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from..', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No')
     await selectContactChildArrangementsOption(page, 'Yes')
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
@@ -155,7 +155,7 @@ test.describe('Exit the page from the other options page', () => {
 test.describe('Exit the page from explore mediation page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from..', async ({ page }) => {
     await startJourney(page)
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No')
     await selectContactChildArrangementsOption(page, 'Yes')
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
