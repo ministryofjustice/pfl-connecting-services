@@ -27,7 +27,7 @@
   "pages": {
     "domesticAbuse": {
       "title": "Have you experienced abuse from your ex-partner?",
-      "rightInformation": "We ask this so we can give you the right information and resources for your situation. Your answer will not be saved or shared with anyone",
+      "rightInformation": "We ask this so we can give you the right information and resources for your situation. Your answer will not be saved or shared with anyone.",
       "intro": "There may have been domestic abuse in the relationship if you have experienced any of the following:",
       "bullets": {
         "violence": "Abuse or violence, including physical, emotional and sexual",
@@ -41,7 +41,7 @@
     },
     "childSafety": {
       "title": "Have the children ever been at risk?",
-      "rightInformation": "We ask this so we can give you the right information and resources for your situation. Your answer will not be saved or shared with anyone",
+      "rightInformation": "We ask this so we can give you the right information and resources for your situation. Your answer will not be saved or shared with anyone.",
       "intro": "Children may be at risk if there has been:",
       "bullets": {
         "domesticAbuse": "any form of domestic abuse or violence, even if the abuse was not directed at the children",
