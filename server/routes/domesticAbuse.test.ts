@@ -24,7 +24,7 @@ describe('Domestic Abuse Question', () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
 
       expect(response.text).toContain(
-        'We ask this so we can give you the right information and resources for your situation. Your answer will not be saved or shared with anyone'
+        'We ask this so we can give you the right information and resources for your situation. Your answer will not be saved or shared with anyone.'
       );
       expect(response.text).toContain(
         'There may have been domestic abuse in the relationship if you have experienced any of the following:'
