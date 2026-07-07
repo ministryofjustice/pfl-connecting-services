@@ -72,6 +72,13 @@ describe('Domestic Abuse Question', () => {
     });
 
     it('should display back link to child safety page', async () => {
+      const childSafetyResponse = await request(app).get(paths.CHILD_SAFETY).expect(200);
+      const childSafetyDom = new JSDOM(childSafetyResponse.text);
+
+      childSafetyDom.window.document.querySelector('input[type="radio"][name="childSafety"][value="no"]').setAttribute('checked', 'true');
+      const continueButton = childSafetyDom.window.document.querySelector('button.govuk-button, input.govuk-button, a.govuk-button');
+      continueButton?.dispatchEvent(new childSafetyDom.window.Event('click'));
+
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
       const dom = new JSDOM(response.text);
 

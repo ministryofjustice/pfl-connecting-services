@@ -1,8 +1,12 @@
 import { test, expect } from '@playwright/test';
 
+import { selectChildSafetyOption, startJourney } from './fixtures/test-helpers';
+
 test.describe('Child Safety Help Page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/child-safety-help');
+    await startJourney(page);
+    await selectChildSafetyOption(page, 'Yes');
+    await expect(page).toHaveURL(/child-safety-help/);
   });
 
   test('should display the page with correct url and title', async ({ page }) => {
