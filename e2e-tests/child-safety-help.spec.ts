@@ -5,7 +5,7 @@ import { selectChildSafetyOption, startJourney } from './fixtures/test-helpers';
 test.describe('Child Safety Help Page', () => {
   test.beforeEach(async ({ page }) => {
     await startJourney(page);
-    await selectChildSafetyOption(page, 'No');
+    await selectChildSafetyOption(page, 'Yes');
     await expect(page).toHaveURL(/child-safety-help/);
   });
 

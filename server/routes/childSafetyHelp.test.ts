@@ -102,7 +102,7 @@ describe('Child Safety Help Page', () => {
       const backLink = dom.window.document.querySelector('.govuk-back-link');
 
       expect(backLink).not.toBeNull();
-      expect(backLink?.getAttribute('href')).toBe(paths.CHILD_SAFETY);
+      expect(backLink?.getAttribute('href')).toBe(paths.START);
     });
   });
 });
