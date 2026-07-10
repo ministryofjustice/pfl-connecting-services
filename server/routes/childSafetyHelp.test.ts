@@ -63,7 +63,7 @@ describe('Child Safety Help Page', () => {
       const response = await request(app).get(paths.CHILD_SAFETY_HELP).expect(200);
 
       expect(response.text).toContain('It is important to remember that there is help and support available to you if your children are unsafe.');
-      expect(response.text).toContain('If you have experienced any kind of domestic abuse');
+      expect(response.text).toContain('If you or your child(ren) have experienced any kind of domestic abuse, you can apply to');
       expect(response.text).toContain('You can find out');
     });
 
