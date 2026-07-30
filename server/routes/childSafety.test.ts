@@ -19,6 +19,15 @@ describe('Child Safety Question', () => {
       expect(dom.window.document.querySelector('h2.govuk-error-summary__title')).toBeNull();
     });
 
+    it('should display intro text about child safety risk', async () => {
+      const response = await request(app).get(paths.CHILD_SAFETY).expect(200);
+
+      expect(response.text).toContain(
+        'We ask this so we can give you the right information and resources for your situation. Your answer will not be saved or shared with anyone.',
+      );
+      expect(response.text).toContain('Children may be at risk if there has been:');
+    });
+
     it('should display risk factors as bullet list', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY).expect(200);
 
@@ -31,9 +40,12 @@ describe('Child Safety Question', () => {
       expect(response.text).toContain(
         'any other safety or welfare concerns that place anyone at significant risk of harm',
       );
-      expect(response.text).toContain(
-        'We ask this so we can give you the right information and resources for your situation.'
-      );
+    });
+
+    it('should display title for radio options', async () => {
+      const response = await request(app).get(paths.CHILD_SAFETY).expect(200);
+
+      expect(response.text).toContain('Select whether the children have ever been at risk');
     });
 
     it('should display three radio options: Yes, No and I\'m not sure', async () => {
@@ -50,12 +62,13 @@ describe('Child Safety Question', () => {
       expect(radioValues).toContain('notSure');
     });
 
-    it('should display form heading and additional explanation', async () => {
+    it('should display Continue button', async () => {
       const response = await request(app).get(paths.CHILD_SAFETY).expect(200);
+      const dom = new JSDOM(response.text);
 
-      expect(response.text).toContain('Have the children ever been at risk?');
-      expect(response.text).toContain('We ask this so we can give you the right information and resources for your situation.');
-      expect(response.text).toContain('actual or attempted child abduction');
+      const continueButton = dom.window.document.querySelector('button.govuk-button, input.govuk-button, a.govuk-button');
+      expect(continueButton).not.toBeNull();
+      expect(continueButton?.textContent).toContain('Continue');
     });
 
     it('should display error summary with correct anchor when validation fails', async () => {
@@ -89,6 +102,16 @@ describe('Child Safety Question', () => {
       expect(backLink).not.toBeNull();
       expect(backLink?.getAttribute('href')).toBe(config.serviceUrl);
     });
+
+    it('should have correct page title', async () => {
+      const response = await request(app).get(paths.CHILD_SAFETY).expect(200);
+      const dom = new JSDOM(response.text);
+      const title = dom.window.document.querySelector('title');
+
+      expect(title).toHaveTextContent('Are the children safe?');
+      expect(title).toHaveTextContent('Get help finding a child arrangement option');
+      expect(title).toHaveTextContent('GOV.UK');
+    });
   });
 
   describe(`POST ${paths.CHILD_SAFETY}`, () => {
@@ -105,7 +128,7 @@ describe('Child Safety Question', () => {
       ]);
     });
 
-    it('should redirect to domestic abuse page when answer is yes (children not safe)', () => {
+    it('should redirect to child safety help page when answer is yes (children not safe)', () => {
       return request(app)
         .post(paths.CHILD_SAFETY)
         .send({ childSafety: 'yes' })
@@ -113,7 +136,7 @@ describe('Child Safety Question', () => {
         .expect('location', paths.CHILD_SAFETY_HELP);
     });
 
-    it('should redirect to child safety help page when answer is no (children are safe)', () => {
+    it('should redirect to domestic abuse page when answer is no (children are safe)', () => {
       return request(app)
         .post(paths.CHILD_SAFETY)
         .send({ childSafety: 'no' })

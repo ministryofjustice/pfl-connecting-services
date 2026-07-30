@@ -9,7 +9,15 @@ test.beforeEach(async ({ page }) => {
 test.describe('Child Safety Page', () => {
   test('should display the page with correct url and title', async ({ page }) => {
     await expect(page).toHaveURL(/child-safety/);
+    await expect(page).toHaveTitle('Are the children safe? – Get help finding a child arrangement option – GOV.UK');
     await expect(page.locator('h1')).toContainText('Have the children ever been at risk?');
+  });
+
+  test('should display intro text about child safety risk', async ({ page }) => {
+    await expect(page.locator('body')).toContainText(
+      'We ask this so we can give you the right information and resources for your situation. Your answer will not be saved or shared with anyone.',
+    );
+    await expect(page.locator('body')).toContainText('Children may be at risk if there has been:');
   });
 
   test('should display risk factors as bullet list', async ({ page }) => {
@@ -22,9 +30,14 @@ test.describe('Child Safety Page', () => {
     await expect(page.locator('body')).toContainText(
       'any other safety or welfare concerns that place anyone at significant risk of harm',
     );
-    await expect(page.locator('body')).toContainText(
-      'We ask this so we can give you the right information and resources for your situation.'
-    );
+  });
+
+  test('should display title for radio options', async ({ page }) => {
+    await expect(page.locator('body')).toContainText('Select whether the children have ever been at risk');
+  });
+
+  test('should display Continue button', async ({ page }) => {
+    await expect(page.getByRole('button', { name: /continue/i })).toBeVisible();
   });
 
   test('should display Exit This Page button', async ({ page }) => {
