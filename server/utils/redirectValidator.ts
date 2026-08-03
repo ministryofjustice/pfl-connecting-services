@@ -1,10 +1,11 @@
 import paths from '../constants/paths';
+import { getAllAllowedPaths, getPathKey } from './localizedPaths';
 
 /**
  * Whitelist of allowed redirect paths for the application
  * This prevents open redirect vulnerabilities by ensuring only internal paths are used
  */
-const ALLOWED_REDIRECT_PATHS = new Set<string>(Object.values(paths));
+const ALLOWED_REDIRECT_PATHS = getAllAllowedPaths();
 
 /**
  * Validates that a redirect URL is safe and within the application's allowed paths
@@ -33,7 +34,7 @@ export const validateRedirectUrl = (url: string | undefined, fallbackUrl: string
   const pathOnly = trimmedUrl.split('?')[0].split('#')[0];
 
   // Check if the path is in the whitelist
-  if (!ALLOWED_REDIRECT_PATHS.has(pathOnly)) {
+  if (!ALLOWED_REDIRECT_PATHS.has(pathOnly) && !getPathKey(pathOnly)) {
     return fallbackUrl;
   }
 

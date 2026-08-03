@@ -11,6 +11,7 @@ import setUpCsrf from './middleware/setUpCsrf';
 import setupFlashMessages from './middleware/setupFlashMessages';
 import setUpHealthCheck from './middleware/setUpHealthCheck';
 import setupHistory from './middleware/setupHistory';
+import setLocalizedPaths from './middleware/setLocalizedPaths';
 import setUpi18n, { setUpLocaleFromSession } from './middleware/setUpi18n';
 import setupRateLimit from './middleware/setupRateLimit';
 import setUpWebRequestParsing from './middleware/setupRequestParsing';
@@ -42,6 +43,7 @@ const createApp = (): express.Application => {
   app.use(setUpWebSession());
   app.use(setupSessionTimeout());
   app.use(setUpLocaleFromSession());
+  app.use(setLocalizedPaths());
   app.use(setUpWebRequestParsing());
   app.use(setupPageVisitAnalytics());
   app.use(setupRequestLogging());

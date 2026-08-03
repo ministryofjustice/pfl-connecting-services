@@ -3,9 +3,10 @@ import { body, validationResult } from 'express-validator';
 
 import { AGREEMENT } from '../constants/formFields';
 import FormSteps from '../constants/formSteps';
-import paths from '../constants/paths';
 import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
 import addCompletedStep from '../utils/addCompletedStep';
+import { getLocalizedPath } from '../utils/localizedPaths';
+import { redirectToPath, registerLocalizedGet, registerLocalizedPost } from '../utils/registerLocalizedRoutes';
 
 const router = Router();
 
@@ -17,11 +18,11 @@ const router = Router();
  *   - No → Help to agree page (/help-to-agree)
  *   - Not discussed yet → Help to agree page (/help-to-agree)
  */
-router.get(paths.AGREEMENT, checkFormProgressFromConfig(FormSteps.AGREEMENT), (req: Request, res: Response) => {
+registerLocalizedGet(router, 'AGREEMENT', checkFormProgressFromConfig(FormSteps.AGREEMENT), (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/agreement', {
     title: res.__('pages.agreement.title'),
-    backLinkHref: paths.CONTACT_CHILD_ARRANGEMENTS,
+    backLinkHref: getLocalizedPath('CONTACT_CHILD_ARRANGEMENTS', res.getLocale()),
     errors,
     formValues: {
       agreement: req.session.agreement,
@@ -29,8 +30,9 @@ router.get(paths.AGREEMENT, checkFormProgressFromConfig(FormSteps.AGREEMENT), (r
   });
 });
 
-router.post(
-  paths.AGREEMENT,
+registerLocalizedPost(
+  router,
+  'AGREEMENT',
   body(AGREEMENT)
     .notEmpty()
     .withMessage((_value, { req }) => req.__('pages.agreement.error')),
@@ -38,17 +40,17 @@ router.post(
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       req.flash('errors', errors.array());
-      return res.redirect(paths.AGREEMENT);
+      return redirectToPath(res, 'AGREEMENT');
     }
 
     req.session.agreement = req.body.agreement;
     addCompletedStep(req, FormSteps.AGREEMENT);
 
     if (req.body.agreement === 'yes') {
-      return res.redirect(paths.PARENTING_PLAN);
+      return redirectToPath(res, 'PARENTING_PLAN');
     }
-    return res.redirect(paths.HELP_TO_AGREE);
-  }
+    return redirectToPath(res, 'HELP_TO_AGREE');
+  },
 );
 
 export default router;

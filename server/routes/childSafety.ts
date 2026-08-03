@@ -3,8 +3,8 @@ import { body, validationResult } from 'express-validator';
 
 import config from '../config';
 import FormSteps from '../constants/formSteps';
-import paths from '../constants/paths';
 import addCompletedStep from '../utils/addCompletedStep';
+import { redirectToPath, registerLocalizedGet, registerLocalizedPost } from '../utils/registerLocalizedRoutes';
 
 const router = Router();
 
@@ -16,7 +16,7 @@ const router = Router();
  *   - NO (children have not been at risk) → Domestic abuse page (/domestic-abuse)
  *   - NOT SURE (children's safety status is unclear) → Child safety help page (/child-safety-help)
  */
-router.get(paths.CHILD_SAFETY, (req: Request, res: Response) => {
+registerLocalizedGet(router, 'CHILD_SAFETY', (req: Request, res: Response) => {
   // Child Safety is the first page, so we can reset the session to clear any previous progress
   req.session.childSafety = undefined;
   req.session.domesticAbuse = undefined;
@@ -38,8 +38,9 @@ router.get(paths.CHILD_SAFETY, (req: Request, res: Response) => {
   });
 });
 
-router.post(
-  paths.CHILD_SAFETY,
+registerLocalizedPost(
+  router,
+  'CHILD_SAFETY',
   body('childSafety')
     .notEmpty()
     .withMessage((_value, { req }) => req.__('pages.childSafety.error')),
@@ -47,16 +48,16 @@ router.post(
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       req.flash('errors', errors.array());
-      return res.redirect(paths.CHILD_SAFETY);
+      return redirectToPath(res, 'CHILD_SAFETY');
     }
 
     req.session.childSafety = req.body.childSafety;
     addCompletedStep(req, FormSteps.CHILD_SAFETY);
 
     if (req.body.childSafety === 'no') {
-      return res.redirect(paths.DOMESTIC_ABUSE);
+      return redirectToPath(res, 'DOMESTIC_ABUSE');
     }
-    return res.redirect(paths.CHILD_SAFETY_HELP);
+    return redirectToPath(res, 'CHILD_SAFETY_HELP');
   },
 );
 

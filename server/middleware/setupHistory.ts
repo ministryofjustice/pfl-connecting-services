@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import paths from '../constants/paths';
+import { getPathKey } from '../utils/localizedPaths';
 
 const pathsNotForHistory = [
   // These pages should be skipped in the back button
@@ -18,16 +19,18 @@ const setupHistory = (): Router => {
   const router = Router();
 
   router.use((request, _response, next) => {
-    const requestUrl = request.originalUrl;
+    const requestPath = request.path;
+    const pathKey = getPathKey(requestPath);
+    const canonicalPath = pathKey ? paths[pathKey] : requestPath;
 
-    // @ts-expect-error this is not necessarily of type paths
-    if (pathsForHistory.includes(requestUrl)) {
+  // @ts-expect-error this is not necessarily of type paths
+    if (pathsForHistory.includes(canonicalPath)) {
       request.session.pageHistory = request.session.pageHistory || [];
       // Going back in the history
-      if (request.session.pageHistory[request.session.pageHistory.length - 2] === requestUrl) {
+      if (request.session.pageHistory[request.session.pageHistory.length - 2] === requestPath) {
         request.session.pageHistory.pop();
-      } else if (request.session.pageHistory[request.session.pageHistory.length - 1] !== requestUrl) {
-        request.session.pageHistory.push(requestUrl);
+      } else if (request.session.pageHistory[request.session.pageHistory.length - 1] !== requestPath) {
+        request.session.pageHistory.push(requestPath);
       }
       if (request.session.pageHistory.length >= 20) {
         request.session.pageHistory.shift();

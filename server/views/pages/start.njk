@@ -71,7 +71,7 @@
         govukButton({
           text: __("pages.start.startButtonText"),
           isStartButton: true,
-          href: paths.CHILD_SAFETY + "?lang=" + getLocale()
+          href: paths.CHILD_SAFETY
         })
       }}
 
@@ -84,11 +84,11 @@
       {% if includeWelshLanguage %}
         {% if getLocale() == 'cy' %}
           {{ govukInsetText({
-            html: 'Mae\'r gwasanaeth hwn hefyd ar gael yn <a href="?lang=en" class="govuk-link govuk-link--no-underline">Saesneg (English)</a>'
+            html: 'Mae\'r gwasanaeth hwn hefyd ar gael yn <a href="' + alternateLanguagePath() + '" class="govuk-link govuk-link--no-underline" lang="en">Saesneg (English)</a>'
           }) }}
         {% else %}
           {{ govukInsetText({
-            html: 'This service is also available in <a href="?lang=cy" class="govuk-link govuk-link--no-underline">Welsh (Cymraeg)</a>'
+            html: 'This service is also available in <a href="' + alternateLanguagePath() + '" class="govuk-link govuk-link--no-underline" lang="cy">Welsh (Cymraeg)</a>'
           }) }}
         {% endif %}
       {% endif %}

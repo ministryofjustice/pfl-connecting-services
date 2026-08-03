@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 
 import config from '../config';
 import paths from '../constants/paths';
+import { getCanonicalPath, getLocalizedPath, isKnownPath } from '../utils/localizedPaths';
 import UserEvents from '../constants/userEvents';
 import logger from '../logging/logger';
 import { generateHashedIdentifier } from '../utils/hashedIdentifier';
@@ -40,10 +41,10 @@ const logPageVisit = (req: Request, res: Response) => {
   // This rotates every 24 hours for GDPR compliance while allowing deduplication
   const hashedUserId = generateHashedIdentifier(req.ip, req.get('user-agent'));
 
-  if (path !== paths.PASSWORD && Object.values(paths).includes(path as paths)) {
+  if (path !== paths.PASSWORD && isKnownPath(path)) {
     const eventData = {
       hashed_user_id: hashedUserId,
-      path: path,
+      path: getCanonicalPath(path),
       method: method,
       status_code: statusCode,
     };

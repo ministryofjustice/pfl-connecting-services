@@ -8,6 +8,7 @@ import setupAnalytics from '../middleware/setupAnalytics';
 import setupAuthentication from '../middleware/setupAuthentication';
 import setUpHealthCheck from '../middleware/setUpHealthCheck';
 import setupHistory from '../middleware/setupHistory';
+import setLocalizedPaths from '../middleware/setLocalizedPaths';
 import setUpi18n, { setUpLocaleFromSession } from '../middleware/setUpi18n';
 import setUpWebRequestParsing from '../middleware/setupRequestParsing';
 import setupServiceNoLongerAvailable from '../middleware/setupServiceNoLongerAvailable';
@@ -40,6 +41,7 @@ const testAppSetup = (): Express => {
   });
   app.use(setupSessionTimeout());
   app.use(setUpLocaleFromSession());
+  app.use(setLocalizedPaths());
   app.use(setUpHealthCheck());
   app.use(setUpWebRequestParsing());
   app.use(setupAnalytics());

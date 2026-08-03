@@ -11,6 +11,7 @@ import {
   hasCompletedRequiredSteps,
   hasUserStartedJourney,
 } from '../utils/formProgressHelpers';
+import { getLocalizedPath, localizePath } from '../utils/localizedPaths';
 
 type SessionRequest = Request & { session?: Partial<CSSession> };
 
@@ -42,20 +43,21 @@ function checkFormProgressFromConfig(currentStepKey: FormSteps) {
     // Check if user has even started the journey
     if (!hasUserStartedJourney(completedSteps, pageHistory)) {
       logger.info('Access denied - user has not started journey. Redirecting to ' + startPage);
-      return res.redirect(startPage);
+      return res.redirect(getLocalizedPath('START', res.getLocale()));
     }
 
     // User has started journey but is missing prerequisites
     const missingSteps = requiredSteps.filter((step) => !completedSteps.includes(step));
     const redirectPath = getRedirectPath(missingSteps, startPage);
-    const hasVisitedRedirectPage = pageHistory.includes(redirectPath);
+    const localizedRedirectPath = localizePath(redirectPath, res.getLocale());
+    const hasVisitedRedirectPage = pageHistory.includes(localizedRedirectPath);
 
-    logger.info('Access denied - missing steps. Redirecting to ' + redirectPath);
+    logger.info('Access denied - missing steps. Redirecting to ' + localizedRedirectPath);
 
     const flashMessage = getFlashMessage(hasVisitedRedirectPage);
     req.flash('info', flashMessage);
 
-    return res.redirect(redirectPath);
+    return res.redirect(localizedRedirectPath);
   };
 }
 

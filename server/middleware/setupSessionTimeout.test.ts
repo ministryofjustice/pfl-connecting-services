@@ -11,6 +11,7 @@ describe('setupSessionTimeout', () => {
       locals: {},
       status: jest.fn().mockReturnThis(),
       render: jest.fn(),
+      getLocale: jest.fn().mockReturnValue('en'),
     } as unknown as Response;
 
     return response;

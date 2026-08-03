@@ -6,17 +6,18 @@ import cookieNames from '../constants/cookieNames';
 import { ACCEPT_OPTIONAL_COOKIES } from '../constants/formFields';
 import paths from '../constants/paths';
 import logger from '../logging/logger';
+import { redirectToPath, registerLocalizedGet, registerLocalizedPost } from '../utils/registerLocalizedRoutes';
 import { getBackUrl } from '../utils/sessionHelpers';
 
 const cookiesRoutes = (router: Router) => {
-  router.get(paths.COOKIES, (request, response) => {
+  registerLocalizedGet(router, 'COOKIES', (request, response) => {
     response.render('pages/cookies', {
       title: request.__('pages.cookies.title'),
       backLinkHref: getBackUrl(request.session, config.serviceUrl),
     });
   });
 
-  router.post(paths.COOKIES, (request, response) => {
+  registerLocalizedPost(router, 'COOKIES', (request, response) => {
     logger.info(`Accepted analytics. POST ${paths.COOKIES}`);
     const acceptAnalytics = request.body[ACCEPT_OPTIONAL_COOKIES] as yesOrNo;
 
@@ -38,7 +39,7 @@ const cookiesRoutes = (router: Router) => {
       });
     }
 
-    return response.redirect(paths.COOKIES);
+    return redirectToPath(response, 'COOKIES');
   });
 };
 

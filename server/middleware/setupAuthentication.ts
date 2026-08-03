@@ -5,7 +5,7 @@ import type { Request, Response, NextFunction } from 'express-serve-static-core'
 
 import config from '../config';
 import cookieNames from '../constants/cookieNames';
-import paths from '../constants/paths';
+import { getLocalizedPath } from '../utils/localizedPaths';
 import encryptPassword from '../utils/encryptPassword';
 
 const setupAuthentication = () => {
@@ -23,7 +23,7 @@ const setupAuthentication = () => {
 
 const sendUserToPasswordPage = (req: Request, res: Response) => {
   const passwordPageURL = url.format({
-    pathname: paths.PASSWORD,
+    pathname: getLocalizedPath('PASSWORD', res.getLocale()),
     query: { returnURL: req.originalUrl },
   });
   res.redirect(passwordPageURL);

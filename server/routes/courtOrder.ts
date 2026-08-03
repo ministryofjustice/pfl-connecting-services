@@ -1,12 +1,12 @@
 import { Request, Response, Router } from 'express';
 
 import config from '../config';
-import paths from '../constants/paths';
 import { getBackUrl } from '../utils/sessionHelpers';
+import { registerLocalizedGet } from '../utils/registerLocalizedRoutes';
 
 const router = Router();
 
-router.get(paths.COURT_ORDER, (req: Request, res: Response) => {
+registerLocalizedGet(router, 'COURT_ORDER', (req: Request, res: Response) => {
   res.render('pages/courtOrder', {
     title: res.__('pages.courtOrder.title'),
     backLinkHref: getBackUrl(req.session, config.serviceUrl),

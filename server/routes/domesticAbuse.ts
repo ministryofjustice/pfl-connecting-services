@@ -6,6 +6,8 @@ import FormSteps from '../constants/formSteps';
 import paths from '../constants/paths';
 import checkFormProgressFromConfig from '../middleware/checkFormProgressFromConfig';
 import addCompletedStep from '../utils/addCompletedStep';
+import { getLocalizedPath } from '../utils/localizedPaths';
+import { redirectToPath, registerLocalizedGet, registerLocalizedPost } from '../utils/registerLocalizedRoutes';
 import { getBackUrl } from '../utils/sessionHelpers';
 
 const router = Router();
@@ -17,14 +19,15 @@ const router = Router();
  *   - YES → Safeguarding page (/getting-help)
  *   - NO  → Contact child arrangements page (/contact-child-arrangements)
  */
-router.get(
-  paths.DOMESTIC_ABUSE,
+registerLocalizedGet(
+  router,
+  'DOMESTIC_ABUSE',
   checkFormProgressFromConfig(FormSteps.DOMESTIC_ABUSE),
   (req: Request, res: Response) => {
     const errors = req.flash('errors');
     res.render('pages/domesticAbuse', {
       title: res.__('pages.domesticAbuse.title'),
-      backLinkHref: getBackUrl(req.session, paths.CHILD_SAFETY),
+      backLinkHref: getBackUrl(req.session, getLocalizedPath('CHILD_SAFETY', res.getLocale())),
       errors,
       formValues: {
         domesticAbuse: req.session.domesticAbuse,
@@ -33,8 +36,9 @@ router.get(
   },
 );
 
-router.post(
-  paths.DOMESTIC_ABUSE,
+registerLocalizedPost(
+  router,
+  'DOMESTIC_ABUSE',
   body(DOMESTIC_ABUSE)
     .notEmpty()
     .withMessage((_value, { req }) => req.__('pages.domesticAbuse.error')),
@@ -42,16 +46,16 @@ router.post(
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       req.flash('errors', errors.array());
-      return res.redirect(paths.DOMESTIC_ABUSE);
+      return redirectToPath(res, 'DOMESTIC_ABUSE');
     }
 
     req.session.domesticAbuse = req.body.domesticAbuse;
     addCompletedStep(req, FormSteps.DOMESTIC_ABUSE);
 
     if (req.body.domesticAbuse === 'no') {
-      return res.redirect(paths.CONTACT_CHILD_ARRANGEMENTS);
+      return redirectToPath(res, 'CONTACT_CHILD_ARRANGEMENTS');
     }
-    return res.redirect(paths.SAFEGUARDING);
+    return redirectToPath(res, 'SAFEGUARDING');
   },
 );
 

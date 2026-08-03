@@ -1,13 +1,14 @@
 import { Request, Response, Router } from 'express';
 
-import paths from '../constants/paths';
+import { getLocalizedPath } from '../utils/localizedPaths';
+import { registerLocalizedGet } from '../utils/registerLocalizedRoutes';
 
 const router = Router();
 
-router.get(paths.SAFEGUARDING, (req: Request, res: Response) => {
+registerLocalizedGet(router, 'SAFEGUARDING', (req: Request, res: Response) => {
   res.render('pages/safeguarding', {
     title: res.__('pages.safeguarding.title'),
-    backLinkHref: paths.DOMESTIC_ABUSE,
+    backLinkHref: getLocalizedPath('DOMESTIC_ABUSE', res.getLocale()),
   });
 });
 

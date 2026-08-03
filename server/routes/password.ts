@@ -7,12 +7,15 @@ import { PASSWORD } from '../constants/formFields';
 import paths from '../constants/paths';
 import logger from '../logging/logger';
 import encryptPassword from '../utils/encryptPassword';
+import { getLocalizedPath } from '../utils/localizedPaths';
+import { registerLocalizedGet, registerLocalizedPost } from '../utils/registerLocalizedRoutes';
 import { validateRedirectUrl } from '../utils/redirectValidator';
 
 const passwordRoutes = (router: Router) => {
-  router.get(paths.PASSWORD, handleGetPassword);
-  router.post(
-    paths.PASSWORD,
+  registerLocalizedGet(router, 'PASSWORD', handleGetPassword);
+  registerLocalizedPost(
+    router,
+    'PASSWORD',
     body(PASSWORD)
       .custom((submittedPassword: string) => {
         return config.passwords.some((p) => submittedPassword === p);
@@ -41,7 +44,8 @@ const handlePostPassword = (request: Request, response: Response) => {
   }
 
   request.flash('errors', errors.array());
-  return response.redirect(`${paths.PASSWORD}?returnURL=${encodeURIComponent(processedRedirectUrl)}`);
+  const passwordPath = getLocalizedPath('PASSWORD', response.getLocale());
+  return response.redirect(`${passwordPath}?returnURL=${encodeURIComponent(processedRedirectUrl)}`);
 };
 
 const handleGetPassword = async (request: Request, response: Response) => {

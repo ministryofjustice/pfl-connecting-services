@@ -4,6 +4,8 @@ import { Router } from 'express';
 import i18n from 'i18n';
 
 import config from '../config';
+import paths from '../constants/paths';
+import { getLocaleFromPath } from '../utils/localizedPaths';
 
 const setUpi18n = (): Router => {
   const router = Router();
@@ -30,12 +32,20 @@ export const setUpLocaleFromSession = (): Router => {
   const router = Router();
 
   router.use((req, res, next) => {
+    const localeFromPath = getLocaleFromPath(req.path);
+    const isAmbiguousPath = req.path === paths.START;
     const lang = req.query.lang as string;
-    if (lang && i18n.getLocales().includes(lang)) {
+
+    if (!isAmbiguousPath && localeFromPath) {
+      req.session.lang = localeFromPath;
+      res.setLocale(localeFromPath);
+    } else if (lang && i18n.getLocales().includes(lang)) {
       req.session.lang = lang;
       res.setLocale(lang);
     } else if (req.session?.lang) {
       res.setLocale(req.session.lang);
+    } else if (localeFromPath) {
+      res.setLocale(localeFromPath);
     }
     next();
   });

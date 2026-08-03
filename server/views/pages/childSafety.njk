@@ -43,7 +43,7 @@
       {{ __("exitThisPage") | safe }}
       {% include "partials/errorSummary.njk" %}
 
-      <form class="form" action="{{ paths.CHILD_SAFETY }}?lang={{ getLocale() }}" method="post">
+      <form class="form" action="{{ paths.CHILD_SAFETY }}" method="post">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
 
         {{

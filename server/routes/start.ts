@@ -1,13 +1,12 @@
 import { Request, Response, Router } from 'express';
 
 import FormSteps from '../constants/formSteps';
-import paths from '../constants/paths';
 import addCompletedStep from '../utils/addCompletedStep';
+import { registerLocalizedGet } from '../utils/registerLocalizedRoutes';
 
 const router = Router();
 
-router.get(paths.START, (req: Request, res: Response) => {
-
+registerLocalizedGet(router, 'START', (req: Request, res: Response) => {
   // Mark START as completed so user can proceed to CHILD_SAFETY
   addCompletedStep(req, FormSteps.START);
 

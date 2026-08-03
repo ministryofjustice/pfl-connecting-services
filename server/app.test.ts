@@ -24,22 +24,27 @@ describe('App', () => {
         config.includeWelshLanguage = true;
       });
 
-      it.each(['en', 'cy'])('should return %s when the Accept-Language header is %s', (language: languages) => {
+      it.each([
+        { language: 'en', path: paths.CHILD_SAFETY },
+        { language: 'cy', path: '/diogelwch-plant' },
+      ])('should return $language when visiting $path', ({ language, path }) => {
         return request(testAppSetup())
-          .get(paths.CHILD_SAFETY)
-          .set('Accept-Language', language)
+          .get(path)
           .expect((response) => {
             expect(response.text).toContain(`lang="${language}"`);
-            expect(response.text).toContain(homepageLanguageStrings[language]);
+            expect(response.text).toContain(homepageLanguageStrings[language as languages]);
           });
       });
 
-      it.each(['en', 'cy'])('should return %s when the lang query parameter is %s', (language: languages) => {
+      it.each([
+        { language: 'en', path: paths.CHILD_SAFETY },
+        { language: 'cy', path: '/diogelwch-plant' },
+      ])('should return $language when the lang query parameter is used on $path', ({ language, path }) => {
         return request(testAppSetup())
-          .get(`${paths.CHILD_SAFETY}?lang=${language}`)
+          .get(`${path}?lang=${language}`)
           .expect((response) => {
             expect(response.text).toContain(`lang="${language}"`);
-            expect(response.text).toContain(homepageLanguageStrings[language]);
+            expect(response.text).toContain(homepageLanguageStrings[language as languages]);
           });
       });
     });
