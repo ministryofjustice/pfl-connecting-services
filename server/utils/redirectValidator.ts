@@ -1,5 +1,9 @@
 import paths from '../constants/paths';
 
+const stripLocalePrefix = (url: string): string => {
+  return url.replace(/^\/(cy|en)(?=\/|$)/, '');
+};
+
 /**
  * Whitelist of allowed redirect paths for the application
  * This prevents open redirect vulnerabilities by ensuring only internal paths are used
@@ -30,7 +34,7 @@ export const validateRedirectUrl = (url: string | undefined, fallbackUrl: string
   }
 
   // Remove query parameters and hash fragments for whitelist checking
-  const pathOnly = trimmedUrl.split('?')[0].split('#')[0];
+  const pathOnly = stripLocalePrefix(trimmedUrl.split('?')[0].split('#')[0]);
 
   // Check if the path is in the whitelist
   if (!ALLOWED_REDIRECT_PATHS.has(pathOnly)) {

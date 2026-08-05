@@ -42,6 +42,24 @@ describe('App', () => {
             expect(response.text).toContain(homepageLanguageStrings[language]);
           });
       });
+
+      it('should serve a Welsh-translated route when Welsh is enabled', async () => {
+        const response = await request(testAppSetup())
+          .get('/diogelwch-plant');
+
+        expect(response.status).toBe(200);
+
+        expect(response.text).toContain(`lang="cy"`);
+        expect(response.text).toContain(homepageLanguageStrings.cy);
+      });
+
+      it('should redirect to a Welsh-translated route when Welsh is enabled', async () => {
+        await request(testAppSetup())
+          .post('/diogelwch-plant')
+          .send({ childSafety: 'no' })
+          .expect(302)
+          .expect('location', '/cam-drin-domestig');
+      });
     });
 
     describe('when welsh is disabled', () => {
@@ -150,13 +168,13 @@ describe('App', () => {
       paths.PRIVACY_NOTICE,
       paths.TERMS_AND_CONDITIONS,
       paths.SESSION_TIMED_OUT,
-    ];
+    ] as string[];
 
     beforeEach(() => {
       config.useAuth = true;
     });
 
-    it.each(Object.values(paths).filter((path) => !pathsWithNoAuthentication.includes(path)))(
+    it.each((Object.values(paths) as string[]).filter((path) => !pathsWithNoAuthentication.includes(path)))(
       'should redirect to password page for %s when not authenticated',
       (path) => {
         return request(app)

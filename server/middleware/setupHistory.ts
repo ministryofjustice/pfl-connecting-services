@@ -11,8 +11,8 @@ const pathsNotForHistory = [
   paths.COOKIES,
   paths.PRIVACY_NOTICE,
   paths.TERMS_AND_CONDITIONS,
-];
-const pathsForHistory = Object.values(paths).filter((path) => !pathsNotForHistory.includes(path));
+] as string[];
+const pathsForHistory = (Object.values(paths) as string[]).filter((path) => !pathsNotForHistory.includes(path));
 
 const setupHistory = (): Router => {
   const router = Router();
@@ -20,7 +20,6 @@ const setupHistory = (): Router => {
   router.use((request, _response, next) => {
     const requestUrl = request.originalUrl;
 
-    // @ts-expect-error this is not necessarily of type paths
     if (pathsForHistory.includes(requestUrl)) {
       request.session.pageHistory = request.session.pageHistory || [];
       // Going back in the history
