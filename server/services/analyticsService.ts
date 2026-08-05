@@ -40,7 +40,7 @@ const logPageVisit = (req: Request, res: Response) => {
   // This rotates every 24 hours for GDPR compliance while allowing deduplication
   const hashedUserId = generateHashedIdentifier(req.ip, req.get('user-agent'));
 
-  if (path !== paths.PASSWORD && (Object.values(paths) as string[]).includes(path)) {
+  if (path !== paths.PASSWORD && Object.values(paths).includes(path as paths)) {
     const eventData = {
       hashed_user_id: hashedUserId,
       path: path,
