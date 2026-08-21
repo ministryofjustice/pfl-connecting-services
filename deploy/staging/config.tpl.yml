@@ -17,3 +17,4 @@ data:
   FEEDBACK_URL_WELSH: 'https://www.gov.uk/done/rhoi-adborth-ar-dod-o-hyd-i-ffyrdd-o-wneud-trefniadau-plant'
   PREVIEW_END: '2026-03-31T23:59:59'
   SERVICE_URL: 'https://connecting-services-staging.apps.live.cloud-platform.service.justice.gov.uk/'
+  SERVICE_URL_WELSH: 'https://connecting-services-staging.apps.live.cloud-platform.service.justice.gov.uk/'

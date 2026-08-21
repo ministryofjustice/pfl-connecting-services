@@ -100,7 +100,7 @@ describe('Child Safety Question', () => {
       const backLink = dom.window.document.querySelector('.govuk-back-link');
 
       expect(backLink).not.toBeNull();
-      expect(backLink?.getAttribute('href')).toBe(config.serviceUrl);
+      expect(backLink?.getAttribute('href')).toBe(config.serviceUrl('en'));
     });
 
     it('should have correct page title', async () => {

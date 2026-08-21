@@ -8,7 +8,7 @@ const contactUsRoutes = (router: Router) => {
   router.get(paths.CONTACT_US, (request, response) => {
     response.render('pages/contactUs', {
       title: request.__('contactUs.title'),
-      backLinkHref: getBackUrl(request.session, config.serviceUrl),
+      backLinkHref: getBackUrl(request.session, config.serviceUrl(request.getLocale())),
     });
   });
 };

@@ -37,6 +37,9 @@ const getCacheConfig = () => {
   };
 };
 
+const serviceUrlEnglish = getStringConfigValue('SERVICE_URL');
+const serviceUrlWelsh = getStringConfigValue('SERVICE_URL_WELSH');
+
 const config = {
   buildNumber: getStringConfigValue('BUILD_NUMBER'),
   gitRef: getStringConfigValue('GIT_REF'),
@@ -65,7 +68,7 @@ const config = {
   feedbackUrlWelsh: getStringConfigValue('FEEDBACK_URL_WELSH'),
   contactEmail: getStringConfigValue('CONTACT_EMAIL'),
   previewEnd: new Date(getStringConfigValue('PREVIEW_END')),
-  serviceUrl: getStringConfigValue('SERVICE_URL'),
+  serviceUrl: (locale: string): string => (locale === 'cy' ? serviceUrlWelsh : serviceUrlEnglish),
 };
 
 if (production) {

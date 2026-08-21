@@ -8,7 +8,7 @@ const accessibilityStatementRoutes = (router: Router) => {
   router.get(paths.ACCESSIBILITY_STATEMENT, (request, response) => {
     response.render('pages/accessibilityStatement', {
       title: request.__('pages.accessibilityStatement.title'),
-      backLinkHref: getBackUrl(request.session, config.serviceUrl),
+      backLinkHref: getBackUrl(request.session, config.serviceUrl(request.getLocale())),
     });
   });
 };

@@ -18,3 +18,4 @@ data:
   PREVIEW_END: '2026-03-31T23:59:59'
   GA4_ID: 'G-XJLJ9P9PD7'
   SERVICE_URL: 'https://www.gov.uk/find-ways-to-make-child-arrangements'
+  SERVICE_URL_WELSH: 'https://www.gov.uk/dod-o-hyd-i-ffyrdd-o-wneud-trefniadau-plant'

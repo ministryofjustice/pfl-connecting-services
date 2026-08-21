@@ -10,6 +10,7 @@
 {% else %}
   {% set localeFeedbackUrl = feedbackUrl %}
 {% endif %}
+{% set localeServiceUrl = serviceUrl(getLocale()) %}
 
 {% set mainClasses = "app-container govuk-body" %}
 {% set govukRebrand = true %}
@@ -20,7 +21,7 @@
   }) }}
   {{ govukServiceNavigation({
     serviceName: __('serviceName'),
-    serviceUrl: serviceUrl
+    serviceUrl: localeServiceUrl
   }) }}
 {% endblock %}
 
