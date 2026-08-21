@@ -37,6 +37,7 @@ const nunjucksSetup = (app: express.Express): void => {
 
   njkEnv.addFilter('assetMap', (url: string) => assetManifest[url] || url);
   njkEnv.addGlobal('feedbackUrl', config.feedbackUrl);
+  njkEnv.addGlobal('feedbackUrlWelsh', config.feedbackUrlWelsh);
   njkEnv.addGlobal('contactEmail', config.contactEmail);
   njkEnv.addGlobal('serviceUrl', config.serviceUrl);
   njkEnv.addGlobal(
