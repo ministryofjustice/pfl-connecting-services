@@ -156,7 +156,7 @@ describe(paths.ACCESSIBILITY_STATEMENT, () => {
       const backLink = dom.window.document.querySelector('a.govuk-back-link');
 
       expect(backLink).not.toBeNull();
-      expect(backLink?.getAttribute('href')).toBe(config.serviceUrl);
+      expect(backLink?.getAttribute('href')).toBe(config.serviceUrl('en'));
     });
 
     it('should use the previous page for the back link when available in session', async () => {

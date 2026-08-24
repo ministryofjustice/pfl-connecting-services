@@ -114,7 +114,7 @@ describe(paths.COOKIES, () => {
       const backLink = dom.window.document.querySelector('a.govuk-back-link');
 
       expect(backLink).not.toBeNull();
-      expect(backLink?.getAttribute('href')).toBe(config.serviceUrl);
+      expect(backLink?.getAttribute('href')).toBe(config.serviceUrl('en'));
     });
   });
 });

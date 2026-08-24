@@ -186,8 +186,10 @@ The application uses the following environment variables ([example file](https:/
 - `USE_AUTH`: Enable authentication middleware (default: true)
 - `INCLUDE_WELSH_LANGUAGE`: Enable Welsh language support (default: true)
 - `FEEDBACK_URL`: URL for user feedback form
+- `FEEDBACK_URL_WELSH`: URL for user feedback form in Welsh
 - `CONTACT_EMAIL`: Support/admin email address
 - `SERVICE_URL`: URL of the service
+- `SERVICE_URL_WELSH`: URL of the service in Welsh
 - `PREVIEW_END`: ISO timestamp for preview period end
 
 ### Logging & Security
