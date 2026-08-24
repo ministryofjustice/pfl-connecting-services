@@ -30,7 +30,7 @@ router.get(paths.CHILD_SAFETY, (req: Request, res: Response) => {
   const errors = req.flash('errors');
   res.render('pages/childSafety', {
     title: res.__('pages.childSafety.title'),
-    backLinkHref: config.serviceUrl,
+    backLinkHref: config.serviceUrl(res.getLocale()),
     errors,
     formValues: {
       childSafety: req.session.childSafety,

@@ -8,7 +8,7 @@ const privacyNoticeRoutes = (router: Router) => {
   router.get(paths.PRIVACY_NOTICE, (request, response) => {
     response.render('pages/privacyNotice', {
       title: request.__('privacyNotice.title'),
-      backLinkHref: getBackUrl(request.session, config.serviceUrl),
+      backLinkHref: getBackUrl(request.session, config.serviceUrl(request.getLocale())),
     });
   });
 };

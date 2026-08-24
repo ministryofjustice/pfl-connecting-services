@@ -9,7 +9,7 @@ const router = Router();
 router.get(paths.PARENTING_PLAN, (req: Request, res: Response) => {
   res.render('pages/parenting-plan', {
     title: res.__('pages.parentingPlan.title'),
-    backLinkHref: getBackUrl(req.session, config.serviceUrl),
+    backLinkHref: getBackUrl(req.session, config.serviceUrl(req.getLocale())),
     domesticAbuse: req.session.domesticAbuse,
     childSafety: req.session.childSafety,
   });

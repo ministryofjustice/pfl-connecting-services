@@ -2,7 +2,16 @@
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
 {% set htmlLang = getLocale() %}
+
+{% if getLocale() == 'cy' %}
+  {% set localeFeedbackUrl = feedbackUrlWelsh %}
+{% else %}
+  {% set localeFeedbackUrl = feedbackUrl %}
+{% endif %}
+{% set localeServiceUrl = serviceUrl(getLocale()) %}
+
 {% set mainClasses = "app-container govuk-body" %}
 {% set govukRebrand = true %}
 
@@ -12,7 +21,7 @@
   }) }}
   {{ govukServiceNavigation({
     serviceName: __('serviceName'),
-    serviceUrl: serviceUrl
+    serviceUrl: localeServiceUrl
   }) }}
 {% endblock %}
 
@@ -60,7 +69,7 @@
       tag: {
         text: __('tag')
       },
-      html: __('phaseBannerText', {feedbackUrl: feedbackUrl})
+      html: __('phaseBannerText', {feedbackUrl: localeFeedbackUrl})
     })
   }}
   {% include "partials/notificationBanner.njk" %}
@@ -87,7 +96,7 @@
             text: __('footer.cookies')
           },
           {
-            href: feedbackUrl,
+            href: localeFeedbackUrl,
             text: __('footer.feedback')
           },
           {
