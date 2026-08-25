@@ -29,7 +29,7 @@ describe('errorHandler', () => {
         .expect('Content-Type', /html/)
         .expect((res) => {
           expect(res.text).toContain(
-            'Your session automatically ends if you don’t use the service for 120 minutes.',
+            'Your session automatically ends if you don’t use the service for 30 minutes.',
           );
         });
 

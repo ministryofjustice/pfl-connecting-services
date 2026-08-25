@@ -5,7 +5,7 @@ import { startJourney } from './fixtures/test-helpers';
 const TIMEOUT_PATH = '/create-timeout';
 const TIMEOUT_TITLE = "Sorry, you'll have to start again";
 const YOUR_SESSION_TEXT =
-  "Your session automatically ends if you don’t use the service for 120 minutes.";
+  "Your session automatically ends if you don’t use the service for 30 minutes.";
 const PERSONAL_INFO_TEXT = "We haven’t saved any personal information.";
 const START_AGAIN_TEXT = "You need to start again.";
 
