@@ -13,14 +13,21 @@ on:
         - staging
         - production
 
+permissions: {}
+
 jobs:
   validate:
     name: 'Validate'
+    permissions:
+      contents: read
     uses: ./.github/workflows/validation.yml
     secrets: inherit
 
   image:
     name: 'Build & Push Image'
+    permissions:
+      id-token: write
+      contents: read
     uses: ./.github/workflows/build-push-image.yml
     needs: [validate]
     secrets: inherit
@@ -28,6 +35,8 @@ jobs:
   deploy_development:
     name: 'Deploy to Development'
     if: github.event.inputs.environment == 'development'
+    permissions:
+      contents: write
     uses: ./.github/workflows/deploy.yml
     needs: [image, validate]
     with:
@@ -38,6 +47,8 @@ jobs:
   deploy_staging:
     name: 'Deploy to Staging'
     if: github.event.inputs.environment == 'staging'
+    permissions:
+      contents: write
     uses: ./.github/workflows/deploy.yml
     needs: [image, validate]
     with:
@@ -49,6 +60,8 @@ jobs:
     name: 'Deploy to Production'
     if: github.event.inputs.environment == 'production'
     needs: [image, validate]
+    permissions:
+      contents: write
     uses: ./.github/workflows/deploy.yml
     with:
       environment: production
