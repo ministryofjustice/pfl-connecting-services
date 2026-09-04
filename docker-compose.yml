@@ -1,6 +1,6 @@
 services:
   cache:
-    image: redis:7.4
+    image: redis:7.4@sha256:71da9275c5f3fcb97d0fa0c8c5b36cc995327265420f17a04bfd544f458059f7
     container_name: redis
     ports:
       - '6379:6379'
