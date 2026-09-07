@@ -70,6 +70,16 @@ describe('Password Handler', () => {
             .expect('location', returnURL);
         });
 
+        it.each(['https://evil.example', '//evil.example', '/\\evil.example', 'myPage'])(
+          'should ignore untrusted return url %s',
+          (returnURL: string) =>
+            request(app)
+              .post(paths.PASSWORD)
+              .send({ password: testPassword1, returnURL })
+              .expect(302)
+              .expect('location', paths.START),
+        );
+
         it('should set authentication cookie', () => {
           const returnURL = paths.DOMESTIC_ABUSE; // Use a valid path from the whitelist
           const authenticatedCookieProperties = [
