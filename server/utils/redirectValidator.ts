@@ -17,8 +17,6 @@ export const validateRedirectUrl = (url: string | undefined | null, fallbackUrl:
 
   const pathOnly = url.trim().split('?')[0].split('#')[0];
 
-  console.log('Validating redirect URL:', { url, pathOnly, fallbackUrl });
-
   for (const allowed of ALLOWED_REDIRECT_PATHS) {
     if (pathOnly === allowed) {
       return allowed;
