@@ -36,6 +36,8 @@
         "harassment": "Harassment and stalking"
       },
       "formHeading": "Select whether you have experienced abuse from your ex-partner",
+      "yes": "Yes",
+      "no": "No",
       "answerYes": "Answer 'Yes' if you have experienced any of the above, whether or not you have reported your experience to the police.",
       "error": "Select whether you have experienced abuse from your ex-partner"
     },
