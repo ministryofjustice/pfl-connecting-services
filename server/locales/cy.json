@@ -36,6 +36,8 @@
         "harassment": "Aflonyddu a stelcio"
       },
       "formHeading": "Dewiswch a ydych wedi profi unrhyw gamdriniaeth gan eich cyn-bartner neu beidio",
+      "yes": "Ydw",
+      "no": "Nac ydw",
       "answerYes": "Atebwch ‘Do’ os ydych wedi profi unrhyw un o'r uchod, p'un a ydych wedi riportio eich profiad i'r heddlu neu beidio.",
       "error": "Dewiswch a ydych wedi profi unrhyw gamdriniaeth gan eich cyn-bartner neu beidio"
     },
@@ -128,8 +130,8 @@
       "title": "A ydych yn gyfforddus i gysylltu â'r cyn-bartner am drefniadau plant?",
       "content": {
         "options": {
-          "first": "Ydyn",
-          "second": "Nac ydw, nif wyf yn gyfforddus yn cysylltu â nhw",
+          "first": "Ydw",
+          "second": "Nac ydw, nid wyf yn gyfforddus yn cysylltu â nhw",
           "third": "Nid oes gennyf eu manylion cyswllt",
           "fourth": "Rwy'n gallu cysylltu â nhw ond nid ydynt yn ymateb"
         }
@@ -146,7 +148,7 @@
           "third": "trosglwyddiadau, gwyliau ac unrhyw beth arall sydd o bwys i'ch plant"
         },
         "options": {
-          "first": "Ydym, rydym yn cytuno ar rai bethau neu'r mwyafrif o bethau",
+          "first": "Ydym, rydym yn cytuno ar rai pethau, neu'r mwyafrif o bethau",
           "second": "Nac ydym, nid ydym yn cytuno",
           "third": "Nid ydym wedi'i drafod eto"
         }
