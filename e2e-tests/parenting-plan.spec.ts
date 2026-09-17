@@ -27,7 +27,7 @@ test.describe('Parenting Plan', () => {
 
   test('should display "Why this could be right for you" section', async ({ page }) => {
 
-    await expect(page.locator('h2').first()).toHaveText('Why this could be right for you');
+    await expect(page.locator('#main-content h2').first()).toHaveText('Why this could be right for you');
     await expect(page.locator('text=You do not have to go to court or do any official paperwork if you and your ex-partner agree about child arrangements.')).toBeVisible();
   });
 
