@@ -1,8 +1,19 @@
 import { Page } from '@playwright/test';
 
+export async function dismissCookieBannerIfVisible(page: Page) {
+  const rejectButton = page.getByRole('button', { name: /Reject analytics cookies/i });
+  if (!(await rejectButton.isVisible())) {
+    return;
+  }
+
+  await rejectButton.click();
+  await page.getByRole('button', { name: /Hide cookie message/i }).last().click();
+}
+
 export async function startJourney(page: Page) {
   // Start from homepage - with USE_AUTH=false this goes directly to child-safety
   await page.goto('/');
+  await dismissCookieBannerIfVisible(page);
   await page.getByRole('button', { name: /start now/i }).click();
   await page.waitForURL(/child-safety/);
 }

@@ -82,24 +82,34 @@ describe('setupAnalytics', () => {
       config.analytics.enabled = false;
     });
 
-    it('should set analyticsEnabled to false regardless of consent cookie', () => {
+    it('should still set analyticsEnabled from the consent cookie', () => {
       request.cookies = {
         [cookieNames.ANALYTICS_CONSENT]: encodeURIComponent(JSON.stringify({ acceptAnalytics: 'Yes' })),
       };
 
       setupAnalytics()(request, response, next);
 
-      expect(response.locals.analyticsEnabled).toBe(false);
+      expect(response.locals.analyticsEnabled).toBe(true);
       expect(response.locals.analyticsEnvironmentEnabled).toBe(false);
       expect(next).toHaveBeenCalled();
     });
 
-    it('should set ga4Id to undefined', () => {
+    it('should leave analyticsEnabled undefined if consent cookie is not set', () => {
+      request.cookies = undefined;
+
+      setupAnalytics()(request, response, next);
+
+      expect(response.locals.analyticsEnabled).toBeUndefined();
+      expect(response.locals.analyticsEnvironmentEnabled).toBe(false);
+      expect(next).toHaveBeenCalled();
+    });
+
+    it('should still set ga4Id so cookie banner and policy can render', () => {
       config.analytics.ga4Id = 'test-ga4-id';
 
       setupAnalytics()(request, response, next);
 
-      expect(response.locals.ga4Id).toBeUndefined();
+      expect(response.locals.ga4Id).toBe('test-ga4-id');
       expect(next).toHaveBeenCalled();
     });
   });

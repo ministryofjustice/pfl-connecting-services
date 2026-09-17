@@ -27,7 +27,7 @@ test.describe('Other options', () => {
   test('should navigate to court order page when yes option is selected', async ({ page }) => {
     await page.locator('input[type="radio"][value="yes"]').check();
 
-    await page.locator('button.govuk-button').click();
+    await page.getByRole('button', { name: /continue/i }).click();
 
     await expect(page).toHaveURL(/\/court-order/);
   });
@@ -35,7 +35,7 @@ test.describe('Other options', () => {
   test('should navigate to mediation page when no option is selected', async ({ page }) => {
     await page.locator('input[type="radio"][value="no"]').check();
 
-    await page.locator('button.govuk-button').click();
+    await page.getByRole('button', { name: /continue/i }).click();
 
     await expect(page).toHaveURL(/\/mediation/);
   });

@@ -139,6 +139,54 @@ describe('App', () => {
         expect(dom.window.document.querySelector('body')).toHaveAttribute('data-ga4-id', ga4Id);
       });
     });
+
+    describe('when analytics recording is disabled at environment level', () => {
+      const ga4Id = 'test-ga4-id';
+
+      beforeEach(() => {
+        config.analytics.enabled = false;
+        config.analytics.ga4Id = ga4Id;
+      });
+
+      it('should show the banner and not load ga4 if the consent cookie does not exist', async () => {
+        const response = await request(app).get(paths.CHILD_SAFETY).expect('Content-Type', /html/);
+
+        expect(response.text).not.toContain('www.googletagmanager.com');
+        expect(response.text).toContain('Cookies on Get help finding a child arrangement option');
+
+        const dom = new JSDOM(response.text);
+
+        expect(dom.window.document.querySelector('body')).toHaveAttribute('data-ga4-id', ga4Id);
+      });
+
+      it('should not show the banner and not load ga4 if the consent cookie is no', async () => {
+        const response = await request(app)
+          .get(paths.CHILD_SAFETY)
+          .set('Cookie', `${cookieNames.ANALYTICS_CONSENT}=${JSON.stringify({ acceptAnalytics: 'No' })}`)
+          .expect('Content-Type', /html/);
+
+        expect(response.text).not.toContain('www.googletagmanager.com');
+        expect(response.text).not.toContain('Cookies on Get help finding a child arrangement option');
+
+        const dom = new JSDOM(response.text);
+
+        expect(dom.window.document.querySelector('body')).toHaveAttribute('data-ga4-id', ga4Id);
+      });
+
+      it('should not show the banner and not load ga4 if the consent cookie is yes', async () => {
+        const response = await request(app)
+          .get(paths.CHILD_SAFETY)
+          .set('Cookie', `${cookieNames.ANALYTICS_CONSENT}=${JSON.stringify({ acceptAnalytics: 'Yes' })}`)
+          .expect('Content-Type', /html/);
+
+        expect(response.text).not.toContain('www.googletagmanager.com');
+        expect(response.text).not.toContain('Cookies on Get help finding a child arrangement option');
+
+        const dom = new JSDOM(response.text);
+
+        expect(dom.window.document.querySelector('body')).toHaveAttribute('data-ga4-id', ga4Id);
+      });
+    });
   });
 
   describe('Authentication', () => {
