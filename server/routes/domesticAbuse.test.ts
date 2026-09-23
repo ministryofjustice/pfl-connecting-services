@@ -66,7 +66,7 @@ describe('Domestic Abuse Question', () => {
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);
       const dom = new JSDOM(response.text);
 
-      const continueButton = dom.window.document.querySelector('button.govuk-button, input.govuk-button, a.govuk-button');
+      const continueButton = dom.window.document.querySelector('#main-content button.govuk-button, #main-content input.govuk-button, #main-content a.govuk-button');
       expect(continueButton).not.toBeNull();
       expect(continueButton?.textContent).toContain('Continue');
     });
@@ -76,7 +76,7 @@ describe('Domestic Abuse Question', () => {
       const childSafetyDom = new JSDOM(childSafetyResponse.text);
 
       childSafetyDom.window.document.querySelector('input[type="radio"][name="childSafety"][value="no"]').setAttribute('checked', 'true');
-      const continueButton = childSafetyDom.window.document.querySelector('button.govuk-button, input.govuk-button, a.govuk-button');
+      const continueButton = childSafetyDom.window.document.querySelector('#main-content button.govuk-button, #main-content input.govuk-button, #main-content a.govuk-button');
       continueButton?.dispatchEvent(new childSafetyDom.window.Event('click'));
 
       const response = await request(app).get(paths.DOMESTIC_ABUSE).expect(200);

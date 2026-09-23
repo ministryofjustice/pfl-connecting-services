@@ -27,13 +27,13 @@ test.describe('Cookies', () => {
     );
   });
 
-  test('should not display analytics cookie settings when analytics is disabled', async ({ page }) => {
+  test('should display analytics cookie settings when analytics recording is disabled', async ({ page }) => {
     await page.goto('/cookies');
 
-    await expect(page.getByRole('heading', { name: /Analytics cookies/i })).toHaveCount(0);
-    await expect(page.getByRole('button', { name: /Save cookie settings/i })).toHaveCount(0);
-    await expect(page.getByRole('radio', { name: /Yes/i })).toHaveCount(0);
-    await expect(page.getByRole('radio', { name: /No/i })).toHaveCount(0);
+    await expect(page.getByRole('heading', { name: /Analytics cookies \(optional\)/i })).toBeVisible();
+    await expect(page.getByRole('button', { name: /Save cookie settings/i })).toBeVisible();
+    await expect(page.getByRole('radio', { name: /^Yes$/i })).toBeVisible();
+    await expect(page.getByRole('radio', { name: /^No$/i })).toBeVisible();
   });
 
   test('should navigate to aboutcookies.org external website', async ({ page }) => {
