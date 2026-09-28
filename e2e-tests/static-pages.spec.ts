@@ -12,7 +12,7 @@ test.describe('Static Pages', () => {
   for (const { url, title } of staticPages) {
     test(`should load ${url} page successfully`, async ({ page }) => {
       await page.goto('/');
-      await page.getByRole('link', { name: title }).click();
+      await page.locator('.govuk-footer').getByRole('link', { name: title }).click();
 
       const heading = page.locator('h1');
       await expect(heading).toBeVisible();
@@ -28,15 +28,11 @@ test.describe('Static Pages', () => {
   test('should display cookies page with accept/reject options', async ({ page }) => {
     await page.goto('/cookies');
 
-    const acceptButton = page.getByRole('radio', { name: /accept/i }).first();
-    const rejectButton = page.getByRole('radio', { name: /reject/i }).first();
+    const acceptButton = page.getByRole('radio', { name: /^Yes$/i });
+    const rejectButton = page.getByRole('radio', { name: /^No$/i });
 
-    if ((await acceptButton.count()) > 0) {
-      await expect(acceptButton).toBeVisible();
-    }
-    if ((await rejectButton.count()) > 0) {
-      await expect(rejectButton).toBeVisible();
-    }
+    await expect(acceptButton).toBeVisible();
+    await expect(rejectButton).toBeVisible();
   });
 
   test('should display contact information on contact us page', async ({ page }) => {

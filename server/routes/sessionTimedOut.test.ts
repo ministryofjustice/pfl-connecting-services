@@ -44,7 +44,7 @@ describe('timeOut page', () => {
     it('should provide a start again button linking to child safety', async () => {
       const response = await request(app).get(paths.SESSION_TIMED_OUT).expect(403);
       const dom = new JSDOM(response.text);
-      const startAgainButton = dom.window.document.querySelector('a.govuk-button');
+      const startAgainButton = dom.window.document.querySelector('#main-content a.govuk-button');
 
       expect(startAgainButton).not.toBeNull();
       expect(startAgainButton?.textContent).toContain(START_AGAIN_BUTTON_TEXT);
@@ -59,7 +59,7 @@ describe('timeOut page', () => {
       const dom = new JSDOM(response.text);
 
       expect(dom.window.document.querySelector('h1')).toHaveTextContent(WELSH_TIMEOUT_TITLE);
-      expect(dom.window.document.querySelector('a.govuk-button')?.getAttribute('href')).toBe(
+      expect(dom.window.document.querySelector('#main-content a.govuk-button')?.getAttribute('href')).toBe(
         `${paths.CHILD_SAFETY}?lang=cy`,
       );
 
@@ -75,10 +75,10 @@ describe('timeOut page', () => {
       const dom = new JSDOM(response.text);
 
       expect(dom.window.document.querySelector('h1')).toHaveTextContent(WELSH_TIMEOUT_TITLE);
-      expect(dom.window.document.querySelector('a.govuk-button')?.textContent).toContain(
+      expect(dom.window.document.querySelector('#main-content a.govuk-button')?.textContent).toContain(
         WELSH_START_AGAIN_BUTTON_TEXT,
       );
-      expect(dom.window.document.querySelector('a.govuk-button')?.getAttribute('href')).toBe(
+      expect(dom.window.document.querySelector('#main-content a.govuk-button')?.getAttribute('href')).toBe(
         `${paths.CHILD_SAFETY}?lang=cy`,
       );
 
@@ -136,13 +136,13 @@ describe('timeOut page', () => {
       const response = await request(app).get('/create-timeout').expect(403);
       const dom = new JSDOM(response.text);
 
-      expect(dom.window.document.querySelector('h2')).toHaveTextContent('403');
+      expect(dom.window.document.querySelector('#main-content h2')).toHaveTextContent('403');
     });
 
     it('should provide a start again button linking to child safety', async () => {
       const response = await request(app).get('/create-timeout').expect(403);
       const dom = new JSDOM(response.text);
-      const startAgainButton = dom.window.document.querySelector('a.govuk-button');
+      const startAgainButton = dom.window.document.querySelector('#main-content a.govuk-button');
 
       expect(startAgainButton).not.toBeNull();
       expect(startAgainButton?.getAttribute('href')).toBe(`${paths.CHILD_SAFETY}?lang=en`);

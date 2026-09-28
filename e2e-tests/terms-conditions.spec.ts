@@ -16,7 +16,7 @@ test.describe('Terms and Conditions', () => {
   test('should display "Responsibility for the service" section', async ({ page }) => {
     await page.goto('/terms-conditions');
 
-    await expect(page.locator('h2').first()).toHaveText('Responsibility for the service');
+    await expect(page.locator('#main-content h2').first()).toHaveText('Responsibility for the service');
     await expect(page.locator('text=Ministry of Justice (MOJ)')).toBeVisible();
     await expect(page.locator('text=MoJ accepts no liability for')).toBeVisible();
   });

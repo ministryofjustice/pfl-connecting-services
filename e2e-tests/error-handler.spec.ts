@@ -45,7 +45,7 @@ test.describe('errorHandler – 403 session timeout', () => {
   test('should expose the 403 status in non-production environments', async ({ page }) => {
     await page.goto(TIMEOUT_PATH);
 
-    await expect(page.getByRole('heading', { name: '403' })).toBeVisible();
+    await expect(page.locator('#main-content').getByRole('heading', { name: '403' })).toBeVisible();
   });
 
   test('should provide a start again button linking to child safety', async ({ page }) => {

@@ -29,11 +29,11 @@ test.describe('Mediation Page', () => {
   });
 
   test('should display "Why this could be right for you" section', async ({ page }) => {
-    await expect(page.locator('h2').nth(0)).toHaveText('Why this could be right for you');
+    await expect(page.locator('#main-content h2').nth(0)).toHaveText('Why this could be right for you');
   });
 
   test('should display "Important things to consider" section', async ({ page }) => {
-    await expect(page.locator('h2').nth(1)).toHaveText('Important things to consider');
+    await expect(page.locator('#main-content h2').nth(1)).toHaveText('Important things to consider');
     await expect(page.locator('text=Initial meeting:')).toBeVisible();
     await expect(page.locator('text=Cost:')).toBeVisible();
     await expect(page.locator('.govuk-inset-text')).toContainText('voucher worth up to £500');

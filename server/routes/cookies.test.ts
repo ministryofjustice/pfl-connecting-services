@@ -23,7 +23,6 @@ describe(paths.COOKIES, () => {
     });
 
     it('should render cookies page when there is a ga4 id', async () => {
-      config.analytics.enabled = true; // Enable analytics for this test
       config.analytics.ga4Id = 'test-ga4-id';
 
       const response = await request(app).get(paths.COOKIES).expect('Content-Type', /html/);
@@ -31,6 +30,17 @@ describe(paths.COOKIES, () => {
       const dom = new JSDOM(response.text);
 
       expect(dom.window.document.querySelector('h1')).toHaveTextContent('Cookies');
+      expect(dom.window.document.querySelector('fieldset')).not.toBeNull();
+    });
+
+    it('should render cookie policy options when analytics recording is disabled', async () => {
+      config.analytics.enabled = false;
+      config.analytics.ga4Id = 'test-ga4-id';
+
+      const response = await request(app).get(paths.COOKIES).expect('Content-Type', /html/);
+
+      const dom = new JSDOM(response.text);
+
       expect(dom.window.document.querySelector('fieldset')).not.toBeNull();
     });
 

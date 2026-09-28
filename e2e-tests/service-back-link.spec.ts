@@ -182,7 +182,7 @@ test.describe('Browser Navigation - Static Pages', () => {
       await page.goto('/');
 
       // Click the link instead of using goto
-      await page.getByRole('link', { name: new RegExp(staticPage.name, 'i') }).click();
+      await page.locator('.govuk-footer').getByRole('link', { name: new RegExp(staticPage.name, 'i') }).click();
 
       // Verify we landed on the correct page
       await expect(page).toHaveURL(new RegExp(staticPage.path));
