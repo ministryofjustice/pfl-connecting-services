@@ -21,6 +21,23 @@ export default defineConfig({
     baseURL,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
+    // Cookie banner still works on lower environments; journeys reject analytics so
+    // page headings and buttons are not hidden behind the banner.
+    storageState: {
+      cookies: [
+        {
+          name: 'cookie_policy',
+          value: JSON.stringify({ acceptAnalytics: 'No' }),
+          domain: 'localhost',
+          path: '/',
+          expires: -1,
+          httpOnly: false,
+          secure: false,
+          sameSite: 'Lax',
+        },
+      ],
+      origins: [],
+    },
   },
   projects: [
     {

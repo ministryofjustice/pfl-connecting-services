@@ -25,7 +25,7 @@ test.describe('Court Order Page', () => {
   });
 
   test('should display "Why this could be right for you" section', async ({ page }) => {
-    await expect(page.locator('h2').first()).toHaveText('Why this could be right for you');
+    await expect(page.locator('#main-content h2').first()).toHaveText('Why this could be right for you');
     await expect(page.locator('.govuk-list--bullet').first()).toContainText('you cannot agree, even after trying options such as');
     await expect(page.locator('.govuk-list--bullet').first()).toContainText('domestic abuse or you or the children');
     await expect(page.locator('.govuk-list--bullet').first()).toContainText('contact your ex-partner');
