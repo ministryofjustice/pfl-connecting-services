@@ -13,7 +13,7 @@ RUN apt-get update && \
         apt-get upgrade -y && \
         apt-get autoremove -y && \
         rm -rf /var/lib/apt/lists/* && \
-        npm install -g npm@latest
+        npm install -g npm@12.1.0
 
 # Stage: development image
 FROM base AS dev

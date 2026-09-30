@@ -21,8 +21,8 @@
     "e2e:debug": "playwright test --debug"
   },
   "engines": {
-    "node": "^22",
-    "npm": "^11.0.0"
+    "node": "^26",
+    "npm": "^12.0.0"
   },
   "dependencies": {
     "bunyan": "1.8.15",
@@ -71,7 +71,7 @@
     "@jgoz/esbuild-plugin-typecheck": "5.0.0",
     "@playwright/test": "^1.63.0",
     "@testing-library/jest-dom": "7.0.1",
-    "@tsconfig/node22": "22.0.6",
+    "@tsconfig/node26": "26.0.1",
     "@types/bunyan": "1.8.11",
     "@types/bunyan-format": "0.2.9",
     "@types/compression": "1.8.1",
@@ -82,7 +82,7 @@
     "@types/i18n": "0.13.12",
     "@types/jest": "30.0.0",
     "@types/jsdom": "21.1.7",
-    "@types/node": "22.20.2",
+    "@types/node": "26.6.3",
     "@types/nunjucks": "3.2.6",
     "@types/on-finished": "^2.3.5",
     "@types/supertest": "7.2.1",
