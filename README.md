@@ -115,7 +115,7 @@ Integrated logging tools like OpenSearch supplemented by Grafana dashboards, pro
 
 ## Tech Stack
 
-- **Runtime**: Node.js 22+ (LTS)
+- **Runtime**: Node.js 26+
 - **Framework**: Express.js 4.22+
 - **Language**: TypeScript 5.8+
 - **Templating**: Nunjucks 3.2+
@@ -129,8 +129,8 @@ Integrated logging tools like OpenSearch supplemented by Grafana dashboards, pro
 
 ## Prerequisites
 
-- Node.js ^22.0.0
-- npm ^11.0.0
+- Node.js ^26
+- npm ^12.0.0
 - Docker Desktop 4.0+ (for local Redis cache and containerized development)
 - Git
 
@@ -500,7 +500,7 @@ GA4 analytics integration with privacy compliance:
 ### Common Issues
 
 **Application won't start**:
-- Check Node.js version: `node --version` (should be 22+)
+- Check Node.js version: `node --version` (should be 26+)
 - Verify environment variables in `.env`
 - Check port availability: `lsof -i :3000`
 
