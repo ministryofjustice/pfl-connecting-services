@@ -1,25 +1,8 @@
 import path from 'node:path';
 
 import { build } from 'esbuild';
-import { copy } from 'esbuild-plugin-copy';
 import manifestPlugin from 'esbuild-plugin-manifest';
 import { sassPlugin } from 'esbuild-sass-plugin';
-
-/**
- * Copy additional assets into distribution
- * @type {BuildStep}
- */
-const buildAdditionalAssets = (buildConfig) => {
-  return build({
-    outdir: buildConfig.assets.outDir,
-    plugins: [
-      copy({
-        resolveFrom: 'cwd',
-        assets: buildConfig.assets.copy,
-      }),
-    ],
-  });
-};
 
 /**
  * Build scss and javascript assets
@@ -56,5 +39,5 @@ const buildAssets = (buildConfig) => {
 export default (buildConfig) => {
   process.stderr.write('\u{1b}[1m\u{2728} Building assets...\u{1b}[0m\n');
 
-  return Promise.all([buildAssets(buildConfig), buildAdditionalAssets(buildConfig)]);
+  return buildAssets(buildConfig);
 };

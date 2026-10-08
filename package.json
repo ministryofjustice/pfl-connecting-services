@@ -27,7 +27,7 @@
   "dependencies": {
     "bunyan": "1.8.15",
     "bunyan-format": "0.2.1",
-    "compression": "1.8.1",
+    "compression": "1.8.2",
     "connect-flash": "0.1.1",
     "connect-redis": "^10.0.0",
     "cookie-parser": "1.4.7",
@@ -48,7 +48,16 @@
   },
   "overrides": {
     "brace-expansion": "^5.0.12",
+    "joi": "^18.2.9",
     "js-yaml": "^4.1.2",
+    "proxy-addr": "^2.0.8",
+    "source-map-js": "^1.2.2",
+    "nodemon": {
+      "chokidar": "4.0.3"
+    },
+    "nunjucks": {
+      "chokidar": "4.0.3"
+    },
     "glob": {
       "minimatch": "^10.2.3"
     },
@@ -91,8 +100,6 @@
     "dotenv": "17.4.2",
     "dotenv-cli": "11.0.0",
     "esbuild": "^0.28.2",
-    "esbuild-plugin-clean": "1.0.1",
-    "esbuild-plugin-copy": "2.1.1",
     "esbuild-plugin-manifest": "1.0.5",
     "esbuild-sass-plugin": "3.7.0",
     "eslint": "9.39.5",

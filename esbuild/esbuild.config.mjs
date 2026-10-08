@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 
 import { glob } from 'glob';
@@ -45,11 +46,49 @@ const buildConfig = {
   },
 };
 
+const asList = (value) => (Array.isArray(value) ? value : [value]);
+
+const clearOutput = (patterns) => {
+  for (const pattern of asList(patterns)) {
+    for (const match of glob.sync(pattern, { absolute: true, dot: true })) {
+      fs.rmSync(match, { recursive: true, force: true });
+    }
+  }
+};
+
+const copyFiles = (assets) => {
+  for (const asset of assets) {
+    for (const rawFrom of asList(asset.from)) {
+      const startFragment = path.parse(rawFrom).dir.replace('/**', '');
+
+      for (const file of glob.sync(rawFrom, { absolute: true, nodir: true })) {
+        const preservedDirStructure = file.split(startFragment)[1] ?? '';
+
+        for (const baseToPath of asList(asset.to)) {
+          const destination = path.extname(baseToPath)
+            ? path.resolve(baseToPath)
+            : path.resolve(baseToPath, preservedDirStructure.slice(1));
+
+          fs.mkdirSync(path.dirname(destination), { recursive: true });
+          fs.copyFileSync(file, destination);
+        }
+      }
+    }
+  }
+};
+
 const main = () => {
-  Promise.all([buildApp(buildConfig), buildAssets(buildConfig)]).catch((e) => {
-    process.stderr.write(`${e}\n`);
-    process.exit(1);
-  });
+  clearOutput(buildConfig.app.clear);
+
+  Promise.all([buildApp(buildConfig), buildAssets(buildConfig)])
+    .then(() => {
+      copyFiles(buildConfig.app.copy);
+      copyFiles(buildConfig.assets.copy);
+    })
+    .catch((e) => {
+      process.stderr.write(`${e}\n`);
+      process.exit(1);
+    });
 };
 
 main();
