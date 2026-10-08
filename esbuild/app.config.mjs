@@ -1,7 +1,5 @@
 import { typecheckPlugin } from '@jgoz/esbuild-plugin-typecheck';
 import { build } from 'esbuild';
-import { clean } from 'esbuild-plugin-clean';
-import { copy } from 'esbuild-plugin-copy';
 import { sync } from 'glob';
 
 /**
@@ -16,16 +14,7 @@ const buildApp = (buildConfig) => {
     sourcemap: true,
     platform: 'node',
     format: 'cjs',
-    plugins: [
-      clean({
-        patterns: buildConfig.app.clear,
-      }),
-      typecheckPlugin(),
-      copy({
-        resolveFrom: 'cwd',
-        assets: buildConfig.app.copy,
-      }),
-    ],
+    plugins: [typecheckPlugin()],
   });
 };
 
