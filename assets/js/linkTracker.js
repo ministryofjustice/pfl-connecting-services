@@ -15,8 +15,6 @@ const setupLinkTracking = () => {
       currentPage,
     };
 
-    console.log('LOG LINK CLICK', eventData); // For debugging purposes
-
     // Use sendBeacon for reliable tracking even if user navigates away
     if (navigator.sendBeacon) {
       const blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
