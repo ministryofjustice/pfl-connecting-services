@@ -75,7 +75,7 @@ const logDownload = (req: Request, downloadType: string) => {
  * Logs a 'link_click' event.
  * This function is called when a user clicks a link (internal or external).
  * @param req - Express request object
- * @param linkUrl - The URL of the link that was clicked
+ * @param linkUrl - The link href, or the absolute URL when the link is external
  * @param linkText - Optional text/label of the link
  * @param linkType - Optional type of link (internal or external)
  * @param currentPage - Optional page path where the link was clicked
