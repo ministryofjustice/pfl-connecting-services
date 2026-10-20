@@ -1,7 +1,7 @@
 const setupLinkTracking = () => {
   /**
    * Sends a link click event to the server for analytics
-   * @param {string} url - The URL of the link that was clicked
+   * @param {string} url - The link href, or the absolute URL when the link is external
    * @param {string} linkText - The text content of the link
    * @param {string} linkType - The type of link (internal or external)
    */
@@ -94,8 +94,10 @@ const setupLinkTracking = () => {
     const linkType = isExternalLink(href) ? 'external' : 'internal';
     const linkText = link.textContent.trim();
 
-    // Track all links (both internal and external)
-    logLinkClick(href, linkText, linkType);
+    // External clicks store the resolved absolute URL. Internal clicks keep the href path.
+    const url = linkType === 'external' ? link.href : href;
+
+    logLinkClick(url, linkText, linkType);
   });
 };
 
