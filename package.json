@@ -47,10 +47,12 @@
     "redis": "^6.3.0"
   },
   "overrides": {
+    "body-parser": "^2.4.0",
     "brace-expansion": "^5.0.12",
     "joi": "^18.2.9",
     "js-yaml": "^4.1.2",
     "proxy-addr": "^2.0.8",
+    "qs": "^6.17.0",
     "source-map-js": "^1.2.2",
     "nodemon": {
       "chokidar": "4.0.3"
