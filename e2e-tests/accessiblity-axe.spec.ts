@@ -66,7 +66,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
 
     // options-no-contact
     expect(results.violations).toEqual([]);
-    await expect(page.locator('h1')).toContainText('Options to explore if you are not comfortable contacting your ex-partner');
+    await expect(page.locator('h1')).toContainText('Explore: what you can do if you cannot contact the other parent');
     await page.locator('.govuk-back-link').click();
 
     // contact-child-arrangements

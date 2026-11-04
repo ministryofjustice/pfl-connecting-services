@@ -1,5 +1,5 @@
 {% extends "partials/layout.njk" %}
-{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 {% from "../macros/print-link.njk" import govukPrintLink %}
 {% from "macros/title.njk" import getTitle with context %}
 
@@ -16,114 +16,251 @@
 
     {{ __("exitThisPage")  | safe }}
 
-    <h1 class="govuk-heading-l">
+    <h1 class="govuk-heading-xl">
       {{ __("pages.optionsNoContact.title") }}
     </h1>
+    
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.notComfortable") }}
+      {{ __("pages.optionsNoContact.content.cannotContact") }}
     </p>
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.solicitorCanContact") }}
+      {{ __("pages.optionsNoContact.content.pageExplains") }}
     </p>
-
-    <h2 class="govuk-heading-m">
-      {{ __("pages.optionsNoContact.content.shuttleMediation.title") }}
-    </h2>
-    <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.shuttleMediation.content.thisCouldSuitYou") }}
-    </p>
-    <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.shuttleMediation.content.attendSession") }}
-    </p>
-    <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.shuttleMediation.content.mediatorMoves") }}
-    </p>
-
-    {{ govukInsetText({
-      id: "cost-inset-options-no-contact",
-      text: __("pages.optionsNoContact.content.shuttleMediation.content.getVoucher") | safe
+    <ul class="govuk-list govuk-list--bullet">
+      <li class="govuk-body">
+        {{ __("pages.optionsNoContact.content.list.first") }}
+      </li>
+      <li class="govuk-body">
+        {{ __("pages.optionsNoContact.content.list.second") }}
+      </li>
+      <li class="govuk-body">
+        {{ __("pages.optionsNoContact.content.list.third") }}
+      </li>
+    </ul>
+    {{ govukWarningText({
+      text: __("pages.optionsNoContact.content.alert"),
+      iconFallbackText: "Warning"
     }) }}
 
-    <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.shuttleMediation.content.nextStep") | safe }}
-    </p>
-
-    <h2 class="govuk-heading-m">
-      {{ __("pages.optionsNoContact.content.solicitorNegotiation.title") }}
+    <h2 class="govuk-heading-l">
+      {{ __("pages.optionsNoContact.makeChildArrangements.title") }}
     </h2>
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.solicitorNegotiation.content.thisCouldSuitYou") }}
+      {{ __("pages.optionsNoContact.makeChildArrangements.getHelp") }}
     </p>
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.solicitorNegotiation.content.legalAdviser") }}
+      {{ __("pages.optionsNoContact.makeChildArrangements.example") }}
     </p>
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.solicitorNegotiation.content.speakToExPartner") }}
+      {{ __("pages.optionsNoContact.makeChildArrangements.findOutLink") | safe }}
     </p>
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.solicitorNegotiation.content.nextStep") | safe }}
+      {{ __("pages.optionsNoContact.backToTop") | safe }}
     </p>
 
-    <h2 class="govuk-heading-m">
-      {{ __("pages.optionsNoContact.content.collaborativeLaw.title") }}
+    <h2 class="govuk-heading-l">
+      {{ __("pages.optionsNoContact.getChildMaintenance.title") }}
     </h2>
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.collaborativeLaw.content.thisCouldSuitYou") }}
+      {{ __("pages.optionsNoContact.getChildMaintenance.canUse") }}
     </p>
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.collaborativeLaw.content.hireLegalAdviser") }}
+      {{ __("pages.optionsNoContact.getChildMaintenance.identifyAndContact") }}
     </p>
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.collaborativeLaw.content.nextStep") | safe }}
+      {{ __("pages.optionsNoContact.getChildMaintenance.childMaintenanceService") }}
+    </p>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.getChildMaintenance.findOutLink") | safe }}
+    </p>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.backToTop") | safe }}
     </p>
 
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-    <h2 class="govuk-heading-m">
-      {{ __("pages.optionsNoContact.content.otherWaysToAgree.title") }}
+    <h2 class="govuk-heading-l">
+      {{ __("pages.optionsNoContact.applyToCourt.title") }}
     </h2>
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.otherWaysToAgree.description") }}
+      {{ __("pages.optionsNoContact.applyToCourt.canApply") }}
     </p>
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.otherWaysToAgree.link") | safe }}
+      {{ __("pages.optionsNoContact.applyToCourt.typeOfCourtOrder") }}
     </p>
 
-    <h2 class="govuk-heading-m">
-      {{ __("pages.optionsNoContact.content.helpAndSupport.title") }}
+    <h3 class="govuk-heading-m">
+      {{ __("pages.optionsNoContact.applyToCourt.beforeYouApply.title") }}
+    </h3>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.applyToCourt.beforeYouApply.mediation") }}
+    </p>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.applyToCourt.beforeYouApply.miamDiscussion") }}
+    </p>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.applyToCourt.beforeYouApply.attendMiam") }}
+    </p>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.applyToCourt.beforeYouApply.doNotAttendMiam") }}
+    </p>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.applyToCourt.beforeYouApply.miamLink") | safe }}
+    </p>
+
+    <h3 class="govuk-heading-m">
+      {{ __("pages.optionsNoContact.applyToCourt.parentalResponsibility.title") }}
+    </h3>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.applyToCourt.parentalResponsibility.decisions") }}
+    </p>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.applyToCourt.parentalResponsibility.findOutLink") | safe }}
+    </p>
+
+    <h3 class="govuk-heading-m">
+      {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.title") }}
+    </h3>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.differentCourtOrders") }}
+    </p>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">
+        {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.title") }}
+      </caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.headerRow.needHelp") }}
+          </th>
+          <th scope="col" class="govuk-table__header">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.headerRow.courtOrder") }}
+          </th>
+          <th scope="col" class="govuk-table__header">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.headerRow.description") }}
+          </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowOne.needHelp") }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowOne.courtOrder") | safe }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowOne.description") }}
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowTwo.needHelp") }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowTwo.courtOrder") | safe }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowTwo.description") }}
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowThree.needHelp") }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowThree.courtOrder") | safe }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowThree.description") }}
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowFour.needHelp") }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowFour.courtOrder") | safe }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowFour.description") }}
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowFive.needHelp") }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowFive.courtOrder") | safe }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.typesOfCourtOrder.table.rowFive.description") }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.applyToCourt.whichCourtOrder.findOutLink") | safe }}
+    </p>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.backToTop") | safe }}
+    </p>
+
+    <h2 class="govuk-heading-l">
+      {{ __("pages.optionsNoContact.helpAndSupport.title") }}
     </h2>
     <p class="govuk-body">
-      {{ __("pages.optionsNoContact.content.helpAndSupport.content.description") | safe }}
+      {{ __("pages.optionsNoContact.helpAndSupport.description") }}
     </p>
 
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key govuk-summary-list__key-width">
-        </dt>
-        <dd class="govuk-summary-list__value">
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key govuk-summary-list__key-width">
-          {{ __("pages.optionsNoContact.content.helpAndSupport.content.resolutionLink") | safe }}
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ __("pages.optionsNoContact.content.helpAndSupport.content.resolutionText") }}
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key govuk-summary-list__key-width">
-          {{ __("pages.optionsNoContact.content.helpAndSupport.content.adviceNowLink") | safe }}
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ __("pages.optionsNoContact.content.helpAndSupport.content.adviceNowText") }}
-        </dd>
-      </div>
-    </dl>
-
-    {{ govukPrintLink({
-      text: __("printThisPage")
-    }) }}
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">
+            {{ __("pages.optionsNoContact.helpAndSupport.table.headerRow.name") }}
+          </th>
+          <th scope="col" class="govuk-table__header">
+            {{ __("pages.optionsNoContact.helpAndSupport.table.headerRow.description") }}
+          </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="row">
+            {{ __("pages.optionsNoContact.helpAndSupport.table.rowOne.name") | safe }}
+          </th>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.helpAndSupport.table.rowOne.description") }}
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="row">
+            {{ __("pages.optionsNoContact.helpAndSupport.table.rowTwo.name") | safe }}
+          </th>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.helpAndSupport.table.rowTwo.description") | safe }}
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="row">
+            {{ __("pages.optionsNoContact.helpAndSupport.table.rowThree.name") | safe }}
+          </th>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.helpAndSupport.table.rowThree.description") | safe }}
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="row">
+            {{ __("pages.optionsNoContact.helpAndSupport.table.rowFour.name") | safe }}
+          </th>
+          <td class="govuk-table__cell">
+            {{ __("pages.optionsNoContact.helpAndSupport.table.rowFour.description") | safe }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="govuk-body">
+      {{ __("pages.optionsNoContact.backToTop") | safe }}
+    </p>
   </div>
 
   <div class="govuk-grid-column-one-third">
@@ -132,16 +269,18 @@
     </h2>
     <nav role="navigation">
         <ul class="govuk-list govuk-!-font-size-16">
-        <li class="govuk-!-margin-bottom-2">
-            <a href="https://www.gov.uk/looking-after-children-divorce">
-              {{ __("pages.optionsNoContact.relatedContent.content.makingChildArrangements") }}
-            </a>
-        </li>
-        <li class="govuk-!-margin-bottom-2">
-            <a href="https://www.gov.uk/guidance/family-mediation-voucher-scheme">
-              {{ __("pages.optionsNoContact.relatedContent.content.familyMediation") }}
-            </a>
-        </li>
+          <li class="govuk-!-margin-bottom-2">
+            {{ __("pages.optionsNoContact.relatedContent.content.proposeChildArrangementsPlan") | safe }}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            {{ __("pages.optionsNoContact.relatedContent.content.makingChildArrangements") | safe }}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            {{ __("pages.optionsNoContact.relatedContent.content.courtOrder") | safe }}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            {{ __("pages.optionsNoContact.relatedContent.content.parentalRights") | safe }}
+          </li>
         </ul>
     </nav>
     {% include "partials/exitThisPage.njk" %}
