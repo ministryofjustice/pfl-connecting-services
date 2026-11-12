@@ -30,9 +30,9 @@
 
         {% set radioItems = [
           { value: "yes", text: __("pages.contactChildArrangements.content.options.first")  },
-          { value: "no", text: __("pages.contactChildArrangements.content.options.second") },
-          { value: "no-details", text: __("pages.contactChildArrangements.content.options.third") },
-          { value: "not-response", text: __("pages.contactChildArrangements.content.options.fourth") }
+          { value: "no", text: __("pages.contactChildArrangements.content.options.second"), hint: { text: __("pages.contactChildArrangements.content.options.secondHint") } },
+          { divider: __('or') },
+          { value: "no-contact", text: __("pages.contactChildArrangements.content.options.third"), hint: { text: __("pages.contactChildArrangements.content.options.thirdHint") } }
         ] %}
 
         {{ govukRadios({

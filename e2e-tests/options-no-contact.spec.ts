@@ -13,12 +13,12 @@ test.beforeEach(async ({ page }) => {
   await startJourney(page);
   await selectChildSafetyOption(page, 'No');
   await selectDomesticAbuseOption(page, 'No');
-  await selectContactChildArrangementsOption(page, 'No, I am not comfortable contacting them');
+  await selectContactChildArrangementsOption(page, 'I cannot or do not want to contact them');
 });
 
-test.describe('Options no contact Page', () => {
+test.describe('No contact guidance page', () => {
   test('should display the page with correct url and title', async ({ page }) => {
-    await expect(page).toHaveURL(/options-no-contact/);
+    await expect(page).toHaveURL(/\/no-contact-guidance$/);
     await expect(page).toHaveTitle(new RegExp(pageTitle));
     await expect(page.locator('h1')).toContainText(pageTitle);
   });
@@ -164,28 +164,19 @@ test.describe('Options no contact Page', () => {
     await expect(page).toHaveURL(/contact-child-arrangements/);
   });
 
-  test('should navigate to agree order when "Yes" is selected on Contact Child Arrangements page', async ({ page }) => {
+  test('should navigate to agree when "I can contact them directly" is selected', async ({ page }) => {
     await page.locator('a.govuk-back-link').click();
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
     await expect(page).toHaveURL(/agree/);
     await expect(page.locator('h1')).toContainText('Do you and your ex-partner agree on child arrangements?');
   });
 
-  test('should navigate to court order when "I do not have their contact details" is selected on Contact Child Arrangements page', async ({
+  test('should navigate to no contact page when "I can only contact them through someone else" is selected', async ({
     page,
   }) => {
     await page.locator('a.govuk-back-link').click();
-    await selectContactChildArrangementsOption(page, 'I do not have their contact details');
-    await expect(page).toHaveURL(/court-order/);
-    await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
-  });
-
-  test('should navigate to court order when "I can contact them but they do not respond" is selected on Contact Child Arrangements page', async ({
-    page,
-  }) => {
-    await page.locator('a.govuk-back-link').click();
-    await selectContactChildArrangementsOption(page, 'I can contact them but they do not respond');
-    await expect(page).toHaveURL(/court-order/);
-    await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
+    await selectContactChildArrangementsOption(page, 'I can only contact them through someone else');
+    await expect(page).toHaveURL(/\/no-contact$/);
+    await expect(page.locator('h1')).toContainText('Options for making arrangements through someone else');
   });
 });

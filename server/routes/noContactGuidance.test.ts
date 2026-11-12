@@ -8,10 +8,10 @@ const app = testAppSetup();
 
 const pageTitle = 'Explore: what you can do if you cannot contact the other parent';
 
-describe('Options no contact', () => {
-  describe(`GET ${paths.OPTIONS_NO_CONTACT}`, () => {
+describe('No contact guidance', () => {
+  describe(`GET ${paths.NO_CONTACT_GUIDANCE}`, () => {
     it('should render options no contact page with correct heading', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect('Content-Type', /html/);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect('Content-Type', /html/);
       const dom = new JSDOM(response.text);
 
       expect(dom.window.document.querySelector('h1')).toHaveTextContent(pageTitle);
@@ -19,7 +19,7 @@ describe('Options no contact', () => {
     });
 
     it('should display intro content and what the page explains', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
       const dom = new JSDOM(response.text);
       const list = dom.window.document.querySelector('ul.govuk-list--bullet');
 
@@ -33,7 +33,7 @@ describe('Options no contact', () => {
     });
 
     it('should display warning text about contacting the other parent', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
       const dom = new JSDOM(response.text);
       const warningText = dom.window.document.querySelector('.govuk-warning-text');
 
@@ -44,7 +44,7 @@ describe('Options no contact', () => {
     });
 
     it('should display make child arrangements section', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
       const dom = new JSDOM(response.text);
       const link = dom.window.document.querySelector('a[href="https://www.gov.uk/looking-after-children-divorce"]');
 
@@ -59,7 +59,7 @@ describe('Options no contact', () => {
     });
 
     it('should display get child maintenance section', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
       const dom = new JSDOM(response.text);
       const link = dom.window.document.querySelector('a[href="https://www.gov.uk/child-maintenance-service"]');
 
@@ -77,7 +77,7 @@ describe('Options no contact', () => {
     });
 
     it('should display apply to court section and what to do before you apply', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
       const dom = new JSDOM(response.text);
       const miamLink = dom.window.document.querySelector(
         'a[href="https://apply-to-court-about-child-arrangements.service.justice.gov.uk/about/miam_exemptions"]',
@@ -109,7 +109,7 @@ describe('Options no contact', () => {
     });
 
     it('should display types of court order table', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
       const dom = new JSDOM(response.text);
       const table = dom.window.document.querySelectorAll('table.govuk-table')[0];
       const rows = table.querySelectorAll('tbody tr');
@@ -136,7 +136,7 @@ describe('Options no contact', () => {
     });
 
     it('should display help and support table with services', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
       const dom = new JSDOM(response.text);
       const table = dom.window.document.querySelectorAll('table.govuk-table')[1];
 
@@ -158,7 +158,7 @@ describe('Options no contact', () => {
     });
 
     it('should display related content section with correct links', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
       const dom = new JSDOM(response.text);
       const relatedContent = dom.window.document.querySelector('.govuk-grid-column-one-third');
       const links = relatedContent.querySelectorAll('nav ul > li a');
@@ -182,7 +182,7 @@ describe('Options no contact', () => {
     });
 
     it('should display back to top links', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
       const dom = new JSDOM(response.text);
       const backToTopLinks = dom.window.document.querySelectorAll('a[href="#top"]');
 
@@ -193,7 +193,7 @@ describe('Options no contact', () => {
     });
 
     it('should display back link to contact child arrangements page', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
       const dom = new JSDOM(response.text);
       const backLink = dom.window.document.querySelector('.govuk-back-link');
 
@@ -202,13 +202,13 @@ describe('Options no contact', () => {
     });
 
     it('should display Exit this page button', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
 
       expect(response.text).toContain('Exit this page');
     });
 
     it('should have correct page title', async () => {
-      const response = await request(app).get(paths.OPTIONS_NO_CONTACT).expect(200);
+      const response = await request(app).get(paths.NO_CONTACT_GUIDANCE).expect(200);
       const dom = new JSDOM(response.text);
       const title = dom.window.document.querySelector('title');
 

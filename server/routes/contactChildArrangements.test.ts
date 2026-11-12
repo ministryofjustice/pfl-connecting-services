@@ -17,7 +17,10 @@ describe('Question 2: Contact', () => {
 
   describe(`POST ${paths.CONTACT_CHILD_ARRANGEMENTS}`, () => {
     it('should reload page and set flash error when no option selected', async () => {
-      await request(app).post(paths.CONTACT_CHILD_ARRANGEMENTS).expect(302).expect('location', paths.CONTACT_CHILD_ARRANGEMENTS);
+      await request(app)
+        .post(paths.CONTACT_CHILD_ARRANGEMENTS)
+        .expect(302)
+        .expect('location', paths.CONTACT_CHILD_ARRANGEMENTS);
 
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
@@ -37,20 +40,20 @@ describe('Question 2: Contact', () => {
         .expect('location', paths.AGREEMENT);
     });
 
-    it('should redirect to court page when answer is no-details', () => {
-      return request(app)
-        .post(paths.CONTACT_CHILD_ARRANGEMENTS)
-        .send({ contactChildArrangements: 'no-details' })
-        .expect(302)
-        .expect('location', paths.COURT_ORDER);
-    });
-
-    it('should redirect to options-no-contact page when answer is no or no-response', () => {
+    it('should redirect to no contact page when answer is no', () => {
       return request(app)
         .post(paths.CONTACT_CHILD_ARRANGEMENTS)
         .send({ contactChildArrangements: 'no' })
         .expect(302)
-        .expect('location', paths.OPTIONS_NO_CONTACT);
+        .expect('location', paths.NO_CONTACT);
+    });
+
+    it('should redirect to no contact guidance page when answer is no-contact', () => {
+      return request(app)
+        .post(paths.CONTACT_CHILD_ARRANGEMENTS)
+        .send({ contactChildArrangements: 'no-contact' })
+        .expect(302)
+        .expect('location', paths.NO_CONTACT_GUIDANCE);
     });
   });
 });

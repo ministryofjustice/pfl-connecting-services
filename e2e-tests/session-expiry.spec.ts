@@ -1,9 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-import {
-  sessionTimeoutMetaRefreshContent,
-  sessionTimeoutMs,
-} from './fixtures/session-config';
+import { sessionTimeoutMetaRefreshContent, sessionTimeoutMs } from './fixtures/session-config';
 import {
   selectAgreeOnChildArrangementsOption,
   selectChildSafetyOption,
@@ -45,8 +42,8 @@ test.describe('Session Expiry', () => {
   test('should allow user to start a new journey after session expires', async ({ page }) => {
     await startJourney(page);
     await selectChildSafetyOption(page, 'No');
-    await selectDomesticAbuseOption(page, 'No')
-    await selectContactChildArrangementsOption(page, 'I can contact them but they do not respond')
+    await selectDomesticAbuseOption(page, 'No');
+    await selectContactChildArrangementsOption(page, 'I cannot or do not want to contact them');
     await page.context().clearCookies();
     await startJourney(page);
     await expect(page).toHaveURL(/child-safety/);
@@ -57,7 +54,7 @@ test.describe('Session Expiry', () => {
     await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'Yes');
     await page.getByRole('button', { name: /continue/i }).click();
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
     await expect(page).toHaveURL('/other-options');

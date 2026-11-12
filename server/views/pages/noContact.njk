@@ -1,0 +1,98 @@
+{% extends "partials/layout.njk" %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "macros/title.njk" import getTitle with context %}
+
+{% set title = __("pages.noContact.title") %}
+{% block pageTitle %}
+  {{ getTitle('noContact', errors) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ __("exitThisPage")  | safe }}
+
+      <h1 class="govuk-heading-l">{{ __("pages.noContact.title") }}</h1>
+      <p class="govuk-body">{{ __("pages.noContact.cannotContact") }}</p>
+      <p class="govuk-body">{{ __("pages.noContact.someoneElse") }}</p>
+
+      <h2 class="govuk-heading-m">{{ __("pages.noContact.shuttleMediation.title") }}</h2>
+      <p class="govuk-body">{{ __("pages.noContact.shuttleMediation.suitYou") }}</p>
+      <p class="govuk-body">{{ __("pages.noContact.shuttleMediation.attendSession") }}</p>
+      <p class="govuk-body">{{ __("pages.noContact.shuttleMediation.mediator") }}</p>
+      {{
+        govukInsetText({
+          id: "cost-inset-shuttle-mediation",
+          text: __("pages.noContact.shuttleMediation.voucher") | safe
+        })
+      }}
+      <p class="govuk-body">{{ __("pages.noContact.shuttleMediation.findOutLink") | safe }}</p>
+
+      <h2 class="govuk-heading-m">{{ __("pages.noContact.familySolicitorNegotiation.title") }}</h2>
+      <p class="govuk-body">{{ __("pages.noContact.familySolicitorNegotiation.suitYou") }}</p>
+      <p class="govuk-body">{{ __("pages.noContact.familySolicitorNegotiation.familySolicitor") }}</p>
+      <p class="govuk-body">{{ __("pages.noContact.familySolicitorNegotiation.doNotSpeak") }}</p>
+      <p class="govuk-body">{{ __("pages.noContact.familySolicitorNegotiation.findOutLink") | safe }}</p>
+
+      <h2 class="govuk-heading-m">{{ __("pages.noContact.collaborativeLaw.title") }}</h2>
+      <p class="govuk-body">{{ __("pages.noContact.collaborativeLaw.suitYou") }}</p>
+      <p class="govuk-body">{{ __("pages.noContact.collaborativeLaw.legalAdvisers") }}</p>
+      <p class="govuk-body">{{ __("pages.noContact.collaborativeLaw.findOutLink") | safe }}</p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+
+      <h2 class="govuk-heading-m">{{ __("pages.noContact.otherWaysToAgree.title") }}</h2>
+      <p class="govuk-body">{{ __("pages.noContact.otherWaysToAgree.nonCourtDisputeResolution") }}</p>
+      <p class="govuk-body">{{ __("pages.noContact.otherWaysToAgree.findOutlink") | safe }}</p>
+
+      <h2 class="govuk-heading-m">{{ __("pages.noContact.courtOrder.title") }}</h2>
+      <p class="govuk-body">{{ __("pages.noContact.courtOrder.rightOption") }}</p>
+      <p class="govuk-body">{{ __("pages.noContact.courtOrder.exploreLink") | safe }}</p>
+
+      <h2 class="govuk-heading-m">{{ __("pages.noContact.helpAndSupport.title") }}</h2>
+      <p class="govuk-body">{{ __("pages.noContact.helpAndSupport.someServices") }}</p>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-mediation-width"></dt>
+          <dd class="govuk-summary-list__value"></dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-mediation-width">
+            {{ __("pages.noContact.helpAndSupport.table.rowOne.heading") | safe }}
+          </dt>
+          <dd class="govuk-summary-list__value">{{ __("pages.noContact.helpAndSupport.table.rowOne.data") }}</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key-mediation-width">
+            {{ __("pages.noContact.helpAndSupport.table.rowTwo.heading") | safe }}
+          </dt>
+          <dd class="govuk-summary-list__value">{{ __("pages.noContact.helpAndSupport.table.rowTwo.data") }}</dd>
+        </div>
+      </dl>
+      {{
+        govukButton({
+          text: __("printThisPage"),
+          classes: "govuk-button--secondary",
+          attributes: {
+            id: "print-this-page-button"
+          }
+        })
+      }}
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m subsection-title">{{ __("pages.start.relatedContent.title") }}</h2>
+      <nav role="navigation">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li class="govuk-!-margin-bottom-2">
+            {{ __("pages.noContact.relatedContent.content.makingChildArrangements") | safe }}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            {{ __("pages.noContact.relatedContent.content.familyMediationVoucherScheme") | safe }}
+          </li>
+        </ul>
+      </nav>
+      {% include "partials/exitThisPage.njk" %}
+    </div>
+  </div>
+{% endblock %}

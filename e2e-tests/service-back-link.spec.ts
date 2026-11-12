@@ -78,7 +78,7 @@ test.describe('Service Back Link', () => {
     await startJourney(page);
     await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
 
     await page.getByLabel(label).check();
     await page.getByRole('button', { name: /continue/i }).click();
@@ -97,7 +97,7 @@ test.describe('Service Back Link', () => {
     await startJourney(page);
     await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
 
     await page.getByLabel(label).check();
@@ -117,7 +117,7 @@ test.describe('Service Back Link', () => {
     await startJourney(page);
     await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations')
 
@@ -140,7 +140,7 @@ test.describe('Browser Navigation - Multiple Forward and Backward Navigation', (
     await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'Yes');
     await page.getByRole('button', { name: /continue/i }).click();
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations')
     await selectOtherOptions(page, 'No, we have not tried yet')

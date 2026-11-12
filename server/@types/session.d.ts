@@ -4,7 +4,7 @@ export interface CSSession {
   // Question answers
   childSafety?: 'yes' | 'no';
   domesticAbuse?: 'yes' | 'no';
-  contactChildArrangements?: 'yes' | 'no' | 'no-details' | 'no-response';
+  contactChildArrangements?: 'yes' | 'no' | 'no-contact';
   agreement?: 'yes' | 'not-discussed' | 'no';
   helpToAgree?: 'plan' | 'external' | 'cannot';
   mediation?: 'yes' | 'no';

@@ -43,10 +43,10 @@ router.post(
     }
 
     if (req.body.contactChildArrangements === 'no') {
-      return res.redirect(paths.OPTIONS_NO_CONTACT);
+      return res.redirect(paths.NO_CONTACT);
     }
 
-    return res.redirect(paths.COURT_ORDER);
+    return res.redirect(paths.NO_CONTACT_GUIDANCE);
   }
 );
 

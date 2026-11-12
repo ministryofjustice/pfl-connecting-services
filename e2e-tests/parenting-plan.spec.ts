@@ -16,7 +16,7 @@ test.describe('Parenting Plan', () => {
     await startJourney(page);
     await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No');
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
     await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
   });
   
@@ -144,7 +144,7 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
     await selectDomesticAbuseOption(page, 'Yes');
 
     await page.getByRole('button', { name: 'Continue' }).click();
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
     await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
 
     // Should be on parenting plan page with warning text visible
@@ -161,7 +161,7 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
     await selectDomesticAbuseOption(page, 'No');
 
     await page.getByRole('button', { name: 'Continue' }).click();
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
     await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
 
     // Should be on parenting plan page without warning text
@@ -177,7 +177,7 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
     await selectDomesticAbuseOption(page, 'I\'m not sure')
 
     await page.getByRole('button', { name: 'Continue' }).click();
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
     await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
 
     // Should be on parenting plan page with warning text visible
@@ -195,7 +195,7 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
 
     await selectDomesticAbuseOption(page, 'No')
 
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
     await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
 
     // Should be on parenting plan page with warning text visible
@@ -212,7 +212,7 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
 
     await selectDomesticAbuseOption(page, 'No')
 
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
     await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
 
     // Should be on parenting plan page with warning text visible
@@ -229,7 +229,7 @@ test.describe('Parenting Plan, Conditional Warning messages', () => {
 
     await selectDomesticAbuseOption(page, 'No')
 
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
     await selectAgreeOnChildArrangementsOption(page, 'Yes, we agree on some or most things')
 
     // Should be on parenting plan page with warning text visible
@@ -244,7 +244,7 @@ test.describe('should display explore making a parenting plan through different 
     await startJourney(page);
     await selectChildSafetyOption(page, 'No')
     await selectDomesticAbuseOption(page, 'No');
-    await selectContactChildArrangementsOption(page, 'Yes')
+    await selectContactChildArrangementsOption(page, 'I can contact them directly')
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree')
     await selectHelpToAgreeOnChildArrangementsOption(page, 'A plan we can follow ourselves');
     await expect(page).toHaveURL(/parenting-plan/);
