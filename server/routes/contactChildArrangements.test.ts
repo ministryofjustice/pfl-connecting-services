@@ -1,8 +1,9 @@
+import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
-import { flashMock } from '../test-utils/testMocks';
+import { flashMock, sessionMock } from '../test-utils/testMocks';
 
 const app = testAppSetup();
 
@@ -13,6 +14,21 @@ describe('Question 2: Contact', () => {
 
       expect(response.status).toBe(200);
     });
+
+    it.each(['yes', 'no', 'no-contact'] as const)(
+      'should keep the previously selected answer checked when returning to the page',
+      async (answer) => {
+        sessionMock.contactChildArrangements = answer;
+
+        const response = await request(app).get(paths.CONTACT_CHILD_ARRANGEMENTS).expect(200);
+        const dom = new JSDOM(response.text);
+        const selected = dom.window.document.querySelector(
+          `input[type="radio"][name="contactChildArrangements"][value="${answer}"]`,
+        );
+
+        expect(selected).toBeChecked();
+      },
+    );
   });
 
   describe(`POST ${paths.CONTACT_CHILD_ARRANGEMENTS}`, () => {
