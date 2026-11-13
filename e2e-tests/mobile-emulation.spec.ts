@@ -13,7 +13,7 @@ const mobileDevices = [
 async function assertNoHorizontalScroll(page: Page, url: RegExp | string) {
   await expect(page).toHaveURL(url);
   const html = await page.$('html');
-  const hasHorizontalScroll = await html!.evaluate(el => el.scrollWidth > el.clientWidth);
+  const hasHorizontalScroll = await html!.evaluate((el) => el.scrollWidth > el.clientWidth);
   expect(hasHorizontalScroll).toBe(false);
 }
 
@@ -50,33 +50,25 @@ for (const device of mobileDevices) {
 
       // contact-child-arrangements
       await assertNoHorizontalScroll(page, /contact-child-arrangements/);
-      await page.getByRole('radio', { name: /I can contact them but they do not respond/i }).check();
+      await page.getByRole('radio', { name: 'I can only contact them through someone else', exact: true }).check();
       await page.getByRole('button', { name: /continue/i }).tap();
 
-      // options-no-contact
-      await assertNoHorizontalScroll(page, /court-order/);
-      await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
+      // no-contact
+      await assertNoHorizontalScroll(page, /\/no-contact$/);
+      await expect(page.locator('h1')).toContainText('Options for making arrangements through someone else');
       await page.locator('.govuk-back-link').click();
 
       // contact-child-arrangements
-      await page.getByRole('radio', { name: /I do not have their contact details/i }).check();
+      await page.getByRole('radio', { name: 'I cannot or do not want to contact them', exact: true }).check();
       await page.getByRole('button', { name: /continue/i }).tap();
 
-      // Court-order
-      await assertNoHorizontalScroll(page, /court-order/);
-      await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
+      // no-contact-guidance
+      await assertNoHorizontalScroll(page, /\/no-contact-guidance$/);
+      await expect(page.locator('h1')).toContainText('Explore: what you can do if you cannot contact the other parent');
       await page.locator('.govuk-back-link').click();
 
       // contact-child-arrangements
-      await page.getByRole('radio', { name: /No, I am not comfortable contacting them/i }).check();
-      await page.getByRole('button', { name: /continue/i }).tap();
-
-      // options-no-contact
-      await expect(page.locator('h1')).toContainText('Options to explore if you are not comfortable contacting your ex-partner');
-      await page.locator('.govuk-back-link').click();
-
-      // contact-child-arrangements
-      await page.getByRole('radio', { name: /Yes/i }).check();
+      await page.getByRole('radio', { name: 'I can contact them directly', exact: true }).check();
       await page.getByRole('button', { name: /continue/i }).tap();
 
       // agree-on-child-arrangements

@@ -12,7 +12,7 @@ test.beforeEach(async ({ page }) => {
   await startJourney(page);
   await selectChildSafetyOption(page, 'No');
   await selectDomesticAbuseOption(page, 'No');
-  await selectContactChildArrangementsOption(page, 'Yes');
+  await selectContactChildArrangementsOption(page, 'I can contact them directly');
 });
 
 test.describe('Agreement on child arrangements Page', () => {

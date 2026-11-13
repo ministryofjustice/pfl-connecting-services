@@ -17,7 +17,7 @@ test.describe('Mediation Page', () => {
     await startJourney(page);
     await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, "No");
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
     await selectOtherOptions(page, 'No, we have not tried yet')
@@ -112,7 +112,7 @@ test.describe('Mediation, Conditional Warning messages', () => {
     await selectDomesticAbuseOption(page, 'Yes')
 
     await page.getByRole('button', { name: 'Continue' }).click();
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
     await selectOtherOptions(page, 'No, we have not tried yet')
@@ -133,7 +133,7 @@ test.describe('Mediation, Conditional Warning messages', () => {
     await selectDomesticAbuseOption(page, 'No')
 
     await page.getByRole('button', { name: 'Continue' }).click();
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
     await selectOtherOptions(page, 'No, we have not tried yet')
@@ -153,7 +153,7 @@ test.describe('Mediation, Conditional Warning messages', () => {
     await selectDomesticAbuseOption(page, 'I\'m not sure')
 
     await page.getByRole('button', { name: 'Continue' }).click();
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
     await selectOtherOptions(page, 'No, we have not tried yet')
@@ -174,7 +174,7 @@ test.describe('Mediation, Conditional Warning messages', () => {
     // Domestic abuse question - select No
     await selectDomesticAbuseOption(page, 'No')
 
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
     await selectOtherOptions(page, 'No, we have not tried yet')
@@ -193,7 +193,7 @@ test.describe('Mediation, Conditional Warning messages', () => {
 
     await selectDomesticAbuseOption(page, 'No')
 
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
     await selectOtherOptions(page, 'No, we have not tried yet')
@@ -212,7 +212,7 @@ test.describe('Mediation, Conditional Warning messages', () => {
 
     await selectDomesticAbuseOption(page, 'No')
 
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
     await selectOtherOptions(page, 'No, we have not tried yet')

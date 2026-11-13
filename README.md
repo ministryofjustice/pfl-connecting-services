@@ -48,6 +48,7 @@ To move the service into an open beta, the following changes should be made
 - [Language Support](#language-support)
 - [API Routes](#api-routes)
   - [Authenticated Routes](#authenticated-routes)
+  - [Contact with the other parent](#contact-with-the-other-parent)
   - [Public Routes](#public-routes)
   - [System Routes](#system-routes)
 - [Development Workflow](#development-workflow)
@@ -307,7 +308,7 @@ npm run e2e -- --grep "accessibility"
 ```
 
 E2E test coverage includes:
-- User journey flows (agreement → mediation → parenting plan)
+- User journey flows (agreement → mediation → parenting plan, and both no-contact outcomes)
 - Accessibility compliance (WCAG 2.1)
 - Cross-browser compatibility (Chromium, Firefox, WebKit)
 - Mobile responsiveness
@@ -409,10 +410,23 @@ The application supports English and Welsh with comprehensive internationalizati
 - `/domestic-abuse` - Domestic abuse safety guidance
 - `/help-to-agree` - Help with reaching agreements
 - `/mediation` - Mediation service information
-- `/options-no-contact` - Options when no contact is appropriate
+- `/no-contact` - Options for making arrangements through someone else
+- `/no-contact-guidance` - What to do if you cannot or do not want to contact the other parent
 - `/other-options` - Alternative arrangement options
 - `/parenting-plan` - Parenting plan creation guidance
 - `/safeguarding` - Safeguarding and protection information
+
+### Contact with the other parent
+
+`/contact-child-arrangements` asks which of these best describes contact with the other parent. The answer decides the next page:
+
+| Answer | Next page |
+| --- | --- |
+| I can contact them directly | [`/agree`](/agree) |
+| I can only contact them through someone else | [`/no-contact`](/no-contact) |
+| I cannot or do not want to contact them | [`/no-contact-guidance`](/no-contact-guidance) |
+
+`/no-contact` explains ways to make child arrangements through someone else, including shuttle mediation, family solicitor negotiation, and collaborative law. `/no-contact-guidance` explains making child arrangements, getting child maintenance, and applying to court when the other parent cannot be contacted.
 
 ### Public Routes
 - `/` - Homepage
@@ -663,7 +677,8 @@ Neither check blocks the commit. The Playwright results file is automatically de
 - [Domestic abuse](/domestic-abuse)
 - [Help to agree](/help-to-agree)
 - [Mediation](/mediation)
-- [Options no contact](/options-no-contact)
+- [No contact](/no-contact)
+- [No contact guidance](/no-contact-guidance)
 - [Other options](/other-options)
 - [Parenting plan](/parenting-plan)
 - [Safeguarding](/getting-help)

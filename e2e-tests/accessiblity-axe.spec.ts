@@ -1,17 +1,15 @@
 import { AxeBuilder } from '@axe-core/playwright';
-import { test, expect, Page} from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 
 import {
   startJourney,
   selectChildSafetyOption,
   selectDomesticAbuseOption,
-  continueFromChildSafetyHelp
+  continueFromChildSafetyHelp,
 } from './fixtures/test-helpers';
 
 export default async function runAxeScan(page: Page) {
-  return await new AxeBuilder({ page })
-    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-    .analyze();
+  return await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
 }
 
 test.describe('Accessibility - Axe Core Scanning', () => {
@@ -25,7 +23,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
 
     //child-safety
     expect(results.violations).toEqual([]);
-    await selectChildSafetyOption(page, 'Yes')
+    await selectChildSafetyOption(page, 'Yes');
 
     //child-safety-help
     expect(results.violations).toEqual([]);
@@ -33,7 +31,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
 
     //domestic-abuse
     expect(results.violations).toEqual([]);
-    await selectDomesticAbuseOption(page, 'Yes')
+    await selectDomesticAbuseOption(page, 'Yes');
 
     // getting-help
     expect(results.violations).toEqual([]);
@@ -41,37 +39,27 @@ test.describe('Accessibility - Axe Core Scanning', () => {
 
     // contact-child-arrangements
     expect(results.violations).toEqual([]);
-    await page.getByRole('radio', { name: /I can contact them but they do not respond/i }).check();
+    await page.getByRole('radio', { name: 'I can only contact them through someone else', exact: true }).check();
     await page.getByRole('button', { name: /continue/i }).click();
 
-    // options-no-contact
+    // no-contact
     expect(results.violations).toEqual([]);
-    await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
+    await expect(page.locator('h1')).toContainText('Options for making arrangements through someone else');
     await page.locator('.govuk-back-link').click();
 
     // contact-child-arrangements
     expect(results.violations).toEqual([]);
-    await page.getByRole('radio', { name: /I do not have their contact details/i }).check();
+    await page.getByRole('radio', { name: 'I cannot or do not want to contact them', exact: true }).check();
     await page.getByRole('button', { name: /continue/i }).click();
 
-    // Court-order
+    // no-contact-guidance
     expect(results.violations).toEqual([]);
-    await expect(page.locator('h1')).toContainText('Explore: Applying for a court order');
+    await expect(page.locator('h1')).toContainText('Explore: what you can do if you cannot contact the other parent');
     await page.locator('.govuk-back-link').click();
 
     // contact-child-arrangements
     expect(results.violations).toEqual([]);
-    await page.getByRole('radio', { name: /No, I am not comfortable contacting them/i }).check();
-    await page.getByRole('button', { name: /continue/i }).click();
-
-    // options-no-contact
-    expect(results.violations).toEqual([]);
-    await expect(page.locator('h1')).toContainText('Options to explore if you are not comfortable contacting your ex-partner');
-    await page.locator('.govuk-back-link').click();
-
-    // contact-child-arrangements
-    expect(results.violations).toEqual([]);
-    await page.getByRole('radio', { name: /Yes/i }).check();
+    await page.getByRole('radio', { name: 'I can contact them directly', exact: true }).check();
     await page.getByRole('button', { name: /continue/i }).click();
 
     // agree-on-child-arrangements
@@ -142,7 +130,9 @@ test.describe('Accessibility - Axe Core Scanning', () => {
     const accessibilityScanResults = await new AxeBuilder({ page }).withTags(['wcag2a']).include('form').analyze();
 
     // Filter for label-related violations
-    const labelViolations = accessibilityScanResults.violations.filter((violation: { id: string }) => violation.id.includes('label'));
+    const labelViolations = accessibilityScanResults.violations.filter((violation: { id: string }) =>
+      violation.id.includes('label'),
+    );
 
     expect(labelViolations).toEqual([]);
   });
@@ -175,7 +165,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
     // The Prototype Kit usually puts the role="alert" on the summary div
     // or uses an h2 with a specific ID.
     const role = await errorSummary.getAttribute('role');
-    const hasHeading = await errorSummary.locator('h2').count() > 0;
+    const hasHeading = (await errorSummary.locator('h2').count()) > 0;
 
     // If it's a prototype, having the heading and visibility is often the goal
     expect(role === 'alert' || hasHeading).toBeTruthy();
@@ -195,13 +185,12 @@ test.describe('Accessibility - Axe Core Scanning', () => {
 
     const ids = describedBy!.split(/\s+/);
 
-    const errorId = ids.find(id => id.endsWith('-error'));
+    const errorId = ids.find((id) => id.endsWith('-error'));
     expect(errorId).toBeTruthy();
 
     const errorMessage = page.locator(`#${errorId}`);
     await expect(errorMessage).toContainText(/select whether the children have ever been at risk/i);
-});
-
+  });
 
   test('should have accessible navigation landmarks', async ({ page }) => {
     await page.goto('/');
@@ -293,7 +282,15 @@ test.describe('Accessibility - Axe Core Scanning', () => {
   });
 
   test('should have no critical or serious violations on key pages', async ({ page }) => {
-    const keyPages = ['/', '/child-safety', '/domestic-abuse', '/make-a-plan', '/cookies', '/privacy-notice', '/accessibility-statement'];
+    const keyPages = [
+      '/',
+      '/child-safety',
+      '/domestic-abuse',
+      '/make-a-plan',
+      '/cookies',
+      '/privacy-notice',
+      '/accessibility-statement',
+    ];
 
     for (const pageUrl of keyPages) {
       try {

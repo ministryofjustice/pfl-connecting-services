@@ -36,7 +36,7 @@
 }
 
 .govuk-list--dash > li::before {
-  content: "-";
+  content: '-';
   position: absolute;
   left: 0;
   width: 20px;
@@ -76,12 +76,12 @@
   cursor: pointer;
 
   &::before {
-    content: "";
+    content: '';
     display: inline-block;
     width: 16px;
     height: 18px;
     margin-right: 10px;
-    background: url("/assets/images/icon-print.png") no-repeat;
+    background: url('/assets/images/icon-print.png') no-repeat;
     background-size: 16px 18px;
   }
 
@@ -95,12 +95,19 @@
 }
 
 .govuk-print-link__button:focus {
-    border-color: rgba(0, 0, 0, 0);
-    outline: 3px solid rgba(0, 0, 0, 0);
-    color: #0b0c0c;
-    background-color: #fd0;
-    box-shadow: 0 -2px #fd0, 0 4px #0b0c0c;
-    text-decoration: none;
+  border-color: rgba(0, 0, 0, 0);
+  outline: 3px solid rgba(0, 0, 0, 0);
+  color: #0b0c0c;
+  background-color: #fd0;
+  box-shadow:
+    0 -2px #fd0,
+    0 4px #0b0c0c;
+  text-decoration: none;
+}
+
+.govuk-grid-column-two-thirds,
+.govuk-grid-column-one-third {
+  min-width: 0;
 }
 
 .govuk-grid-column-one-third {
@@ -108,18 +115,23 @@
   top: 20px;
 }
 
+.app-scrollable-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 // Hide JS-dependent elements when JavaScript is disabled
 .js-visible {
-    display: none;
+  display: none;
 }
 
 .js-enabled .js-visible {
-    display: inline-flex;
+  display: inline-flex;
 }
 
 @media print {
   .govuk-back-link::after {
-    content: "(" attr(href) ")";
+    content: '(' attr(href) ')';
     color: transparent;
   }
 }
