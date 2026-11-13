@@ -612,15 +612,15 @@
           },
           "rowTwo": {
             "name": "<a class=\"govuk-link\" href=\"https://www.nationaldahelpline.org.uk/\">Refuge National Domestic Abuse Helpline</a>",
-            "description": "Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.<br />Telephone: <a class=\"govuk-link\" href=\"tel:0808 2000 247\">0808 2000 247</a>"
+            "description": "Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.<br /><br />Telephone: <a class=\"govuk-link\" href=\"tel:0808 2000 247\">0808 2000 247</a>"
           },
           "rowThree": {
             "name": "<a class=\"govuk-link\" href=\"https://www.rightsofwomen.org.uk/get-advice/family-law/\">Rights of Women</a>",
-            "description": "Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.<br />Telephone: <a class=\"govuk-link\" href=\"tel:020 7251 6577\">020 7251 6577</a>"
+            "description": "Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.<br /><br />Telephone: <a class=\"govuk-link\" href=\"tel:020 7251 6577\">020 7251 6577</a>"
           },
           "rowFour": {
             "name": "<a class=\"govuk-link\" href=\"https://mensadviceline.org.uk/\">Men's Advice Line</a>",
-            "description": "A supportive helpline for all male victims of domestic abuse and those supporting them.<br />Telephone: <a class=\"govuk-link\" href=\"tel:0808 801 0327\">0808 801 0327</a>"
+            "description": "A supportive helpline for all male victims of domestic abuse and those supporting them.<br /><br />Telephone: <a class=\"govuk-link\" href=\"tel:0808 801 0327\">0808 801 0327</a>"
           }
         }
       },
