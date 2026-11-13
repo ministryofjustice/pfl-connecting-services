@@ -41,7 +41,7 @@ describe('Question 2: Contact', () => {
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
           location: 'body',
-          msg: 'Select whether you are comfortable contacting your ex-partner',
+          msg: 'Select which of these best describes contact with the other parent',
           path: 'contactChildArrangements',
           type: 'field',
         },

@@ -6,8 +6,7 @@ import { loggerMocks } from './test-utils/testMocks';
 
 describe('errorHandler', () => {
   describe('notFound', () => {
-    // eslint-disable-next-line jest/no-disabled-tests
-    it.skip('should render content with stack in dev mode', async () => {
+    it('should render content with stack in dev mode', async () => {
       await request(testAppSetup())
         .get('/unknown')
         .expect(404)
@@ -39,8 +38,7 @@ describe('errorHandler', () => {
   });
 
   describe('genericError', () => {
-    // eslint-disable-next-line jest/no-disabled-tests
-    it.skip('should render content without stack in production mode', async () => {
+    it('should render content without stack in production mode', async () => {
       config.production = true;
       await request(testAppSetup())
         .get('/create-error')
