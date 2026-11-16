@@ -4,6 +4,7 @@ import {
   startJourney,
   selectChildSafetyOption,
   continueFromChildSafetyHelp,
+  continueToCourtOrder,
   selectDomesticAbuseOption,
   selectContactChildArrangementsOption,
   selectAgreeOnChildArrangementsOption,
@@ -16,7 +17,7 @@ test.describe('Court Order Page', () => {
     await startJourney(page);
     await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
-    await selectContactChildArrangementsOption(page, 'I do not have their contact details');
+    await continueToCourtOrder(page);
   });
 
   test('should display the page with correct url and title', async ({ page }) => {
@@ -26,16 +27,22 @@ test.describe('Court Order Page', () => {
 
   test('should display "Why this could be right for you" section', async ({ page }) => {
     await expect(page.locator('#main-content h2').first()).toHaveText('Why this could be right for you');
-    await expect(page.locator('.govuk-list--bullet').first()).toContainText('you cannot agree, even after trying options such as');
+    await expect(page.locator('.govuk-list--bullet').first()).toContainText(
+      'you cannot agree, even after trying options such as',
+    );
     await expect(page.locator('.govuk-list--bullet').first()).toContainText('domestic abuse or you or the children');
     await expect(page.locator('.govuk-list--bullet').first()).toContainText('contact your ex-partner');
-    await expect(page.locator('.govuk-list--bullet').first()).toContainText('consent order to consider making your parenting plan');
+    await expect(page.locator('.govuk-list--bullet').first()).toContainText(
+      'consent order to consider making your parenting plan',
+    );
   });
 
   test('should display "Important things to consider" section', async ({ page }) => {
     await expect(page.locator('text=Important things to consider')).toBeVisible();
     await expect(page.locator('text=Mediation Information and Assessment Meeting (MIAM):')).toBeVisible();
-    await expect(page.locator('text=Find a mediator who can provide a MIAM on the Family Mediation Council website')).toBeVisible();
+    await expect(
+      page.locator('text=Find a mediator who can provide a MIAM on the Family Mediation Council website'),
+    ).toBeVisible();
     await expect(page.locator('text=Cost:')).toBeVisible();
     await expect(page.locator('text=Time:')).toBeVisible();
   });
@@ -82,7 +89,7 @@ test.describe('Court Order Page', () => {
     const adviceNowLink = page.locator('a:has-text("Advicenow")');
     await expect(adviceNowLink).toHaveAttribute(
       'href',
-      'https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/what-do-you-apply-family-court-about-your-children'
+      'https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements/what-do-you-apply-family-court-about-your-children',
     );
   });
 
@@ -99,7 +106,9 @@ test.describe('Court Order Page', () => {
     await expect(lawWorksLink).toHaveAttribute('href', 'https://www.lawworks.org.uk/legal-advice-individuals');
   });
 
-  test('should have National Association of Child Contact Centres (NACCC) link pointing to correct URL', async ({ page }) => {
+  test('should have National Association of Child Contact Centres (NACCC) link pointing to correct URL', async ({
+    page,
+  }) => {
     const nacccLink = page.locator('a:has-text("National Association of Child Contact Centres (NACCC)")');
     await expect(nacccLink).toHaveAttribute('href', 'https://naccc.org.uk/for-parents/types-of-contact/');
   });
@@ -107,10 +116,11 @@ test.describe('Court Order Page', () => {
   test('should have related content links pointing to correct URLs', async ({ page }) => {
     const relatedContent = page.locator('.govuk-grid-column-one-third');
 
-    const proposeChildArrangementsPlanLink = relatedContent.locator(
-      'a:has-text("Propose a child arrangements plan")',
+    const proposeChildArrangementsPlanLink = relatedContent.locator('a:has-text("Propose a child arrangements plan")');
+    await expect(proposeChildArrangementsPlanLink).toHaveAttribute(
+      'href',
+      'https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan',
     );
-    await expect(proposeChildArrangementsPlanLink).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce/make-child-arrangements-plan');
 
     const applyForOrderLink = relatedContent.locator('a:has-text("Apply for a court order")');
     await expect(applyForOrderLink).toHaveAttribute(
@@ -133,7 +143,7 @@ test.describe('should display explore court order through different journey flow
     await startJourney(page);
     await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
   });
 
   test('should display explore a court order when parent and ex-partner need someone else to make a decision on child arrangements', async ({
@@ -192,111 +202,139 @@ test.describe('Court Order, Conditional Warning messages', () => {
     await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
   });
 
-  test('should display warning text on explore a court order, when user selected "Yes" for domestic abuse', async ({ page }) => {
-    await startJourney(page)
+  test('should display warning text on explore a court order, when user selected "Yes" for domestic abuse', async ({
+    page,
+  }) => {
+    await startJourney(page);
     await selectChildSafetyOption(page, 'No');
 
     // Domestic abuse question - select Yes
-    await selectDomesticAbuseOption(page, 'Yes')
+    await selectDomesticAbuseOption(page, 'Yes');
 
     await page.getByRole('button', { name: 'Continue' }).click();
-    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+    await continueToCourtOrder(page);
 
     // Should be on explore a court order page with warning text visible
     await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
     await expect(page.locator('.govuk-warning-text')).toBeVisible();
-    await expect(page.locator('.govuk-warning-text')).toContainText('You do not have to go to a MIAM if you can show there is a risk:');
+    await expect(page.locator('.govuk-warning-text')).toContainText(
+      'You do not have to go to a MIAM if you can show there is a risk:',
+    );
     await expect(page.locator('.govuk-warning-text')).toContainText('to your life, freedom, physical safety or home');
     await expect(page.locator('.govuk-warning-text')).toContainText('of harm to a child');
-    await expect(page.locator('.govuk-warning-text')).toContainText('that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held');
-    await expect(page.locator('.govuk-warning-text')).toContainText('If any of these apply, you may be able to apply for an urgent court hearing about child arrangements');
+    await expect(page.locator('.govuk-warning-text')).toContainText(
+      'that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held',
+    );
+    await expect(page.locator('.govuk-warning-text')).toContainText(
+      'If any of these apply, you may be able to apply for an urgent court hearing about child arrangements',
+    );
   });
 
-  test('should not display warning text on explore a court order, when user selected "No" for domestic abuse', async ({ page }) => {
-    await startJourney(page)
-    await selectChildSafetyOption(page, 'No')
+  test('should not display warning text on explore a court order, when user selected "No" for domestic abuse', async ({
+    page,
+  }) => {
+    await startJourney(page);
+    await selectChildSafetyOption(page, 'No');
 
     // Domestic abuse question - select No
-    await selectDomesticAbuseOption(page, 'No')
+    await selectDomesticAbuseOption(page, 'No');
 
-    await page.getByRole('button', { name: 'Continue' }).click();
-    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+    await continueToCourtOrder(page);
 
     // Should be on explore a court order page without warning text
     await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
     await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
   });
 
-  test('should display warning text on explore a court order, when user selected "I\'m not sure" for domestic abuse', async ({ page }) => {
-    await startJourney(page)
+  test('should display warning text on explore a court order, when user selected "I\'m not sure" for domestic abuse', async ({
+    page,
+  }) => {
+    await startJourney(page);
     await selectChildSafetyOption(page, 'No');
 
     // Domestic abuse question - select I'm not sure
-    await selectDomesticAbuseOption(page, 'I\'m not sure')
+    await selectDomesticAbuseOption(page, "I'm not sure");
 
     await page.getByRole('button', { name: 'Continue' }).click();
-    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+    await continueToCourtOrder(page);
 
     // Should be on explore a court order page with warning text visible
     await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
     await expect(page.locator('.govuk-warning-text')).toBeVisible();
-    await expect(page.locator('.govuk-warning-text')).toContainText('You do not have to go to a MIAM if you can show there is a risk:');
+    await expect(page.locator('.govuk-warning-text')).toContainText(
+      'You do not have to go to a MIAM if you can show there is a risk:',
+    );
     await expect(page.locator('.govuk-warning-text')).toContainText('to your life, freedom, physical safety or home');
     await expect(page.locator('.govuk-warning-text')).toContainText('of harm to a child');
-    await expect(page.locator('.govuk-warning-text')).toContainText('that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held');
-    await expect(page.locator('.govuk-warning-text')).toContainText('If any of these apply, you may be able to apply for an urgent court hearing about child arrangements');
+    await expect(page.locator('.govuk-warning-text')).toContainText(
+      'that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held',
+    );
+    await expect(page.locator('.govuk-warning-text')).toContainText(
+      'If any of these apply, you may be able to apply for an urgent court hearing about child arrangements',
+    );
   });
 
-
-  test('should display warning text on explore a court order, when user selected "No" for child safety question', async ({ page }) => {
-    await startJourney(page)
+  test('should display warning text on explore a court order, when user selected "No" for child safety question', async ({
+    page,
+  }) => {
+    await startJourney(page);
 
     // Child safety question - select No
-    await selectChildSafetyOption(page, 'No')
+    await selectChildSafetyOption(page, 'No');
 
     // Domestic abuse question - select No
-    await selectDomesticAbuseOption(page, 'No')
+    await selectDomesticAbuseOption(page, 'No');
 
-    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+    await continueToCourtOrder(page);
 
     // Should be on explore a court order page with warning text visible
     await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
     await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
   });
 
-  test('should not display warning text on explore a court order, when user selected "No" for child safety question', async ({ page }) => {
-    await startJourney(page)
+  test('should not display warning text on explore a court order, when user selected "No" for child safety question', async ({
+    page,
+  }) => {
+    await startJourney(page);
 
     // Child safety question - select No
-    await selectChildSafetyOption(page, 'No')
+    await selectChildSafetyOption(page, 'No');
 
-    await selectDomesticAbuseOption(page, 'No')
+    await selectDomesticAbuseOption(page, 'No');
 
-    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+    await continueToCourtOrder(page);
 
     // Should be on explore a court order page without warning text
     await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
     await expect(page.locator('.govuk-warning-text')).not.toBeVisible();
   });
 
-  test('should display warning text on explore a court order, when user selected "I\'m not sure" for child safety question', async ({ page }) => {
-    await startJourney(page)
+  test('should display warning text on explore a court order, when user selected "I\'m not sure" for child safety question', async ({
+    page,
+  }) => {
+    await startJourney(page);
 
     // Child safety question - select I'm not sure
-    await selectChildSafetyOption(page, 'I\'m not sure')
+    await selectChildSafetyOption(page, "I'm not sure");
     await continueFromChildSafetyHelp(page);
 
-    await selectDomesticAbuseOption(page, 'No')
+    await selectDomesticAbuseOption(page, 'No');
 
-    await selectContactChildArrangementsOption(page, 'I do not have their contact details')
+    await continueToCourtOrder(page);
 
     // Should be on explore a court order page with warning text visible
     await expect(page.locator('h1')).toHaveText('Explore: Applying for a court order');
     await expect(page.locator('.govuk-warning-text')).toBeVisible();
-    await expect(page.locator('.govuk-warning-text')).toContainText('You do not have to go to a MIAM if you can show there is a risk:');
+    await expect(page.locator('.govuk-warning-text')).toContainText(
+      'You do not have to go to a MIAM if you can show there is a risk:',
+    );
     await expect(page.locator('.govuk-warning-text')).toContainText('to your life, freedom, physical safety or home');
     await expect(page.locator('.govuk-warning-text')).toContainText('of harm to a child');
-    await expect(page.locator('.govuk-warning-text')).toContainText('that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held');
-    await expect(page.locator('.govuk-warning-text')).toContainText('If any of these apply, you may be able to apply for an urgent court hearing about child arrangements');
+    await expect(page.locator('.govuk-warning-text')).toContainText(
+      'that a child would be unlawfully taken from the UK, or a risk that a child who is currently outside England and Wales will be unlawfully held',
+    );
+    await expect(page.locator('.govuk-warning-text')).toContainText(
+      'If any of these apply, you may be able to apply for an urgent court hearing about child arrangements',
+    );
   });
 });

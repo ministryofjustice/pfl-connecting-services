@@ -7,7 +7,10 @@ export async function dismissCookieBannerIfVisible(page: Page) {
   }
 
   await rejectButton.click();
-  await page.getByRole('button', { name: /Hide cookie message/i }).last().click();
+  await page
+    .getByRole('button', { name: /Hide cookie message/i })
+    .last()
+    .click();
 }
 
 export async function startJourney(page: Page) {
@@ -18,7 +21,7 @@ export async function startJourney(page: Page) {
   await page.waitForURL(/child-safety/);
 }
 
-export async function selectChildSafetyOption(page: Page, choiceLabel: 'Yes' | 'No' | 'I\'m not sure') {
+export async function selectChildSafetyOption(page: Page, choiceLabel: 'Yes' | 'No' | "I'm not sure") {
   await page.getByRole('radio', { name: choiceLabel, exact: true }).check();
   await page.getByRole('button', { name: /continue/i }).click();
 }
@@ -27,10 +30,7 @@ export async function continueFromChildSafetyHelp(page: Page) {
   await page.locator('a.govuk-button', { hasText: 'Continue' }).click();
 }
 
-export async function reachDomesticAbusePage(
-  page: Page,
-  childSafetyChoice: 'Yes' | 'No' | 'I\'m not sure' = 'No',
-) {
+export async function reachDomesticAbusePage(page: Page, childSafetyChoice: 'Yes' | 'No' | "I'm not sure" = 'No') {
   if (childSafetyChoice === 'No') {
     await selectChildSafetyOption(page, 'No');
     return;
@@ -40,7 +40,7 @@ export async function reachDomesticAbusePage(
   await continueFromChildSafetyHelp(page);
 }
 
-export async function selectDomesticAbuseOption(page: Page, choiceLabel: 'Yes' | 'No' | 'I\'m not sure') {
+export async function selectDomesticAbuseOption(page: Page, choiceLabel: 'Yes' | 'No' | "I'm not sure") {
   await page.getByRole('radio', { name: choiceLabel, exact: true }).check();
   await page.getByRole('button', { name: /continue/i }).click();
 }
@@ -48,13 +48,21 @@ export async function selectDomesticAbuseOption(page: Page, choiceLabel: 'Yes' |
 export async function selectContactChildArrangementsOption(
   page: Page,
   choiceLabel:
-    | 'Yes'
-    | 'No, I am not comfortable contacting them'
-    | 'I do not have their contact details'
-    | 'I can contact them but they do not respond',
+    | 'I can contact them directly'
+    | 'I can only contact them through someone else'
+    | 'I cannot or do not want to contact them',
 ) {
   await page.getByRole('radio', { name: choiceLabel, exact: true }).check();
   await page.getByRole('button', { name: /continue/i }).click();
+}
+
+export async function continueToCourtOrder(page: Page) {
+  await selectContactChildArrangementsOption(page, 'I can contact them directly');
+  await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
+  await selectHelpToAgreeOnChildArrangementsOption(
+    page,
+    'We cannot agree – someone else needs to make a decision for us',
+  );
 }
 
 export async function selectAgreeOnChildArrangementsOption(

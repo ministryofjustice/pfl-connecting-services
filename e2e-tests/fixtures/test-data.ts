@@ -2,21 +2,17 @@
 
 export const contactChildArrangementOption = [
   {
-    label: 'No, I am not comfortable contacting them',
-    nextUrl: /options-no-contact/,
+    label: 'I can contact them directly',
+    nextUrl: /\/agree$/,
   },
   {
-    label: 'I do not have their contact details',
-    nextUrl: /court-order/,
+    label: 'I can only contact them through someone else',
+    nextUrl: /\/no-contact$/,
   },
   {
-    label: 'I can contact them but they do not respond',
-    nextUrl: /court-order/,
+    label: 'I cannot or do not want to contact them',
+    nextUrl: /\/no-contact-guidance$/,
   },
-  {
-    label: 'Yes',
-    nextUrl: /agree/,
-  }
 ];
 
 export const agreeOnChildArrangementOption = [
@@ -31,7 +27,7 @@ export const agreeOnChildArrangementOption = [
   {
     label: 'We have not discussed it yet',
     nextUrl: /help-to-agree/,
-  }
+  },
 ];
 
 export const helpToAgreeOnChildArrangementOption = [
@@ -46,7 +42,7 @@ export const helpToAgreeOnChildArrangementOption = [
   {
     label: 'We cannot agree – someone else needs to make a decision for us',
     nextUrl: /court-order/,
-  }
+  },
 ];
 
 export const otherOptions = [
@@ -57,7 +53,7 @@ export const otherOptions = [
   {
     label: 'No, we have not tried yet',
     nextUrl: /mediation/,
-  }
+  },
 ];
 
 export const staticPages = [

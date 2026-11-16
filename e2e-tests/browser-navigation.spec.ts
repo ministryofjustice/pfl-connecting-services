@@ -115,7 +115,7 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
       await startJourney(page);
       await selectChildSafetyOption(page, 'No');
       await selectDomesticAbuseOption(page, 'No');
-      await selectContactChildArrangementsOption(page, 'Yes');
+      await selectContactChildArrangementsOption(page, 'I can contact them directly');
 
       await page.getByLabel(label).check();
       await page.getByRole('button', { name: /continue/i }).click();
@@ -137,7 +137,7 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
       await startJourney(page);
       await selectChildSafetyOption(page, 'No');
       await selectDomesticAbuseOption(page, 'No');
-      await selectContactChildArrangementsOption(page, 'Yes');
+      await selectContactChildArrangementsOption(page, 'I can contact them directly');
       await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
 
       await page.getByLabel(label).check();
@@ -160,7 +160,7 @@ test.describe('Browser Navigation and Data persistence between pages', () => {
       await startJourney(page);
       await selectChildSafetyOption(page, 'No');
       await selectDomesticAbuseOption(page, 'No');
-      await selectContactChildArrangementsOption(page, 'Yes');
+      await selectContactChildArrangementsOption(page, 'I can contact them directly');
       await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
       await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
 
@@ -186,7 +186,7 @@ test.describe('Browser Navigation - Multiple Forward and Backward Navigation', (
     await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'Yes');
     await page.getByRole('button', { name: /continue/i }).click();
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
     await selectAgreeOnChildArrangementsOption(page, 'No, we do not agree');
     await selectHelpToAgreeOnChildArrangementsOption(page, 'Someone else to guide our conversations');
     await selectOtherOptions(page, 'No, we have not tried yet');
@@ -202,7 +202,7 @@ test.describe('Browser Navigation - Multiple Forward and Backward Navigation', (
       await expect(page.getByLabel('No, we do not agree')).toBeChecked();
     });
     await verifyBackNavigation(page, /contact-child-arrangements/, async () => {
-      await expect(page.getByLabel('Yes')).toBeChecked();
+      await expect(page.getByLabel('I can contact them directly')).toBeChecked();
     });
     await verifyBackNavigation(page, /getting-help/, async () => {
       await expect(page.getByRole('button', { name: /continue/i })).toBeVisible();
@@ -216,7 +216,7 @@ test.describe('Browser Navigation - Multiple Forward and Backward Navigation', (
       await expect(page.getByRole('button', { name: /continue/i })).toBeVisible();
     });
     await verifyForwardNavigation(page, /contact-child-arrangements/, async () => {
-      await expect(page.getByLabel('Yes')).toBeChecked();
+      await expect(page.getByLabel('I can contact them directly')).toBeChecked();
     });
     await verifyForwardNavigation(page, /agree/, async () => {
       await expect(page.getByLabel('No, we do not agree')).toBeChecked();
@@ -248,7 +248,7 @@ test.describe('Browser Navigation - Error Messages', () => {
     await expect(errorSummary).not.toBeVisible();
 
     // User can navigate to agree on child arrangements and complete the form
-    await selectContactChildArrangementsOption(page, 'Yes');
+    await selectContactChildArrangementsOption(page, 'I can contact them directly');
     await expect(page).toHaveURL(/agree/);
   });
 });
