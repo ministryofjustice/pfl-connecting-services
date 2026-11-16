@@ -8,7 +8,8 @@ import CourtOrderRoutes from './courtOrder';
 import domesticAbuseRoutes from './domesticAbuse';
 import helpToAgreeRoutes from './helpToAgree';
 import mediationRoutes from './mediation';
-import optionsNoContactRoutes from './optionsNoContact';
+import noContactRoutes from './noContact';
+import noContactGuidanceRoutes from './noContactGuidance';
 import otherOptionsRoutes from './otherOptions';
 import parentingPlanRoutes from './parentingPlan';
 import safeguardingRoutes from './safeguarding';
@@ -35,8 +36,11 @@ const routes = (): Router => {
   // Contact child arrangement route
   router.use(contactChildArrangementRoutes);
 
-  // Options no contact
-  router.use(optionsNoContactRoutes);
+  // No contact
+  router.use(noContactRoutes);
+
+  // No contact guidance
+  router.use(noContactGuidanceRoutes);
 
   // Help to agree route
   router.use(helpToAgreeRoutes);
