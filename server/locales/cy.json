@@ -4,7 +4,7 @@
   "yes": "Ydyn",
   "no": "Nac ydyn",
   "notSure": "Dydw i ddim yn siŵr",
-  "or": "or",
+  "or": "neu",
   "back": "Yn ol",
   "continue": "Parhau",
   "next": "Nesaf",
@@ -128,17 +128,17 @@
       "startButtonText": "Start now"
     },
     "contactChildArrangements": {
-      "title": "Which of these best describes contact with the other parent?",
+      "title": "Pa un o'r rhain sy'n disgrifio cyswllt â'r rhiant arall orau?",
       "content": {
         "options": {
-          "first": "I can contact them directly",
-          "second": "I can only contact them through someone else",
-          "secondHint": "Such as through a mediator, solicitor or family member",
-          "third": "I cannot or do not want to contact them",
-          "thirdHint": "This could be because they do not respond or it is not safe to contact them"
+          "first": "Gallaf gysylltu â nhw'n uniongyrchol",
+          "second": "Dim ond trwy rywun arall y gallaf gysylltu â nhw",
+          "secondHint": "Megis drwy gyfryngwr, cyfreithiwr neu aelod o'r teulu",
+          "third": "Ni allaf, neu nid wyf am gysylltu â nhw",
+          "thirdHint": "Gallai hyn fod oherwydd nad ydynt yn ymateb neu nad yw'n ddiogel cysylltu â nhw"
         }
       },
-      "error": "Select which of these best describes contact with the other parent"
+      "error": "Dewiswch pa un sy'n disgrifio cyswllt â'r rhiant arall orau"
     },
     "agreement": {
       "title": "A ydych chi neu'ch cyn-bartner yn cytuno ar drefniadau plant?",
@@ -516,52 +516,52 @@
       }
     },
     "noContactGuidance": {
-      "title": "Explore: what you can do if you cannot contact the other parent",
+      "title": "Archwilio: beth allwch ei wneud os na allwch gysylltu â'r rhiant arall",
       "content": {
-        "cannotContact": "If you cannot contact the other parent or they do not respond, there are other ways to get help with arrangements for your child.",
-        "pageExplains": "This page explains how you can:",
+        "cannotContact": "Os na allwch gysylltu â'r rhiant arall neu os nad ydynt yn ymateb, mae ffyrdd eraill o gael help gyda threfniadau ar gyfer eich plentyn.",
+        "pageExplains": "Mae'r dudalen hon yn esbonio sut y gallwch:",
         "list": {
-          "first": "get help making child arrangements",
-          "second": "get child maintenance",
-          "third": "apply to court if you need the court to make a decision"
+          "first": "gael help i wneud trefniadau plant",
+          "second": "cael cynhaliaeth plant",
+          "third": "gwneud cais i'r llys os oes angen i'r llys wneud penderfyniad"
         },
-        "alert": "Do not contact the other parent if doing so could put you or your child at risk or could mean breaking a court order."
+        "alert": "Peidiwch â chysylltu â'r rhiant arall os gallai gwneud hynny eich rhoi chi neu'ch plentyn mewn perygl neu olygu torri gorchymyn llys."
       },
       "makeChildArrangements": {
-        "title": "Make child arrangements",
-        "getHelp": "You may still be able to get help making child arrangements if you cannot contact the other parent or they do not respond.",
-        "example": "For example, a legal adviser may be able to contact the other parent on your behalf or advise you about what to do next.",
-        "findOutLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce\">Find out about making child arrangements</a>"
+        "title": "Gwneud trefniadau plant",
+        "getHelp": "Efallai y byddwch yn dal i gael help i wneud trefniadau plant os na allwch gysylltu â'r rhiant arall neu os nad ydynt yn ymateb.",
+        "example": "Er enghraifft, efallai y bydd cynghorydd cyfreithiol yn gallu cysylltu â'r rhiant arall ar eich rhan neu eich cynghori ynghylch beth i'w wneud nesaf.",
+        "findOutLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce\">Gwybodaeth am wneud trefniadau plant</a>"
       },
       "getChildMaintenance": {
-        "title": "Get child maintenance",
-        "canUse": "You can use the Child Maintenance Service if you cannot agree child maintenance with the other parent.",
-        "identifyAndContact": "If you do not have all of the other parent's details, the Child Maintenance Service may be able to use information available to government to try to identify and contact them.",
-        "childMaintenanceService": "You can also use the Child Maintenance Service if you do not want the other parent to contact you or know your location or personal information.",
-        "findOutLink": "<a href=\"https://www.gov.uk/child-maintenance-service\">Find out about the Child Maintenance Service</a>"
+        "title": "Cael cynhaliaeth plant",
+        "canUse": "Gallwch ddefnyddio'r Gwasanaeth Cynhaliaeth Plant os na allwch gytuno ar gynhaliaeth plant gyda'r rhiant arall.",
+        "identifyAndContact": "Os nad oes gennych holl fanylion y rhiant arall, efallai y bydd y Gwasanaeth Cynhaliaeth Plant yn gallu defnyddio'r wybodaeth sydd ar gael i'r llywodraeth i geisio eu hadnabod a chysylltu.",
+        "childMaintenanceService": "Gallwch hefyd ddefnyddio'r Gwasanaeth Cynhaliaeth Plant os nad ydych am i'r rhiant arall gysylltu â chi neu wybod eich lleoliad neu'ch gwybodaeth bersonol.",
+        "findOutLink": "<a href=\"https://www.gov.uk/child-maintenance-service\">Gwybodaeth am y Gwasanaeth Cynhaliaeth Plant</a>"
       },
       "applyToCourt": {
-        "title": "Apply to court",
-        "canApply": "You can apply to the family court if you need the court to make a decision about arrangements for your child.",
-        "typeOfCourtOrder": "The type of court order you need depends on what you are asking the court to decide.",
+        "title": "Gwneud cais i'r llys",
+        "canApply": "Gallwch wneud cais i'r llys teulu os oes angen i'r llys wneud penderfyniad am drefniadau ar gyfer eich plentyn.",
+        "typeOfCourtOrder": "Mae'r math o orchymyn llys sydd ei angen arnoch yn dibynnu ar yr hyn rydych chi'n gofyn i'r llys ei benderfynu.",
         "beforeYouApply": {
-          "title": "Before you apply to court",
-          "mediation": "You may need to attend a Mediation Information and Assessment Meeting (MIAM) before you apply.",
-          "miamDiscussion": "At a MIAM, a mediator will discuss your situation and explain your options, including ways to try to resolve matters without going to court. Attending a MIAM does not mean you have to take part in mediation.",
-          "attendMiam": "If you attend a MIAM but the other parent does not, you can still apply to court.",
-          "doNotAttendMiam": "You may not need to attend a MIAM in some circumstances, for example if you have evidence of domestic abuse or your application is urgent. Being unable to contact the other parent is not, on its own, a reason not to attend a MIAM.",
-          "miamLink": "<a href=\"https://apply-to-court-about-child-arrangements.service.justice.gov.uk/about/miam_exemptions\">Check if you do not need to attend a MIAM</a>"
+          "title": "Cyn i chi wneud cais i'r llys",
+          "mediation": "Efallai y bydd angen i chi fynychu Cyfarfod Asesu a Gwybodaeth am Gyfryngu (MIAM) cyn i chi wneud cais.",
+          "miamDiscussion": "Mewn MIAM, bydd cyfryngwr yn trafod eich sefyllfa ac yn egluro eich opsiynau.  Nid yw mynychu MIAM yn golygu bod rhaid i chi gymryd rhan mewn cyfryngu.",
+          "attendMiam": "Os byddwch chi'n mynychu MIAM ond nad yw'r rhiant arall yn gwneud hynny, gallwch barhau i wneud cais i'r llys.",
+          "doNotAttendMiam": "Efallai na fydd angen i chi fynychu MIAM mewn rhai amgylchiadau, er enghraifft os oes gennych dystiolaeth o gam-drin domestig neu os yw eich cais yn fater brys.  Nid yw methu â chysylltu â'r rhiant arall ynddo'i hun, yn rheswm dros beidio â mynychu MIAM.",
+          "miamLink": "<a href=\"https://apply-to-court-about-child-arrangements.service.justice.gov.uk/about/miam_exemptions\">Gwiriwch os nad oes angen i chi fynychu MIAM</a>"
         },
         "parentalResponsibility": {
-          "title": "Find out who has parental responsibility",
-          "decisions": "Decisions about your child and who can make them depend on who has parental responsibility.",
-          "findOutLink": "<a href=\"https://www.gov.uk/parental-rights-responsibilities\">Find out about parental rights and responsibilities</a>"
+          "title": "Darganfyddwch pwy sydd â chyfrifoldeb rhieni",
+          "decisions": "Mae rhai penderfyniadau am eich plentyn yn dibynnu ar bwy sydd â chyfrifoldeb rhieni.",
+          "findOutLink": "<a href=\"https://www.gov.uk/parental-rights-responsibilities\">Gwybodaeth am hawliau a chyfrifoldebau rhieni</a>"
         },
         "whichCourtOrder": {
-          "title": "Check which court order you may need",
-          "differentCourtOrders": "There are different court orders depending on what you need the court to decide. You can apply for more than one type of order at the same time.",
+          "title": "Gwiriwch pa orchymyn llys y gallai fod ei angen arnoch",
+          "differentCourtOrders": "Mae gwahanol orchmynion llys yn dibynnu ar yr hyn y mae angen i'r llys ei benderfynu.  Gallwch wneud cais am fwy nag un math o orchymyn ar yr un pryd.",
           "typesOfCourtOrder": {
-            "title": "Types of court order",
+            "title": "Mathau o orchmynion llys",
             "table": {
               "headerRow": {
                 "needHelp": "If you need help with",
@@ -569,69 +569,69 @@
                 "description": "What the court can decide"
               },
               "rowOne": {
-                "needHelp": "Where your child lives or who they spend time with",
-                "courtOrder": "<b>Child arrangements order</b>",
-                "description": "Who your child lives with, who they spend time with and when, and other types of contact."
+                "needHelp": "Ble mae eich plentyn yn byw neu gyda phwy y mae'n treulio amser",
+                "courtOrder": "<b>Gorchymyn trefniadau plant</b>",
+                "description": "Ble mae eich plentyn yn byw, pryd y bydd yn treulio amser gyda phob rhiant a mathau eraill o gyswllt"
               },
               "rowTwo": {
-                "needHelp": "A decision about your child's education",
-                "courtOrder": "<b>Specific issue order</b>",
-                "description": "A specific disagreement, such as which school your child should go to"
+                "needHelp": "Penderfyniad am addysg eich plentyn",
+                "courtOrder": "<b>Gorchymyn mater penodol</b>",
+                "description": "Anghytundeb penodol, megis pa ysgol y dylai eich plentyn fynd iddi"
               },
               "rowThree": {
-                "needHelp": "Taking your child abroad",
-                "courtOrder": "<b>Specific issue order</b>",
-                "description": "Whether you can take your child abroad when you cannot get permission from everyone with parental responsibility"
+                "needHelp": "Mynd â'ch plentyn dramor",
+                "courtOrder": "<b>Gorchymyn mater penodol</b>",
+                "description": "A allwch fynd â'ch plentyn dramor pan na allwch gael caniatâd gan bawb sydd â chyfrifoldeb rhiant"
               },
               "rowFour": {
-                "needHelp": "Getting a passport for your child",
-                "courtOrder": "<b>Specific issue order</b>",
-                "description": "Whether a passport can be issued when you cannot get the agreement or information needed from the other parent"
+                "needHelp": "Cael pasbort i'ch plentyn",
+                "courtOrder": "<b>Gorchymyn mater penodol</b>",
+                "description": "A ellir cyhoeddi pasbort pan na allwch gael y cytundeb neu'r wybodaeth sydd ei hangen gan y rhiant arall"
               },
               "rowFive": {
-                "needHelp": "Stopping the other parent from doing something",
-                "courtOrder": "<b>Prohibited steps order</b>",
-                "description": "Stop someone with parental responsibility from making a particular decision about your child without the court's permission"
+                "needHelp": "Atal y rhiant arall rhag gwneud rhywbeth",
+                "courtOrder": "<b>Gorchymyn camau gwaharddedig</b>",
+                "description": "Atal rhywun sydd â chyfrifoldeb rhiant rhag gwneud penderfyniad penodol am eich plentyn heb ganiatâd y llys"
               }
             }
           },
-          "findOutLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">Find out about applying for a court order</a>"
+          "findOutLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">Gwybodaeth am wneud cais am orchymyn llys</a>"
         }
       },
       "helpAndSupport": {
-        "title": "Help and support",
-        "description": "There is free, confidential support available to help you and your family.",
+        "title": "Cymorth a chefnogaeth",
+        "description": "Mae cymorth rhad ac am ddim a chyfrinachol ar gael i helpu chi a'ch teulu.",
         "table": {
           "headerRow": {
             "name": "Organisation",
             "description": "How they can help"
           },
           "rowOne": {
-            "name": "<a class=\"govuk-link\" href=\"https://separatedparentingprogrammedirectory.org/\">Separated Parenting Programme Directory</a>",
-            "description": "A directory of approved courses and programmes across the UK to help parents manage conflict and communicate better after separation."
+            "name": "<a class=\"govuk-link\" href=\"https://separatedparentingprogrammedirectory.org/\">Cyfeirlyfr o Raglenni Rhianta ar Wahân</a>",
+            "description": "Cyfeirlyfr o gyrsiau a rhaglenni cymeradwy ledled y DU i helpu rhieni i reoli gwrthdaro a chyfathrebu'n well ar ôl gwahanu."
           },
           "rowTwo": {
-            "name": "<a class=\"govuk-link\" href=\"https://www.nationaldahelpline.org.uk/\">Refuge National Domestic Abuse Helpline</a>",
-            "description": "Free, confidential advice, 24 hours a day if you need help understanding your options, finding a refuge space or other specialist services.<br /><br />Telephone: <a class=\"govuk-link\" href=\"tel:0808 2000 247\">0808 2000 247</a>"
+            "name": "<a class=\"govuk-link\" href=\"https://www.nationaldahelpline.org.uk/\">Llinell Gymorth Cam-drin Domestig Cenedlaethol Refuge</a>",
+            "description": "Cyngor am ddim a chyfrinachol, 24 awr y dydd os oes arnoch angen cymorth i ddeall eich opsiynau, dod i hyd i loches neu wasanaethau arbenigol eraill.<br /><br />Rhif ffôn: <a class=\"govuk-link\" href=\"tel:0808 2000 247\">0808 2000 247</a>"
           },
           "rowThree": {
             "name": "<a class=\"govuk-link\" href=\"https://www.rightsofwomen.org.uk/get-advice/family-law/\">Rights of Women</a>",
-            "description": "Family law advice from a charity dedicated to providing free and confidential legal advice to women experiencing all forms of violence in England and Wales.<br /><br />Telephone: <a class=\"govuk-link\" href=\"tel:020 7251 6577\">020 7251 6577</a>"
+            "description": "Cyngor cyfraith deulu gan elusen sydd wedi ymrwymo i ddarparu cyngor cyfreithiol cyfrinachol yn rhad ac am ddim i fenywod sy'n profi pob math o drais yng Nghymru a Lloegr.<br /><br />Rhif ffôn: <a class=\"govuk-link\" href=\"tel:020 7251 6577\">020 7251 6577</a>"
           },
           "rowFour": {
-            "name": "<a class=\"govuk-link\" href=\"https://mensadviceline.org.uk/\">Men's Advice Line</a>",
-            "description": "A supportive helpline for all male victims of domestic abuse and those supporting them.<br /><br />Telephone: <a class=\"govuk-link\" href=\"tel:0808 801 0327\">0808 801 0327</a>"
+            "name": "<a class=\"govuk-link\" href=\"https://mensadviceline.org.uk/\">Llinell Gyngor i Ddynion - Men's Advice Line</a>",
+            "description": "Llinell gymorth i holl ddioddefwyr gwrywaidd cam-drin domestig a'r sawl sy'n eu cefnogi.<br /><br />Rhif ffôn: <a class=\"govuk-link\" href=\"tel:0808 801 0327\">0808 801 0327</a>"
           }
         }
       },
       "backToTop": "<a href=\"#top\">Back to top</a>",
       "relatedContent": {
-        "title": "Related content",
+        "title": "Cynnwys cysylltiedig",
         "content": {
-          "proposeChildArrangementsPlan": "<a href=\"https://connected-services-prototype.apps.live.cloud-platform.service.justice.gov.uk/public-beta-4/no-contact-guidance#\">Propose a child arrangements plan</a>",
-          "makingChildArrangements": "<a href=\"https://www.gov.uk/looking-after-children-divorce\">Making child arrangements if you divorce or separate</a>",
+          "proposeChildArrangementsPlan": "<a href=\"https://connected-services-prototype.apps.live.cloud-platform.service.justice.gov.uk/public-beta-4/no-contact-guidance#\">Cynnig cynllun trefniadau plant</a>",
+          "makingChildArrangements": "<a href=\"https://www.gov.uk/looking-after-children-divorce\">Gwneud trefniadau plant os ydych yn ysgaru neu'n gwahanu</a>",
           "courtOrder": "<a href=\"https://www.gov.uk/looking-after-children-divorce/apply-for-court-order\">Apply for a court order</a>",
-          "parentalRights": "<a href=\"https://www.gov.uk/parental-rights-responsibilities\">Parental rights and responsibilities</a>"
+          "parentalRights": "<a href=\"https://www.gov.uk/parental-rights-responsibilities\">Hawliau a chyfrifoldebau rhieni</a>"
         }
       }
     },
