@@ -9,11 +9,11 @@ import domesticAbuseRoutes from './domesticAbuse';
 import helpToAgreeRoutes from './helpToAgree';
 import mediationRoutes from './mediation';
 import noContactRoutes from './noContact';
-import noContactGuidanceRoutes from './noContactGuidance';
 import otherOptionsRoutes from './otherOptions';
 import parentingPlanRoutes from './parentingPlan';
 import safeguardingRoutes from './safeguarding';
 import startRoutes from './start';
+import throughSomeoneElseRoutes from './throughSomeoneElse';
 
 const routes = (): Router => {
   const router = Router();
@@ -36,11 +36,11 @@ const routes = (): Router => {
   // Contact child arrangement route
   router.use(contactChildArrangementRoutes);
 
+  // Through someone else
+  router.use(throughSomeoneElseRoutes);
+
   // No contact
   router.use(noContactRoutes);
-
-  // No contact guidance
-  router.use(noContactGuidanceRoutes);
 
   // Help to agree route
   router.use(helpToAgreeRoutes);

@@ -61,7 +61,7 @@ describe('Question 2: Contact', () => {
         .post(paths.CONTACT_CHILD_ARRANGEMENTS)
         .send({ contactChildArrangements: 'no' })
         .expect(302)
-        .expect('location', paths.NO_CONTACT);
+        .expect('location', paths.THROUGH_SOMEONE_ELSE);
     });
 
     it('should redirect to no contact guidance page when answer is no-contact', () => {
@@ -69,7 +69,7 @@ describe('Question 2: Contact', () => {
         .post(paths.CONTACT_CHILD_ARRANGEMENTS)
         .send({ contactChildArrangements: 'no-contact' })
         .expect(302)
-        .expect('location', paths.NO_CONTACT_GUIDANCE);
+        .expect('location', paths.NO_CONTACT);
     });
   });
 });

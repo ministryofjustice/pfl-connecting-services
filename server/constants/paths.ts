@@ -15,7 +15,7 @@ enum paths {
   SAFEGUARDING = '/getting-help',
   CONTACT_CHILD_ARRANGEMENTS = '/contact-child-arrangements',
   NO_CONTACT = '/no-contact',
-  NO_CONTACT_GUIDANCE = '/no-contact-guidance',
+  THROUGH_SOMEONE_ELSE = '/through-someone-else',
   AGREEMENT = '/agree',
   HELP_TO_AGREE = '/help-to-agree',
   OTHER_OPTIONS = '/other-options',
