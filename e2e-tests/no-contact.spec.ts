@@ -16,9 +16,9 @@ test.beforeEach(async ({ page }) => {
   await selectContactChildArrangementsOption(page, 'I can only contact them through someone else');
 });
 
-test.describe('No contact page', () => {
+test.describe('Through someone else page', () => {
   test('should display the page with correct url and title', async ({ page }) => {
-    await expect(page).toHaveURL(/\/no-contact$/);
+    await expect(page).toHaveURL(/\/through-someone-else$/);
     await expect(page).toHaveTitle(new RegExp(pageHeading));
     await expect(page.locator('h1')).toContainText(pageHeading);
   });
@@ -117,12 +117,12 @@ test.describe('No contact page', () => {
     await expect(page).toHaveURL(/contact-child-arrangements/);
   });
 
-  test('should navigate to no contact guidance when "I cannot or do not want to contact them" is selected', async ({
+  test('should navigate to the no contact page when "I cannot or do not want to contact them" is selected', async ({
     page,
   }) => {
     await page.locator('a.govuk-back-link').click();
     await selectContactChildArrangementsOption(page, 'I cannot or do not want to contact them');
-    await expect(page).toHaveURL(/\/no-contact-guidance$/);
+    await expect(page).toHaveURL(/\/no-contact$/);
     await expect(page.locator('h1')).toContainText('Explore: what you can do if you cannot contact the other parent');
   });
 });

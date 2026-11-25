@@ -458,7 +458,7 @@
         }
       }
     },
-    "noContact": {
+    "throughSomeoneElse": {
       "title": "Options for making arrangements through someone else",
       "cannotContact": "If you cannot contact the other parent directly, there are still ways to make child arrangements without going to court.",
       "someoneElse": "With these options, someone else (such as a mediator or solicitor) can contact them for you.",
@@ -515,7 +515,7 @@
         }
       }
     },
-    "noContactGuidance": {
+    "noContact": {
       "title": "Explore: what you can do if you cannot contact the other parent",
       "content": {
         "cannotContact": "If you cannot contact the other parent or they do not respond, there are other ways to get help with arrangements for your child.",

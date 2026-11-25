@@ -6,137 +6,155 @@ import testAppSetup from '../test-utils/testAppSetup';
 
 const app = testAppSetup();
 
-const pageHeading = 'Options for making arrangements through someone else';
+const pageTitle = 'Explore: what you can do if you cannot contact the other parent';
 
-describe('No contact', () => {
+describe('No contact guidance', () => {
   describe(`GET ${paths.NO_CONTACT}`, () => {
-    it('should render no contact page with correct heading', async () => {
+    it('should render options no contact page with correct heading', async () => {
       const response = await request(app).get(paths.NO_CONTACT).expect('Content-Type', /html/);
       const dom = new JSDOM(response.text);
 
-      expect(response.status).toBe(200);
-      expect(dom.window.document.querySelector('h1')).toHaveTextContent(pageHeading);
+      expect(dom.window.document.querySelector('h1')).toHaveTextContent(pageTitle);
       expect(dom.window.document.querySelector('h2.govuk-error-summary__title')).toBeNull();
     });
 
-    it('should display intro content about contacting the other parent through someone else', async () => {
+    it('should display intro content and what the page explains', async () => {
       const response = await request(app).get(paths.NO_CONTACT).expect(200);
+      const dom = new JSDOM(response.text);
+      const list = dom.window.document.querySelector('ul.govuk-list--bullet');
 
       expect(response.text).toContain(
-        'If you cannot contact the other parent directly, there are still ways to make child arrangements without going to court.',
+        'If you cannot contact the other parent or they do not respond, there are other ways to get help with arrangements for your child.',
       );
-      expect(response.text).toContain(
-        'With these options, someone else (such as a mediator or solicitor) can contact them for you.',
+      expect(response.text).toContain('This page explains how you can:');
+      expect(list).toHaveTextContent('get help making child arrangements');
+      expect(list).toHaveTextContent('get child maintenance');
+      expect(list).toHaveTextContent('apply to court if you need the court to make a decision');
+    });
+
+    it('should display warning text about contacting the other parent', async () => {
+      const response = await request(app).get(paths.NO_CONTACT).expect(200);
+      const dom = new JSDOM(response.text);
+      const warningText = dom.window.document.querySelector('.govuk-warning-text');
+
+      expect(warningText).not.toBeNull();
+      expect(warningText).toHaveTextContent(
+        'Do not contact the other parent if doing so could put you or your child at risk or could mean breaking a court order.',
       );
     });
 
-    it('should display shuttle mediation section', async () => {
+    it('should display make child arrangements section', async () => {
       const response = await request(app).get(paths.NO_CONTACT).expect(200);
       const dom = new JSDOM(response.text);
-      const insetText = dom.window.document.querySelector('#cost-inset-shuttle-mediation');
-      const link = dom.window.document.querySelector(
-        'a[href="https://www.gov.uk/looking-after-children-divorce/mediation"]',
-      );
+      const link = dom.window.document.querySelector('a[href="https://www.gov.uk/looking-after-children-divorce"]');
 
-      expect(response.text).toContain('Shuttle mediation');
-      expect(response.text).toContain('You do not want to have direct contact with your ex-partner.');
+      expect(response.text).toContain('Make child arrangements');
       expect(response.text).toContain(
-        'Shuttle mediation is where you and your ex-partner both attend a session with a mediator, but sit in different rooms or online meetings so you do not have to have any contact.',
+        'You may still be able to get help making child arrangements if you cannot contact the other parent or they do not respond.',
       );
       expect(response.text).toContain(
-        'The mediator moves between rooms, listening to you both and helping you come to an agreement about child arrangements.',
+        'For example, a legal adviser may be able to contact the other parent on your behalf or advise you about what to do next.',
       );
-      expect(insetText).toHaveTextContent('voucher worth up to £500');
-      expect(
-        insetText.querySelector('a[href="https://www.gov.uk/guidance/family-mediation-voucher-scheme"]'),
-      ).toHaveTextContent('Family Mediation Voucher Scheme');
-      expect(link).toHaveTextContent('Find out more about mediation');
+      expect(link).toHaveTextContent('Find out about making child arrangements');
     });
 
-    it('should display family solicitor negotiation section', async () => {
+    it('should display get child maintenance section', async () => {
       const response = await request(app).get(paths.NO_CONTACT).expect(200);
       const dom = new JSDOM(response.text);
-      const mainContent = dom.window.document.querySelector('#main-content');
-      const link = dom.window.document.querySelector('a[href="https://solicitors.lawsociety.org.uk/"]');
+      const link = dom.window.document.querySelector('a[href="https://www.gov.uk/child-maintenance-service"]');
 
-      expect(mainContent).toHaveTextContent('Family solicitor negotiation');
-      expect(mainContent).toHaveTextContent('You cannot contact your ex-partner or they do not reply to you.');
-      expect(mainContent).toHaveTextContent(
-        "A family solicitor can help you negotiate with your ex-partner without going to court. This is known as 'solicitor negotiation' or 'lawyer negotiation'.",
-      );
-      expect(mainContent).toHaveTextContent(
-        'You do not have to speak to your ex-partner if you choose a solicitor to negotiate for you.',
-      );
-      expect(link).toHaveTextContent('Find a legal adviser from the Law Society');
-    });
-
-    it('should display collaborative law section', async () => {
-      const response = await request(app).get(paths.NO_CONTACT).expect(200);
-      const dom = new JSDOM(response.text);
-      const link = dom.window.document.querySelector(
-        'a[href="https://resolution.org.uk/looking-for-help/splitting-up/your-process-options-for-divorce-and-dissolution/the-collaborative-process/"]',
-      );
-
-      expect(response.text).toContain('Collaborative law');
-      expect(response.text).toContain('You want to focus on collaboration and practicality.');
+      expect(response.text).toContain('Get child maintenance');
       expect(response.text).toContain(
-        'You and your ex-partner can each hire your own legal advisers to help you negotiate. You then all meet to try and agree on child arrangements.',
+        'You can use the Child Maintenance Service if you cannot agree child maintenance with the other parent.',
       );
-      expect(link).toHaveTextContent('Find out more about collaborative law from Resolution');
-    });
-
-    it('should display other ways to agree without going to court', async () => {
-      const response = await request(app).get(paths.NO_CONTACT).expect(200);
-      const dom = new JSDOM(response.text);
-      const mainContent = dom.window.document.querySelector('#main-content');
-      const link = dom.window.document.querySelector(
-        'a[href="https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution"]',
+      expect(dom.window.document.querySelector('#main-content')).toHaveTextContent(
+        "If you do not have all of the other parent's details, the Child Maintenance Service may be able to use information available to government to try to identify and contact them.",
       );
-
-      expect(mainContent).toHaveTextContent('Other ways to agree without going to court');
-      expect(mainContent).toHaveTextContent(
-        "There are other ways to help you make child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR) and are usually quicker than going to court.",
-      );
-      expect(link).toHaveTextContent('Find out more about other ways to agree without going to court');
-    });
-
-    it('should display applying for a court order section', async () => {
-      const response = await request(app).get(paths.NO_CONTACT).expect(200);
-      const dom = new JSDOM(response.text);
-      const link = dom.window.document.querySelector(
-        'a[href="https://connected-services-prototype.apps.live.cloud-platform.service.justice.gov.uk/public-beta-4/court"]',
-      );
-
-      expect(response.text).toContain('Applying for a court order');
       expect(response.text).toContain(
-        'Court is the right option for some families. There are different types of court orders you can apply for based on your situation.',
+        'You can also use the Child Maintenance Service if you do not want the other parent to contact you or know your location or personal information.',
       );
-      expect(link).toHaveTextContent('Explore: Applying for a court order');
+      expect(link).toHaveTextContent('Find out about the Child Maintenance Service');
     });
 
-    it('should display help and support list with services', async () => {
+    it('should display apply to court section and what to do before you apply', async () => {
       const response = await request(app).get(paths.NO_CONTACT).expect(200);
       const dom = new JSDOM(response.text);
-      const summaryList = dom.window.document.querySelector('.govuk-summary-list');
+      const miamLink = dom.window.document.querySelector(
+        'a[href="https://apply-to-court-about-child-arrangements.service.justice.gov.uk/about/miam_exemptions"]',
+      );
+      const parentalResponsibilityLink = dom.window.document.querySelector(
+        'a[href="https://www.gov.uk/parental-rights-responsibilities"]',
+      );
+
+      expect(response.text).toContain('Apply to court');
+      expect(response.text).toContain(
+        'You can apply to the family court if you need the court to make a decision about arrangements for your child.',
+      );
+      expect(response.text).toContain(
+        'The type of court order you need depends on what you are asking the court to decide.',
+      );
+      expect(response.text).toContain('Before you apply to court');
+      expect(response.text).toContain(
+        'You may need to attend a Mediation Information and Assessment Meeting (MIAM) before you apply.',
+      );
+      expect(response.text).toContain(
+        'If you attend a MIAM but the other parent does not, you can still apply to court.',
+      );
+      expect(response.text).toContain(
+        'Being unable to contact the other parent is not, on its own, a reason not to attend a MIAM.',
+      );
+      expect(miamLink).toHaveTextContent('Check if you do not need to attend a MIAM');
+      expect(response.text).toContain('Find out who has parental responsibility');
+      expect(parentalResponsibilityLink).toHaveTextContent('Find out about parental rights and responsibilities');
+    });
+
+    it('should display types of court order table', async () => {
+      const response = await request(app).get(paths.NO_CONTACT).expect(200);
+      const dom = new JSDOM(response.text);
+      const table = dom.window.document.querySelectorAll('table.govuk-table')[0];
+      const rows = table.querySelectorAll('tbody tr');
+
+      expect(table.querySelector('caption')).toHaveTextContent('Types of court order');
+      expect(table).toHaveTextContent('If you need help with');
+      expect(table).toHaveTextContent('Court order');
+      expect(table).toHaveTextContent('What the court can decide');
+
+      expect(rows).toHaveLength(5);
+      expect(rows[0]).toHaveTextContent('Where your child lives or who they spend time with');
+      expect(rows[0]).toHaveTextContent('Child arrangements order');
+      expect(rows[1]).toHaveTextContent("A decision about your child's education");
+      expect(rows[1]).toHaveTextContent('Specific issue order');
+      expect(rows[2]).toHaveTextContent('Taking your child abroad');
+      expect(rows[3]).toHaveTextContent('Getting a passport for your child');
+      expect(rows[4]).toHaveTextContent('Stopping the other parent from doing something');
+      expect(rows[4]).toHaveTextContent('Prohibited steps order');
+
+      const courtOrderLink = dom.window.document.querySelector(
+        'a[href="https://www.gov.uk/looking-after-children-divorce/apply-for-court-order"]',
+      );
+      expect(courtOrderLink).toHaveTextContent('Find out about applying for a court order');
+    });
+
+    it('should display help and support table with services', async () => {
+      const response = await request(app).get(paths.NO_CONTACT).expect(200);
+      const dom = new JSDOM(response.text);
+      const table = dom.window.document.querySelectorAll('table.govuk-table')[1];
 
       expect(response.text).toContain('Help and support');
-      expect(response.text).toContain(
-        'These are some of the services you may find helpful for making child arrangements.',
-      );
-      expect(summaryList).toHaveTextContent('Resolution');
-      expect(summaryList).toHaveTextContent(
-        'Find a law professional - including collaborative practitioners - committed to a non-confrontational approach to help you resolve your family issue.',
-      );
-      expect(summaryList).toHaveTextContent('Advicenow');
-      expect(summaryList).toHaveTextContent(
-        'Information on child arrangements from a charity that provides online legal information and support tools for people facing everyday legal issues with limited access to a lawyer.',
-      );
-      expect(summaryList.querySelector('a[href="https://resolution.org.uk/find-a-law-professional"]')).not.toBeNull();
-      expect(
-        summaryList.querySelector(
-          'a[href="https://www.advicenow.org.uk/get-help/family-and-children/child-arrangements"]',
-        ),
-      ).not.toBeNull();
+      expect(response.text).toContain('There is free, confidential support available to help you and your family.');
+      expect(table).toHaveTextContent('Organisation');
+      expect(table).toHaveTextContent('How they can help');
+      expect(table).toHaveTextContent('Separated Parenting Programme Directory');
+      expect(table).toHaveTextContent('Refuge National Domestic Abuse Helpline');
+      expect(table).toHaveTextContent('Rights of Women');
+      expect(table).toHaveTextContent("Men's Advice Line");
+      expect(table.querySelector('a[href="https://separatedparentingprogrammedirectory.org/"]')).not.toBeNull();
+      expect(table.querySelector('a[href="https://www.nationaldahelpline.org.uk/"]')).not.toBeNull();
+      expect(table.querySelector('a[href="tel:0808 2000 247"]')).toHaveTextContent('0808 2000 247');
+      expect(table.querySelector('a[href="https://www.rightsofwomen.org.uk/get-advice/family-law/"]')).not.toBeNull();
+      expect(table.querySelector('a[href="tel:020 7251 6577"]')).toHaveTextContent('020 7251 6577');
+      expect(table.querySelector('a[href="https://mensadviceline.org.uk/"]')).not.toBeNull();
+      expect(table.querySelector('a[href="tel:0808 801 0327"]')).toHaveTextContent('0808 801 0327');
     });
 
     it('should display related content section with correct links', async () => {
@@ -146,11 +164,32 @@ describe('No contact', () => {
       const links = relatedContent.querySelectorAll('nav ul > li a');
 
       expect(relatedContent).toHaveTextContent('Related content');
-      expect(links).toHaveLength(2);
-      expect(links[0]).toHaveTextContent('Making child arrangements if you divorce or separate');
-      expect(links[0]).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce');
-      expect(links[1]).toHaveTextContent('Family Mediation Voucher Scheme');
-      expect(links[1]).toHaveAttribute('href', 'https://www.gov.uk/guidance/family-mediation-voucher-scheme');
+      expect(links).toHaveLength(4);
+      expect(links[0]).toHaveTextContent('Propose a child arrangements plan');
+      expect(links[0]).toHaveAttribute(
+        'href',
+        'https://connected-services-prototype.apps.live.cloud-platform.service.justice.gov.uk/public-beta-4/no-contact-guidance#',
+      );
+      expect(links[1]).toHaveTextContent('Making child arrangements if you divorce or separate');
+      expect(links[1]).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce');
+      expect(links[2]).toHaveTextContent('Apply for a court order');
+      expect(links[2]).toHaveAttribute(
+        'href',
+        'https://www.gov.uk/looking-after-children-divorce/apply-for-court-order',
+      );
+      expect(links[3]).toHaveTextContent('Parental rights and responsibilities');
+      expect(links[3]).toHaveAttribute('href', 'https://www.gov.uk/parental-rights-responsibilities');
+    });
+
+    it('should display back to top links', async () => {
+      const response = await request(app).get(paths.NO_CONTACT).expect(200);
+      const dom = new JSDOM(response.text);
+      const backToTopLinks = dom.window.document.querySelectorAll('a[href="#top"]');
+
+      expect(backToTopLinks).toHaveLength(4);
+      backToTopLinks.forEach((link) => {
+        expect(link).toHaveTextContent('Back to top');
+      });
     });
 
     it('should display back link to contact child arrangements page', async () => {
@@ -168,20 +207,12 @@ describe('No contact', () => {
       expect(response.text).toContain('Exit this page');
     });
 
-    it('should display Print this page button', async () => {
-      const response = await request(app).get(paths.NO_CONTACT).expect(200);
-      const dom = new JSDOM(response.text);
-      const button = dom.window.document.querySelector('#print-this-page-button');
-
-      expect(button).toHaveTextContent('Print this page');
-    });
-
     it('should have correct page title', async () => {
       const response = await request(app).get(paths.NO_CONTACT).expect(200);
       const dom = new JSDOM(response.text);
       const title = dom.window.document.querySelector('title');
 
-      expect(title).toHaveTextContent(pageHeading);
+      expect(title).toHaveTextContent(pageTitle);
       expect(title).toHaveTextContent('Get help finding a child arrangement option');
       expect(title).toHaveTextContent('GOV.UK');
     });

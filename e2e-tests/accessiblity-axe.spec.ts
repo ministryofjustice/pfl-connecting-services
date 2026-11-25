@@ -42,7 +42,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
     await page.getByRole('radio', { name: 'I can only contact them through someone else', exact: true }).check();
     await page.getByRole('button', { name: /continue/i }).click();
 
-    // no-contact
+    // through-someone-else
     expect(results.violations).toEqual([]);
     await expect(page.locator('h1')).toContainText('Options for making arrangements through someone else');
     await page.locator('.govuk-back-link').click();
@@ -52,7 +52,7 @@ test.describe('Accessibility - Axe Core Scanning', () => {
     await page.getByRole('radio', { name: 'I cannot or do not want to contact them', exact: true }).check();
     await page.getByRole('button', { name: /continue/i }).click();
 
-    // no-contact-guidance
+    // no-contact
     expect(results.violations).toEqual([]);
     await expect(page.locator('h1')).toContainText('Explore: what you can do if you cannot contact the other parent');
     await page.locator('.govuk-back-link').click();

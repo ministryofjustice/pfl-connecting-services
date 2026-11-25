@@ -7,11 +7,11 @@ export const contactChildArrangementOption = [
   },
   {
     label: 'I can only contact them through someone else',
-    nextUrl: /\/no-contact$/,
+    nextUrl: /\/through-someone-else$/,
   },
   {
     label: 'I cannot or do not want to contact them',
-    nextUrl: /\/no-contact-guidance$/,
+    nextUrl: /\/no-contact$/,
   },
 ];
 
