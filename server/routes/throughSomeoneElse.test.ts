@@ -23,7 +23,7 @@ describe('No contact', () => {
       const response = await request(app).get(paths.THROUGH_SOMEONE_ELSE).expect(200);
 
       expect(response.text).toContain(
-        'If you cannot contact the other parent directly, there are still ways to make child arrangements without going to court.',
+        'If you cannot contact or do not want to contact the other parent directly, there are still ways to make child arrangements without going to court.',
       );
       expect(response.text).toContain(
         'With these options, someone else (such as a mediator or solicitor) can contact them for you.',
