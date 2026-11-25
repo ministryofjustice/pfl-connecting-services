@@ -4,7 +4,7 @@
   "yes": "Ydyn",
   "no": "Nac ydyn",
   "notSure": "Dydw i ddim yn siŵr",
-  "or": "or",
+  "or": "neu",
   "back": "Yn ol",
   "continue": "Parhau",
   "next": "Nesaf",
@@ -128,17 +128,17 @@
       "startButtonText": "Start now"
     },
     "contactChildArrangements": {
-      "title": "Which of these best describes contact with the other parent?",
+      "title": "Pa un o'r rhain sy'n disgrifio cyswllt â'r rhiant arall orau?",
       "content": {
         "options": {
-          "first": "I can contact them directly",
-          "second": "I can only contact them through someone else",
-          "secondHint": "Such as through a mediator, solicitor or family member",
-          "third": "I cannot or do not want to contact them",
-          "thirdHint": "This could be because they do not respond or it is not safe to contact them"
+          "first": "Gallaf gysylltu â nhw'n uniongyrchol",
+          "second": "Dim ond trwy rywun arall y gallaf gysylltu â nhw",
+          "secondHint": "Megis drwy gyfryngwr, cyfreithiwr neu aelod o'r teulu",
+          "third": "Ni allaf, neu nid wyf am gysylltu â nhw",
+          "thirdHint": "Gallai hyn fod oherwydd nad ydynt yn ymateb neu nad yw'n ddiogel cysylltu â nhw"
         }
       },
-      "error": "Select which of these best describes contact with the other parent"
+      "error": "Dewiswch pa un sy'n disgrifio cyswllt â'r rhiant arall orau"
     },
     "agreement": {
       "title": "A ydych chi neu'ch cyn-bartner yn cytuno ar drefniadau plant?",
@@ -460,7 +460,7 @@
     },
     "throughSomeoneElse": {
       "title": "Options for making arrangements through someone else",
-      "cannotContact": "If you cannot contact the other parent directly, there are still ways to make child arrangements without going to court.",
+      "cannotContact": "If you cannot contact or do not want to contact the other parent directly, there are still ways to make child arrangements without going to court.",
       "someoneElse": "With these options, someone else (such as a mediator or solicitor) can contact them for you.",
       "shuttleMediation": {
         "title": "Cyfryngu gwennol",
