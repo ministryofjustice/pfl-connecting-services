@@ -25,7 +25,7 @@ test.describe('Through someone else page', () => {
 
   test('should display intro content about contacting the other parent through someone else', async ({ page }) => {
     await expect(page.locator('#main-content')).toContainText(
-      'If you cannot contact the other parent directly, there are still ways to make child arrangements without going to court.',
+      'If you cannot contact or do not want to contact the other parent directly, there are still ways to make child arrangements without going to court.',
     );
     await expect(page.locator('#main-content')).toContainText(
       'someone else (such as a mediator or solicitor) can contact them for you',
