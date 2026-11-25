@@ -53,8 +53,8 @@ for (const device of mobileDevices) {
       await page.getByRole('radio', { name: 'I can only contact them through someone else', exact: true }).check();
       await page.getByRole('button', { name: /continue/i }).tap();
 
-      // no-contact
-      await assertNoHorizontalScroll(page, /\/no-contact$/);
+      // through-someone-else
+      await assertNoHorizontalScroll(page, /\/through-someone-else$/);
       await expect(page.locator('h1')).toContainText('Options for making arrangements through someone else');
       await page.locator('.govuk-back-link').click();
 
@@ -62,8 +62,8 @@ for (const device of mobileDevices) {
       await page.getByRole('radio', { name: 'I cannot or do not want to contact them', exact: true }).check();
       await page.getByRole('button', { name: /continue/i }).tap();
 
-      // no-contact-guidance
-      await assertNoHorizontalScroll(page, /\/no-contact-guidance$/);
+      // no-contact
+      await assertNoHorizontalScroll(page, /\/no-contact$/);
       await expect(page.locator('h1')).toContainText('Explore: what you can do if you cannot contact the other parent');
       await page.locator('.govuk-back-link').click();
 

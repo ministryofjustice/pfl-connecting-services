@@ -89,7 +89,7 @@ test.describe('Exit the page from contact child arrangements page', () => {
   });
 });
 
-test.describe('Exit the page from the no contact page', () => {
+test.describe('Exit the page from the through someone else page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from..', async ({
     page,
   }) => {
@@ -97,14 +97,14 @@ test.describe('Exit the page from the no contact page', () => {
     await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'I can only contact them through someone else');
-    await expect(page).toHaveURL(/\/no-contact$/i);
+    await expect(page).toHaveURL(/\/through-someone-else$/i);
 
     await clickExitButton(page);
-    await assertNavigationToBBCWeather(page, /\/no-contact$/i);
+    await assertNavigationToBBCWeather(page, /\/through-someone-else$/i);
   });
 });
 
-test.describe('Exit the page from the no contact guidance page', () => {
+test.describe('Exit the page from the no contact page', () => {
   test('Page should navigate to BBC Weather when "Exit this page" is clicked, and not have the URL I navigated from..', async ({
     page,
   }) => {
@@ -112,10 +112,10 @@ test.describe('Exit the page from the no contact guidance page', () => {
     await selectChildSafetyOption(page, 'No');
     await selectDomesticAbuseOption(page, 'No');
     await selectContactChildArrangementsOption(page, 'I cannot or do not want to contact them');
-    await expect(page).toHaveURL(/no-contact-guidance/i);
+    await expect(page).toHaveURL(/\/no-contact$/i);
 
     await clickExitButton(page);
-    await assertNavigationToBBCWeather(page, /no-contact-guidance/);
+    await assertNavigationToBBCWeather(page, /\/no-contact$/i);
   });
 });
 
