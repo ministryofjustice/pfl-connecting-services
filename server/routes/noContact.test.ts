@@ -221,7 +221,7 @@ describe('No contact guidance', () => {
   });
 
   describe('when the language is Welsh', () => {
-    const welshPageTitle = "Archwilio: beth allwch ei wneud os na allwch gysylltu â'r rhiant arall";
+    const welshPageTitle = 'Explore: what you can do if you cannot contact the other parent';
     let welshApp: Express;
 
     beforeAll(() => {
@@ -242,31 +242,31 @@ describe('No contact guidance', () => {
 
       expect(dom.window.document.querySelector('h1')).toHaveTextContent(welshPageTitle);
       expect(mainContent).toHaveTextContent(
-        "Os na allwch gysylltu â'r rhiant arall neu os nad ydynt yn ymateb, mae ffyrdd eraill o gael help gyda threfniadau ar gyfer eich plentyn.",
+        'If you cannot contact the other parent or they do not respond, there are other ways to get help with arrangements for your child.',
       );
-      expect(mainContent).toHaveTextContent("Mae'r dudalen hon yn esbonio sut y gallwch:");
-      expect(mainContent).toHaveTextContent('gael help i wneud trefniadau plant');
-      expect(mainContent).toHaveTextContent('cael cynhaliaeth plant');
-      expect(mainContent).toHaveTextContent("gwneud cais i'r llys os oes angen i'r llys wneud penderfyniad");
+      expect(mainContent).toHaveTextContent('This page explains how you can:');
+      expect(mainContent).toHaveTextContent('get help making child arrangements');
+      expect(mainContent).toHaveTextContent('get child maintenance');
+      expect(mainContent).toHaveTextContent('apply to court if you need the court to make a decision');
       expect(dom.window.document.querySelector('.govuk-warning-text')).toHaveTextContent(
-        "Peidiwch â chysylltu â'r rhiant arall os gallai gwneud hynny eich rhoi chi neu'ch plentyn mewn perygl neu olygu torri gorchymyn llys.",
+        'Do not contact the other parent if doing so could put you or your child at risk or could mean breaking a court order.',
       );
-      expect(mainContent).toHaveTextContent('Gwneud trefniadau plant');
-      expect(mainContent).toHaveTextContent('Gwybodaeth am wneud trefniadau plant');
-      expect(mainContent).toHaveTextContent('Cael cynhaliaeth plant');
-      expect(mainContent).toHaveTextContent('Gwybodaeth am y Gwasanaeth Cynhaliaeth Plant');
-      expect(mainContent).toHaveTextContent("Gwneud cais i'r llys");
-      expect(mainContent).toHaveTextContent("Cyn i chi wneud cais i'r llys");
-      expect(mainContent).toHaveTextContent('Gwiriwch os nad oes angen i chi fynychu MIAM');
-      expect(mainContent).toHaveTextContent('Darganfyddwch pwy sydd â chyfrifoldeb rhieni');
-      expect(courtOrderTable.querySelector('caption')).toHaveTextContent('Mathau o orchmynion llys');
-      expect(courtOrderTable).toHaveTextContent('Gorchymyn trefniadau plant');
-      expect(courtOrderTable).toHaveTextContent('Gorchymyn camau gwaharddedig');
-      expect(mainContent).toHaveTextContent('Cymorth a chefnogaeth');
-      expect(supportTable).toHaveTextContent('Cyfeirlyfr o Raglenni Rhianta ar Wahân');
-      expect(supportTable).toHaveTextContent('Llinell Gymorth Cam-drin Domestig Cenedlaethol Refuge');
-      expect(mainContent).toHaveTextContent('Cynnig cynllun trefniadau plant');
-      expect(mainContent).toHaveTextContent('Hawliau a chyfrifoldebau rhieni');
+      expect(mainContent).toHaveTextContent('Make child arrangements');
+      expect(mainContent).toHaveTextContent('Find out about making child arrangements');
+      expect(mainContent).toHaveTextContent('Get child maintenance');
+      expect(mainContent).toHaveTextContent('Find out about the Child Maintenance Service');
+      expect(mainContent).toHaveTextContent('Apply to court');
+      expect(mainContent).toHaveTextContent('Before you apply to court');
+      expect(mainContent).toHaveTextContent('Check if you do not need to attend a MIAM');
+      expect(mainContent).toHaveTextContent('Find out who has parental responsibility');
+      expect(courtOrderTable.querySelector('caption')).toHaveTextContent('Types of court order');
+      expect(courtOrderTable).toHaveTextContent('Child arrangements order');
+      expect(courtOrderTable).toHaveTextContent('Prohibited steps order');
+      expect(mainContent).toHaveTextContent('Help and support');
+      expect(supportTable).toHaveTextContent('Separated Parenting Programme Directory');
+      expect(supportTable).toHaveTextContent('Refuge National Domestic Abuse Helpline');
+      expect(mainContent).toHaveTextContent('Propose a child arrangements plan');
+      expect(mainContent).toHaveTextContent('Parental rights and responsibilities');
       expect(dom.window.document.querySelector('.govuk-back-link')).toHaveTextContent('Yn ol');
       expect(dom.window.document.querySelector('title')).toHaveTextContent(welshPageTitle);
       expect(dom.window.document.querySelector('title')).toHaveTextContent(

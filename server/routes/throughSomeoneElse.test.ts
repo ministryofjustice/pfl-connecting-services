@@ -208,26 +208,25 @@ describe('No contact', () => {
 
       expect(dom.window.document.querySelector('h1')).toHaveTextContent(pageHeading);
       expect(mainContent).toHaveTextContent(
-        'If you cannot contact or do not want to contact the other parent directly, there are still ways to make child arrangements without going to court.',
+        'If you cannot contact the other parent directly, there are still ways to make child arrangements without going to court.',
       );
-      expect(mainContent).toHaveTextContent('Cyfryngu gwennol');
-      expect(mainContent).toHaveTextContent('Cynllun Talebau Cyfryngu Teuluol');
-      expect(mainContent).toHaveTextContent('Rhagor o wybodaeth am gyfryngu');
-      expect(mainContent).toHaveTextContent('Negodi gyda chyfreithiwr teulu');
-      expect(mainContent).toHaveTextContent('Dod o hyd i gynghorydd cyfreithiol o Gymdeithas y Gyfraith');
-      expect(mainContent).toHaveTextContent('Cyfraith gydweithredol');
-      expect(mainContent).toHaveTextContent('Canfod mwy am gyfraith gydweithredol gan Resolution');
-      expect(mainContent).toHaveTextContent("Ffyrdd eraill i gytuno heb fynd i'r llys");
+      expect(mainContent).toHaveTextContent('Shuttle mediation');
+      expect(mainContent).toHaveTextContent('Family Mediation Voucher Scheme');
+      expect(mainContent).toHaveTextContent('Find out more about mediation');
+      expect(mainContent).toHaveTextContent('Family solicitor negotiation');
+      expect(mainContent).toHaveTextContent('Find a legal adviser from the Law Society');
+      expect(mainContent).toHaveTextContent('Collaborative law');
+      expect(mainContent).toHaveTextContent('Find out more about collaborative law from Resolution');
+      expect(mainContent).toHaveTextContent('Other ways to agree without going to court');
       expect(mainContent).toHaveTextContent(
-        "Mae ffyrdd eraill i'ch helpu i wneud trefniadau plant y tu allan i'r llys.",
+        'There are other ways to help you make child arrangements outside of court.',
       );
-      expect(mainContent).toHaveTextContent("Canfod mwy am ffyrdd eraill i gytuno heb fynd i'r llys");
-      expect(mainContent).toHaveTextContent('Cymorth a chefnogaeth');
+      expect(mainContent).toHaveTextContent('Find out more about other ways to agree without going to court');
+      expect(mainContent).toHaveTextContent('Help and support');
       expect(mainContent).toHaveTextContent(
-        "Dod o hyd i weithiwr proffesiynol ym maes y gyfraith - gan gynnwys ymarferwyr cydweithredol - sydd wedi ymrwymo i ddull nad yw'n gwrthdrawol",
+        'Find a law professional - including collaborative practitioners - committed to a non-confrontational approach to help you resolve your family issue.',
       );
-      expect(mainContent).toHaveTextContent("Gwneud trefniadau plant os ydych yn ysgaru neu'n gwahanu");
-      expect(mainContent).toHaveTextContent('Cynllun Talebau Cyfryngu Teuluol');
+      expect(mainContent).toHaveTextContent('Making child arrangements if you divorce or separate');
       expect(dom.window.document.querySelector('#print-this-page-button')).toHaveTextContent('Argraffu’r dudalen hon');
       expect(dom.window.document.querySelector('.govuk-back-link')).toHaveTextContent('Yn ol');
       expect(dom.window.document.querySelector('title')).toHaveTextContent(

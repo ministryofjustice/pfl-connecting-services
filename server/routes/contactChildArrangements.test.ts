@@ -94,16 +94,16 @@ describe('Question 2: Contact', () => {
       const mainContent = dom.window.document.querySelector('#main-content');
 
       expect(dom.window.document.querySelector('h1')).toHaveTextContent(
-        "Pa un o'r rhain sy'n disgrifio cyswllt â'r rhiant arall orau?",
+        'Which of these best describes contact with the other parent?',
       );
-      expect(mainContent).toHaveTextContent("Gallaf gysylltu â nhw'n uniongyrchol");
-      expect(mainContent).toHaveTextContent('Dim ond trwy rywun arall y gallaf gysylltu â nhw');
-      expect(mainContent).toHaveTextContent("Megis drwy gyfryngwr, cyfreithiwr neu aelod o'r teulu");
-      expect(mainContent).toHaveTextContent('Ni allaf, neu nid wyf am gysylltu â nhw');
+      expect(mainContent).toHaveTextContent('I can contact them directly');
+      expect(mainContent).toHaveTextContent('I can only contact them through someone else');
+      expect(mainContent).toHaveTextContent('Such as through a mediator, solicitor or family member');
+      expect(mainContent).toHaveTextContent('I cannot or do not want to contact them');
       expect(mainContent).toHaveTextContent(
-        "Gallai hyn fod oherwydd nad ydynt yn ymateb neu nad yw'n ddiogel cysylltu â nhw",
+        'This could be because they do not respond or it is not safe to contact them',
       );
-      expect(dom.window.document.querySelector('.govuk-radios__divider')).toHaveTextContent('neu');
+      expect(dom.window.document.querySelector('.govuk-radios__divider')).toHaveTextContent('or');
       expect(dom.window.document.querySelector('title')).toHaveTextContent(
         'Cael help i ddod o hyd i opsiwn trefniant plant',
       );
@@ -118,7 +118,7 @@ describe('Question 2: Contact', () => {
       expect(flashMock).toHaveBeenCalledWith('errors', [
         {
           location: 'body',
-          msg: "Dewiswch pa un sy'n disgrifio cyswllt â'r rhiant arall orau",
+          msg: 'Select which of these best describes contact with the other parent',
           path: 'contactChildArrangements',
           type: 'field',
         },
