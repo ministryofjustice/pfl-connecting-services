@@ -1,6 +1,8 @@
+import { Express } from 'express';
 import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
+import config from '../config';
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
 import { flashMock, sessionMock } from '../test-utils/testMocks';
@@ -70,6 +72,57 @@ describe('Question 2: Contact', () => {
         .send({ contactChildArrangements: 'no-contact' })
         .expect(302)
         .expect('location', paths.NO_CONTACT);
+    });
+  });
+
+  describe('when the language is Welsh', () => {
+    let welshApp: Express;
+
+    beforeAll(() => {
+      config.includeWelshLanguage = true;
+      welshApp = testAppSetup();
+    });
+
+    afterAll(() => {
+      config.includeWelshLanguage = false;
+    });
+
+    it('should render the contact question and options in Welsh', async () => {
+      const response = await request(welshApp).get(`${paths.CONTACT_CHILD_ARRANGEMENTS}?lang=cy`).expect(200);
+      const dom = new JSDOM(response.text);
+
+      const mainContent = dom.window.document.querySelector('#main-content');
+
+      expect(dom.window.document.querySelector('h1')).toHaveTextContent(
+        "Pa un o'r rhain sy'n disgrifio cyswllt â'r rhiant arall orau?",
+      );
+      expect(mainContent).toHaveTextContent("Gallaf gysylltu â nhw'n uniongyrchol");
+      expect(mainContent).toHaveTextContent('Dim ond trwy rywun arall y gallaf gysylltu â nhw');
+      expect(mainContent).toHaveTextContent("Megis drwy gyfryngwr, cyfreithiwr neu aelod o'r teulu");
+      expect(mainContent).toHaveTextContent('Ni allaf, neu nid wyf am gysylltu â nhw');
+      expect(mainContent).toHaveTextContent(
+        "Gallai hyn fod oherwydd nad ydynt yn ymateb neu nad yw'n ddiogel cysylltu â nhw",
+      );
+      expect(dom.window.document.querySelector('.govuk-radios__divider')).toHaveTextContent('neu');
+      expect(dom.window.document.querySelector('title')).toHaveTextContent(
+        'Cael help i ddod o hyd i opsiwn trefniant plant',
+      );
+    });
+
+    it('should return the Welsh validation error when no option is selected', async () => {
+      await request(welshApp)
+        .post(`${paths.CONTACT_CHILD_ARRANGEMENTS}?lang=cy`)
+        .expect(302)
+        .expect('location', paths.CONTACT_CHILD_ARRANGEMENTS);
+
+      expect(flashMock).toHaveBeenCalledWith('errors', [
+        {
+          location: 'body',
+          msg: "Dewiswch pa un sy'n disgrifio cyswllt â'r rhiant arall orau",
+          path: 'contactChildArrangements',
+          type: 'field',
+        },
+      ]);
     });
   });
 });

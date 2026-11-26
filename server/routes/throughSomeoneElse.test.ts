@@ -1,6 +1,8 @@
+import { Express } from 'express';
 import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
+import config from '../config';
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
 
@@ -23,7 +25,7 @@ describe('No contact', () => {
       const response = await request(app).get(paths.THROUGH_SOMEONE_ELSE).expect(200);
 
       expect(response.text).toContain(
-        'If you cannot contact or do not want to contact the other parent directly, there are still ways to make child arrangements without going to court.',
+        'If you can only contact them through someone else, or do not want to contact them directly, there are still ways to make child arrangements without going to court.',
       );
       expect(response.text).toContain(
         'With these options, someone else (such as a mediator or solicitor) can contact them for you.',
@@ -95,7 +97,7 @@ describe('No contact', () => {
 
       expect(mainContent).toHaveTextContent('Other ways to agree without going to court');
       expect(mainContent).toHaveTextContent(
-        "There are other ways to help you make child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR) and are usually quicker than going to court.",
+        "There are other ways to help you agree on child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR) and are usually quicker than going to court.",
       );
       expect(link).toHaveTextContent('Find out more about other ways to agree without going to court');
     });
@@ -184,6 +186,53 @@ describe('No contact', () => {
       expect(title).toHaveTextContent(pageHeading);
       expect(title).toHaveTextContent('Get help finding a child arrangement option');
       expect(title).toHaveTextContent('GOV.UK');
+    });
+  });
+
+  describe('when the language is Welsh', () => {
+    let welshApp: Express;
+
+    beforeAll(() => {
+      config.includeWelshLanguage = true;
+      welshApp = testAppSetup();
+    });
+
+    afterAll(() => {
+      config.includeWelshLanguage = false;
+    });
+
+    it('should render the translated through someone else content', async () => {
+      const response = await request(welshApp).get(`${paths.THROUGH_SOMEONE_ELSE}?lang=cy`).expect(200);
+      const dom = new JSDOM(response.text);
+      const mainContent = dom.window.document.querySelector('#main-content');
+
+      expect(dom.window.document.querySelector('h1')).toHaveTextContent(pageHeading);
+      expect(mainContent).toHaveTextContent(
+        'If you cannot contact or do not want to contact the other parent directly, there are still ways to make child arrangements without going to court.',
+      );
+      expect(mainContent).toHaveTextContent('Cyfryngu gwennol');
+      expect(mainContent).toHaveTextContent('Cynllun Talebau Cyfryngu Teuluol');
+      expect(mainContent).toHaveTextContent('Rhagor o wybodaeth am gyfryngu');
+      expect(mainContent).toHaveTextContent('Negodi gyda chyfreithiwr teulu');
+      expect(mainContent).toHaveTextContent('Dod o hyd i gynghorydd cyfreithiol o Gymdeithas y Gyfraith');
+      expect(mainContent).toHaveTextContent('Cyfraith gydweithredol');
+      expect(mainContent).toHaveTextContent('Canfod mwy am gyfraith gydweithredol gan Resolution');
+      expect(mainContent).toHaveTextContent("Ffyrdd eraill i gytuno heb fynd i'r llys");
+      expect(mainContent).toHaveTextContent(
+        "Mae ffyrdd eraill i'ch helpu i wneud trefniadau plant y tu allan i'r llys.",
+      );
+      expect(mainContent).toHaveTextContent("Canfod mwy am ffyrdd eraill i gytuno heb fynd i'r llys");
+      expect(mainContent).toHaveTextContent('Cymorth a chefnogaeth');
+      expect(mainContent).toHaveTextContent(
+        "Dod o hyd i weithiwr proffesiynol ym maes y gyfraith - gan gynnwys ymarferwyr cydweithredol - sydd wedi ymrwymo i ddull nad yw'n gwrthdrawol",
+      );
+      expect(mainContent).toHaveTextContent("Gwneud trefniadau plant os ydych yn ysgaru neu'n gwahanu");
+      expect(mainContent).toHaveTextContent('Cynllun Talebau Cyfryngu Teuluol');
+      expect(dom.window.document.querySelector('#print-this-page-button')).toHaveTextContent('Argraffu’r dudalen hon');
+      expect(dom.window.document.querySelector('.govuk-back-link')).toHaveTextContent('Yn ol');
+      expect(dom.window.document.querySelector('title')).toHaveTextContent(
+        'Cael help i ddod o hyd i opsiwn trefniant plant',
+      );
     });
   });
 });

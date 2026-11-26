@@ -1,6 +1,8 @@
+import { Express } from 'express';
 import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
+import config from '../config';
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
 
@@ -215,6 +217,61 @@ describe('No contact guidance', () => {
       expect(title).toHaveTextContent(pageTitle);
       expect(title).toHaveTextContent('Get help finding a child arrangement option');
       expect(title).toHaveTextContent('GOV.UK');
+    });
+  });
+
+  describe('when the language is Welsh', () => {
+    const welshPageTitle = "Archwilio: beth allwch ei wneud os na allwch gysylltu â'r rhiant arall";
+    let welshApp: Express;
+
+    beforeAll(() => {
+      config.includeWelshLanguage = true;
+      welshApp = testAppSetup();
+    });
+
+    afterAll(() => {
+      config.includeWelshLanguage = false;
+    });
+
+    it('should render the translated no contact content', async () => {
+      const response = await request(welshApp).get(`${paths.NO_CONTACT}?lang=cy`).expect(200);
+      const dom = new JSDOM(response.text);
+      const mainContent = dom.window.document.querySelector('#main-content');
+      const courtOrderTable = dom.window.document.querySelectorAll('table.govuk-table')[0];
+      const supportTable = dom.window.document.querySelectorAll('table.govuk-table')[1];
+
+      expect(dom.window.document.querySelector('h1')).toHaveTextContent(welshPageTitle);
+      expect(mainContent).toHaveTextContent(
+        "Os na allwch gysylltu â'r rhiant arall neu os nad ydynt yn ymateb, mae ffyrdd eraill o gael help gyda threfniadau ar gyfer eich plentyn.",
+      );
+      expect(mainContent).toHaveTextContent("Mae'r dudalen hon yn esbonio sut y gallwch:");
+      expect(mainContent).toHaveTextContent('gael help i wneud trefniadau plant');
+      expect(mainContent).toHaveTextContent('cael cynhaliaeth plant');
+      expect(mainContent).toHaveTextContent("gwneud cais i'r llys os oes angen i'r llys wneud penderfyniad");
+      expect(dom.window.document.querySelector('.govuk-warning-text')).toHaveTextContent(
+        "Peidiwch â chysylltu â'r rhiant arall os gallai gwneud hynny eich rhoi chi neu'ch plentyn mewn perygl neu olygu torri gorchymyn llys.",
+      );
+      expect(mainContent).toHaveTextContent('Gwneud trefniadau plant');
+      expect(mainContent).toHaveTextContent('Gwybodaeth am wneud trefniadau plant');
+      expect(mainContent).toHaveTextContent('Cael cynhaliaeth plant');
+      expect(mainContent).toHaveTextContent('Gwybodaeth am y Gwasanaeth Cynhaliaeth Plant');
+      expect(mainContent).toHaveTextContent("Gwneud cais i'r llys");
+      expect(mainContent).toHaveTextContent("Cyn i chi wneud cais i'r llys");
+      expect(mainContent).toHaveTextContent('Gwiriwch os nad oes angen i chi fynychu MIAM');
+      expect(mainContent).toHaveTextContent('Darganfyddwch pwy sydd â chyfrifoldeb rhieni');
+      expect(courtOrderTable.querySelector('caption')).toHaveTextContent('Mathau o orchmynion llys');
+      expect(courtOrderTable).toHaveTextContent('Gorchymyn trefniadau plant');
+      expect(courtOrderTable).toHaveTextContent('Gorchymyn camau gwaharddedig');
+      expect(mainContent).toHaveTextContent('Cymorth a chefnogaeth');
+      expect(supportTable).toHaveTextContent('Cyfeirlyfr o Raglenni Rhianta ar Wahân');
+      expect(supportTable).toHaveTextContent('Llinell Gymorth Cam-drin Domestig Cenedlaethol Refuge');
+      expect(mainContent).toHaveTextContent('Cynnig cynllun trefniadau plant');
+      expect(mainContent).toHaveTextContent('Hawliau a chyfrifoldebau rhieni');
+      expect(dom.window.document.querySelector('.govuk-back-link')).toHaveTextContent('Yn ol');
+      expect(dom.window.document.querySelector('title')).toHaveTextContent(welshPageTitle);
+      expect(dom.window.document.querySelector('title')).toHaveTextContent(
+        'Cael help i ddod o hyd i opsiwn trefniant plant',
+      );
     });
   });
 });

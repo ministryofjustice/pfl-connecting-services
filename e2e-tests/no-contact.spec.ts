@@ -25,7 +25,7 @@ test.describe('Through someone else page', () => {
 
   test('should display intro content about contacting the other parent through someone else', async ({ page }) => {
     await expect(page.locator('#main-content')).toContainText(
-      'If you cannot contact or do not want to contact the other parent directly, there are still ways to make child arrangements without going to court.',
+      'If you can only contact them through someone else, or do not want to contact them directly, there are still ways to make child arrangements without going to court.',
     );
     await expect(page.locator('#main-content')).toContainText(
       'someone else (such as a mediator or solicitor) can contact them for you',
@@ -70,6 +70,9 @@ test.describe('Through someone else page', () => {
     await expect(
       page.getByRole('heading', { level: 2, name: 'Other ways to agree without going to court' }),
     ).toBeVisible();
+    await expect(page.locator('#main-content')).toContainText(
+      'There are other ways to help you agree on child arrangements outside of court.',
+    );
     await expect(
       page.getByRole('link', { name: 'Find out more about other ways to agree without going to court' }),
     ).toHaveAttribute('href', 'https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution');
