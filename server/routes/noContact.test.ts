@@ -1,6 +1,8 @@
+import { Express } from 'express';
 import { JSDOM } from 'jsdom';
 import request from 'supertest';
 
+import config from '../config';
 import paths from '../constants/paths';
 import testAppSetup from '../test-utils/testAppSetup';
 
@@ -215,6 +217,61 @@ describe('No contact guidance', () => {
       expect(title).toHaveTextContent(pageTitle);
       expect(title).toHaveTextContent('Get help finding a child arrangement option');
       expect(title).toHaveTextContent('GOV.UK');
+    });
+  });
+
+  describe('when the language is Welsh', () => {
+    const welshPageTitle = 'Explore: what you can do if you cannot contact the other parent';
+    let welshApp: Express;
+
+    beforeAll(() => {
+      config.includeWelshLanguage = true;
+      welshApp = testAppSetup();
+    });
+
+    afterAll(() => {
+      config.includeWelshLanguage = false;
+    });
+
+    it('should render the translated no contact content', async () => {
+      const response = await request(welshApp).get(`${paths.NO_CONTACT}?lang=cy`).expect(200);
+      const dom = new JSDOM(response.text);
+      const mainContent = dom.window.document.querySelector('#main-content');
+      const courtOrderTable = dom.window.document.querySelectorAll('table.govuk-table')[0];
+      const supportTable = dom.window.document.querySelectorAll('table.govuk-table')[1];
+
+      expect(dom.window.document.querySelector('h1')).toHaveTextContent(welshPageTitle);
+      expect(mainContent).toHaveTextContent(
+        'If you cannot contact the other parent or they do not respond, there are other ways to get help with arrangements for your child.',
+      );
+      expect(mainContent).toHaveTextContent('This page explains how you can:');
+      expect(mainContent).toHaveTextContent('get help making child arrangements');
+      expect(mainContent).toHaveTextContent('get child maintenance');
+      expect(mainContent).toHaveTextContent('apply to court if you need the court to make a decision');
+      expect(dom.window.document.querySelector('.govuk-warning-text')).toHaveTextContent(
+        'Do not contact the other parent if doing so could put you or your child at risk or could mean breaking a court order.',
+      );
+      expect(mainContent).toHaveTextContent('Make child arrangements');
+      expect(mainContent).toHaveTextContent('Find out about making child arrangements');
+      expect(mainContent).toHaveTextContent('Get child maintenance');
+      expect(mainContent).toHaveTextContent('Find out about the Child Maintenance Service');
+      expect(mainContent).toHaveTextContent('Apply to court');
+      expect(mainContent).toHaveTextContent('Before you apply to court');
+      expect(mainContent).toHaveTextContent('Check if you do not need to attend a MIAM');
+      expect(mainContent).toHaveTextContent('Find out who has parental responsibility');
+      expect(courtOrderTable.querySelector('caption')).toHaveTextContent('Types of court order');
+      expect(courtOrderTable).toHaveTextContent('Child arrangements order');
+      expect(courtOrderTable).toHaveTextContent('Prohibited steps order');
+      expect(mainContent).toHaveTextContent('Help and support');
+      expect(supportTable).toHaveTextContent('Separated Parenting Programme Directory');
+      expect(supportTable).toHaveTextContent('Refuge National Domestic Abuse Helpline');
+      expect(mainContent).toHaveTextContent('Propose a child arrangements plan');
+      expect(mainContent).toHaveTextContent('Parental rights and responsibilities');
+      expect(dom.window.document.querySelector('.govuk-back-link')).toHaveTextContent('Yn ol');
+      expect(dom.window.document.querySelector('title')).toHaveTextContent(welshPageTitle);
+      expect(dom.window.document.querySelector('title')).toHaveTextContent(
+        'Cael help i ddod o hyd i opsiwn trefniant plant',
+      );
     });
   });
 });

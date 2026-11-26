@@ -460,7 +460,7 @@
     },
     "throughSomeoneElse": {
       "title": "Options for making arrangements through someone else",
-      "cannotContact": "If you cannot contact or do not want to contact the other parent directly, there are still ways to make child arrangements without going to court.",
+      "cannotContact": "If you can only contact them through someone else, or do not want to contact them directly, there are still ways to make child arrangements without going to court.",
       "someoneElse": "With these options, someone else (such as a mediator or solicitor) can contact them for you.",
       "shuttleMediation": {
         "title": "Shuttle mediation",
@@ -485,7 +485,7 @@
       },
       "otherWaysToAgree": {
         "title": "Other ways to agree without going to court",
-        "nonCourtDisputeResolution": "There are other ways to help you make child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR) and are usually quicker than going to court. The type you choose will depend on your circumstances, for example your financial situation, where you live and whether you're in contact with your ex-partner.",
+        "nonCourtDisputeResolution": "There are other ways to help you agree on child arrangements outside of court. These are sometimes known as 'non-court dispute resolution' (NCDR) and are usually quicker than going to court. The type you choose will depend on your circumstances, for example your financial situation, where you live and whether you're in contact with your ex-partner.",
         "findOutlink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/non-court-dispute-resolution\">Find out more about other ways to agree without going to court</a>"
       },
       "courtOrder": {
